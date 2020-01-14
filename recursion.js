@@ -1,8 +1,34 @@
-const countDownFromNumToZero = (num) => {
- let baseNum = 0;
- if (num > baseNum){
-   console.log(num);
-   return countDownFromNumToZero(num - 50);
- } else return baseNum;
+// const countDownFromNumToZero = (num) => {
+//   let baseNum = 0;
+//   if (num > baseNum) {
+//     console.log(num);
+//     return countDownFromNumToZero(num - 76.89);
+//   } else return baseNum;
+// }
+// console.log(countDownFromNumToZero(1000));
+
+
+const countUpTo = (num) => {
+  if (num < 10){
+    console.log("here ",num)
+    return countUpTo(num+=1)
+  } else return "done " + num
 }
-console.log(countDownFromNumToZero(1000));
+
+console.log(countUpTo(0))
+
+// let arr = [1,2,3,[4]]
+
+// const findNumInArray = (num) => {
+//   for (let item of arr) {
+//     if (Array.isArray(item)) {
+//       // console.log(typeof item, item)
+//       return findNumInArray(item)
+//     } else if (item === num) {
+//       return `found the number ${item}`
+//     }
+//   } 
+//   return `could not find the number ${num}`
+// }
+
+// console.log(findNumInArray({0:4}))
