@@ -58,4 +58,5 @@ const isPrime = num => {
   }
 };
 
-console.log(isPrime(100000001));
+console.log(arr.filter(isPrime));
+
