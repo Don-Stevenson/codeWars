@@ -14,7 +14,7 @@
 // where \w is the first character and \w+ is the rest of the word
 // which got to $1 and $2 respectively
 // ************
-const pigIt = (str) => str.replace(/(\w)(\w+)/g, '$2$1ay');
+const pigIt = (str) => {return str.replace(/(\w)(\w+)/g, '$2$1ay')};
 
 
 
