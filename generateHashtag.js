@@ -23,4 +23,4 @@ const generateHashtag = str => {
   }
 };
 
-console.log(generateHashtag("CodeWars"));
+console.log(generateHashtag("  code   wars   "));
