@@ -24,8 +24,33 @@ const RomanNumerals = {
     }
     return romanNum;
   },
-  fromRoman: romanNum =>{}
+  fromRoman: romanNum => {
+    const romanKeyObj = {
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000
+    };
+    let total = 0;
+    let input = romanNum.split("");
+
+    for (let i = 0; i < input.length; i++) {
+      let currentLetter = romanKeyObj[input[i]];
+      let nextLetter = romanKeyObj[input[i + 1]];
+      if (currentLetter === undefined) return null;
+      else {
+        if (currentLetter < nextLetter) {
+          total += nextLetter - currentLetter;
+          i++;
+        } else total += currentLetter;
+      }
+    }
+    return total;
+  }
 };
 
-// console.log("roman num to arabic nums ", RomanNumerals.fromRoman("XII"));
+console.log("roman num to arabic nums ", RomanNumerals.fromRoman("XII"));
 console.log("arabic num to Roman nums", RomanNumerals.toRoman(201));
