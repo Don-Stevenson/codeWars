@@ -1,7 +1,7 @@
 const multiply = (a, b) => {
 //   const aNum = parseInt(a);
 //   const bNum = parseInt(b);
-  return String(a * b)
+  return (a * b).toLocaleString('fullwide', {useGrouping:false})
 };
 
 //expect 6
