@@ -2,9 +2,11 @@
 // if n is below 0 or above 12, throw a range error
 
 const factorial = n => {
-  if (n < 0 || n > 12) {
-    return RangeError;
-  } else console.log(n);
+  if (!(n >= 0 && n <= 12)) {
+    throw new RangeError("the value must be between 0 and 12");
+  } else if (n === 0) {
+    return 1;
+  } else return (n * factorial(n - 1))
 };
 
-console.log(factorial(2));
+console.log(factorial(3));
