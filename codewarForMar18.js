@@ -9,6 +9,9 @@
 //   return newArr;
 // };
 
+
+// with a for loop
+//*********************************/
 const multiplyByX = (arr, num) => {
   let newArr = [];
   for (const item of arr) {
