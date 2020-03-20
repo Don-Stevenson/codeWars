@@ -1,11 +1,19 @@
 // takes in an array and mulitplies by given number
-// ************************************************
+// with forEach
+// // ************************************************
+// const multiplyByX = (arr, num) => {
+//   let newArr = [];
+//   arr.forEach(element => {
+//     newArr.push(element * num);
+//   });
+//   return newArr;
+// };
+
 const multiplyByX = (arr, num) => {
   let newArr = [];
-  arr.forEach(element => {
-    newArr.push(element * num);
-  });
-  console.log("newarr is ", newArr + " num is ", num);
+  for (const item of arr) {
+    newArr.push(item * num);
+  }
   return newArr;
 };
 
