@@ -9,7 +9,6 @@
 //   return newArr;
 // };
 
-
 // // with a for loop
 // //*********************************/
 // const multiplyByX = (arr, num) => {
@@ -22,12 +21,10 @@
 
 // console.log(multiplyByX([1, 2, 3], 3));
 
-
 // with map
 //********************************** */
 const multiplyByX = (arr, num) => {
-  return arr.map(e => e * num)
- 
-}
+  return arr.map(e => e * num);
+};
 
-console.log(multiplyByX([1,2,3], 3))
+console.log(multiplyByX([1, 2, 3], 3));
