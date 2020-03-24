@@ -24,7 +24,9 @@
 // with map
 //********************************** */
 const multiplyByX = (arr, num) => {
-  return arr.map(e => e * num);
+  let newArr = arr.map(e => e * num);
+  console.log(newArr);
+  return arr;
 };
 
 console.log(multiplyByX([1, 2, 3], 3));
