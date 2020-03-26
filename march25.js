@@ -2,9 +2,8 @@
 //***************************/
 
 const reverseString = str => {
-  let newStr = str.split("").reverse();
-
-  return newStr.filter(e => console.log(e));
+  let newStr = str.split("").reverse().join();
+  console.log(newStr);
 };
 
 console.log(reverseString("hello"));
