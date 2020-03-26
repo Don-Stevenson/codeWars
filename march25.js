@@ -2,8 +2,11 @@
 //***************************/
 
 const reverseString = str => {
-  let newStr = str.split("").reverse().join();
-  newStr.filter(e => console.log(e))
+  let reverseStr = str
+    .split("")
+    .reverse()
+    .join("");
+  return reverseStr;
 };
 
 console.log(reverseString("hello"));
