@@ -10,12 +10,21 @@
 //   return reverseStr;
 // };
 
+// with a c style loop
+
+// const reverseString = str => {
+//   let newStr = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     newStr += str[i];
+//   }
+//   return newStr;
+// };
+
+// with recursion
+// **************
+
 const reverseString = str => {
-  let newStr = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    newStr += str[i];
-  }
-  return newStr;
+  return(str === "") ? "" : reverseString(str.substr(1)) + str.charAt(0);
 };
 
 console.log(reverseString("hello"));
