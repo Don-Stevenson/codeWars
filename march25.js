@@ -2,8 +2,7 @@
 //***************************/
 
 const reverseString = str => {
-  let splitStr = str.split("");
-  return splitStr.reverse();
+  return str.split("").reverse();
 };
 
 console.log(reverseString("hello"));
