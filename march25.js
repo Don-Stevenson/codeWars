@@ -3,7 +3,7 @@
 
 const reverseString = str => {
   let newStr = str.split("").reverse().join();
-  console.log(newStr);
+  newStr.filter(e => console.log(e))
 };
 
 console.log(reverseString("hello"));
