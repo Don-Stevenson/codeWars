@@ -1,8 +1,9 @@
 // function that reverse str
 //***************************/
 
-const reverseString = (str) => {
-    return str.reverse()
-}
+const reverseString = str => {
+  let splitStr = str.split("");
+  return splitStr.reverse();
+};
 
-console.log(reverseString("hello"))
+console.log(reverseString("hello"));
