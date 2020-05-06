@@ -13,7 +13,7 @@ const questions = [
     name: 'B',
     message: 'What is the second number',
     initial: 'Enter a number between 1 and 1000000',
-    validate: value => value === typeof(1) ? "please enter a number" : true
+    validate: value => value > 1000 ? "please enter a number between 1 and 1000" : true
   },
 ];
  
