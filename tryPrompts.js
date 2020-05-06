@@ -38,6 +38,7 @@ const questions = [
   console.log(
     `
     The answer to the question ${response.A} X ${response.B} is: ${response.A * response.B}
-    thank you for using The Simple Multiplication Program!!!`
+    thank you for using The Simple Multiplication Program!!!
+    `
   );
 })();
