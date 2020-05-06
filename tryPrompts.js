@@ -20,7 +20,7 @@ const questions = [
   {
     type: "number",
     name: "B",
-    message: "What is the second number",
+    message: "What is the second number?",
     initial: "Enter a number between 1 and 1000000",
     validate: value => {
       if (value > 1000) {
