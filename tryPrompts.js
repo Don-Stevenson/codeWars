@@ -19,8 +19,13 @@ const questions = [
     name: "B",
     message: "What is the second number",
     initial: "Enter a number between 1 and 1000000",
-    validate: value =>
-      value > 1000 ? "please enter a number between 1 and 1000" : true
+    validate: value => {
+      if (value > 1000) {
+        return "^^^ please enter a number less than 1000";
+      } else if (value < 0) {
+        return "^^^ please enter a number greater than 0";
+      } else return true;
+    }
   }
 ];
 
