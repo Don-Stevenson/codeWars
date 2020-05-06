@@ -2,21 +2,16 @@ const prompts = require('prompts');
  
 const questions = [
   {
-    type: 'text',
-    name: 'username',
-    message: 'What is your GitHub username?'
+    type: 'number',
+    name: 'A',
+    message: 'What is the first number',
+    initial: 'Enter a number between 1 and 1000000'
   },
   {
     type: 'number',
-    name: 'age',
-    message: 'How old are you?'
+    name: 'B',
+    message: 'What is the second number'
   },
-  {
-    type: 'text',
-    name: 'about',
-    message: 'Tell something about yourself',
-    initial: 'Why should I?'
-  }
 ];
  
 (async () => {
