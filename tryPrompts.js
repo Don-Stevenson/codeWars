@@ -4,7 +4,10 @@ const questions = [
   {
     type: "number",
     name: "A",
-    message: "What is the first number",
+    message: `
+    Welcome to the Simple Multiplication Program!
+    Please enter two numbers to be multiplied
+    What is the first number?`,
     initial: "Enter a number between 1 and 1000",
     validate: value => {
       if (value > 1000) {
@@ -34,7 +37,7 @@ const questions = [
 
   console.log(
     `
-    The answer for ${response.A} X ${response.B} is: ${response.A * response.B}
-    thank you for using our multiplication program!!!`
+    The answer to the question ${response.A} X ${response.B} is: ${response.A * response.B}
+    thank you for using The Simple Multiplication Program!!!`
   );
 })();
