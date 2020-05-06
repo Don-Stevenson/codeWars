@@ -29,8 +29,7 @@ const questions = [
 
   console.log(
     `
-    The answer for ${response.A} X ${response.B} is: 
-    ${response.A * response.B}
-    thank you for using our multiplication program`
+    The answer for ${response.A} X ${response.B} is: ${response.A * response.B}
+    thank you for using our multiplication program!!!`
   );
 })();
