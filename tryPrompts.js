@@ -10,12 +10,13 @@ const questions = [
   {
     type: 'number',
     name: 'B',
-    message: 'What is the second number'
+    message: 'What is the second number',
+    initial: 'Enter a number between 1 and 1000000' 
   },
 ];
  
 (async () => {
   const response = await prompts(questions);
  
-  console.log(response)
+  console.log("the product is:", response.A * response.B)
 })();
