@@ -18,5 +18,5 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
  
-  console.log("the product is:", response.A * response.B)
+  console.log(`The answer for ${response.A} X ${response.B} is:`, response.A * response.B)
 })();
