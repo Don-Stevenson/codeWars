@@ -10,18 +10,18 @@ const questions = [
     Please chose an operator( +, -, *, / )?`,
     initial: "+, -, x, /",
     validate: value => {
-      if (value === '+' || value === '-' || value === '*' || value === '/') {
-        return true
-      } else return "Error!! Please use only +, -, *, /";;
+      if (value === "+" || value === "-" || value === "*" || value === "/") {
+        return true;
+      } else return "Error!! Please use only +, -, *, /";
     }
   },
   {
     type: "number",
     name: "B",
-    message: "  What is the second number?",
+    message: "  What is the first number?",
     initial: "Enter a number between 1 and 1000",
     validate: value => {
-      if (value > 1000 || value < 0 || isNaN(parseFloat(value)) )  {
+      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
         return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
@@ -29,7 +29,7 @@ const questions = [
   {
     type: "number",
     name: "C",
-    message: "  What is the third number?",
+    message: "  What is the second number?",
     initial: "Enter a number between 1 and 1000",
     validate: value => {
       if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
@@ -41,11 +41,18 @@ const questions = [
 
 (async () => {
   const response = await prompts(questions);
-
-  console.log(`
-    ${response.A} X ${response.B} X ${response.C} = ${
-    response.A * response.B * response.C
+  let answer = 0;
+  if (response.operator === "+") {
+    answer = response.B + response.C;
   }
+
+  console.log(
+    response,
+    `
+  ${response.B} ${response.operator} ${response.C} = ${
+      (answer)
+    }
     Thank you for using The Simple Math Program!!!
-    `);
+    `
+  );
 })();
