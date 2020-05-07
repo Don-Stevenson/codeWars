@@ -11,7 +11,7 @@ const questions = [
     initial: "Enter a number between 1 and 1000",
     validate: value => {
       if (value > 1000 || value < 0) {
-        return "Error!! Please enter a number greater than 0 and less than 1000";
+        return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
   },
@@ -22,7 +22,7 @@ const questions = [
     initial: "Enter a number between 1 and 1000",
     validate: value => {
       if (value > 1000 || value < 0) {
-        return "Error!! Please enter a number greater than 0 and less than 1000";
+        return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
   },
@@ -33,7 +33,7 @@ const questions = [
     initial: "Enter a number between 1 and 1000",
     validate: value => {
       if (value > 1000 || value < 0) {
-        return "Error!! Please enter a number greater than 0 and less than 1000";
+        return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
   }
@@ -42,12 +42,10 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
 
-  console.log(
-    `
-    The answer to the question ${response.A} X ${response.B} X ${response.C} is: ${
-      response.A * response.B * response.C
-    }
-    thank you for using The Simple Multiplication Program!!!
-    `
-  );
+  console.log(`
+    ${response.A} X ${response.B} X ${response.C} = ${
+    response.A * response.B * response.C
+  }
+    Thank you for using The Simple Multiplication Program!!!
+    `);
 })();
