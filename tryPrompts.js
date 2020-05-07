@@ -25,6 +25,17 @@ const questions = [
         return "Error!! Please enter a number greater than 0 and less than 1000";
       } else return true;
     }
+  },
+  {
+    type: "number",
+    name: "C",
+    message: "What is the second number?",
+    initial: "Enter a number between 1 and 1000",
+    validate: value => {
+      if (value > 1000 || value < 0) {
+        return "Error!! Please enter a number greater than 0 and less than 1000";
+      } else return true;
+    }
   }
 ];
 
@@ -33,8 +44,8 @@ const questions = [
 
   console.log(
     `
-    The answer to the question ${response.A} X ${response.B} is: ${
-      response.A * response.B
+    The answer to the question ${response.A} X ${response.B} X ${response.C}is: ${
+      response.A * response.B * response.C
     }
     thank you for using The Simple Multiplication Program!!!
     `
