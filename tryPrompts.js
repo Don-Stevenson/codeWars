@@ -6,7 +6,7 @@ const questions = [
     name: "A",
     message: `
     Welcome to the Simple Multiplication Program!
-    Please enter two numbers to be multiplied
+    Please enter three numbers to be multiplied
     What is the first number?`,
     initial: "Enter a number between 1 and 1000",
     validate: value => {
@@ -29,7 +29,7 @@ const questions = [
   {
     type: "number",
     name: "C",
-    message: "What is the second number?",
+    message: "What is the third number?",
     initial: "Enter a number between 1 and 1000",
     validate: value => {
       if (value > 1000 || value < 0) {
@@ -44,7 +44,7 @@ const questions = [
 
   console.log(
     `
-    The answer to the question ${response.A} X ${response.B} X ${response.C}is: ${
+    The answer to the question ${response.A} X ${response.B} X ${response.C} is: ${
       response.A * response.B * response.C
     }
     thank you for using The Simple Multiplication Program!!!
