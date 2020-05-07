@@ -10,7 +10,7 @@ const questions = [
     What is the first number?`,
     initial: "Enter a number between 1 and 1000",
     validate: value => {
-      if (value > 1000 || value < 0) {
+      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
         return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
@@ -18,10 +18,10 @@ const questions = [
   {
     type: "number",
     name: "B",
-    message: "What is the second number?",
+    message: "  What is the second number?",
     initial: "Enter a number between 1 and 1000",
     validate: value => {
-      if (value > 1000 || value < 0) {
+      if (value > 1000 || value < 0 || isNaN(parseFloat(value)) )  {
         return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
@@ -29,10 +29,10 @@ const questions = [
   {
     type: "number",
     name: "C",
-    message: "What is the third number?",
+    message: "  What is the third number?",
     initial: "Enter a number between 1 and 1000",
     validate: value => {
-      if (value > 1000 || value < 0) {
+      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
         return "Error!! Please enter a number between 0 and 1000";
       } else return true;
     }
