@@ -10,9 +10,9 @@ const questions = [
     Please chose an operator( +, -, *, / )?`,
     initial: "+, -, x, /",
     validate: value => {
-      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-        return "Error!! Please use only +, -, *, /";
-      } else return true;
+      if (value === '+' || value === '-' || value === '*' || value === '/') {
+        return true
+      } else return "Error!! Please use only +, -, *, /";;
     }
   },
   {
