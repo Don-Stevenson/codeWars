@@ -52,7 +52,6 @@ const questions = [
     answer = response.B / response.C;
   }
   console.log(
-    response,
     `
   ${response.B} ${response.operator} ${response.C} = ${answer}
     Thank you for using The Simple Math Program!!!
