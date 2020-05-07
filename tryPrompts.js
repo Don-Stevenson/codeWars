@@ -44,14 +44,17 @@ const questions = [
   let answer = 0;
   if (response.operator === "+") {
     answer = response.B + response.C;
+  } else if (response.operator === "-") {
+    answer = response.B - response.C;
+  } else if (response.operator === "*") {
+    answer = response.B * response.C;
+  } else {
+    answer = response.B / response.C;
   }
-
   console.log(
     response,
     `
-  ${response.B} ${response.operator} ${response.C} = ${
-      (answer)
-    }
+  ${response.B} ${response.operator} ${response.C} = ${answer}
     Thank you for using The Simple Math Program!!!
     `
   );
