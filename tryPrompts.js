@@ -42,10 +42,8 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
 
-  console.log( response,
-    ` Response 
-
-
+  console.log(
+    `
     The answer to the question ${response.A} X ${response.B} X ${response.C} is: ${
       response.A * response.B * response.C
     }
