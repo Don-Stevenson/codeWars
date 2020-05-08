@@ -42,6 +42,8 @@ const questions = [
   const response = await prompts(questions);
   let answer;
 
+  // operator selection logic with switch statements
+  //*************************************************/
   switch (response.operator) {
     case "+":
       answer = response.B + response.C;
@@ -60,11 +62,9 @@ const questions = [
       answer = response.B / response.C;
 
       break;
-
-    default:
-      break;
   }
-
+  // With if else statements
+  //*************************/
   // if (response.operator === "+") {
   //   answer = response.B + response.C;
   // } else if (response.operator === "-") {
