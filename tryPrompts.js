@@ -40,21 +40,44 @@ const questions = [
 
 (async () => {
   const response = await prompts(questions);
-  let answer = 0;
-  if (response.operator === "+") {
-    answer = response.B + response.C;
-  } else if (response.operator === "-") {
-    answer = response.B - response.C;
-  } else if (response.operator === "*") {
-    answer = response.B * response.C;
-  } else {
-    answer = response.B / response.C;
+  let answer;
+
+  switch (response.operator) {
+    case "+":
+      answer = response.B + response.C;
+
+      break;
+    case "-":
+      answer = response.B - response.C;
+
+      break;
+    case "*":
+      answer = response.B * response.C;
+
+      break;
+
+    case "/":
+      answer = response.B / response.C;
+
+      break;
+
+    default:
+      break;
   }
-  console.log(
-    `
+
+  // if (response.operator === "+") {
+  //   answer = response.B + response.C;
+  // } else if (response.operator === "-") {
+  //   answer = response.B - response.C;
+  // } else if (response.operator === "*") {
+  //   answer = response.B * response.C;
+  // } else {
+  //   answer = response.B / response.C;
+  // }
+  let output = `
     ${response.B} ${response.operator} ${response.C} = ${answer}
 
     Thank you for using The Simple Math Program!!!
-    `
-  );
+    `;
+  console.log(output);
 })();
