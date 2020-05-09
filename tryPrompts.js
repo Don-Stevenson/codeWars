@@ -47,20 +47,15 @@ const questions = [
   switch (response.operator) {
     case "+":
       answer = response.B + response.C;
-
       break;
     case "-":
       answer = response.B - response.C;
-
       break;
     case "*":
       answer = response.B * response.C;
-
       break;
-
     case "/":
       answer = response.B / response.C;
-
       break;
   }
   // With if else statements
