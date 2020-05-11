@@ -45,47 +45,49 @@ const questions = [
     }
   }
 ];
+const runCalculator = () => {
+  async () => {
+    const response = await prompts(questions);
+    let answer;
 
-(async () => {
-  const response = await prompts(questions);
-  let answer;
+    // operator selection logic with switch statements
+    //*************************************************/
+    switch (response.operator) {
+      case "+":
+        answer = response.B + response.C;
+        break;
+      case "-":
+        answer = response.B - response.C;
+        break;
+      case "*":
+        answer = response.B * response.C;
+        break;
+      case "/":
+        answer = response.B / response.C;
+        break;
+    }
+    // With if else statements
+    //*************************/
+    // if (response.operator === "+") {
+    //   answer = response.B + response.C;
+    // } else if (response.operator === "-") {
+    //   answer = response.B - response.C;
+    // } else if (response.operator === "*") {
+    //   answer = response.B * response.C;
+    // } else {
+    //   answer = response.B / response.C;
+    // }
 
-  // operator selection logic with switch statements
-  //*************************************************/
-  switch (response.operator) {
-    case "+":
-      answer = response.B + response.C;
-      break;
-    case "-":
-      answer = response.B - response.C;
-      break;
-    case "*":
-      answer = response.B * response.C;
-      break;
-    case "/":
-      answer = response.B / response.C;
-      break;
-  }
-  // With if else statements
-  //*************************/
-  // if (response.operator === "+") {
-  //   answer = response.B + response.C;
-  // } else if (response.operator === "-") {
-  //   answer = response.B - response.C;
-  // } else if (response.operator === "*") {
-  //   answer = response.B * response.C;
-  // } else {
-  //   answer = response.B / response.C;
-  // }
-
-  //Setting up output to display the expression and answer
-  // and give the user a simple message to say thanks
-  //*****************************************************/
-
-  let output = `
+    //Setting up output to display the expression and answer
+    // and give the user a simple message to say thanks
+    //*****************************************************/
+    let output = `
     ${response.B} ${response.operator} ${response.C} = ${answer}
 
     Thank you for using The Simple Math Program!!!
     `;
-  console.log(output);
-})();
+    return output;
+  };
+};
+
+console.log(runCalculator);
