@@ -31,7 +31,7 @@ const questions = [
       // make sure that the number is between 0 and 1000.  Reject an empty value
       //************************************************************************/
       if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-        return "Error!! Please enter a number between 0 and 1000";
+        return "Error!! Please enter a whole number between 0 and 1000";
       } else return true;
     }
   },
@@ -42,7 +42,7 @@ const questions = [
     initial: "Enter value here",
     validate: value => {
       if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-        return "Error!! Please enter a number between 0 and 1000";
+        return "Error!! Please enter a whole number between 0 and 1000";
       } else return true;
     }
   }
