@@ -1,6 +1,8 @@
 const prompts = require("prompts");
 
 const questions = [
+  // questions for the program to use
+  //********************************/
   {
     type: "text",
     name: "operator",
@@ -8,6 +10,8 @@ const questions = [
     Welcome to the Simple Math Program!
     Please enter two numbers to be calculated
     Please chose an operator( +, -, *, / )?`,
+    // check to see what the operator is. Reject all other characters
+    //***************************************************************/
     validate: value => {
       if (value === "+" || value === "-" || value === "*" || value === "/") {
         return true;
@@ -20,6 +24,8 @@ const questions = [
     message: "  Enter a number between 1 and 1000",
     initial: "Enter value here",
     validate: value => {
+      // make sure that the number is between 0 and 1000.  Reject an empty value
+      //************************************************************************/
       if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
         return "Error!! Please enter a number between 0 and 1000";
       } else return true;
@@ -69,6 +75,11 @@ const questions = [
   // } else {
   //   answer = response.B / response.C;
   // }
+
+  //Setting up output to display the expression and answer
+  // and give the user a simple message to say thanks
+  //*****************************************************/
+
   let output = `
     ${response.B} ${response.operator} ${response.C} = ${answer}
 
