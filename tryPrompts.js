@@ -2,7 +2,9 @@ const prompts = require("prompts");
 
 const questions = [
   // questions for the program to use
-  // questions have a type, a name to call it later, a message to prompt the user,
+  // questions have a type,
+  // a name to call it later,
+  // a message to prompt the user,
   // and a validation field to limit the material that is possible to enter
   //********************************/
   {
