@@ -23,7 +23,7 @@ const questions = [
   {
     type: "number",
     name: "B",
-    message: "  Enter a number between 1 and 1000",
+    message: "  Enter a whole number between 1 and 1000",
     initial: "Enter value here",
     validate: value => {
       // make sure that the number is between 0 and 1000.  Reject an empty value
@@ -36,7 +36,7 @@ const questions = [
   {
     type: "number",
     name: "C",
-    message: "  Enter a second number between 1 and 1000",
+    message: "  Enter a second whole number between 1 and 1000",
     initial: "Enter value here",
     validate: value => {
       if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
@@ -45,49 +45,45 @@ const questions = [
     }
   }
 ];
-const runCalculator = () => {
-  async () => {
-    const response = await prompts(questions);
-    let answer;
+(async () => {
+  const response = await prompts(questions);
+  let answer;
 
-    // operator selection logic with switch statements
-    //*************************************************/
-    switch (response.operator) {
-      case "+":
-        answer = response.B + response.C;
-        break;
-      case "-":
-        answer = response.B - response.C;
-        break;
-      case "*":
-        answer = response.B * response.C;
-        break;
-      case "/":
-        answer = response.B / response.C;
-        break;
-    }
-    // With if else statements
-    //*************************/
-    // if (response.operator === "+") {
-    //   answer = response.B + response.C;
-    // } else if (response.operator === "-") {
-    //   answer = response.B - response.C;
-    // } else if (response.operator === "*") {
-    //   answer = response.B * response.C;
-    // } else {
-    //   answer = response.B / response.C;
-    // }
+  // operator selection logic with switch statements
+  //*************************************************/
+  switch (response.operator) {
+    case "+":
+      answer = response.B + response.C;
+      break;
+    case "-":
+      answer = response.B - response.C;
+      break;
+    case "*":
+      answer = response.B * response.C;
+      break;
+    case "/":
+      answer = response.B / response.C;
+      break;
+  }
+  // With if else statements
+  //*************************/
+  // if (response.operator === "+") {
+  //   answer = response.B + response.C;
+  // } else if (response.operator === "-") {
+  //   answer = response.B - response.C;
+  // } else if (response.operator === "*") {
+  //   answer = response.B * response.C;
+  // } else {
+  //   answer = response.B / response.C;
+  // }
 
-    //Setting up output to display the expression and answer
-    // and give the user a simple message to say thanks
-    //*****************************************************/
-    let output = `
+  //Setting up output to display the expression and answer
+  // and give the user a simple message to say thanks
+  //*****************************************************/
+  let output = `
     ${response.B} ${response.operator} ${response.C} = ${answer}
 
     Thank you for using The Simple Math Program!!!
     `;
-    return output;
-  };
-};
-
-console.log(runCalculator);
+  console.log(output);
+})();
