@@ -20,4 +20,4 @@ const primeNums = n => {
   return result;
 };
 
-console.log(primeNums(5));
+console.log(primeNums(12));
