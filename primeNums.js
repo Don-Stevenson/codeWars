@@ -16,7 +16,10 @@ const primeNums = n => {
     // if counter is exactly equal to two, this is a prime number so push it into the results array
     if (counter === 2) result.push(i);
   }
-  return result;
+
+  return `There ${result.length()} prime numbers between 1 and ${n}.  
+           They are the the following numbers: ${result}
+          `;
   //    result.forEach(element => {
   //       console.log(element)
   //   });
