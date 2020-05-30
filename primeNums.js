@@ -16,8 +16,29 @@ const primeNums = n => {
     // if counter is exactly equal to two, this is a prime number so push it into the results array
     if (counter === 2) result.push(i);
   }
-  // return the result array
   return result;
+  //    result.forEach(element => {
+  //       console.log(element)
+  //   });
 };
 
-console.log(primeNums(12));
+// checks whether a number is prime or not
+//****************************************/
+
+const isPrimeNum = num => {
+  // set counter to 0
+  let counter = 0;
+  // count from 0 up to num using a c style loop
+  for (let i = 0; i <= num; i++) {
+    // if any instance of num is divisble by i without a remainder, incriment the counter
+    if (num % i === 0) {
+      counter++;
+    }
+  }
+  // if counter is exactly equal to 2, a prime number is found
+  if (counter === 2) {
+    return `${num} is a prime number`;
+    // otherwise, num is not a prime number
+  } else return `${num} is NOT a prime number`;
+};
+console.log(isPrimeNum(6));
