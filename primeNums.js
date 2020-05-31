@@ -64,5 +64,5 @@ const prompts = require("prompts");
         : `No, ${value} is not a prime number`
   });
 
-  console.log(response); // => { value: 24 }
+  console.log(response);
 })();
