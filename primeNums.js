@@ -52,19 +52,24 @@ const isPrimeNum = num => {
 // ****************
 const prompts = require("prompts");
 
-(async () => {
+
+// setup with a callback
+// *********************
+async function questions(callback) {
   const response = await prompts({
     type: "number",
     name: "value",
     message: `Welcome to Check If Prime! 
-    Please enter a number to be checked` ,
+    Please enter a number to be checked`,
     validate: value =>
-    // ternary statement to check if the the value is a primary or not
-    // ***************************************************************
-      isPrimeNum(value)
+      // ternary statement to check if the the value is a primary or not
+      // ***************************************************************
+      callback(value)
         ? `Yes ${value} is a prime number `
         : `No, ${value} is not a prime number`
   });
 
   console.log(response);
-})();
+}
+
+questions(isPrimeNum);
