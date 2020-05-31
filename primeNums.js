@@ -59,6 +59,8 @@ const prompts = require("prompts");
     message: `Welcome to Check If Prime! 
     Please enter a number to be checked` ,
     validate: value =>
+    // ternary statement to check if the the value is a primary or not
+    // ***************************************************************
       isPrimeNum(value)
         ? `Yes ${value} is a prime number `
         : `No, ${value} is not a prime number`
