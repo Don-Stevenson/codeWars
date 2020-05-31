@@ -23,7 +23,7 @@ The following is a list of those prime numbers: ${result}
           `;
 };
 
-console.log(primeNums(1000));
+// console.log(primeNums(1000));
 
 // checks whether a number is prime or not
 //****************************************/
@@ -32,7 +32,7 @@ const isPrimeNum = num => {
   // set counter to 0
   let counter = 0;
   // count from 0 up to num using a c style loop
-  for (let i = 0; i <= num; i++) {
+  for (let i = 1; i <= num; i++) {
     // if any instance of num is divisble by i without a remainder, incriment the counter
     if (num % i === 0) {
       counter++;
@@ -40,8 +40,29 @@ const isPrimeNum = num => {
   }
   // if counter is exactly equal to 2, a prime number is found
   if (counter === 2) {
-    return `${num} is a prime number`;
+    return true;
+    // return `${num} is a prime number`;
     // otherwise, num is not a prime number
-  } else return `${num} is NOT a prime number`;
+  } else return false;
+  //`${num} is NOT a prime number`;
 };
 // console.log(isPrimeNum(6));
+
+// with try prompts
+// ****************
+const prompts = require("prompts");
+
+(async () => {
+  const response = await prompts({
+    type: "number",
+    name: "value",
+    message: `Welcome to Check If Prime! 
+    Please enter a number to be checked` ,
+    validate: value =>
+      isPrimeNum(value)
+        ? `Yes ${value} is a prime number `
+        : `No, ${value} is not a prime number`
+  });
+
+  console.log(response); // => { value: 24 }
+})();
