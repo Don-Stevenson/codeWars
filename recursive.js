@@ -5,6 +5,7 @@ let arr = [[[[1, [[2, [[3, ['b']]]]]]]]]
 const findLetterB = (arr) => {
     for (let item of arr) {
         if (Array.isArray(item)) {
+            console.log('going to the next nested array')
             return findLetterB(item);
         } else if (item === 'b') {
             return `found ${item} here`;
