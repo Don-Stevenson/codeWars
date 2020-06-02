@@ -40,27 +40,17 @@ const isPrimeNum = num => {
   }
   // if counter is exactly equal to 2, a prime number is found
   if (counter === 2) {
-    return true;
-    // return `${num} is a prime number`;
+    // return true;
+    return `${num} is a prime number`;
     // otherwise, num is not a prime number
-  } else return false;
-  //`${num} is NOT a prime number`;
+  } else return `${num} is NOT a prime number`;
+  // false;
 };
 // console.log(isPrimeNum(6));
 
 // with try prompts
 // ****************
 const prompts = require("prompts");
-
-const validator = num => {
-  if (num > 1000000 || num < 0 || isNaN(parseFloat(num))) {
-    console.log("here");
-    return false;
-  } else {
-    console.log("here now");
-    return true;
-  }
-};
 
 const question = {
   type: "number",
@@ -72,7 +62,7 @@ const question = {
      Ctrl + c to quit )
      Please enter a number between 0 and 1,000,000 to be checked: `,
   validate: value => {
-    if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
+    if (value > 1000000 || value < 0 || isNaN(parseFloat(value))) {
       return "Error!! Please enter a whole number between 0 and 1000";
     } else return true;
   }
@@ -82,11 +72,10 @@ const question = {
 // *********************
 (async () => {
   const response = await prompts(question);
-  isPrimeNum(response)
-    ? `Yes ${response} is a prime number `
-    : `No, ${response} is not a prime number`;
+  console.log(isPrimeNum(response.value));
+
+  // `Yes ${response.value} is a prime number `
+  // `No, ${response.value} is not a prime number`;
 
   console.log(`Thank you for using Check if Prime.`);
-  return response;
 })();
-
