@@ -7,6 +7,9 @@ const questions = [
   // a message to prompt the user,
   // and a validation field to limit the material that is possible to enter
   //********************************/
+
+  // Question 1
+  //************/
   {
     type: "text",
     name: "operator",
@@ -22,6 +25,9 @@ const questions = [
       } else return "Error!! Please use only +, -, *, /";
     }
   },
+
+  // Question 2
+  // **********
   {
     type: "number",
     name: "B",
@@ -35,6 +41,8 @@ const questions = [
       } else return true;
     }
   },
+  // Question 3
+  // **********
   {
     type: "number",
     name: "C",
@@ -47,6 +55,9 @@ const questions = [
     }
   }
 ];
+
+// Run the program
+//*****************/
 (async () => {
   const response = await prompts(questions);
   let answer;
