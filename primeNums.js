@@ -80,10 +80,11 @@ async function questions(callback) {
         callback(value)
           ? `Yes ${value} is a prime number `
           : `No, ${value} is not a prime number`;
+      } else {
+        console.log(
+          "Error!! Please enter a whole number between 0 and 1,000,000"
+        );
       }
-      console.log(
-        "Error!! Please enter a whole number between 0 and 1,000,000"
-      );
     }
   });
   console.log(`Thank you for using Check if Prime.`);
