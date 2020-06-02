@@ -52,6 +52,15 @@ const isPrimeNum = num => {
 // ****************
 const prompts = require("prompts");
 
+const validator = num => {
+  if (num > 1000000 || num < 0 || isNaN(parseFloat(num))) {
+    console.log("here");
+    return false;
+  } else {
+    console.log("here now");
+    return true;
+  }
+};
 // setup with a callback
 // *********************
 async function questions(callback) {
@@ -65,21 +74,20 @@ async function questions(callback) {
        Ctrl + c to quit )
        Please enter a number between 0 and 1,000,000 to be checked: `,
     validate: value => {
-      // check if value is between 0 and 1,000,000 and or NaN
-      //*****************************************************
-      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-        return "Error!! Please enter a whole number between 0 and 1000";
-      } else {
+      if (validator(value)) {
         // ternary statement to check if the the value is a primary or not
         // ***************************************************************
         callback(value)
           ? `Yes ${value} is a prime number `
           : `No, ${value} is not a prime number`;
       }
-      console.log(`Thank you for using Check if Prime.`);
-      return response;
+      console.log(
+        "Error!! Please enter a whole number between 0 and 1,000,000"
+      );
     }
   });
+  console.log(`Thank you for using Check if Prime.`);
+  return response;
 }
 
 questions(isPrimeNum);
