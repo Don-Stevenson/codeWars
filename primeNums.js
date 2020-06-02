@@ -72,8 +72,11 @@ const question = {
 
 // Run the program
 // ***************
-(async () => {
+async function questions() {
   const response = await prompts(question);
   console.log(isPrimeNum(response.value));
   console.log(`Thank you for using Check if Prime.`);
-})();
+  return questions()
+}
+
+questions();
