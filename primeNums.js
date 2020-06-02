@@ -69,7 +69,8 @@ async function questions(callback) {
         : `No, ${value} is not a prime number`
   });
 
-  console.log(response);
+  return response;
+  
 }
 
 questions(isPrimeNum);
