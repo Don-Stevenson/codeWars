@@ -58,7 +58,6 @@ const question = {
   message: `Welcome to Check If Prime! 
     (Note: use
      Backspace to delete
-     Enter to try another number
      Ctrl + c to quit )
      Please enter a number between 0 and 1,000,000 to be checked: `,
   validate: value => {
