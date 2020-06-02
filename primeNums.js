@@ -52,6 +52,9 @@ const isPrimeNum = num => {
 // ****************
 const prompts = require("prompts");
 
+// The question with a validation requirment
+// *****************************************
+
 const question = {
   type: "number",
   name: "value",
@@ -67,14 +70,10 @@ const question = {
   }
 };
 
-// setup with a callback
-// *********************
+// Run the program
+// ***************
 (async () => {
   const response = await prompts(question);
   console.log(isPrimeNum(response.value));
-
-  // `Yes ${response.value} is a prime number `
-  // `No, ${response.value} is not a prime number`;
-
   console.log(`Thank you for using Check if Prime.`);
 })();
