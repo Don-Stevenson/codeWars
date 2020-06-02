@@ -61,29 +61,32 @@ const validator = num => {
     return true;
   }
 };
+
+const question = {
+  type: "number",
+  name: "value",
+  message: `Welcome to Check If Prime! 
+    (Note: use
+     Backspace to delete
+     Enter to try another number
+     Ctrl + c to quit )
+     Please enter a number between 0 and 1,000,000 to be checked: `,
+  validate: value => {
+    if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
+      return "Error!! Please enter a whole number between 0 and 1000";
+    } else return true;
+  }
+};
+
 // setup with a callback
 // *********************
-async function questions(callback, validatorCheck) {
-  const response = await prompts({
-    type: "number",
-    name: "value",
-    message: `Welcome to Check If Prime! 
-      (Note: use
-       Backspace to delete
-       Enter to try another number
-       Ctrl + c to quit )
-       Please enter a number between 0 and 1,000,000 to be checked: `,
-    validate: value => 
-      // console.log(validatorCheck(value));
-      // ternary statement to check if the the value is a primary or not
-      // ***************************************************************
-      callback(value)
-        ? `Yes ${value} is a prime number `
-        : `No, ${value} is not a prime number`
-    
-  });
+(async () => {
+  const response = await prompts(question);
+  isPrimeNum(response)
+    ? `Yes ${response} is a prime number `
+    : `No, ${response} is not a prime number`;
+
   console.log(`Thank you for using Check if Prime.`);
   return response;
-}
+})();
 
-questions(isPrimeNum);
