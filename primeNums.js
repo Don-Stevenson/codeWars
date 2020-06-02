@@ -63,7 +63,7 @@ async function questions(callback) {
        Backspace to delete
        Enter to try another number
        Ctrl + c to quit )
-       Please enter a number to be checked: `,
+       Please enter a number between 0 and 1,000,000 to be checked: `,
     validate: value =>
       // ternary statement to check if the the value is a primary or not
       // ***************************************************************
