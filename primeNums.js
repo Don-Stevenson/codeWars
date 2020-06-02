@@ -63,7 +63,7 @@ const validator = num => {
 };
 // setup with a callback
 // *********************
-async function questions(callback) {
+async function questions(callback, validatorCheck) {
   const response = await prompts({
     type: "number",
     name: "value",
@@ -73,19 +73,14 @@ async function questions(callback) {
        Enter to try another number
        Ctrl + c to quit )
        Please enter a number between 0 and 1,000,000 to be checked: `,
-    validate: value => {
-      if (validator(value)) {
-        // ternary statement to check if the the value is a primary or not
-        // ***************************************************************
-        callback(value)
-          ? `Yes ${value} is a prime number `
-          : `No, ${value} is not a prime number`;
-      } else {
-        console.log(
-          "Error!! Please enter a whole number between 0 and 1,000,000"
-        );
-      }
-    }
+    validate: value => 
+      // console.log(validatorCheck(value));
+      // ternary statement to check if the the value is a primary or not
+      // ***************************************************************
+      callback(value)
+        ? `Yes ${value} is a prime number `
+        : `No, ${value} is not a prime number`
+    
   });
   console.log(`Thank you for using Check if Prime.`);
   return response;
