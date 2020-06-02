@@ -63,7 +63,7 @@ const question = {
      Please enter a number between 0 and 1,000,000 to be checked: `,
   validate: value => {
     if (value > 1000000 || value < 0 || isNaN(parseFloat(value))) {
-      return "Error!! Please enter a whole number between 0 and 1000";
+      return "Error!! Please enter a whole number between 0 and 1,000,000";
     } else return true;
   }
 };
