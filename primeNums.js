@@ -98,12 +98,3 @@ async function questions() {
 }
 
 questions();
-
-// (async () => {
-//   const questions = [{ ... }];
-//   const onCancel = prompt => {
-//     console.log('Never stop prompting!');
-//     return true;
-//   }
-//   const response = await prompts(questions, { onCancel });
-// })();
