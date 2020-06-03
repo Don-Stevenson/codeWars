@@ -70,13 +70,30 @@ const question = {
   }
 };
 
+// question 2
+// **********
+const question2 = {
+  type: "text",
+  name: "value",
+  message: `continue? y or hit ctrl-c to quit`,
+  validate: value => {
+    if (value === "y") {
+      return questions();
+    } 
+  }
+};
 // Run the program
 // ***************
 async function questions() {
-  const response = await prompts(question);
-  console.log(isPrimeNum(response.value));
-  console.log(`Thank you for using Check if Prime.`);
-  return questions()
+  try {
+    let response = await prompts(question);
+    console.log(isPrimeNum(response.value));
+    response = await prompts(question2);
+    console.log("thank you for using Check if Prime. Goodbye");
+    
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 questions();
