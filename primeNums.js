@@ -88,13 +88,15 @@ async function questions() {
   // use ctr-c to cause the following code to run
   //*********************************************
   const onCancel = prompt => {
-    console.log("Never stop prompting!");
+    console.log("thank you for using Check if Prime. Goodbye");
     return true;
   };
   let response = await prompts(question, { onCancel });
+
   console.log(isPrimeNum(response.value));
+  response = await prompts(question2, { onCancel });
+  // console.log(isPrimeNum(response.value));
   // response = await prompts(question2);
-  console.log("thank you for using Check if Prime. Goodbye");
 }
 
 questions();
