@@ -79,21 +79,31 @@ const question2 = {
   validate: value => {
     if (value === "y") {
       return questions();
-    } 
+    }
   }
 };
 // Run the program
 // ***************
 async function questions() {
-  try {
-    let response = await prompts(question);
-    console.log(isPrimeNum(response.value));
-    response = await prompts(question2);
-    console.log("thank you for using Check if Prime. Goodbye");
-    
-  } catch (error) {
-    console.error(error)
-  }
+  // use ctr-c to cause the following code to run
+  //*********************************************
+  const onCancel = prompt => {
+    console.log("Never stop prompting!");
+    return true;
+  };
+  let response = await prompts(question, { onCancel });
+  console.log(isPrimeNum(response.value));
+  // response = await prompts(question2);
+  console.log("thank you for using Check if Prime. Goodbye");
 }
 
 questions();
+
+// (async () => {
+//   const questions = [{ ... }];
+//   const onCancel = prompt => {
+//     console.log('Never stop prompting!');
+//     return true;
+//   }
+//   const response = await prompts(questions, { onCancel });
+// })();
