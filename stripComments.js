@@ -1,5 +1,6 @@
 //function that takes in a string and takes out an item
 // that you enter in a addition to input
+// ****************************************************
 
 function solution(input, markers) {
   // splits the input arr in to each letter as an item
