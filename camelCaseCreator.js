@@ -1,5 +1,5 @@
 const toCamelCase = str => {
-  // set up camel case string to push to
+  // set up camel case array to add
   let camelCaseStr = [];
 
   // if the string entered is empty, return an empty string
