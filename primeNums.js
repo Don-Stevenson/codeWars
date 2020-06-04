@@ -52,7 +52,7 @@ const isPrimeNum = num => {
 // ****************
 const prompts = require("prompts");
 
-// The question with a validation requirment
+// question 1 with a validation requirment
 // *****************************************
 
 const question = {
@@ -70,8 +70,8 @@ const question = {
   }
 };
 
-// question 2
-// **********
+// question 2 - continue or not
+// ****************************
 const question2 = {
   type: "text",
   name: "value",
