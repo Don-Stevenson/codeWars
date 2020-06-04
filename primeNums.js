@@ -94,7 +94,7 @@ async function questions() {
   let response = await prompts(question, { onCancel });
 
   console.log(isPrimeNum(response.value));
-  response = await prompts(question2, { onCancel });
+  // response = await prompts(question2, { onCancel });
   // console.log(isPrimeNum(response.value));
   // response = await prompts(question2);
 }
