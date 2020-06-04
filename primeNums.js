@@ -41,9 +41,9 @@ const isPrimeNum = num => {
   // if counter is exactly equal to 2, a prime number is found
   if (counter === 2) {
     // return true;
-    return `${num} is a prime number`;
+    return `Yes, ${num} is a prime number`;
     // otherwise, num is not a prime number
-  } else return `${num} is NOT a prime number`;
+  } else return `No, ${num} is NOT a prime number`;
   // false;
 };
 // console.log(isPrimeNum(6));
