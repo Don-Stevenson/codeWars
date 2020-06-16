@@ -8,7 +8,7 @@
 // To check if 3 sides make a triangle,
 // you need to check that every side is less than or equal to the sum of the other two side
 
-const whatKindOFTriangle = (a, b, c) => {
+const isTriangle = (a, b, c) => {
   if (a <= b + c && b <= a + c && c <= b + a) {
     return true;
   } else {
@@ -16,4 +16,17 @@ const whatKindOFTriangle = (a, b, c) => {
   }
 };
 
-console.log(whatKindOFTriangle(4, 4, 12));
+const whatKindOFTriangle = (a, b, c, callback) => {
+  if (callback(a, b, c)) {
+    if (a === c && a === b && b === c) {
+      return `${a}, ${b}, ${c} represent sides of an equalateral triangle.`;
+    } else if (a === c || a === b || b === c) {
+      return `${a}, ${b}, ${c} represent sides of an isosceles triangle.`;
+    } else return`${a}, ${b}, ${c} represent sides of an scalene triangle.`;
+  } else return `No, ${a}, ${b}, ${c} do represent sides of a triangle.`;
+};
+
+console.log(whatKindOFTriangle(4, 4, 4, isTriangle));
+console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
+console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
+console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
