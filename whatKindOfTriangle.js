@@ -2,7 +2,7 @@
 
 // first takein the 3 side lengths, determin if it is a tringle at all
 
-// if yes, then what type if a = b = c, eqaulateral, a= b or b = c or a = c, isocolese, if not but still a triangle
+// if yes, then what type if a = b = c, eqauilateral, a= b or b = c or a = c, isosceles, if not but still a triangle
 // return the type
 // a2+ b2 = c2 for right angle
 // To check if 3 sides make a triangle,
@@ -35,6 +35,7 @@ const whatKindOFTriangle = (a, b, c, callback) => {
 console.log(whatKindOFTriangle(4, 4, 4, isTriangle));
 console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
 console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
+console.log(whatKindOFTriangle(4, 3, 4, isTriangle));
 console.log(whatKindOFTriangle(4, 3, 5, isTriangle));
 console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
 console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
