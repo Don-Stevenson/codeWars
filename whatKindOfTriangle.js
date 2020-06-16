@@ -4,7 +4,12 @@
 
 // if yes, then what type if a = b = c, eqaulateral, a= b or b = c or a = c, isocolese, if not but still a triangle
 // return the type
+// a2+ b2 = c2 for right angle
+// To check if 3 sides make a triangle,
+// you need to check that every side is less than or equal to the sum of the other two sides.
 
-const whatKindOFTriangle = (a,b,c) => {
-    
-}
+const whatKindOFTriangle = (a, b, c) => {
+  if (a <= b + c && b <= a + c && c <= b + a) return true;
+};
+
+console.log(whatKindOFTriangle(2, 2, 2));
