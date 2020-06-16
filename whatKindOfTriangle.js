@@ -6,10 +6,14 @@
 // return the type
 // a2+ b2 = c2 for right angle
 // To check if 3 sides make a triangle,
-// you need to check that every side is less than or equal to the sum of the other two sides.
+// you need to check that every side is less than or equal to the sum of the other two side
 
 const whatKindOFTriangle = (a, b, c) => {
-  if (a <= b + c && b <= a + c && c <= b + a) return true;
+  if (a <= b + c && b <= a + c && c <= b + a) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-console.log(whatKindOFTriangle(2, 2, 2));
+console.log(whatKindOFTriangle(4, 4, 12));
