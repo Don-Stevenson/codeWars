@@ -11,9 +11,7 @@
 const isTriangle = (a, b, c) => {
   if (a <= b + c && b <= a + c && c <= b + a) {
     return true;
-  } else {
-    return false;
-  }
+  } else return false;
 };
 
 const whatKindOFTriangle = (a, b, c, callback) => {
