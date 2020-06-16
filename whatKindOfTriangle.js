@@ -32,11 +32,9 @@ const whatKindOFTriangle = (a, b, c, callback) => {
   } else return `${a}, ${b}, ${c} do NOT represent sides of a triangle.`;
 };
 
-// console.log(whatKindOFTriangle(4, 4, 4, isTriangle));
-// console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
-// console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
+console.log(whatKindOFTriangle(4, 4, 4, isTriangle));
+console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
+console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
 console.log(whatKindOFTriangle(4, 3, 5, isTriangle));
-// console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
+console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
 console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
-console.log(whatKindOFTriangle(5, 4, 3, isTriangle));
-console.log(whatKindOFTriangle(5, 3, 4, isTriangle));
