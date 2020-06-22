@@ -16,24 +16,25 @@ const isTriangle = (a, b, c) => {
 
 const whatKindOFTriangle = (a, b, c, callback) => {
   if (callback(a, b, c)) {
-    if (a === c && a === b && b === c) {
-      return `${a}, ${b}, ${c} represent sides of an equilateral triangle.`;
+    if (a * b * c === Math.pow(a, 3)) {
+      return `${a}, ${b}, ${c} represents the sides of an equilateral triangle.`;
     } else if (a === c || a === b || b === c) {
-      return `${a}, ${b}, ${c} represent sides of an isosceles triangle.`;
+      return `${a}, ${b}, ${c} represents the sides of an isosceles triangle.`;
     } else if (
       Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2) ||
       Math.pow(a, 2) + Math.pow(c, 2) === Math.pow(b, 2) ||
       Math.pow(b, 2) + Math.pow(c, 2) === Math.pow(a, 2)
     ) {
-      return `${a}, ${b}, ${c} represent sides of a right triangle.`;
-    } else return `${a}, ${b}, ${c} represent sides of an scalene triangle.`;
-  } else return `${a}, ${b}, ${c} do NOT represent sides of a triangle.`;
+      return `${a}, ${b}, ${c} represents the sides of a right triangle.`;
+    } else return `${a}, ${b}, ${c} represents the sides of an scalene triangle.`;
+  } else return `${a}, ${b}, ${c} do NOT represents the sides of a triangle.`;
 };
 
-console.log(whatKindOFTriangle(4, 4, 4, isTriangle));
+console.log(whatKindOFTriangle(7, 7, 7, isTriangle));
 console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
-console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
 console.log(whatKindOFTriangle(4, 3, 4, isTriangle));
+console.log(whatKindOFTriangle(3, 4, 4, isTriangle));
+console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
 console.log(whatKindOFTriangle(4, 3, 5, isTriangle));
 console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
 console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
