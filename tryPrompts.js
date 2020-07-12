@@ -1,5 +1,15 @@
 const prompts = require("prompts");
 
+// Validate function that makes sure that the number is between 0 and 1000.
+// Reject an empty value
+//************************************************************************/
+
+const validateNum = value => {
+  if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
+    return "Error!! Please enter a whole number between 0 and 1000";
+  } else return true;
+};
+
 const questions = [
   // questions for the program to use
   // questions have a type,
@@ -33,13 +43,7 @@ const questions = [
     name: "B",
     message: "  Enter a whole number between 1 and 1000",
     initial: "Enter value here",
-    validate: value => {
-      // make sure that the number is between 0 and 1000.  Reject an empty value
-      //************************************************************************/
-      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-        return "Error!! Please enter a whole number between 0 and 1000";
-      } else return true;
-    }
+    validate: value => validateNum(value)
   },
   // Question 3
   // **********
@@ -48,11 +52,7 @@ const questions = [
     name: "C",
     message: "  Enter a second whole number between 1 and 1000",
     initial: "Enter value here",
-    validate: value => {
-      if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-        return "Error!! Please enter a whole number between 0 and 1000";
-      } else return true;
-    }
+    validate: value => validateNum(value)
   }
 ];
 
