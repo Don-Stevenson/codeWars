@@ -60,8 +60,7 @@ const questions = [
 //*****************/
 (async () => {
   const response = await prompts(questions);
-  let answer;
-
+ 
   // operations in an object fo
   const operations = {
     "+": (response.B + response.C),
@@ -72,7 +71,7 @@ const questions = [
 
   // using object oriented programming instead of IF/ELSE or SWITCH
   // ***************************************************************/
-  answer = operations[response.operator];
+  let answer = operations[response.operator];
 
   // operator selection logic with switch statements
   //*************************************************/
