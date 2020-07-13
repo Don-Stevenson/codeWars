@@ -10,7 +10,7 @@ const questions = [
     message: 'Do you like pizza? y or n'
   },
   {
-    type: prev => prev == 'y' ? 'text' : null,
+    type: prev => prev === 'y' ? 'text' : null,
     name: 'topping',
     message: 'Name a topping'
   }

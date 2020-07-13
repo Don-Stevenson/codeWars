@@ -39,15 +39,17 @@ const questions = [
         value === "sqrt"
       ) {
         return true;
-      }  return "Error!! Please use only +, -, *, /, power, sqrt";
+      }
+      return "Error!! Please use only +, -, *, /, power, sqrt";
     }
   },
- 
 
-  // Question 2
-  // **********
+  // Question 2 - if the previous question answer is sqrt,
+  // then skip this question and go to question 3. 
+  // This is because we only need one number for a sqrt
+  // **************************************************
   {
-    type: "number",
+    type: prev => (prev !== "sqrt"? "number" : null),
     name: "B",
     message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
@@ -58,7 +60,7 @@ const questions = [
   {
     type: "number",
     name: "C",
-    message: "  Enter a second whole number between 1 and 10000",
+    message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
     validate: value => validateNum(value)
   }
@@ -76,8 +78,8 @@ const questions = [
     "-": response.B - response.C,
     "*": response.B * response.C,
     "/": response.B / response.C,
-    "power": Math.pow(response.B, response.C),
-    "sqrt": Math.sqrt(response.B)
+    power: Math.pow(response.B, response.C),
+    sqrt: Math.sqrt(response.C)
   };
 
   // using object oriented programming instead of IF/ELSE or SWITCH
@@ -117,13 +119,13 @@ const questions = [
     // and give the user a simple message to say thanks
     //*****************************************************/
     let output = `
-      ${response.B} ${response.operator} = ${answer}
+      ${response.C} ${response.operator} = ${answer}
   
       Thank you for using The Simple Math Program!!!
       `;
     console.log(output);
   } else {
-  //Setting up output to display the expression and answer
+    //Setting up output to display the expression and answer
     // and give the user a simple message to say thanks
     //*****************************************************/
     let output = `
