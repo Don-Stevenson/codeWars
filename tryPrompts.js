@@ -5,8 +5,8 @@ const prompts = require("prompts");
 //************************************************************************/
 
 const validateNum = value => {
-  if (value > 1000 || value < 0 || isNaN(parseFloat(value))) {
-    return "Error!! Please enter a whole number between 0 and 1000";
+  if (value > 10000 || value < 0 || isNaN(parseFloat(value))) {
+    return "Error!! Please enter a whole number between 0 and 10000";
   } else return true;
 };
 
@@ -39,16 +39,16 @@ const questions = [
         value === "sqrt"
       ) {
         return true;
-      } else return "Error!! Please use only +, -, *, /, power, sqrt";
+      }  return "Error!! Please use only +, -, *, /, power, sqrt";
     }
   },
-
+ 
   // Question 2
   // **********
   {
     type: "number",
     name: "B",
-    message: "  Enter a whole number between 1 and 1000",
+    message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
     validate: value => validateNum(value)
   },
@@ -57,7 +57,7 @@ const questions = [
   {
     type: "number",
     name: "C",
-    message: "  Enter a second whole number between 1 and 1000",
+    message: "  Enter a second whole number between 1 and 10000",
     initial: "Enter value here",
     validate: value => validateNum(value)
   }
