@@ -25,14 +25,21 @@ const questions = [
     name: "operator",
     message: `
     Welcome to the Simple Math Program!
-    Please enter two numbers to be calculated
-    Please chose an operator( +, -, *, / )?`,
+    Please enter two numbers to be calculated (Note: only the first will be used for square root)
+    Please chose an operator( +, -, *, /, power, sqrt )?`,
     // check to see what the operator is. Reject all other characters
     //***************************************************************/
     validate: value => {
-      if (value === "+" || value === "-" || value === "*" || value === "/") {
+      if (
+        value === "+" ||
+        value === "-" ||
+        value === "*" ||
+        value === "/" ||
+        value === "power" ||
+        value === "sqrt"
+      ) {
         return true;
-      } else return "Error!! Please use only +, -, *, /";
+      } else return "Error!! Please use only +, -, *, /, power, sqrt";
     }
   },
 
@@ -60,14 +67,16 @@ const questions = [
 //*****************/
 (async () => {
   const response = await prompts(questions);
- 
+
   // operations in an object
   //***********************/
   const operations = {
-    "+": (response.B + response.C),
-    "-": (response.B - response.C),
-    "*": (response.B * response.C),
-    "/": (response.B / response.C)
+    "+": response.B + response.C,
+    "-": response.B - response.C,
+    "*": response.B * response.C,
+    "/": response.B / response.C,
+    "power": Math.pow(response.B, response.C),
+    "sqrt": Math.sqrt(response.B)
   };
 
   // using object oriented programming instead of IF/ELSE or SWITCH
@@ -90,7 +99,7 @@ const questions = [
   //     answer = response.B / response.C;
   //     break;
   // }
-  
+
   // With if else statements
   //*************************/
   // if (response.operator === "+") {
@@ -102,14 +111,25 @@ const questions = [
   // } else {
   //   answer = response.B / response.C;
   // }
-
+  if (response.operator === "sqrt") {
+    //Setting up output to display the expression and answer when sqrt is seelected
+    // and give the user a simple message to say thanks
+    //*****************************************************/
+    let output = `
+      ${response.B} ${response.operator} = ${answer}
+  
+      Thank you for using The Simple Math Program!!!
+      `;
+    console.log(output);
+  } else {
   //Setting up output to display the expression and answer
-  // and give the user a simple message to say thanks
-  //*****************************************************/
-  let output = `
-    ${response.B} ${response.operator} ${response.C} = ${answer}
-
-    Thank you for using The Simple Math Program!!!
-    `;
-  console.log(output);
+    // and give the user a simple message to say thanks
+    //*****************************************************/
+    let output = `
+      ${response.B} ${response.operator} ${response.C} = ${answer}
+  
+      Thank you for using The Simple Math Program!!!
+      `;
+    console.log(output);
+  }
 })();
