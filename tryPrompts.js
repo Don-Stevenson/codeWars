@@ -45,7 +45,7 @@ const questions = [
   },
 
   // Question 2 - if the previous question answer is sqrt,
-  // then skip this question and go to question 3. 
+  // then skip this question and go directly to question 3. 
   // This is because we only need one number for a sqrt
   // **************************************************
   {
