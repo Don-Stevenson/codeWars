@@ -90,6 +90,7 @@ const questions = [
   //     answer = response.B / response.C;
   //     break;
   // }
+  
   // With if else statements
   //*************************/
   // if (response.operator === "+") {
