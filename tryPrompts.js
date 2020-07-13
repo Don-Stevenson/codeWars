@@ -115,7 +115,7 @@ const questions = [
   //   answer = response.B / response.C;
   // }
   if (response.operator === "sqrt") {
-    //Setting up output to display the expression and answer when sqrt is seelected
+    //Setting up output to display the expression and answer when sqrt is selected
     // and give the user a simple message to say thanks
     //*****************************************************/
     let output = `
