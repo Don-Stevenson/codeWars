@@ -1,6 +1,10 @@
 let a;
 let b;
 
+
+// object to store the different operations
+// and formula functions
+//******************************************
 const operations = {
   plus: (a, b) => a + b,
   minus: (a, b) => a - b,
@@ -10,6 +14,9 @@ const operations = {
   root: a => Math.sqrt(a)
 };
 
+// a higher order function that calls the 
+// above object of operations and passes values
+// ********************************************
 const mathify = (value, a, b) => {
   return operations[value](a, b);
 };
