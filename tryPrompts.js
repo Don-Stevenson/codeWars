@@ -61,7 +61,8 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
  
-  // operations in an object fo
+  // operations in an object
+  //***********************/
   const operations = {
     "+": (response.B + response.C),
     "-": (response.B - response.C),
