@@ -97,6 +97,12 @@ const questions = [
   //   case "/":
   //     answer = response.B / response.C;
   //     break;
+  //  case "power":
+  //     answer = Math.pow(response.B, response.C)
+  //     break;
+  // case "sqrt":
+  //     answer = sqrt: Math.sqrt(response.C)
+  //     break;
   // }
 
   // With if else statements
@@ -107,8 +113,12 @@ const questions = [
   //   answer = response.B - response.C;
   // } else if (response.operator === "*") {
   //   answer = response.B * response.C;
-  // } else {
+  // } else if (response.operator === "/"){
   //   answer = response.B / response.C;
+  // } else if (response.operator === "power"){
+  //   answer = Math.pow(response.B, response.C)
+  // } else 
+  //   answer =  Math.sqrt(response.C)
   // }
   if (response.operator === "sqrt") {
     //Setting up output to display the expression and answer when sqrt is selected
