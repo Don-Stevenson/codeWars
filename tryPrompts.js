@@ -62,22 +62,34 @@ const questions = [
   const response = await prompts(questions);
   let answer;
 
+  // operations in an object fo
+  const operations = {
+    "+": (response.B + response.C),
+    "-": (response.B - response.C),
+    "*": (response.B * response.C),
+    "/": (response.B / response.C)
+  };
+
+  // using object oriented programming instead of IF/ELSE or SWITCH
+  // ***************************************************************/
+  answer = operations[response.operator];
+
   // operator selection logic with switch statements
   //*************************************************/
-  switch (response.operator) {
-    case "+":
-      answer = response.B + response.C;
-      break;
-    case "-":
-      answer = response.B - response.C;
-      break;
-    case "*":
-      answer = response.B * response.C;
-      break;
-    case "/":
-      answer = response.B / response.C;
-      break;
-  }
+  // switch (response.operator) {
+  //   case "+":
+  //     answer = response.B + response.C;
+  //     break;
+  //   case "-":
+  //     answer = response.B - response.C;
+  //     break;
+  //   case "*":
+  //     answer = response.B * response.C;
+  //     break;
+  //   case "/":
+  //     answer = response.B / response.C;
+  //     break;
+  // }
   // With if else statements
   //*************************/
   // if (response.operator === "+") {
