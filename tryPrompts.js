@@ -43,10 +43,11 @@ const questions = [
     }
   },
  
+
   // Question 2
   // **********
   {
-    type: "number",
+    type: prev => prev === !null ? 'text' : null,
     name: "B",
     message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
