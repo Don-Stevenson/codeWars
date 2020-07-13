@@ -30,14 +30,10 @@ const questions = [
     // check to see what the operator is. Reject all other characters
     //***************************************************************/
     validate: value => {
-      if (
-        value === "+" ||
-        value === "-" ||
-        value === "*" ||
-        value === "/" ||
-        value === "power" ||
-        value === "sqrt"
-      ) {
+      // logic to evaluate value includes on of the signs in the mathSigns array
+      // **********************************************************************
+      const mathSigns = ["+", "-", "*", "/", "power", "sqrt"];
+      if (mathSigns.includes(value)) {
         return true;
       }
       return "Error!! Please use only +, -, *, /, power, sqrt";
@@ -45,11 +41,11 @@ const questions = [
   },
 
   // Question 2 - if the previous question answer is sqrt,
-  // then skip this question and go directly to question 3. 
+  // then skip this question and go directly to question 3.
   // This is because we only need one number for a sqrt
   // **************************************************
   {
-    type: prev => (prev !== "sqrt"? "number" : null),
+    type: prev => (prev !== "sqrt" ? "number" : null),
     name: "B",
     message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
