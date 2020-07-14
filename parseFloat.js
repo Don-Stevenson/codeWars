@@ -1,3 +1,6 @@
+// a place to try out parse float and NaN
+// **************************************
+
 console.log(parseFloat("tree")); // => NaN
 console.log(parseFloat(345)); // => 345
 console.log(parseFloat("345")); // => 345
