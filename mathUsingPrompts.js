@@ -125,7 +125,7 @@ const questions = [
     // and give the user a simple message to say thanks
     //*****************************************************/
     let output = `
-      ${response.C} ${response.operator} = ${answer}
+      The square root of ${response.C} = ${answer}
   
       Thank you for using The Simple Math Program!!!
       `;
