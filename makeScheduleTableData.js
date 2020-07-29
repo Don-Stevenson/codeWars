@@ -32,7 +32,7 @@ const data = [
     createdAt: "2020-07-29T02:25:48.174Z",
     date: "07-28-2020",
     driverFirstName: "Example1",
-    driverLastName: "Lastname2",
+    driverLastName: "Lastname1",
     location: "123 Anystreet St. Toronto, On",
     startTime: "12:20",
     stopTime: "14:35",
@@ -44,21 +44,22 @@ const data = [
   }
 ];
 
-// const isToday = require('date-fns/is_today')
 const { getDayOfYear } = require("date-fns");
-// console.log(getDayOfYear(Date.parse("02-28-2020")))
 
-const makeDurationObj = interval => {
-  const iterator = 365 - interval;
+// make an array of objects depending on the interval given, eg 2, 4, 7, 28 days
+// initial it with default data in each object
+// *******************************************
+const makeDurationObj = givenNoOfDays => {
+  const iterator = 365 - givenNoOfDays;
   const objectArr = [];
-  for (let i = 1; i <= iterator; i += interval) {
+  for (let i = 1; i <= iterator; i += givenNoOfDays) {
     const durationObj = {
-      duration: `Day ${i} - Day ${i + interval}`,
+      duration: `Day ${i} - Day ${i + givenNoOfDays}`,
       pickUp: 0,
       dropOff: 0,
       other: 0,
       start: i,
-      end: i + interval
+      end: i + givenNoOfDays
     };
 
     objectArr.push(durationObj);
@@ -66,17 +67,15 @@ const makeDurationObj = interval => {
   return objectArr;
 };
 
-const updateDurationObj = (interval, durationObj, taskList) => {
-  // console.log("in durationobj")
+// function that updates the duration object's counts depending on
+// whether a specific task is present
+//***************************************************************/
+const updateDurationObj = (durationObj, taskList) => {
   taskList.forEach(element => {
     const dayOfYear = getDayOfYear(Date.parse(element.date));
 
     for (let i = 0; i < durationObj.length; i++) {
-      // console.log("in loop")
-      if (
-        dayOfYear >= durationObj[i].start &&
-        dayOfYear < durationObj[i].end
-      ) {
+      if (dayOfYear >= durationObj[i].start && dayOfYear < durationObj[i].end) {
         switch (element.taskType) {
           case "Pick Up":
             durationObj[i].pickUp += 1;
@@ -89,31 +88,26 @@ const updateDurationObj = (interval, durationObj, taskList) => {
         }
       }
     }
-    // console.log(index, dayOfYear);
   });
 };
 
-// console.log(makeDurationObj(28))
+// Higher order function that takes a array of objects of data,
+// a driverLastname and a date interval,
+// makes a object for the duration based upon a given duration
+// updates a the duration object based upon the driver tasks given
+// returns a an object that can parsed into a .csv file  for a specific driver
+// with the day interval and the number of tasks present in each interval
+// whether a specific task is present
+//***************************************************************/
 
 const driverCSV = (data, driverLastName, dateInterval) => {
-  const driverTasks = data
-    .filter(currentTask => {
-      // console.log(currentTask.driverLastName)
-      return currentTask.driverLastName === driverLastName;
-    })
-    .sort((task1, task2) => Date.parse(task1.date) - Date.parse(task2.date));
-  const durationObj = makeDurationObj(2);
-  updateDurationObj(2, durationObj, driverTasks);
-  console.log(durationObj);
+  const driverTasks = data.filter(currentTask => {
+    return currentTask.driverLastName === driverLastName;
+  });
 
-  //console.log (Date.parse("07-29-2020"))
-  // console.log(driverTasks)
-  const dateStr = "29-07-2020".split("-");
-
-  const month = parseInt(dateStr[1]);
-
-  const day = parseInt(dateStr[0]);
-  // console.log(month, day)
+  const durationObj = makeDurationObj(dateInterval);
+  updateDurationObj(durationObj, driverTasks);
+  return durationObj;
 };
 
-driverCSV(data, "Lastname1");
+console.log(driverCSV(data, "Lastname1", 100));
