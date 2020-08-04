@@ -17,6 +17,8 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
 // in this case should expect 28 to be the answer
 // console.log(reducedArray);
 
+// note that index is not zero based, rather it starts at 1.
+
 // with a string , result is abcef
 const letterArr = ["a", "b","c","d","e","f"]
 
