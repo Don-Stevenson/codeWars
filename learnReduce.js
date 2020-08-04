@@ -2,7 +2,7 @@ const array = [1, 2, 3, 4, 5, 6, 7];
 
 const reducer = (accumalator, currentVal, currentIndex, array) => {
   console.log(`
-  accumalotor is: ${accumalator}
+  accumalator is: ${accumalator}
   current Value: ${currentVal}
   current Index: ${currentIndex}
   array is: ${array}`);
@@ -17,7 +17,7 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
 // in this case should expect 28 to be the answer
 // console.log(reducedArray);
 
-
+// with a string , result is abc
 const letterArr = ["a", "b","c"]
 
 console.log(letterArr.reduce(reducer))
