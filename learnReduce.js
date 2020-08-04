@@ -18,6 +18,6 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
 // console.log(reducedArray);
 
 // with a string , result is abc
-const letterArr = ["a", "b","c"]
+const letterArr = ["a", "b","c","d","e","f"]
 
 console.log(letterArr.reduce(reducer))
