@@ -1,5 +1,12 @@
 const array = [1, 2, 3, 4, 5, 6, 7];
 
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3
+
+}
+
 const reducer = (accumalator, currentVal, currentIndex, array) => {
   console.log(`
   accumalator is: ${accumalator}
