@@ -7,12 +7,12 @@
 
 // }
 
-// const reducer = (accumalator, currentVal, currentIndex, object) => {
+// const reducer = (accumalator, currentVal, currentIndex, array) => {
 //   console.log(`
 //   accumalator is: ${accumalator}
 //   current Value: ${currentVal}
 //   current Index: ${currentIndex}
-//   object is: ${object}`);
+//   array is: ${array}`);
 //   return accumalator += currentVal;
 // };
 
@@ -27,14 +27,14 @@
 // // with a string , result is abcef
 // const letterArr = ["a", "b","c","d","e","f"]
 
-
-
 const addObj = {
-  a: { value: 1 },
-  b: { value: 2 },
-  c: { value: 3 }
+  a: 1,
+  b: 2,
+  c: 3
 };
 
-const total = Object.values(addObj).reduce((t,  {value} ) => t + value, 0);
-
+const total =
+  // Getts the values out of add object
+  Object.values(addObj).reduce((t, value) => t + value);
+// reduce where t is the accumalor, then value from each key
 console.log(total); // 6
