@@ -7,14 +7,14 @@
 
 // }
 
-// const reducer = (accumalator, currentVal, currentIndex, array) => {
-//   console.log(`
-//   accumalator is: ${accumalator}
-//   current Value: ${currentVal}
-//   current Index: ${currentIndex}
-//   array is: ${array}`);
-//   return accumalator += currentVal;
-// };
+const reducer = (accumalator, currentVal, currentIndex, array) => {
+  console.log(`
+  accumalator is: ${accumalator}
+  current Value: ${currentVal}
+  current Index: ${currentIndex}
+  array is: ${array}`);
+  return accumalator += currentVal;
+};
 
 // // //takes in a an array and the runs a callback function on the array
 // // let reducedArray = array.reduce(reducer);
@@ -33,8 +33,13 @@ const addObj = {
   c: 3
 };
 
-const total =
-  // Getts the values out of add object
-  Object.values(addObj).reduce((t, value) => t + value);
-// reduce where t is the accumalor, then value from each key
-console.log(total); // 6
+// const total =
+//   // Getts the values out of add object
+//   Object.values(addObj).reduce((t, value) => t + value);
+// // reduce where t is the accumalor, then value from each key
+// console.log(total); // 6
+
+// object values returns an array of values, that you can run .reduce on and use the function called reduce in
+Object.values(addObj).reduce(reducer)
+
+console.log(Object.values(addObj))
