@@ -16,16 +16,24 @@
 // create a list of fib numbers to n
 
 const fib = n => {
+  if (n >= 0) return getFib(n);
+  else {
+    return BigInt(Math.pow(-1, -n + 1)) * getFib(-n);
+  }
+};
+
+const getFib = n => {
   let a = 1;
   let b = 0;
   let temp;
-  n -= 1;
+  n = n - 1;
   while (n >= 0) {
     (temp = a), (a = a + b);
     b = temp;
     n--;
   }
+
   return BigInt(b);
 };
 
-console.log(fib(10));
+console.log(checkFib(-6));
