@@ -22,15 +22,15 @@ const fib = n => {
   }
 };
 
-const getFib = n => {
+const getFib = num => {
   let a = 1;
   let b = 0;
   let temp;
-  n = n - 1;
-  while (n >= 0) {
+  num = num - 1;
+  while (num >= 0) {
     (temp = a), (a = a + b);
     b = temp;
-    n--;
+    num--;
   }
 
   return BigInt(b);
