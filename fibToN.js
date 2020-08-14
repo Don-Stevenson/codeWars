@@ -16,17 +16,20 @@
 // create a list of fib numbers to n
 
 const fib = n => {
-  if (n >= 0) return getFib(n);
+  if (n >= 0) return getPostiveFib(n);
   else {
-    return BigInt(Math.pow(-1, -n + 1)) * getFib(-n);
+    // handling fibonacci of negative numbers
+    return BigInt(Math.pow(-1, -n + 1)) * getPostiveFib(-n);
   }
 };
 
-const getFib = num => {
+// handling fibonacci of positive numbers
+const getPostiveFib = num => {
   let a = 1;
   let b = 0;
   let temp;
   num = num - 1;
+
   while (num >= 0) {
     (temp = a), (a = a + b);
     b = temp;
@@ -36,4 +39,4 @@ const getFib = num => {
   return BigInt(b);
 };
 
-console.log(checkFib(-6));
+console.log(fib(-6));
