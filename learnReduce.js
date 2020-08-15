@@ -1,5 +1,7 @@
 // const array = [1, 2, 3, 4, 5, 6, 7];
 
+const { add } = require("date-fns");
+
 // const obj = {
 //   a: 1,
 //   b: 2,
@@ -13,7 +15,7 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
   current Value: ${currentVal}
   current Index: ${currentIndex}
   array is: ${array}`);
-  return accumalator += currentVal;
+  return accumalator + currentVal;
 };
 
 // // //takes in a an array and the runs a callback function on the array
