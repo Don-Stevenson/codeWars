@@ -15,7 +15,7 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
   current Value: ${currentVal}
   current Index: ${currentIndex}
   array is: ${array}`);
-  return accumalator + currentVal;
+  return accumalator;
 };
 
 // // //takes in a an array and the runs a callback function on the array
