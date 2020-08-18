@@ -15,7 +15,7 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
   current Value: ${currentVal}
   current Index: ${currentIndex}
   array is: ${array}`);
-  return accumalator;
+  return array.push(accumalator)
 };
 
 // // //takes in a an array and the runs a callback function on the array
@@ -44,4 +44,4 @@ const addObj = {
 // object values returns an array of values, that you can run .reduce on and use the function called reduce in
 Object.values(addObj).reduce(reducer)
 
-console.log(Object.values(addObj))
+// console.log(Object.values(addObj))
