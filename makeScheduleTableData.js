@@ -98,7 +98,7 @@ const updateDurationObj = (durationObj, taskList) => {
 // returns a an object that can parsed into a .csv file  for a specific driver
 // with the day interval and the number of tasks present in each interval
 // whether a specific task is present
-//***************************************************************/
+//**************************************************************/
 
 const driverCSV = (data, driverLastName, dateInterval) => {
   const driverTasks = data.filter(currentTask => {
