@@ -8,12 +8,7 @@
 // console.log(countDownFromNumToZero(1000));
 
 
-const countUpTo = (num) => {
-  if (num < 10){
-    console.log("here ",num)
-    return countUpTo(num+=1)
-  } else return "done " + num
-}
+const countUpTo = (num) =>  num < 10 ? countUpTo(num+=1) : "done " + num
 
 console.log(countUpTo(0))
 
