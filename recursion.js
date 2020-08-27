@@ -8,9 +8,9 @@
 // console.log(countDownFromNumToZero(1000));
 
 
-const countUpTo = (num) =>  num < 10 ? countUpTo(num+=1) : "done " + num
+const countDownTo = (num) =>  num < 10 ? console.log(num, countDownTo(num+=1)) : "done " + num
 
-console.log(countUpTo(0))
+console.log(countDownTo(0))
 
 // let arr = [1,2,3,[4]]
 
