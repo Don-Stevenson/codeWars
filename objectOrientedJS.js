@@ -1,6 +1,3 @@
-let a;
-let b;
-
 // object to store the different operations
 // and formula functions
 //******************************************
