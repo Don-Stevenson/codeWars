@@ -6,7 +6,6 @@ const { add } = require("date-fns");
 //   a: 1,
 //   b: 2,
 //   c: 3
-
 // }
 
 const reducer = (accumalator, currentVal, currentIndex, array) => {
