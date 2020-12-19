@@ -1,7 +1,7 @@
 // function that prints merryXmas
 // ******************************
 
-const merryXmas = () => {
+const merryXmasWisher = () => {
   const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
   console.log(alphBetStr[12]);
   console.log(alphBetStr[4]);
@@ -21,4 +21,4 @@ const merryXmas = () => {
   console.log(alphBetStr[27]);
 };
 
-merryXmas();
+merryXmasWisher();
