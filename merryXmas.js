@@ -3,24 +3,22 @@
 
 const merryXmas = () => {
   const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
-  for (let letter of alphBetStr) {
-    if (letter === "M") console.log(letter)
-    if (letter === "E") console.log(letter)
-    if (letter === "R") console.log(letter)
-    if (letter === "R") console.log(letter)
-    if (letter === "Y") console.log(letter)
-    if (letter === " ") console.log(letter)
-    if (letter === "C") console.log(letter)
-    if (letter === "H") console.log(letter)
-    if (letter === "R") console.log(letter)
-    if (letter === "I") console.log(letter)
-    if (letter === "S") console.log(letter)
-    if (letter === "T") console.log(letter)
-    if (letter === "M") console.log(letter)
-    if (letter === "A") console.log(letter)
-    if (letter === "S") console.log(letter)
-    if (letter === "!") console.log(letter)
-  }
+  console.log(alphBetStr[12]);
+  console.log(alphBetStr[4]);
+  console.log(alphBetStr[17]);
+  console.log(alphBetStr[17]);
+  console.log(alphBetStr[24]);
+  console.log(alphBetStr[26]);
+  console.log(alphBetStr[2]);
+  console.log(alphBetStr[7]);
+  console.log(alphBetStr[17]);
+  console.log(alphBetStr[8]);
+  console.log(alphBetStr[18]);
+  console.log(alphBetStr[19]);
+  console.log(alphBetStr[12]);
+  console.log(alphBetStr[0]);
+  console.log(alphBetStr[18]);
+  console.log(alphBetStr[27]);
 };
 
-merryXmas()
+merryXmas();
