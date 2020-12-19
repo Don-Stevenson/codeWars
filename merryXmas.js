@@ -2,9 +2,9 @@
 // ******************************
 
 const merryXmas = () => {
-  const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
   for (let letter of alphBetStr) {
-    console.log(letter);
+    if (letter === "M") console.log(letter)
   }
 };
 
