@@ -3,7 +3,7 @@
 
 const merryXmasWisher = () => {
   const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
- return console.log (`
+  console.log (`
   ${alphBetStr[12]}
   ${alphBetStr[4]} 
   ${alphBetStr[17]}
