@@ -17,15 +17,15 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
   return array.push(accumalator)
 };
 
-// // //takes in a an array and the runs a callback function on the array
-// // let reducedArray = array.reduce(reducer);
+// takes in a an array and the runs a callback function on the array
+// let reducedArray = array.reduce(reducer);
 
-// // in this case should expect 28 to be the answer
-// // console.log(reducedArray);
+// in this case should expect 28 to be the answer
+// console.log(reducedArray);
 
-// // note that index is not zero based, rather it starts at 1.
+// note that index is not zero based, rather it starts at 1.
 
-// // with a string , result is abcef
+// with a string , result is abcef
 // const letterArr = ["a", "b","c","d","e","f"]
 
 const addObj = {
@@ -35,9 +35,9 @@ const addObj = {
 };
 
 // const total =
-//   // Getts the values out of add object
-//   Object.values(addObj).reduce((t, value) => t + value);
-// // reduce where t is the accumalor, then value from each key
+// Getts the values out of add object
+// Object.values(addObj).reduce((t, value) => t + value);
+// reduce where t is the accumalor, then value from each key
 // console.log(total); // 6
 
 // object values returns an array of values, that you can run .reduce on and use the function called reduce in
