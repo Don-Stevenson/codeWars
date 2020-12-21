@@ -1,6 +1,6 @@
 // function that reverse str
 // with split, reverse and join
-//***************************/
+// ***************************
 
 // const reverseString = str => {
 //   let reverseStr = str
