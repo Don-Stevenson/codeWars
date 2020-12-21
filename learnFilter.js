@@ -30,7 +30,7 @@ const arr = [
   27,
   28,
   29,
-  30
+  30,
 ];
 
 // const filterByGreaterThan3 = (arr) => {
@@ -46,7 +46,7 @@ const arr = [
 
 // console.log(doubleDigitNos(arr))
 
-const isPrime = num => {
+const isPrime = (num) => {
   if (num <= 1) return false;
   else if (num === 2) return true;
   else {
@@ -59,4 +59,3 @@ const isPrime = num => {
 };
 
 console.log(arr.filter(isPrime));
-
