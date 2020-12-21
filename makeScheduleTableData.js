@@ -69,7 +69,7 @@ const makeDurationObj = givenNoOfDays => {
 
 // function that updates the duration object's counts depending on
 // whether a specific task is present
-//***************************************************************/
+// **************************************************************
 const updateDurationObj = (durationObj, taskList) => {
   taskList.forEach(element => {
     const dayOfYear = getDayOfYear(Date.parse(element.date));
