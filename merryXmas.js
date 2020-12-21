@@ -1,5 +1,5 @@
 // function that prints merry Xmas!
-// ********************************
+// *********************************
 
 const merryXmasWisher = () => {
   const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
