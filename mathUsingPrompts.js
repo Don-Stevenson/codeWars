@@ -2,9 +2,9 @@ const prompts = require("prompts");
 
 // Validate function that makes sure that the number is between 0 and 1000.
 // Reject an empty value
-//************************************************************************/
+//************************************************************************
 
-const validateNum = value => {
+const validateNum = (value) => {
   if (value > 10000 || value < 0 || isNaN(parseFloat(value))) {
     return "Error!! Please enter a whole number between 0 and 10000";
   } else return true;
@@ -29,7 +29,7 @@ const questions = [
     Please chose an operator( +, -, *, /, power, sqrt )?`,
     // check to see what the operator is. Reject all other characters
     //***************************************************************/
-    validate: value => {
+    validate: (value) => {
       // logic to evaluate value includes on of the signs in the mathSigns array
       // **********************************************************************
       const mathSigns = ["+", "-", "*", "/", "power", "sqrt"];
@@ -37,7 +37,7 @@ const questions = [
         return true;
       }
       return "Error!! Please use only +, -, *, /, power, sqrt";
-    }
+    },
   },
 
   // Question 2 - if the previous question answer is sqrt,
@@ -45,11 +45,11 @@ const questions = [
   // This is because we only need one number for a sqrt
   // **************************************************
   {
-    type: prev => (prev !== "sqrt" ? "number" : null),
+    type: (prev) => (prev !== "sqrt" ? "number" : null),
     name: "B",
     message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
-    validate: value => validateNum(value)
+    validate: (value) => validateNum(value),
   },
   // Question 3
   // **********
@@ -58,32 +58,32 @@ const questions = [
     name: "C",
     message: "  Enter a whole number between 1 and 10000",
     initial: "Enter value here",
-    validate: value => validateNum(value)
-  }
+    validate: (value) => validateNum(value),
+  },
 ];
 
 // Run the program
-//*****************/
+// *****************
 (async () => {
   const response = await prompts(questions);
 
   // operations in an object
-  //***********************/
+  // ***********************
   const operations = {
     "+": response.B + response.C,
     "-": response.B - response.C,
     "*": response.B * response.C,
     "/": response.B / response.C,
     power: Math.pow(response.B, response.C),
-    sqrt: Math.sqrt(response.C)
+    sqrt: Math.sqrt(response.C),
   };
 
   // using object oriented programming instead of IF/ELSE or SWITCH
-  // ***************************************************************/
+  // **************************************************************
   let answer = operations[response.operator];
 
   // operator selection logic with switch statements
-  //*************************************************/
+  // *********************** ***********************
   // switch (response.operator) {
   //   case "+":
   //     answer = response.B + response.C;
@@ -106,7 +106,7 @@ const questions = [
   // }
 
   // With if else statements
-  //*************************/
+  // ***********************
   // if (response.operator === "+") {
   //   answer = response.B + response.C;
   // } else if (response.operator === "-") {
@@ -117,13 +117,13 @@ const questions = [
   //   answer = response.B / response.C;
   // } else if (response.operator === "power"){
   //   answer = Math.pow(response.B, response.C)
-  // } else 
+  // } else
   //   answer =  Math.sqrt(response.C)
   // }
   if (response.operator === "sqrt") {
-    //Setting up output to display the expression and answer when sqrt is selected
+    // Setting up output to display the expression and answer when sqrt is selected
     // and give the user a simple message to say thanks
-    //*****************************************************/
+    // ************************************************
     let output = `
       The square root of ${response.C} = ${answer}
   
@@ -131,9 +131,9 @@ const questions = [
       `;
     console.log(output);
   } else {
-    //Setting up output to display the expression and answer
+    // Setting up output to display the expression and answer
     // and give the user a simple message to say thanks
-    //*****************************************************/
+    // ******************************************************
     let output = `
       ${response.B} ${response.operator} ${response.C} = ${answer}
   
