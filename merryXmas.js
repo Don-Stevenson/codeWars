@@ -3,12 +3,15 @@
 
 const merryXmasWisher = (num) => {
   const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
+  let result = [];
   for (let i = 1; i <= num; i++) {
     let randNum = Math.round(Math.random() * i);
     // console.log(randNum);
-    if (randNum === 12) console.log(alphBetStr[randNum]);
-    else if (randNum === 4) console.log(alphBetStr[randNum]);
+
+    if (randNum === 12) result.unshift(alphBetStr[randNum]);
+    else if (randNum === 4) result.unshift(alphBetStr[randNum]);
   }
+  console.log(result);
   // }
 
   // console.log(
