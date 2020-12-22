@@ -4,19 +4,24 @@
 const merryXmasWisher = (num) => {
   const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
   let result = [];
-  do {
-    for (let i = 1; i <= num; i++) {
+
+  // while result is !== Merry Christmas in an array
+  while (result !== ["M", "E"]) {
+    
+  for (let i = 1; i <= num; i++) {
       let randNum = Math.round(Math.random() * i);
       // console.log(randNum);
 
       // if result[0] is empty is true then put an M there
-      if (randNum === 12) result.unshift(alphBetStr[randNum]);
+      if (!result[0] && randNum === 12)
+        result.splice(0, 0, alphBetStr[randNum]);
       // if result[1] is empty is true then put an E there
-      if (randNum === 4) result.splice(1, 0, alphBetStr[randNum]);
+      else if (!result[1] && randNum === 4)
+        result.splice(1, 0, alphBetStr[randNum]);
     }
 
-  // while result is !== Merry Christmas in an array
-  } while (!result);
+    //
+  }
   console.log(result);
 };
 
@@ -36,4 +41,4 @@ const merryXmasWisher = (num) => {
 // start by placing XXXXXXXXXXXXX
 // filling in the X's and fill in the message
 
-merryXmasWisher(100);
+merryXmasWisher(10000);
