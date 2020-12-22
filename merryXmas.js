@@ -7,8 +7,10 @@ const merryXmasWisher = (num) => {
   for (let i = 1; i <= num; i++) {
     let randNum = Math.round(Math.random() * i);
     // console.log(randNum);
-
+    
+    // if result[0] is empty is true then put an M there
     if (randNum === 12) result.unshift(alphBetStr[randNum]);
+    // if result[1] is empty is true then put an E there
     else if (randNum === 4) result.unshift(alphBetStr[randNum]);
   }
   console.log(result);
