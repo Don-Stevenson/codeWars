@@ -1,6 +1,9 @@
 // function that prints merry Xmas!
 // ********************************
 
+// a rube goldberg approach
+// ************************
+
 const replaceAt = (index, char, str) => {
   const a = str.split("");
   a[index] = char;
