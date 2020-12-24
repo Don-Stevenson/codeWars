@@ -21,13 +21,24 @@ const makeResult = (inputStr) => {
   // while (result !== inputStr) {
   while (result !== inputStr) {
     let randNum = Math.floor(Math.random() * 27);
-    // alphBetStr.indexOf(inputStr[0])
-    if (randNum === alphBetStr.indexOf(inputStr[0])) {
-    // if (randNum === 12) {
-      result = replaceAt(0, alphBetStr[randNum], result);
-    // } else if (randNum === 4) {
-    }  else if (randNum === alphBetStr.indexOf(inputStr[1])) {
-      result = replaceAt(1, alphBetStr[randNum], result);
+    console.log(inputStr[0], inputStr[1]);
+    if (inputStr[0] === inputStr[1]) {
+      console.log({randNum})
+      if (randNum === alphBetStr.indexOf(inputStr[0])) {
+        // if (randNum === 12) {
+        console.log("here");
+        result = replaceAt(0, alphBetStr[randNum], result);
+        result = replaceAt(1, alphBetStr[randNum], result);
+      } else {
+        // alphBetStr.indexOf(inputStr[0])
+        if (randNum === alphBetStr.indexOf(inputStr[0])) {
+          // if (randNum === 12) {
+          result = replaceAt(0, alphBetStr[randNum], result);
+          // } else if (randNum === 4) {
+        } else if (randNum === alphBetStr.indexOf(inputStr[1])) {
+          result = replaceAt(1, alphBetStr[randNum], result);
+        }
+      }
     }
   }
   console.log({ result });
@@ -234,11 +245,11 @@ const makeResult15 = () => {
   return result;
 };
 
-console.log(makeResult("RR")) 
+console.log(makeResult("RR"));
 
 // console.log(
-//   makeResult("ME") 
-//   // makeResult("RR") 
+//   makeResult("ME")
+//   // makeResult("RR")
 //     // makeResult2() +
 //     // makeResult3() +
 //     // makeResult4() +
