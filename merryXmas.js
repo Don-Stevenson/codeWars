@@ -9,63 +9,82 @@ const replaceAt = (index, char, str) => {
   a[index] = char;
   return a.join("");
 };
+const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
 
-const merryXmasWisher = () => {
-  const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
+const result = () => {
   let result = "";
 
   // while result is !== Merry Christmas in an array
   // update to unicode for the string!
-  while (result !== "MERR") {
+  while (result !== "MER") {
     // console.log("here")
     // use number other than num, since if num is large, it will be out of the alphastr array range
     // for (let i = 1; i <= num; i++) {
     let randNum = Math.floor(Math.random() * 27);
-    console.log(randNum);
+    // console.log(randNum);
 
     // if result[0] is empty is true then put an M there
     if (randNum === 12) {
-      console.log("result 0", result[0]);
-      console.log("here", alphBetStr[randNum]);
+      // console.log("result 0", result[0]);
+      // console.log("here", alphBetStr[randNum]);
       result = replaceAt(0, alphBetStr[randNum], result);
       console.log({ result });
     }
     // if result[1] is empty is true then put an E there
-    else if (randNum === 4)
-      result = replaceAt(1, alphBetStr[randNum], result);
+    else if (randNum === 4) result = replaceAt(1, alphBetStr[randNum], result);
     // result.splice(1, 0, alphBetStr[randNum]);
     // }
-    else if (randNum === 17)
-     result = replaceAt(2, alphBetStr[randNum], result);
-    else if (!result[3] && randNum === 17)
-     result = replaceAt(3, alphBetStr[randNum], result);
-    else if (!result[4] && randNum === 24)
-     result = replaceAt(4, alphBetStr[randNum], result);
-    else if (!result[5] && randNum === 26)
-     result = replaceAt(5, alphBetStr[randNum], result);
-    else if (!result[6] && randNum === 2)
-     result = replaceAt(6, alphBetStr[randNum], result);
-    else if (!result[7] && randNum === 7)
-     result = replaceAt(7, alphBetStr[randNum], result);
-    else if (!result[8] && randNum === 17)
-     result = replaceAt(8, alphBetStr[randNum], result);
-    else if (!result[9] && randNum === 8)
-     result = replaceAt(9, alphBetStr[randNum], result);
-    else if (!result[10] && randNum === 18)
-     result = replaceAt(10, alphBetStr[randNum], result);
-    else if (!result[11] && randNum === 19)
-     result = replaceAt(11, alphBetStr[randNum], result);
-    else if (!result[12] && randNum === 12)
-     result = replaceAt(12, alphBetStr[randNum], result);
-    else if (!result[13] && randNum === 0)
-     result = replaceAt(13, alphBetStr[randNum], result);
-    else if (!result[14] && randNum === 18)
-     result = replaceAt(14, alphBetStr[randNum], result);
-    else if (!result[15] && randNum === 27)
-     result = replaceAt(15, alphBetStr[randNum], result);
-    //
+    else if (randNum === 17) result = replaceAt(2, alphBetStr[randNum], result);
   }
-  console.log(result);
+  console.log({ result });
+  return result;
+};
+
+const result2 = () => {
+  let result2 = "";
+  while (result2 !== "RRY") {
+    let randNum = Math.floor(Math.random() * 27);
+    // console.log(randNum);
+
+    if (randNum === 17) {
+      // console.log("result 0", result2[0]);
+      // console.log("here", alphBetStr[randNum]);
+      result2 = replaceAt(0, alphBetStr[randNum], result2);
+      result2 = replaceAt(1, alphBetStr[randNum], result2);
+      // console.log({ result2 });
+    } else if (randNum === 24)
+      result2 = replaceAt(2, alphBetStr[randNum], result2);
+  }
+
+  console.log({ result2 });
+  return result2;
+  // else if (!result[3] && randNum === 17)
+  //  result = replaceAt(3, alphBetStr[randNum], result);
+  // else if (!result[4] && randNum === 24)
+  //  result = replaceAt(4, alphBetStr[randNum], result);
+  // else if (!result[5] && randNum === 26)
+  //  result = replaceAt(5, alphBetStr[randNum], result);
+  // else if (!result[6] && randNum === 2)
+  //  result = replaceAt(6, alphBetStr[randNum], result);
+  // else if (!result[7] && randNum === 7)
+  //  result = replaceAt(7, alphBetStr[randNum], result);
+  // else if (!result[8] && randNum === 17)
+  //  result = replaceAt(8, alphBetStr[randNum], result);
+  // else if (!result[9] && randNum === 8)
+  //  result = replaceAt(9, alphBetStr[randNum], result);
+  // else if (!result[10] && randNum === 18)
+  //  result = replaceAt(10, alphBetStr[randNum], result);
+  // else if (!result[11] && randNum === 19)
+  //  result = replaceAt(11, alphBetStr[randNum], result);
+  // else if (!result[12] && randNum === 12)
+  //  result = replaceAt(12, alphBetStr[randNum], result);
+  // else if (!result[13] && randNum === 0)
+  //  result = replaceAt(13, alphBetStr[randNum], result);
+  // else if (!result[14] && randNum === 18)
+  //  result = replaceAt(14, alphBetStr[randNum], result);
+  // else if (!result[15] && randNum === 27)
+  //  result = replaceAt(15, alphBetStr[randNum], result);
+  // //
 };
 
 // }
@@ -85,4 +104,5 @@ const merryXmasWisher = () => {
 // start by placing XXXXXXXXXXXXX
 // filling in the X's and fill in the message
 
-merryXmasWisher(100);
+result();
+result2();
