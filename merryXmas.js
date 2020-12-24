@@ -20,35 +20,52 @@ const makeResult = (inputStr) => {
   // then unicode instead of 15 functions
   // while (result !== inputStr) {
   while (result !== inputStr) {
-    let randNum = Math.floor(Math.random() * 27);
+    let randNum = Math.floor(Math.random() * 28);
     // console.log(inputStr[0] + inputStr[1]);
-    console.log("here", alphBetStr.indexOf(inputStr[0]));
+    // console.log("here", alphBetStr.indexOf(inputStr[0]));
+    console.log({ randNum });
     if (inputStr[0] === inputStr[1]) {
-      // console.log({ randNum });
-
       if (randNum === alphBetStr.indexOf(inputStr[0])) {
         // if (randNum === 12) {
-        console.log("here");
+        // console.log("here");
         result = replaceAt(0, alphBetStr[randNum], result);
         result = replaceAt(1, alphBetStr[randNum], result);
-      } else {
-        // alphBetStr.indexOf(inputStr[0])
-        if (randNum === alphBetStr.indexOf(inputStr[0])) {
-          console.log("here now");
-          // if (randNum === 12) {
-          result = replaceAt(0, alphBetStr[randNum], result);
-          // } else if (randNum === 4) {
-        } else if (randNum === alphBetStr.indexOf(inputStr[1])) {
-          result = replaceAt(1, alphBetStr[randNum], result);
-        }
+      }
+    } else {
+      // alphBetStr.indexOf(inputStr[0])
+      // console.log("here now");
+      if (randNum === alphBetStr.indexOf(inputStr[0])) {
+        // if (randNum === 12) {
+        result = replaceAt(0, alphBetStr[randNum], result);
+        // } else if (randNum === 4) {
+      } else if (randNum === alphBetStr.indexOf(inputStr[1])) {
+        result = replaceAt(1, alphBetStr[randNum], result);
       }
     }
   }
-  console.log({ result });
+  // console.log({ result });
   return result;
 };
 
-console.log(makeResult("RR"));
+console.log(
+  makeResult("ME") +
+    makeResult("RR") +
+    makeResult("Y ") +
+    makeResult("CH") +
+    makeResult("RI") +
+    makeResult("ST") +
+    makeResult("MA") +
+    makeResult("S ") +
+    makeResult("SA") +
+    makeResult("SH") +
+    makeResult("A ") +
+    makeResult("AN") +
+    makeResult("D ") +
+    makeResult("AN") +
+    makeResult("DR") +
+    makeResult("EW") +
+    makeResult("!")
+);
 
 // const makeResult2 = () => {
 //   let result = "";
