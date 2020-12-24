@@ -11,6 +11,67 @@ const replaceAt = (index, char, str) => {
 };
 const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
 
+const unicodeArr = [
+  "\u0041",
+  "\u0042",
+  "\u0043",
+  "\u0044",
+  "\u0045",
+  "\u0046",
+  "\u0047",
+  "\u0048",
+  "\u0049",
+  "\u004A",
+  "\u004B",
+  "\u004C",
+  "\u004D",
+  "\u004E",
+  "\u004F",
+  "\u0050",
+  "\u0051",
+  "\u0052",
+  "\u0053",
+  "\u0054",
+  "\u0055",
+  "\u0056",
+  "\u0057",
+  "\u0058",
+  "\u0059",
+  "\u005A",
+  "\u0021",
+];
+console.log(unicodeArr);
+
+// Latin
+// Alphabet:
+// Uppercase
+// U+0041	A	
+// U+0042	B	
+// U+0043	C	
+// U+0044	D	
+// U+0045	E	
+// U+0046	F	
+// U+0047	G	
+// U+0048	H	
+// U+0049	I	
+// U+004A	J	
+// U+004B	K	
+// U+004C	L	
+// U+004D	M	
+// U+004E	N	
+// U+004F	O	
+// U+0050	P	
+// U+0051	Q	
+// U+0052	R	
+// U+0053	S	
+// U+0054	T	
+// U+0055	U	
+// U+0056	V	
+// U+0057	W	
+// U+0058	X	
+// U+0059	Y	
+// U+005A	Z	
+
 const makeResult = (inputStr) => {
   let result = "";
   // while result is !== ME in an array
@@ -19,11 +80,12 @@ const makeResult = (inputStr) => {
   // UPDATE => then just keep calling this with different letters
   // then unicode instead of 15 functions
   // while (result !== inputStr) {
+  // console.log('\u00E9')
   while (result !== inputStr) {
     let randNum = Math.floor(Math.random() * 28);
     // console.log(inputStr[0] + inputStr[1]);
     // console.log("here", alphBetStr.indexOf(inputStr[0]));
-    console.log({ randNum });
+    // console.log({ randNum });
     if (inputStr[0] === inputStr[1]) {
       if (randNum === alphBetStr.indexOf(inputStr[0])) {
         // if (randNum === 12) {
@@ -66,225 +128,6 @@ console.log(
     makeResult("EW") +
     makeResult("!")
 );
-
-// const makeResult2 = () => {
-//   let result = "";
-//   while (result !== "RR") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 17) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult3 = () => {
-//   let result = "";
-//   while (result !== "Y ") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 24) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 26) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult4 = () => {
-//   let result = "";
-//   while (result !== "CH") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 2) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 7) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result4 });
-//   return result;
-// };
-
-// const makeResult5 = () => {
-//   let result = "";
-//   while (result !== "RI") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 17) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 8) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result5 });
-//   return result;
-// };
-
-// const makeResult6 = () => {
-//   let result = "";
-//   while (result !== "ST") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 18) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 19) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result6 });
-//   return result;
-// };
-// const makeResult7 = () => {
-//   let result = "";
-//   while (result !== "MA") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 12) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 0) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result7 });
-//   return result;
-// };
-
-// const makeResult8 = () => {
-//   let result = "";
-//   while (result !== "S") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 18) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult9 = () => {
-//   let result = "";
-//   while (result !== " S") {
-//     let randNum = Math.floor(Math.random() * 27 + 1);
-//     if (randNum === 26) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 18) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult10 = () => {
-//   let result = "";
-//   while (result !== "AS") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 0) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 18) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult11 = () => {
-//   let result = "";
-//   while (result !== "HA") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 7) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 0) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult12 = () => {
-//   let result = "";
-//   while (result !== " A") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 26) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 0) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult13 = () => {
-//   let result = "";
-//   while (result !== "ND") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 13) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 3) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult14 = () => {
-//   let result = "";
-//   while (result !== " AND") {
-//     let randNum = Math.floor(Math.random() * 27);
-//     if (randNum === 26) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 0) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     } else if (randNum === 13) {
-//       result = replaceAt(2, alphBetStr[randNum], result);
-//     } else if (randNum === 3) {
-//       result = replaceAt(3, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// const makeResult15 = () => {
-//   let result = "";
-//   while (result !== "REW!") {
-//     let randNum = Math.floor(Math.random() * 27 + 1);
-//     if (randNum === 17) {
-//       result = replaceAt(0, alphBetStr[randNum], result);
-//     } else if (randNum === 4) {
-//       result = replaceAt(1, alphBetStr[randNum], result);
-//     } else if (randNum === 22) {
-//       result = replaceAt(2, alphBetStr[randNum], result);
-//     } else if (randNum === 27) {
-//       result = replaceAt(3, alphBetStr[randNum], result);
-//     }
-//   }
-//   // console.log({ result });
-//   return result;
-// };
-
-// console.log(
-//   makeResult("ME")
-//   // makeResult("RR")
-//     // makeResult2() +
-//     // makeResult3() +
-//     // makeResult4() +
-//     // makeResult5() +
-//     // makeResult6() +
-//     // makeResult7() +
-//     // makeResult8() +
-//     // makeResult9() +
-//     // makeResult10() +
-//     // makeResult11() +
-//     // makeResult12() +
-//     // makeResult13() +
-//     // makeResult14() +
-//     // makeResult15()
-// );
 
 // random number generator to 1 27
 // call it for character we want
