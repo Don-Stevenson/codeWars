@@ -58,34 +58,52 @@ const result2 = () => {
 
   console.log({ result2 });
   return result2;
-  // else if (!result[3] && randNum === 17)
-  //  result = replaceAt(3, alphBetStr[randNum], result);
-  // else if (!result[4] && randNum === 24)
-  //  result = replaceAt(4, alphBetStr[randNum], result);
-  // else if (!result[5] && randNum === 26)
-  //  result = replaceAt(5, alphBetStr[randNum], result);
-  // else if (!result[6] && randNum === 2)
-  //  result = replaceAt(6, alphBetStr[randNum], result);
-  // else if (!result[7] && randNum === 7)
-  //  result = replaceAt(7, alphBetStr[randNum], result);
-  // else if (!result[8] && randNum === 17)
-  //  result = replaceAt(8, alphBetStr[randNum], result);
-  // else if (!result[9] && randNum === 8)
-  //  result = replaceAt(9, alphBetStr[randNum], result);
-  // else if (!result[10] && randNum === 18)
-  //  result = replaceAt(10, alphBetStr[randNum], result);
-  // else if (!result[11] && randNum === 19)
-  //  result = replaceAt(11, alphBetStr[randNum], result);
-  // else if (!result[12] && randNum === 12)
-  //  result = replaceAt(12, alphBetStr[randNum], result);
-  // else if (!result[13] && randNum === 0)
-  //  result = replaceAt(13, alphBetStr[randNum], result);
-  // else if (!result[14] && randNum === 18)
-  //  result = replaceAt(14, alphBetStr[randNum], result);
-  // else if (!result[15] && randNum === 27)
-  //  result = replaceAt(15, alphBetStr[randNum], result);
-  // //
 };
+
+const result3 = () => {
+  let result3 = "";
+  while (result3 !== " CH") {
+    let randNum = Math.floor(Math.random() * 27);
+    // console.log(randNum);
+
+    if (randNum === 26) {
+      // console.log("result 0", result3[0]);
+      // console.log("here", alphBetStr[randNum]);
+      result3 = replaceAt(0, alphBetStr[randNum], result3);
+      // console.log({ result3 });
+    } else if (randNum === 2) {
+      result3 = replaceAt(2, alphBetStr[randNum], result3);
+    } else if (randNum === 7)
+      result3 = replaceAt(2, alphBetStr[randNum], result3);
+  }
+
+  console.log({ result3 });
+  return result3;
+};
+// result = replaceAt(4, alphBetStr[randNum], result);
+// else if (!result[5] && randNum === 26)
+//  result = replaceAt(5, alphBetStr[randNum], result);
+// else if (!result[6] && randNum === 2)
+//  result = replaceAt(6, alphBetStr[randNum], result);
+// else if (!result[7] && randNum === 7)
+//  result = replaceAt(7, alphBetStr[randNum], result);
+// else if (!result[8] && randNum === 17)
+//  result = replaceAt(8, alphBetStr[randNum], result);
+// else if (!result[9] && randNum === 8)
+//  result = replaceAt(9, alphBetStr[randNum], result);
+// else if (!result[10] && randNum === 18)
+//  result = replaceAt(10, alphBetStr[randNum], result);
+// else if (!result[11] && randNum === 19)
+//  result = replaceAt(11, alphBetStr[randNum], result);
+// else if (!result[12] && randNum === 12)
+//  result = replaceAt(12, alphBetStr[randNum], result);
+// else if (!result[13] && randNum === 0)
+//  result = replaceAt(13, alphBetStr[randNum], result);
+// else if (!result[14] && randNum === 18)
+//  result = replaceAt(14, alphBetStr[randNum], result);
+// else if (!result[15] && randNum === 27)
+//  result = replaceAt(15, alphBetStr[randNum], result);
+// //
 
 // }
 
@@ -106,3 +124,4 @@ const result2 = () => {
 
 result();
 result2();
+result3();
