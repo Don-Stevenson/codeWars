@@ -11,12 +11,18 @@ const replaceAt = (index, char, str) => {
 };
 const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
 
-const makeResult = () => {
+const makeResult = (inputStr) => {
   let result = "";
   // while result is !== ME in an array
   // update to unicode for the string!
+
+  // UPDATE => then just keep calling this with different letters
+  // then unicode instead of 15 functions
+  // while (result !== inputStr) {
   while (result !== "ME") {
     let randNum = Math.floor(Math.random() * 27);
+
+    // if (randNum === indexof(alphaBetStr[inputStr[0]])) {
     if (randNum === 12) {
       result = replaceAt(0, alphBetStr[randNum], result);
     } else if (randNum === 4) {
@@ -111,12 +117,10 @@ const makeResult7 = () => {
 
 const makeResult8 = () => {
   let result = "";
-  while (result !== "S!") {
-    let randNum = Math.floor(Math.random() * 27 + 1);
+  while (result !== "S") {
+    let randNum = Math.floor(Math.random() * 27);
     if (randNum === 18) {
       result = replaceAt(0, alphBetStr[randNum], result);
-    } else if (randNum === 27) {
-      result = replaceAt(1, alphBetStr[randNum], result);
     }
   }
   // console.log({ result });
@@ -165,6 +169,70 @@ const makeResult11 = () => {
   return result;
 };
 
+const makeResult12 = () => {
+  let result = "";
+  while (result !== " A") {
+    let randNum = Math.floor(Math.random() * 27);
+    if (randNum === 26) {
+      result = replaceAt(0, alphBetStr[randNum], result);
+    } else if (randNum === 0) {
+      result = replaceAt(1, alphBetStr[randNum], result);
+    }
+  }
+  // console.log({ result });
+  return result;
+};
+
+const makeResult13 = () => {
+  let result = "";
+  while (result !== "ND") {
+    let randNum = Math.floor(Math.random() * 27);
+    if (randNum === 13) {
+      result = replaceAt(0, alphBetStr[randNum], result);
+    } else if (randNum === 3) {
+      result = replaceAt(1, alphBetStr[randNum], result);
+    }
+  }
+  // console.log({ result });
+  return result;
+};
+
+const makeResult14 = () => {
+  let result = "";
+  while (result !== " AND") {
+    let randNum = Math.floor(Math.random() * 27);
+    if (randNum === 26) {
+      result = replaceAt(0, alphBetStr[randNum], result);
+    } else if (randNum === 0) {
+      result = replaceAt(1, alphBetStr[randNum], result);
+    } else if (randNum === 13) {
+      result = replaceAt(2, alphBetStr[randNum], result);
+    } else if (randNum === 3) {
+      result = replaceAt(3, alphBetStr[randNum], result);
+    }
+  }
+  // console.log({ result });
+  return result;
+};
+
+const makeResult15 = () => {
+  let result = "";
+  while (result !== "REW!") {
+    let randNum = Math.floor(Math.random() * 27 + 1);
+    if (randNum === 17) {
+      result = replaceAt(0, alphBetStr[randNum], result);
+    } else if (randNum === 4) {
+      result = replaceAt(1, alphBetStr[randNum], result);
+    } else if (randNum === 22) {
+      result = replaceAt(2, alphBetStr[randNum], result);
+    } else if (randNum === 27) {
+      result = replaceAt(3, alphBetStr[randNum], result);
+    }
+  }
+  // console.log({ result });
+  return result;
+};
+
 console.log(
   makeResult() +
     makeResult2() +
@@ -176,7 +244,11 @@ console.log(
     makeResult8() +
     makeResult9() +
     makeResult10() +
-    makeResult11()
+    makeResult11() +
+    makeResult12() +
+    makeResult13() +
+    makeResult14() +
+    makeResult15()
 );
 
 // random number generator to 1 27
