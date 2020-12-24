@@ -19,17 +19,18 @@ const makeResult = (inputStr) => {
   // UPDATE => then just keep calling this with different letters
   // then unicode instead of 15 functions
   // while (result !== inputStr) {
-  while (result !== "ME") {
+  while (result !== inputStr) {
     let randNum = Math.floor(Math.random() * 27);
-
-    // if (randNum === indexof(alphaBetStr[inputStr[0]])) {
-    if (randNum === 12) {
+    // alphBetStr.indexOf(inputStr[0])
+    if (randNum === alphBetStr.indexOf(inputStr[0])) {
+    // if (randNum === 12) {
       result = replaceAt(0, alphBetStr[randNum], result);
-    } else if (randNum === 4) {
+    // } else if (randNum === 4) {
+    }  else if (randNum === alphBetStr.indexOf(inputStr[1])) {
       result = replaceAt(1, alphBetStr[randNum], result);
     }
   }
-  // console.log({ result });
+  console.log({ result });
   return result;
 };
 
@@ -233,23 +234,26 @@ const makeResult15 = () => {
   return result;
 };
 
-console.log(
-  makeResult() +
-    makeResult2() +
-    makeResult3() +
-    makeResult4() +
-    makeResult5() +
-    makeResult6() +
-    makeResult7() +
-    makeResult8() +
-    makeResult9() +
-    makeResult10() +
-    makeResult11() +
-    makeResult12() +
-    makeResult13() +
-    makeResult14() +
-    makeResult15()
-);
+console.log(makeResult("RR")) 
+
+// console.log(
+//   makeResult("ME") 
+//   // makeResult("RR") 
+//     // makeResult2() +
+//     // makeResult3() +
+//     // makeResult4() +
+//     // makeResult5() +
+//     // makeResult6() +
+//     // makeResult7() +
+//     // makeResult8() +
+//     // makeResult9() +
+//     // makeResult10() +
+//     // makeResult11() +
+//     // makeResult12() +
+//     // makeResult13() +
+//     // makeResult14() +
+//     // makeResult15()
+// );
 
 // random number generator to 1 27
 // call it for character we want
