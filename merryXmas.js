@@ -1,5 +1,6 @@
 // function that prints an Xmas Message
 // a rube goldberg approach
+// by Don Stevenson
 // ************************************
 
 // a string that contains the letters of the alphabet
@@ -47,14 +48,8 @@ console.log(
     makeResult("ST") +
     makeResult("MA") +
     makeResult("S ") +
-    makeResult("SA") +
-    makeResult("SH") +
-    makeResult("A ") +
-    makeResult("AN") +
-    makeResult("D ") +
-    makeResult("AN") +
-    makeResult("DR") +
-    makeResult("EW") +
+    makeResult("IA") +
+    makeResult("N") +
     makeResult("!")
 );
 
