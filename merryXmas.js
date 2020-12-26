@@ -1,7 +1,7 @@
 // function that prints an Xmas Message
 // a rube goldberg approach
 // by Don Stevenson
-// ************************************
+// *************************************
 
 // a string that contains the letters of the alphabet
 const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
