@@ -18,22 +18,19 @@ const replaceAt = (index, char, str) => {
 const makeResult = (input) => {
   let result = "";
 
-   while (result !== input) {
+  while (result !== input) {
     let randNum = Math.floor(Math.random() * 28);
 
     // handling double input letters
-    if (input[0] === input[1]) {
-      if (randNum === alphBetStr.indexOf(input[0])) {
-        result = replaceAt(0, alphBetStr[randNum], result);
-        result = replaceAt(1, alphBetStr[randNum], result);
-      }
-    // handling two different input letters 
-    } else {
-      if (randNum === alphBetStr.indexOf(input[0])) {
-        result = replaceAt(0, alphBetStr[randNum], result);
-      } else if (randNum === alphBetStr.indexOf(input[1])) {
-        result = replaceAt(1, alphBetStr[randNum], result);
-      }
+    if (input[0] === input[1] && randNum === alphBetStr.indexOf(input[0])) {
+      result = replaceAt(0, alphBetStr[randNum], result);
+      result = replaceAt(1, alphBetStr[randNum], result);
+    }
+    // handling two different input letters
+    else if (randNum === alphBetStr.indexOf(input[0])) {
+      result = replaceAt(0, alphBetStr[randNum], result);
+    } else if (randNum === alphBetStr.indexOf(input[1])) {
+      result = replaceAt(1, alphBetStr[randNum], result);
     }
   }
   return result;
@@ -52,4 +49,3 @@ console.log(
     makeResult("N") +
     makeResult("!")
 );
-
