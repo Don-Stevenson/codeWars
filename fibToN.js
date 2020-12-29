@@ -14,7 +14,7 @@
 
 // generate a list of numbers
 // create a list of fib numbers to n
-// *********************************
+// **********************************
 
 const fib = n => {
   if (n >= 0) return getPostiveFib(n);
