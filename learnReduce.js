@@ -1,3 +1,6 @@
+// learn Reduce
+// ************
+
 // const array = [1, 2, 3, 4, 5, 6, 7];
 
 const { add } = require("date-fns");
@@ -8,7 +11,7 @@ const { add } = require("date-fns");
 //   c: 3
 // }
 
-const reducer = (accumalator, currentVal, currentIndex, array) => {
+const reducerFunc = (accumalator, currentVal, currentIndex, array) => {
   console.log(`
   accumalator is: ${accumalator}
   current Value: ${currentVal}
@@ -18,7 +21,7 @@ const reducer = (accumalator, currentVal, currentIndex, array) => {
 };
 
 // takes in a an array and the runs a callback function on the array
-// let reducedArray = array.reduce(reducer);
+// let reducedArray = array.reduce(reducerFunc);
 
 // in this case should expect 28 to be the answer
 // console.log(reducedArray);
@@ -37,10 +40,10 @@ const addObj = {
 // const total =
 // Getts the values out of add object
 // Object.values(addObj).reduce((t, value) => t + value);
-// reduce where t is the accumalor, then value from each key
+// reduce where t is the accumilator, then value from each key
 // console.log(total); // 6
 
 // object values returns an array of values, that you can run .reduce on and use the function called reduce in
-Object.values(addObj).reduce(reducer)
+Object.values(addObj).reduce(reducerFunc)
 
 // console.log(Object.values(addObj))
