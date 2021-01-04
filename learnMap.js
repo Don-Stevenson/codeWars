@@ -1,3 +1,5 @@
+// learning map
+// ************
 
 // takes in an array, transforms it with a function 
 // and returns a new array
