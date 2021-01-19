@@ -18,4 +18,9 @@ const addTwoNums = (A, B) => A + B;
 const substractTwoNums = (A, B) => A - B ;
 
 
-console.log(substractTwoNums(11, 33))
+// console.log(substractTwoNums(11, 33))
+
+
+const divideTwoNums = (A, B) => A / B ;
+
+console.log(divideTwoNums(25,2))
