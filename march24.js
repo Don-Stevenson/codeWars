@@ -23,4 +23,8 @@ const substractTwoNums = (A, B) => A - B ;
 
 const divideTwoNums = (A, B) => A / B ;
 
-console.log(divideTwoNums(25,2))
+// console.log(divideTwoNums(25,2))
+
+const mulitplyTwoNums = (A, B) => A  *B ;
+
+console.log(multiplyTwoNums(25,2))
