@@ -31,4 +31,8 @@ const mulitplyTwoNums = (A, B) => A  *B ;
 
 const squareOneNum = (A) => A * A ;
 
-console.log(squareOneNum(12))
+// console.log(squareOneNum(9))
+
+const sqrRootNum = (A) => Math.sqrt(A) ;
+
+console.log(sqrRootNum(81))
