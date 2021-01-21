@@ -27,4 +27,8 @@ const divideTwoNums = (A, B) => A / B ;
 
 const mulitplyTwoNums = (A, B) => A  *B ;
 
-console.log(multiplyTwoNums(25,2))
+// console.log(multiplyTwoNums(25,2))
+
+const squareOneNum = (A) => A * A ;
+
+console.log(squareOneNum(12))
