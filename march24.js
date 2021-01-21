@@ -35,4 +35,4 @@ const squareOneNum = (A) => A * A ;
 
 const sqrRootNum = (A) => Math.sqrt(A) ;
 
-console.log(sqrRootNum(81))
+// console.log(sqrRootNum(81))
