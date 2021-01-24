@@ -2,14 +2,14 @@ let arrOfObjects = [
   {
     a: "1",
     b: "2",
-    c: "3"
+    c: "3",
   },
 
   {
     a: "4",
     b: "5",
-    c: "6"
-  }
+    c: "6",
+  },
 ];
 
 // arrOfObjects.forEach(element => {
@@ -34,13 +34,14 @@ let arrOfObjects = [
 //   };
 // });
 
-arrOfObjects.forEach( item => {
-   item.a = 3
-   item.dead = true
-   
-})
+arrOfObjects.forEach((item) => {
+  item.a = 3;
+  item.dead = true;
+});
 
-console.log(arrOfObjects)
+
+arrOfObjects.map((e)=> (e.d = true))
+console.log(arrOfObjects);
 // console.log(newThing2)
 // console.log(newThing1, newThing2);
 
