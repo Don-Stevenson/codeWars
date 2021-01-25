@@ -1,14 +1,14 @@
 let arrOfObjects = [
   {
-    a: "1",
-    b: "2",
-    c: "3",
+    a: 1,
+    b: 2,
+    c: 3,
   },
 
   {
-    a: "4",
-    b: "5",
-    c: "6",
+    a: 4,
+    b: 5,
+    c: 6,
   },
 ];
 
@@ -40,7 +40,7 @@ arrOfObjects.forEach((item) => {
 });
 
 
-arrOfObjects.map((e)=> (e.d = true))
+arrOfObjects.map((e)=> (e.b = e.b * 2 ))
 console.log(arrOfObjects);
 // console.log(newThing2)
 // console.log(newThing1, newThing2);
