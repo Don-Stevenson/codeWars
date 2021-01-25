@@ -34,14 +34,15 @@ let arrOfObjects = [
 //   };
 // });
 
-arrOfObjects.forEach((item) => {
-  item.a = 3;
-  item.dead = true;
-});
+console.log("before",{arrOfObjects});
+// arrOfObjects.forEach((item) => {
+//   item.a = 3;
+//   item.dead = true;
+// });
 
 
-arrOfObjects.map((e)=> (e.b = e.b * 2 ))
-console.log(arrOfObjects);
+arrOfObjects.map((e)=> (e.c = e.c * 2 ))
+console.log("after", {arrOfObjects});
 // console.log(newThing2)
 // console.log(newThing1, newThing2);
 
