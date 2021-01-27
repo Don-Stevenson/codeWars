@@ -34,15 +34,16 @@ let arrOfObjects = [
 //   };
 // });
 
-console.log("before",{arrOfObjects});
+console.log("before", { arrOfObjects });
 // arrOfObjects.forEach((item) => {
 //   item.a = 3;
 //   item.dead = true;
 // });
 
+arrOfObjects.map((e) => (e.c = e.c * 2));
+console.log("after", { arrOfObjects });
 
-arrOfObjects.map((e)=> (e.c = e.c * 2 ))
-console.log("after", {arrOfObjects});
+console.log("filter", arrOfObjects.filter((e) => e.a >= 3));
 // console.log(newThing2)
 // console.log(newThing1, newThing2);
 
