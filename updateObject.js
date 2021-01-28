@@ -34,22 +34,30 @@ let arrOfObjects = [
 //   };
 // });
 
+// console logging the array of objects before map
+// ***********************************************
 console.log("before", { arrOfObjects });
+
+// running a map to update the values at e.c in array of values
+// ***********************************************
+arrOfObjects.map((e) => (e.c = e.c * 2));
+
+// console logging the array of objects after map
+// ***********************************************
+console.log("after", { arrOfObjects });
+
+// update the object using a forEach call
+// **************************************
 // arrOfObjects.forEach((item) => {
 //   item.a = 3;
 //   item.dead = true;
 // });
 
-arrOfObjects.map((e) => (e.c = e.c * 2));
-console.log("after", { arrOfObjects });
 
+// console logging a filter where e.a values are greater or equal to 3
+// *******************************************************************
 console.log(
   "filter",
   arrOfObjects.filter((e) => e.a >= 3)
 );
-// console.log(newThing2)
-// console.log(newThing1, newThing2);
 
-// console.log(arrOfObjects);
-
-// console.log("arr of objs is : ", arrOfObjects);
