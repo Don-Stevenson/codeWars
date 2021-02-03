@@ -1,5 +1,6 @@
 const doesFoo = (a = "foo") => {
-  console.log(`${a}foo has been completed`);
+    a = "junk"
+  console.log(`${a} has been completed`);
 };
 
 doesFoo();
