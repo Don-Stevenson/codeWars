@@ -1,5 +1,5 @@
-const doesFoo = () => {
-  console.log("foo has been completed");
+const doesFoo = (a = "foo") => {
+  console.log(`${a}foo has been completed`);
 };
 
 doesFoo();
