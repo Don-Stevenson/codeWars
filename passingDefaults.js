@@ -2,7 +2,10 @@
 // ************************************************************
 
 const doesFoo = (a = "foo") => {
-    console.log(`${a} has been completed`);
+  // when a is foo
+  console.log(`${a} has been completed`);
+  
+  // when a is updated to junk
   a = "junk";
   console.log(`Now ${a} has been completed`);
 };
