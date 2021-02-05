@@ -1,3 +1,6 @@
+// A place to multiply two large numbers
+// *************************************
+
 //returns a large string but loses accuracy over 16 digits or so
 
 // const multiply = (a, b) => {
