@@ -1,5 +1,8 @@
-// with map and test
-// *****************
+// Function that returns Pig Latin from a given string
+// ***************************************************
+
+// with map, test and regex
+// ************************
 
 const pigIt = str => {
   let newStr = str.split(" ");
