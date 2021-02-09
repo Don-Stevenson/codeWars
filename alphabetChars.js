@@ -1,9 +1,11 @@
-function allLetters(str) {
-  let alpha = new Set("abcdefghijklmnopqrstuvwxyz")
+const containsAllLetters = (str) => {
+  const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
   for (let c of str.toLowerCase()) {
-    alpha.delete(c)
-    if (alpha.size == 0) return true
+    alpha.delete(c);
+    if (alpha.size === 0) return true;
   }
-  return false
-}
+  return false;
+};
 
+console.log(containsAllLetters("the quick brown fox jumps over the lazy brown dog"));
+console.log(containsAllLetters("the quic brown fox jumps over the lazy brown dog"));
