@@ -1,3 +1,9 @@
+// contains all letters?
+// *********************
+
+// a function that checks if a string contains all the letters from the alphabet
+
+
 const containsAllLetters = (str) => {
   const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
   for (let c of str.toLowerCase()) {
