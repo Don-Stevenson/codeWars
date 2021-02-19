@@ -2,7 +2,7 @@
 //  min and sec format
 // needs refactoring on the logic of mins, secs,
 // hours, but produces the requires and passes
-const date = new Date().toLocaleDateString("en-US");
+const date = new Date().toLocaleDateString("en-US", {weekday: "long", day: "numeric", month: "long"});
 console.log({ date });
 
 const humanReadable = (seconds) => {
