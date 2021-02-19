@@ -2,6 +2,8 @@
 //  min and sec format
 // needs refactoring on the logic of mins, secs,
 // hours, but produces the requires and passes
+const date = new Date();
+console.log({ date });
 
 const humanReadable = (seconds) => {
   let mins = Math.floor(seconds / 60);
@@ -19,5 +21,5 @@ const humanReadable = (seconds) => {
     hours = `0${hours}`;
   }
   return `${hours}:${minRemain}:${secsRemain}`;
-}
+};
 console.log(humanReadable(30021));
