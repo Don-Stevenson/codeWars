@@ -1,3 +1,5 @@
+// function that turns a number of seconds into hour,
+//  min and sec format
 // needs refactoring on the logic of mins, secs,
 // hours, but produces the requires and passes
 
