@@ -14,9 +14,9 @@ const generateHashtag = str => {
   if (!str) return false;
   else if (str.length >= 140) return false;
   else {
-    let newStrArr = str.trim().split(" ");
+    const newStrArr = str.trim().split(" ");
     let newArr = [];
-    newStrArr.forEach(element => {
+    newStrArr.map(element => {
       newArr.push(element.charAt(0).toUpperCase() + element.slice(1));
     });
     return `#${newArr.join("")}`;
