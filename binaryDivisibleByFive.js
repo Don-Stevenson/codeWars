@@ -1,6 +1,6 @@
 const divisibleByFive = (str) => {
     // convert binary num in string to a number
-    let num = parseInt(str, 2)
+    const num = parseInt(str, 2)
     // prints out what the number is
     console.log("str is ", num)
 
