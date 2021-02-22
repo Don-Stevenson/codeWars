@@ -40,7 +40,7 @@ console.log("before", { arrOfObjects });
 
 // running a map to update the values at e.c in array of values
 // ***********************************************
-arrOfObjects.map((e) => (e.c = e.c * 2));
+arrOfObjects.map(e => (e.c = e.c * 2));
 
 // console logging the array of objects after map
 // ***********************************************
