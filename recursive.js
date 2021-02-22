@@ -1,5 +1,5 @@
 // practicing recursion to find embeded elements with in an array
-//**************************************************************/
+// **************************************************************
 
 let arr = [[[[[1, [[2, [[3, ['b']]]]]]]]]]
 
@@ -17,7 +17,7 @@ const findLetterB = (arr) => {
 console.log(findLetterB(arr))
 
 // counting up with recursion
-//***************************/
+// **************************
 const countUsingRecursion = (count) => {
     while (count < 10) {
         console.log(count);
@@ -39,7 +39,7 @@ const countDownFrom = (count) => {
 // console.log(countDownFrom(10))
 
 // old way of counting up, c style loop
-//*************************************/
+// *************************************
 const oldCounter = (countTo) => {
     for (let i = 0; i <= countTo; i++) {
         console.log(`the count is: ${i}`);
@@ -49,7 +49,7 @@ const oldCounter = (countTo) => {
 // oldCounter(10);
 
 // old way of counting down, c style loop 
-//***************************************/
+// ***************************************
 const oldCountDown = (countFrom) => {
     for (let i = countFrom; i >= 0; i--) {
         console.log(`the count is: ${i}`);
