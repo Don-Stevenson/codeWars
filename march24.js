@@ -1,7 +1,7 @@
 // basic function that adds one
 // ****************************
 
-const addOne = (num) => num++;
+const addOne = num => num++;
 // console.log(addOne(8));
 
 
@@ -51,7 +51,7 @@ const mulitplyTwoNums = (A, B) => A  *B ;
 // basic function that sqaures a number
 // ************************************
 
-const squareOneNum = (A) => A * A ;
+const squareOneNum = A => A * A ;
 
 // console.log(squareOneNum(9))
 
@@ -61,6 +61,6 @@ const squareOneNum = (A) => A * A ;
 // basic function that finds the square root of a number
 // *****************************************************
 
-const sqrRootNum = (A) => Math.sqrt(A) ;
+const sqrRootNum = A => Math.sqrt(A) ;
 
 // console.log(sqrRootNum(81))
