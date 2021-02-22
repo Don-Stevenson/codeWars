@@ -1,4 +1,5 @@
 // learning filter ...
+// *******************
 
 const arr = [
   1,
@@ -44,18 +45,21 @@ const arr = [
 //     return array.filter(word => word.length > 3)
 // }
 
-// console.log(doubleDigitNos(arr))
+// console.log(arr.filter((element) => element >= 5));
 
 const isPrime = (num) => {
-  if (num <= 1) return false;
-  else if (num === 2) return true;
-  else {
-    for (let i = 2; i < num; i++) {
-      if (num % i === 0) {
-        return false;
-      } else return true;
+  let counter = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) {
+      counter++;
     }
   }
+  if (counter === 2) {
+    return true;
+  } else return false;
 };
 
-console.log(arr.filter(isPrime));
+// using filter to return an array of only prime nums by checking
+// if numbers are prime or not
+console.log(arr.filter((e) => isPrime(e)));
+// console.log(isPrime(9));
