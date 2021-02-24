@@ -3,7 +3,7 @@
 // *******************************************************
 
 const anagrams = (word, inputWords) => {
-  let wordSorted = word.split("").sort().join("");
+  const wordSorted = word.split("").sort().join("");
   let anagramArr = [];
   for (let word of inputWords) {
     const wordsSorted = word.split("").sort().join("");
