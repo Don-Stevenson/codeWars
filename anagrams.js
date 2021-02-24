@@ -1,5 +1,7 @@
-// function that checks a word against a sorted array of words
-// and returns an arrray of anagrams of the submitted word
+// function that checks a word against an array of submitted words
+// It returns an array of anagrams of the submitted word 
+// that match the array of submitted potenial anagagram words
+// face + [acef, feca, jerry, fac ] =>  [acef, feca]
 // *******************************************************
 
 const anagrams = (word, inputWords) => {
@@ -14,4 +16,4 @@ const anagrams = (word, inputWords) => {
   return anagramArr;
 };
 
-console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh"]));
+console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]));
