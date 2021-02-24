@@ -2,13 +2,13 @@
 // and returns an arrray of anagrams of the submitted word
 // *******************************************************
 
-const anagrams = (word, words) => {
+const anagrams = (word, inputWords) => {
   let wordSorted = word.split("").sort().join("");
   let anagramArr = [];
-  for (let item of words) {
-    const wordsSorted = item.split("").sort().join("");
+  for (let word of inputWords) {
+    const wordsSorted = word.split("").sort().join("");
     if (wordSorted === wordsSorted) {
-      anagramArr.push(item);
+      anagramArr.push(word);
     }
   }
   return anagramArr;
