@@ -1,14 +1,14 @@
 // takes in a string and splits the digits then organizes them, puts them in to a string
 const flipbits = str => str.split('').map(b => (1 - b).toString()).join('');
-console.log(flipbits('100'))
+// console.log(flipbits('100'))
 
 // to remove any zeros before the first 1
 const removeZeros = str => {
-  for (let i in str) {
+  for (const i in str) {
     if (str[i] == 1) return str.slice(i,str.length)
   }
 }
-// console.log(removeZeros('0010101000'))
+console.log(removeZeros('0010101000'))
 
 // takes in a base10 and returns number and regular number
 const changeAds = base10 => {
@@ -23,4 +23,4 @@ const changeAds = base10 => {
   return parseInt(mask,2);
 }
 
-console.log(changeAds(010))
+// console.log(changeAds(010))
