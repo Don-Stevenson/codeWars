@@ -7,7 +7,7 @@
 const anagrams = (word, inputWords) => {
   const wordSorted = word.split("").sort().join("");
   let anagramArr = [];
-  for (let word of inputWords) {
+  for (const word of inputWords) {
     const wordsSorted = word.split("").sort().join("");
     if (wordSorted === wordsSorted) {
       anagramArr.push(word);
