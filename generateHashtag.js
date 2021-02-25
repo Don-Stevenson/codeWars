@@ -9,7 +9,7 @@
 //   return `#${newArr.join("")}`;
 // };
 
-// with a forEach
+// with a map
 const generateHashtag = str => {
   if (!str) return false;
   else if (str.length >= 140) return false;
