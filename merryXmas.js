@@ -19,7 +19,7 @@ const makeResult = (input) => {
   let result = "";
 
   while (result !== input) {
-    let randNum = Math.floor(Math.random() * 28);
+    const randNum = Math.floor(Math.random() * 28);
 
     // handling double input letters
     if (input[0] === input[1] && randNum === alphBetStr.indexOf(input[0])) {
