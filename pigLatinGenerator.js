@@ -5,8 +5,8 @@
 // ************************
 
 const pigIt = str => {
-  const newStr = str.split(" ");
-  return pigLatinStr = newStr.map(element =>
+  const splitStr = str.split(" ");
+  return pigLatinStr = splitStr.map(element =>
     /[a-zA-Z]+/.test(element)
       ? element.slice(1) + element[0] + "ay"
       : element).join(" ")
