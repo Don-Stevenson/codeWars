@@ -1,7 +1,7 @@
 // a function to try out passing default values into a function
 // ************************************************************
 
-const doesFoo = (a = "foo") => {
+const doesFooThenJunk = (a = "foo") => {
   // when a is foo
   console.log(`${a} has been completed`);
   
@@ -10,4 +10,4 @@ const doesFoo = (a = "foo") => {
   console.log(`Now ${a} has been completed`);
 };
 
-doesFoo();
+doesFooThenJunk();
