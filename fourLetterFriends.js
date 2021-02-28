@@ -1,6 +1,6 @@
-const friends = ["Ryan", "Jimmy", "123", "4", "Cool Man"];
+const friendsArr = ["Ryan", "Jimmy", "123", "4", "Cool Man"];
 
-const findFriend = (friends) => {
-  return (fourLetterFriends = friends.filter((element) => element.length === 4));
+const findFriend = (array) => {
+  return (fourLetterFriends = array.filter((element) => element.length === 4));
 };
-console.log(findFriend(friends));
+console.log(findFriend(friendsArr));
