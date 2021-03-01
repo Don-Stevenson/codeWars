@@ -14,12 +14,12 @@ const findLetterB = (arr) => {
     }
     return `didn't find 'b' anywhere`;
 }
-console.log(findLetterB(arr))
+// console.log(findLetterB(arr))
 
 // counting up with recursion
 // **************************
 const countUsingRecursion = (count) => {
-    while (count < 10) {
+    if (count < 10) {
         console.log(count);
         return countUsingRecursion(count + 1);
     }
@@ -30,13 +30,13 @@ const countUsingRecursion = (count) => {
 // counting down with recursion
 //*****************************/
 const countDownFrom = (count) => {
-    while (count >= 0) {
+    if (count > 0) {
         console.log(count);
         return countDownFrom(count - 1);
     }
     return count;
 }
-// console.log(countDownFrom(10))
+console.log(countDownFrom(10))
 
 // old way of counting up, c style loop
 // *************************************
