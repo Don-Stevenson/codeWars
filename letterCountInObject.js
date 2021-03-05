@@ -11,16 +11,17 @@
 
 const letterCounter = (word) => {
   let obj = {};
-  for (let i = 0; i < word.length; i++) {
-    // console.log(word[i]);
-    if (!obj[i]) {
-    //   console.log("right here", word[i]);
-      obj += word[i];
-      console.log("obj", Object.values(obj))
-    } else obj += word[i];
-    // console.log("hi", word[i]);
+  const wordLetters = word.split("");
+
+  for (const letter of wordLetters) {
+    const key = letter;
+    const val = 1;
+
+    if (obj[key]) {
+      obj[key] = obj[key] + 1;
+    } else obj[key] = val;
   }
   return obj;
 };
 
-letterCounter("hello");
+console.log(letterCounter("hello"))
