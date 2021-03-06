@@ -1,6 +1,6 @@
 //only returns the domain name, google, from https://google.com or other variations
 // ********************************************************************************
-const domainName = (url) => {
+const domainName = url => {
   const domainName = url
     .split("//")
     .pop()
