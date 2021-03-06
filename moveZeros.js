@@ -1,7 +1,7 @@
 // function that moves zeros to the end of an array
 // ************************************************
 
-const moveZeros = (arr) => {
+const moveZeros = arr => {
   let arrOfZeros = [];
   let arrWithoutZeros = [];
   for (const item of arr) {
