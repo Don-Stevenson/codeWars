@@ -8,7 +8,7 @@
 // console.log(countDownFromNumToZero(1000));
 
 
-const countDownTo = (num) =>  num < 10 ? console.log(num, countDownTo(num+=1)) : "done " + num
+const countDownTo = num =>  num < 10 ? console.log(num, countDownTo(num+=1)) : "done " + num
 
 console.log(countDownTo(0))
 
