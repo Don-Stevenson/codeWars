@@ -1,4 +1,5 @@
 // function that moves zeros to the end of an array
+// ************************************************
 
 const moveZeros = (arr) => {
   let arrOfZeros = [];
