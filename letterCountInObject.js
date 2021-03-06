@@ -10,7 +10,7 @@
 //}
 
 // declare the function and take in a word as a paramater
-const letterCounter = (word) => {
+const letterCounter = word => {
 
   // set an empty object
   let obj = {};

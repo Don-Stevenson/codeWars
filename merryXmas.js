@@ -15,7 +15,7 @@ const replaceAt = (index, char, str) => {
 
 // a function that takes in a string, generates a random number,
 // matches that number to the input and then returns a string with the correct output
-const makeResult = (input) => {
+const makeResult = input => {
   let result = "";
 
   while (result !== input) {
