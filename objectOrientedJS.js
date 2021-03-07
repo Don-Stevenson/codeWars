@@ -18,5 +18,7 @@ const mathify = (operation, a, b) => {
 };
 
 console.log(mathify("power", 3, 3));
+// expect 27
 
 console.log(mathify("root", 9));
+// expect 3
