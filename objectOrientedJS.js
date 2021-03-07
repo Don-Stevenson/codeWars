@@ -30,5 +30,11 @@ const mathify = (operation, a, b) => {
 console.log(mathify("power", 3, 3));
 // expect 27
 
+console.log(mathify("plus", 3, 3));
+// expect 6
+
+console.log(mathify("root", 3));
+// 1.7320508075688772
+
 console.log(mathify("rot", 9));
-// expect 3
+// expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
