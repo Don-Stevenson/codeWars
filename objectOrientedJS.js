@@ -15,8 +15,10 @@ const operationsObj = {
 // above object of operations and passes operations
 // ********************************************
 const mathify = (operation, a, b) => {
+  if (a) a = parseInt(a);
+  if (b) b = parseInt(b);
   if (!operation) {
-    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+    return "Try again, you must enter an operation";
   } else if (!a) {
     return "You must pass at least 1 valid number";
   } else if (
@@ -25,7 +27,7 @@ const mathify = (operation, a, b) => {
     (operation === "multiply" && !b) ||
     (operation === "divide" && !b)
   ) {
-    return "You must pass 2 valid numbers";
+    return "For this operation, you must pass 2 valid numbers";
   } else if (
     operation === "root" ||
     operation === "plus" ||
@@ -39,20 +41,20 @@ const mathify = (operation, a, b) => {
     return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
 };
 
-console.log(mathify("power", 3, 3));
-// expect 27
+// console.log(mathify("power", 3, 3));
+// // expect 27
 
-console.log(mathify("plus", 3));
-// expect You must pass 2 valid numbers
+// console.log(mathify("root", 3));
+// // expect 1.7320508075688772
 
-console.log(mathify("root", 3));
-// expect 1.7320508075688772
+// console.log(mathify("rot", 9));
+// // expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
 
-console.log(mathify("rot", 9));
-// expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+// console.log(mathify("", 3));
+// // expect "Try again, you must enter an operation";
 
-console.log(mathify("", 3));
-// expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+// console.log(mathify("power", ""));
+// // expect You must pass at least 1 valid number
 
-console.log(mathify("power", ""));
-// expect You must pass at least 1 valid number
+console.log(mathify("plus", "3", "4"));
+// expect 7
