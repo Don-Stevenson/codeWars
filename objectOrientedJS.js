@@ -1,5 +1,6 @@
 // object to store the different operations
 // and formula functions
+
 //******************************************
 const operationsObj = {
   plus: (a, b) => a + b,
@@ -14,7 +15,18 @@ const operationsObj = {
 // above object of operations and passes operations
 // ********************************************
 const mathify = (operation, a, b) => {
-  if (
+  if (!operation) {
+    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+  } else if (!a) {
+    return "You must pass at least 1 valid number";
+  } else if (
+    (operation === "plus" && !b) ||
+    (operation === "minus" && !b) ||
+    (operation === "multiply" && !b) ||
+    (operation === "divide" && !b)
+  ) {
+    return "You must pass 2 valid numbers";
+  } else if (
     operation === "root" ||
     operation === "plus" ||
     operation === "minus" ||
@@ -30,11 +42,17 @@ const mathify = (operation, a, b) => {
 console.log(mathify("power", 3, 3));
 // expect 27
 
-console.log(mathify("plus", 3, 3));
-// expect 6
+console.log(mathify("plus", 3));
+// expect You must pass 2 valid numbers
 
 console.log(mathify("root", 3));
-// 1.7320508075688772
+// expect 1.7320508075688772
 
 console.log(mathify("rot", 9));
 // expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+
+console.log(mathify("", 3));
+// expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+
+console.log(mathify("power", ""));
+// expect You must pass at least 1 valid number
