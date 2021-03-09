@@ -19,8 +19,10 @@ const mathify = (operation, a, b) => {
   if (b) b = parseInt(b);
   if (!operation) {
     return "Try again, you must enter an operation";
-  } else if (!a) {
+  } else if (!a || typeof a !== "number") {
     return "You must pass at least 1 valid number";
+  } else if (typeof b !== "number") {
+    return "you must pass two valid numbers";
   } else if (
     (operation === "plus" && !b) ||
     (operation === "minus" && !b) ||
@@ -56,5 +58,7 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("power", ""));
 // // expect You must pass at least 1 valid number
 
+// console.log(mathify("plus", "3", "4"));
+// // expect 7
+
 console.log(mathify("plus", "3", "4"));
-// expect 7
