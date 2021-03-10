@@ -30,3 +30,4 @@ const reverseString = str => str === "" ? "" : reverseString(str.substr(1)) + st
 
 
 console.log(reverseString("ABCDE"));
+// expect EDCBA
