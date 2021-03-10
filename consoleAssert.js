@@ -16,5 +16,6 @@ const doesArrContainTwo =  (arr) => {
         console.assert(element !== 2, "found the number 2")
     })
 }
+
 doesArrContainTwo(arr)
 // expect Assertion failed: found the number 2
