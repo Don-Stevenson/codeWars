@@ -8,5 +8,6 @@ const [monthNum, caldendarDateNum, year] = new Date()
   .split("/");
 console.log({ monthNum }, { caldendarDateNum }, { year });
 
+// expect:
 // 2021-03-13T16:28:46.930Z
 // { monthNum: '3' } { caldendarDateNum: '13' } { year: '2021' }
