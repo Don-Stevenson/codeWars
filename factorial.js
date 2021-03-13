@@ -10,3 +10,10 @@ const factorial = n => {
 };
 
 console.log(factorial(3));
+// expect 6
+
+console.log(factorial(10));
+// expect 3628800
+
+console.log(factorial(-6));
+// expect "the value must be between 0 and 12"
