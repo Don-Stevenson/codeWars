@@ -46,4 +46,13 @@ const addObj = {
 // object values returns an array of values, that you can run .reduce on and use the function called reduce in
 Object.values(addObj).reduce(reducerFunc)
 
-// console.log(Object.values(addObj))
+// expected results:
+// accumalator is: 2
+// current Value: 4
+// current Index: 1
+// array is: 2,4,6
+
+// accumalator is: 4
+// current Value: 6
+// current Index: 2
+// array is: 2,4,6,2
