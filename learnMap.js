@@ -19,3 +19,7 @@ const mappedArray = array.map(x => x * 3);
 
 console.log(`mapped array is: ${mappedArray} 
 array is still: ${array}`)
+
+// expect:
+// mapped array is: NaN,NaN,9,12,15,18,21 
+// array is still: a,b,3,4,5,6,7
