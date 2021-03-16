@@ -3,7 +3,8 @@
 
 const addOne = num => num++;
 // console.log(addOne(8));
-
+// expect 
+// 9
 
 
 // basic function that adds two numbers
@@ -12,7 +13,7 @@ const addOne = num => num++;
 const addTwoNums = (A, B) => A + B;
 
 // console.log(addTwoNums(11, 33))
-
+// expect 44
 
 
 
@@ -23,8 +24,9 @@ const substractTwoNums = (A, B) => A - B ;
 // ***************************************
 
 
-
 // console.log(substractTwoNums(11, 33))
+// expect
+// -22
 
 // basic function that divides two numbers
 // ***************************************
@@ -33,7 +35,8 @@ const divideTwoNums = (A, B) => A / B ;
 
 
 // console.log(divideTwoNums(25,2))
-
+// expect
+// 12.5
 
 
 
@@ -43,7 +46,8 @@ const divideTwoNums = (A, B) => A / B ;
 const mulitplyTwoNums = (A, B) => A  *B ;
 
 // console.log(multiplyTwoNums(25,2))
-
+// expect
+// 50
 
 
 
