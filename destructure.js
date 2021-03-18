@@ -7,8 +7,13 @@ const object = {
   c: () => console.log("hi there"),
 };
 
-const  {c, a} =  object ;
+const  {a, c} =  object ;
+
+const  {foo, barr} =  object ;
 
 console.log(a, c());
-// expect hi there
+// expect: hi there
 // 12 undefined
+
+console.log(foo, barr);
+// expect: undefined undefined
