@@ -10,4 +10,5 @@ const multiplyTwoNumbers = () => {
   return parseInt(args[0]) * parseInt(args[1])
 };
 
-console.log(multiplyTwoNumbers(args));
+console.log(multiplyTwoNumbers(args)) /* 3 4 */
+// expect 12
