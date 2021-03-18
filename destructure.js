@@ -22,5 +22,8 @@ console.log(foo, barr);
 // destructuring an array
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+
+// note that you can call the elements of an array any new variable you like 
 const [p, q, five] = arr;
 console.log("p, q, five: ", p, q, five);
+// expect: p, q, five:  1 2 3
