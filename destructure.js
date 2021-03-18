@@ -9,6 +9,7 @@ const object = {
 
 const  {a, c} =  object ;
 
+// must destructure into variables that already exist in object like a, b, c
 const  {foo, barr} =  object ;
 
 console.log(a, c());
