@@ -45,6 +45,7 @@ const data = [
 ];
 
 const { getDayOfYear } = require("date-fns");
+const { resourceLimits } = require("node:worker_threads");
 
 // make an array of objects depending on the interval given, eg 2, 4, 7, 28 days
 // initial it with default data in each object
@@ -111,3 +112,30 @@ const driverCSV = (data, driverLastName, dateInterval) => {
 };
 
 console.log(driverCSV(data, "Lastname1", 100));
+// expected results 
+// [
+//   {
+//     duration: 'Day 1 - Day 101',
+//     pickUp: 1,
+//     dropOff: 0,
+//     other: 1,
+//     start: 1,
+//     end: 101
+//   },
+//   {
+//     duration: 'Day 101 - Day 201',
+//     pickUp: 0,
+//     dropOff: 0,
+//     other: 0,
+//     start: 101,
+//     end: 201
+//   },
+//   {
+//     duration: 'Day 201 - Day 301',
+//     pickUp: 0,
+//     dropOff: 1,
+//     other: 0,
+//     start: 201,
+//     end: 301
+//   }
+// ]
