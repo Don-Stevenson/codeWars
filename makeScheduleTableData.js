@@ -11,7 +11,7 @@ const data = [
     taskType: "Other",
     updatedAt: "2020-07-29T02:34:34.782Z",
     __v: 0,
-    _id: "5f20ddf06cbe4e1c039f646f"
+    _id: "5f20ddf06cbe4e1c039f646f",
   },
   {
     createdAt: "2020-07-29T02:24:48.174Z",
@@ -25,7 +25,7 @@ const data = [
     taskType: "Pick Up",
     updatedAt: "2020-07-29T02:34:34.782Z",
     __v: 0,
-    _id: "5f20ddf06cbe4e1c039f646f"
+    _id: "5f20ddf06cbe4e1c039f646f",
   },
 
   {
@@ -40,8 +40,8 @@ const data = [
     taskType: "Drop Off",
     updatedAt: "2020-07-29T02:34:35.782Z",
     __v: 0,
-    _id: "5f20ddf06cbe4e1c039f646h"
-  }
+    _id: "5f20ddf06cbe4e1c039f646h",
+  },
 ];
 
 const { getDayOfYear } = require("date-fns");
@@ -50,7 +50,7 @@ const { resourceLimits } = require("node:worker_threads");
 // make an array of objects depending on the interval given, eg 2, 4, 7, 28 days
 // initial it with default data in each object
 // *******************************************
-const makeDurationObj = givenNoOfDays => {
+const makeDurationObj = (givenNoOfDays) => {
   const iterator = 365 - givenNoOfDays;
   const objectArr = [];
   for (let i = 1; i <= iterator; i += givenNoOfDays) {
@@ -60,7 +60,7 @@ const makeDurationObj = givenNoOfDays => {
       dropOff: 0,
       other: 0,
       start: i,
-      end: i + givenNoOfDays
+      end: i + givenNoOfDays,
     };
 
     objectArr.push(durationObj);
@@ -72,7 +72,7 @@ const makeDurationObj = givenNoOfDays => {
 // whether a specific task is present
 // **************************************************************
 const updateDurationObj = (durationObj, taskList) => {
-  taskList.forEach(element => {
+  taskList.forEach((element) => {
     const dayOfYear = getDayOfYear(Date.parse(element.date));
 
     for (let i = 0; i < durationObj.length; i++) {
@@ -102,7 +102,7 @@ const updateDurationObj = (durationObj, taskList) => {
 // **************************************************************
 
 const driverCSV = (data, driverLastName, dateInterval) => {
-  const driverTasks = data.filter(currentTask => {
+  const driverTasks = data.filter((currentTask) => {
     return currentTask.driverLastName === driverLastName;
   });
 
@@ -112,7 +112,7 @@ const driverCSV = (data, driverLastName, dateInterval) => {
 };
 
 console.log(driverCSV(data, "Lastname1", 100));
-// expected results 
+// expected results
 // [
 //   {
 //     duration: 'Day 1 - Day 101',
