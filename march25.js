@@ -2,17 +2,16 @@
 // with split, reverse and join
 // ***************************
 
-const reverseStringSplitRerverseJoin = str => {
-  let reverseStr = str
-    .split("")
-    .reverse()
-    .join("");
+const reverseStringSplitRerverseJoin = (str) => {
+  let reverseStr = str.split("").reverse().join("");
   return reverseStr;
 };
 
+console.log(reverseStringSplitRerverseJoin("ABCDE"));
+
 // with a c style loop
 
-const reverseStringCStyleLoop = str => {
+const reverseStringCStyleLoop = (str) => {
   if (str === "") return "";
   else {
     let newStr = "";
@@ -23,11 +22,13 @@ const reverseStringCStyleLoop = str => {
   }
 };
 
+console.log(reverseStringCStyleLoop("ABCDE"));
+
 // with recursion
 // **************
 
 const reverseStringRecursion = (str) =>
   str === "" ? "" : reverseString(str.substr(1)) + str.charAt(0);
 
-console.log(reverseString("ABCDE"));
+console.log(reverseStringRecursion("ABCDE"));
 // expect EDCBA
