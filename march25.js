@@ -2,7 +2,7 @@
 // with split, reverse and join
 // ***************************
 
-const reverseString = str => {
+const reverseStringSplitRerverseJoin = str => {
   let reverseStr = str
     .split("")
     .reverse()
@@ -12,7 +12,7 @@ const reverseString = str => {
 
 // with a c style loop
 
-const reverseString = str => {
+const reverseStringCStyleLoop = str => {
   if (str === "") return "";
   else {
     let newStr = "";
@@ -26,7 +26,7 @@ const reverseString = str => {
 // with recursion
 // **************
 
-const reverseString = (str) =>
+const reverseStringRecursion = (str) =>
   str === "" ? "" : reverseString(str.substr(1)) + str.charAt(0);
 
 console.log(reverseString("ABCDE"));
