@@ -1,7 +1,5 @@
 const arr = [1, 2, 3, 4, 5, 6];
 
-
-
 // with c style loop
 
 const cStyleLoop = function (arr) {
@@ -12,8 +10,6 @@ const cStyleLoop = function (arr) {
 
 cStyleLoop(arr);
 
-
-
 // with for of loop
 
 const forOfLoop = function (arr) {
@@ -22,8 +18,6 @@ const forOfLoop = function (arr) {
   }
 };
 forOfLoop(arr);
-
-
 
 // with forEach
 
