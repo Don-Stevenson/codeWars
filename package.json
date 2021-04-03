@@ -1,0 +1,29 @@
+{
+  "name": "codeWars",
+  "version": "1.0.0",
+  "description": "## My work with challenges found on codewars.",
+  "main": "addStrings.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "date-fns": "^2.15.0",
+    "mocha": "^8.3.2",
+    "prompts": "^2.3.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Don-Stevenson/codeWars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Don-Stevenson/codeWars/issues"
+  },
+  "homepage": "https://github.com/Don-Stevenson/codeWars#readme"
+}
