@@ -36,3 +36,10 @@ useAnon(() => console.log("hi there"));
 
 console.log(()=> console.log("Im here"))
 // expect [function]
+
+
+
+//trying an anonmyous function 
+
+ ()=> {console.log("Im here")}
+// expect nthining because it is never called;
