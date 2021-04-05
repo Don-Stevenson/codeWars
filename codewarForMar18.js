@@ -1,6 +1,7 @@
 // takes in an array and mulitplies by given number
 // with forEach
-// // ************************************************
+// ************************************************
+//
 // const multiplyByX = (arr, num) => {
 //   let newArr = [];
 //   arr.forEach(element => {
@@ -28,3 +29,4 @@ const multiplyByX = (arr, num) => {
 };
 
 console.log(multiplyByX([1, 2, 3], 3));
+// expect : [ 3, 6, 9 ]
