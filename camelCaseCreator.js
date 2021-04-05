@@ -30,3 +30,4 @@ const toCamelCase = str => {
 };
 
 console.log(toCamelCase("snakes on a plane"));
+// expect : snakesOnAPlane
