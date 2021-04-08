@@ -13,6 +13,7 @@ const removeZeros = (str) => {
   }
 };
 console.log(removeZeros("0010101000"));
+// expect 10101000
 
 // takes in a base10 and returns number and regular number
 const changeAds = (base10) => {
@@ -27,4 +28,5 @@ const changeAds = (base10) => {
   return parseInt(mask, 2);
 };
 
-// console.log(changeAds(010))
+console.log(changeAds(010))
+// expect 7
