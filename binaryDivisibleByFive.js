@@ -10,3 +10,8 @@ const divisibleByFive = (str) => {
 
 console.log(divisibleByFive('001'))
 console.log(divisibleByFive('1010101010010001'))
+// expect
+// str is  1
+// false
+// str is  43665
+// true
