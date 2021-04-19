@@ -20,7 +20,13 @@ const fib = (n) => {
   if (n >= 0) return getPostiveFib(n);
   else {
     // handling fibonacci of negative numbers
-    return Math.pow(-1, -n + 1) * getPostiveFib(n);
+    // from wikipedia the formula is: F-n = (-1)n+1 x Fn;
+    const negativeOneToNPlusOne = Math.pow(-1, -n + 1);
+    const posFib = getPostiveFib(-n);
+
+    console.log({ negativeOneToNPlusOne }, { posFib });
+
+    return negativeOneToNPlusOne * posFib;
   }
 };
 
@@ -32,20 +38,21 @@ const getPostiveFib = (num) => {
   num = num - 1;
 
   while (num >= 0) {
-    
     (temp = a), (a = a + b);
     b = temp;
     num--;
-    console.log({ b });
   }
   return b;
 };
 
-console.log(getPostiveFib(50));
+// console.log(getPostiveFib(50));
 // expect 12586269025
 
-console.log(fib(-16));
-// expect -8
+console.log(fib(-8));
+// expect -21
 
-console.log(fib(6));
-// // expect 8n
+console.log(fib(-12));
+// expect -144
+
+// console.log(fib(6));
+// // expect 8
