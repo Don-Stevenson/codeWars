@@ -17,10 +17,10 @@
 // *********************************
 
 const fib = (n) => {
-  if (n >= 0) return getPostiveFib(-n);
+  if (n >= 0) return getPostiveFib(n);
   else {
     // handling fibonacci of negative numbers
-    return BigInt(Math.pow(-1, -n + 1)) * getPostiveFib(n);
+    return Math.pow(-1, -n + 1) * getPostiveFib(n);
   }
 };
 
@@ -44,8 +44,8 @@ const getPostiveFib = (num) => {
 console.log(getPostiveFib(50));
 // expect 12586269025
 
-console.log(fib(-6));
+console.log(fib(-16));
 // expect -8
 
-// console.log(fib(6));
+console.log(fib(6));
 // // expect 8n
