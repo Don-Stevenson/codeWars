@@ -23,9 +23,6 @@ const fib = (n) => {
     // from wikipedia the formula is: F-n = (-1)n+1 x Fn;
     const negativeOneToNPlusOne = Math.pow(-1, -n + 1);
     const posFib = getPostiveFib(-n);
-
-    console.log({ negativeOneToNPlusOne }, { posFib });
-
     return negativeOneToNPlusOne * posFib;
   }
 };
