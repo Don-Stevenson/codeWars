@@ -51,5 +51,8 @@ console.log(fib(-8));
 console.log(fib(-12));
 // expect -144
 
-// console.log(fib(6));
-// // expect 8
+console.log(fib(6));
+// expect 8
+
+console.log(fib(15));
+// expect 610
