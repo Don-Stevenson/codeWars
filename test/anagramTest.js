@@ -1,15 +1,6 @@
 const assert = require("assert");
 
-const anagrams = (word, inputWords) => {
-  const inputWordSorted = word.split("").sort().join("");
-  let anagramArr = [];
-  inputWords.map((element) => {
-    if (inputWordSorted === element.split("").sort().join("")) {
-      anagramArr.push(element);
-    }
-  });
-  return anagramArr;
-};
+const { anagrams } = require("../anagrams");
 
 describe("Array", () => {
   describe("#anagrams()", () => {
