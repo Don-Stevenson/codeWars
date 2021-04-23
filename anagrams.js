@@ -30,3 +30,5 @@ const anagrams = (word, inputWords) => {
 
 console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]));
 // expect [ 'hello', 'ehllo', 'olelh' ]
+
+module.exports = { anagrams };
