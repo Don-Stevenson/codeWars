@@ -56,3 +56,5 @@ console.log(fib(6));
 
 console.log(fib(15));
 // expect 610
+
+module.exports ={fib, getPostiveFib}
