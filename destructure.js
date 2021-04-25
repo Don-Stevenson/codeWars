@@ -29,5 +29,5 @@ const [p, q, five] = arr;
 
 const addTwoDigits = (a, b) => a + b;
 
-console.log(addTwoDigits(p,q))
+console.log(addTwoDigits(p, q));
 // expect 3
