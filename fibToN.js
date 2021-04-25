@@ -43,7 +43,7 @@ const getPostiveFib = (num) => {
 };
 
 console.log(getPostiveFib(-50));
-// expect 12586269025
+// expect 0
 
 // console.log(fib(-8));
 // // expect -21
