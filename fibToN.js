@@ -42,7 +42,7 @@ const getPostiveFib = (num) => {
   return b;
 };
 
-// console.log(getPostiveFib(50));
+console.log(getPostiveFib(-50));
 // expect 12586269025
 
 // console.log(fib(-8));
@@ -55,6 +55,7 @@ const getPostiveFib = (num) => {
 // // expect 8
 
 // console.log(fib(15));
+
 // // expect 610
 
 module.exports ={fib, getPostiveFib}
