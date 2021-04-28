@@ -24,3 +24,4 @@ const generateHashtag = str => {
 };
 
 console.log(generateHashtag("  code   wars   "));
+// expect #CodeWars
