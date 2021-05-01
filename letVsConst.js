@@ -3,11 +3,11 @@ const cstyleLoop = () => {
     console.log(`this is ${i}`);
   }
 };
-// calls the above function
+// calls the above function but won't run because of the below problem
 cstyleLoop();
 
 // console will yell because you can't rename a varible
-//  after it's been named with const
+// after it's been named with const
 var cstyleLoop = () => {
   console.log("hello");
 };
