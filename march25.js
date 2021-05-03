@@ -23,6 +23,8 @@ const reverseStringCStyleLoop = (str) => {
 };
 
 console.log(reverseStringCStyleLoop("ABCDE"));
+// expect EDCBA
+
 
 // with recursion
 // **************
