@@ -10,7 +10,25 @@
 
 const countDownTo = num =>  num < 10 ? console.log(num, countDownTo(num+=1)) : "done " + num
 
-console.log(countDownTo(0))
+countDownTo(0)
+
+// expect
+// 9 done 10
+// 8 undefined
+// 7 undefined
+// 6 undefined
+// 5 undefined
+// 4 undefined
+// 3 undefined
+// 2 undefined
+// 1 undefined
+// 0 undefined
+
+
+
+
+
+
 
 // let arr = [1,2,3,[4]]
 
