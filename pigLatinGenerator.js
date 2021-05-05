@@ -21,3 +21,5 @@ const pigIt = str => {
 
 
 console.log(pigIt("hello Pig latin is cool"));
+// expect
+// ellohay igPay atinlay siay oolcay
