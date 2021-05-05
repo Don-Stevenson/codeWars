@@ -11,3 +11,6 @@ const doesFooThenJunk = (a = "foo") => {
 };
 
 doesFooThenJunk();
+// expect 
+// foo has been completed
+// Now junk has been completed
