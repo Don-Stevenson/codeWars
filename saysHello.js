@@ -3,3 +3,4 @@ const saysHello = () => {
 };
 
 console.log(saysHello());
+// expect "hello"
