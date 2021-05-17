@@ -17,7 +17,6 @@ const operationsObj = {
 const mathify = (operation, a, b) => {
   if (a) a = parseInt(a);
   if (b) b = parseInt(b);
-  console.log({ a }, { b }, { operation });
   if (!operation) return "Try again, you must enter an operation";
   else if (!a || typeof a !== typeof 9)
     return "You must pass at least 1 valid number";
@@ -66,8 +65,8 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("minus", "3", "4"));
 // expect -1
 
-console.log(mathify("power", 2));
+// console.log(mathify("power", 2));
 // For this operation, you must pass 2 valid numbers
 
-console.log(mathify("power", 2,2))
+// console.log(mathify("power", 2,2))
 // expect 4
