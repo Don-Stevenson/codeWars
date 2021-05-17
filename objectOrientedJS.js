@@ -17,6 +17,16 @@ const operationsObj = {
 const mathify = (operation, a, b) => {
   if (a) a = parseInt(a);
   if (b) b = parseInt(b);
+  if (
+    operation !== "root" ||
+    operation !== "plus" ||
+    operation !== "minus" ||
+    operation !== "multiply" ||
+    operation !== "divide" ||
+    operation !== "power"
+  ) {
+    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+  }
   if (!operation) {
     return "Try again, you must enter an operation";
   } else if (!a || typeof a !== "number") {
@@ -39,8 +49,7 @@ const mathify = (operation, a, b) => {
     operation === "power"
   ) {
     return operationsObj[operation](a, b);
-  } else
-    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+  }
 };
 
 // console.log(mathify("power", 3, 3));
@@ -49,8 +58,8 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("root", 3));
 // // expect 1.7320508075688772
 
-// console.log(mathify("rot", 9));
-// // expect "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+console.log(mathify("root", 9));
+// // expect "Try again, operation must only be: plus, minus, multiply, divide, power, root;
 
 // console.log(mathify("", 3));
 // // expect "Try again, you must enter an operation";
@@ -61,4 +70,5 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("plus", "3", "4"));
 // // expect 7
 
-console.log(mathify("plus", "3", "4"));
+// console.log(mathify("minus", "3", "4"));
+// expect -1
