@@ -12,8 +12,8 @@ const operationsObj = {
 };
 
 // a higher order function that calls the
-// above object of operations and passes operations
-// ********************************************
+// above object of operations and passes in operations
+// ***************************************************
 const mathify = (operation, a, b) => {
   if (a) a = parseInt(a);
   if (b) b = parseInt(b);
