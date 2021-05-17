@@ -15,11 +15,16 @@ const operationsObj = {
 // above object of operations and passes in operations
 // ***************************************************
 const mathify = (operation, a, b) => {
+  // parses the integers
   if (a) a = parseInt(a);
   if (b) b = parseInt(b);
+
+  // check to see if the operation is present
   if (!operation) return "Try again, you must enter an operation";
+  // check to see if a is a number
   else if (!a || typeof a !== typeof 9)
     return "You must pass at least 1 valid number";
+  // check for two numbers present when calling the following operations
   else if (
     (operation === "plus" && !b) ||
     (operation === "minus" && !b) ||
@@ -28,10 +33,14 @@ const mathify = (operation, a, b) => {
     (operation === "power" && !b)
   )
     return "For this operation, you must pass 2 valid numbers";
+  // check for only one number if operation is "root"
   else if (operation === "root" && b)
     return "For root, you must only pass 1 number";
+  // run root
   else if (operation === "root") {
     return operationsObj[operation](a);
+
+    // run other operations
   } else if (
     operation === "plus" ||
     operation === "minus" ||
@@ -40,6 +49,7 @@ const mathify = (operation, a, b) => {
     operation === "power"
   )
     return operationsObj[operation](a, b);
+  // operation error message if the above fails
   else
     return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
 };
