@@ -21,9 +21,22 @@ const mathify = (operation, a, b) => {
 
   // check to see if the operation is present
   if (!operation) return "Try again, you must enter an operation";
+
+  // check to see if correct operations are passed in
+  else if (
+    operation !== "plus" ||
+    operation !== "minus" ||
+    operation !== "multiply" ||
+    operation !== "divide" ||
+    operation !== "power" ||
+    operation !== "root"
+  )
+    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
+
   // check to see if a is a number
-  else if (!a || typeof a !== typeof 9)
+  else if (!a || typeof a !== typeof 9)  
     return "You must pass at least 1 valid number";
+
   // check for two numbers present when calling the following operations
   else if (
     (operation === "plus" && !b) ||
@@ -33,10 +46,12 @@ const mathify = (operation, a, b) => {
     (operation === "power" && !b)
   )
     return "For this operation, you must pass 2 valid numbers";
+
   // check for only one number if operation is "root"
   else if (operation === "root" && b)
     return "For root, you must only pass 1 number";
-  // run root
+
+  // run root operation
   else if (operation === "root") {
     return operationsObj[operation](a);
 
@@ -49,9 +64,6 @@ const mathify = (operation, a, b) => {
     operation === "power"
   )
     return operationsObj[operation](a, b);
-  // operation error message if the above fails
-  else
-    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
 };
 
 // console.log(mathify("power", 3, 3));
@@ -62,6 +74,9 @@ const mathify = (operation, a, b) => {
 
 // console.log(mathify("rot", 9));
 // // expect "Try again, operation must only be: plus, minus, multiply, divide, power, root;
+
+// console.log(mathify("root", 9, 9));
+// expect For root, you must only pass 1 number
 
 // console.log(mathify("", 3));
 // // expect "Try again, you must enter an operation";
@@ -78,5 +93,5 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("power", 2));
 // For this operation, you must pass 2 valid numbers
 
-// console.log(mathify("power", 2,2))
+// console.log(mathify("power", 2, 2));
 // expect 4
