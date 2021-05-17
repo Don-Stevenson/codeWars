@@ -17,39 +17,28 @@ const operationsObj = {
 const mathify = (operation, a, b) => {
   if (a) a = parseInt(a);
   if (b) b = parseInt(b);
-  if (
-    operation !== "root" ||
-    operation !== "plus" ||
-    operation !== "minus" ||
-    operation !== "multiply" ||
-    operation !== "divide" ||
-    operation !== "power"
-  ) {
-    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
-  }
-  if (!operation) {
-    return "Try again, you must enter an operation";
-  } else if (!a || typeof a !== "number") {
+  if (!operation) return "Try again, you must enter an operation";
+  else if (!a || typeof a !== typeof 9)
     return "You must pass at least 1 valid number";
-  } else if (typeof b !== "number") {
-    return "you must pass two valid numbers";
-  } else if (
+  else if (
     (operation === "plus" && !b) ||
     (operation === "minus" && !b) ||
     (operation === "multiply" && !b) ||
     (operation === "divide" && !b)
-  ) {
+  )
     return "For this operation, you must pass 2 valid numbers";
-  } else if (
+  // else if (typeof b !== typeof 9) return "you must pass two valid numbers";
+  else if (
     operation === "root" ||
     operation === "plus" ||
     operation === "minus" ||
     operation === "multiply" ||
     operation === "divide" ||
     operation === "power"
-  ) {
+  )
     return operationsObj[operation](a, b);
-  }
+  else
+    return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
 };
 
 // console.log(mathify("power", 3, 3));
@@ -58,7 +47,7 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("root", 3));
 // // expect 1.7320508075688772
 
-console.log(mathify("root", 9));
+// console.log(mathify("rot", 9));
 // // expect "Try again, operation must only be: plus, minus, multiply, divide, power, root;
 
 // console.log(mathify("", 3));
@@ -67,7 +56,7 @@ console.log(mathify("root", 9));
 // console.log(mathify("power", ""));
 // // expect You must pass at least 1 valid number
 
-// console.log(mathify("plus", "3", "4"));
+console.log(mathify("plus", "3", "4"));
 // // expect 7
 
 // console.log(mathify("minus", "3", "4"));
