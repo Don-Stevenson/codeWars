@@ -27,16 +27,17 @@ const isPrime = (num) => {
     }
   }
   if (counter === 2) {
-    return true;
-  } else return false;
+    return `Yes, ${num} is a prime number.`;
+  } else return `No, ${num} is not a prime number.`;
 };
 
 // using filter to return an array of only prime nums by checking
 // if numbers are prime or not
-console.log(arr.filter((e) => isPrime(e)));
-// expect [
+// console.log(arr.filter((e) => isPrime(e)));
+// // expect [
 //    2,  3,  5,  7, 11,
 //    13, 17, 19, 23, 29
 //  ]
 
-// console.log(isPrime(9));
+console.log(isPrime(9));
+// No, 9 is not a prime number.
