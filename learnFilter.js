@@ -39,5 +39,9 @@ const isPrime = (num) => {
 //    13, 17, 19, 23, 29
 //  ]
 
-console.log(isPrime(9));
+// console.log(isPrime(9));
 // No, 9 is not a prime number.
+
+
+console.log(isPrime(5));
+// Yes, 5 is a prime number.
