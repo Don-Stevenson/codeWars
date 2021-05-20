@@ -11,3 +11,6 @@ const isValueAbove = (value) => (value > 0 ? true : false);
 
 console.log(arr.every(isValueAbove));
 // expect true
+
+console.log(negArr.every(isValueAbove));
+// expect false
