@@ -58,6 +58,7 @@ const mulitplyTwoNums = (A, B) => A  *B ;
 const squareOneNum = A => A * A ;
 
 // console.log(squareOneNum(9))
+// expect 81
 
 
 
@@ -68,3 +69,4 @@ const squareOneNum = A => A * A ;
 const sqrRootNum = A => Math.sqrt(A) ;
 
 // console.log(sqrRootNum(81))
+// expect 9
