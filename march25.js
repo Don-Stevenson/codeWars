@@ -7,7 +7,9 @@ const reverseStringSplitRerverseJoin = (str) => {
   return reverseStr;
 };
 
-console.log(reverseStringSplitRerverseJoin("ABCDE"));
+// console.log(reverseStringSplitRerverseJoin("ABCDE"));
+// expect EDCBA
+
 
 // with a c style loop
 
@@ -22,7 +24,7 @@ const reverseStringCStyleLoop = (str) => {
   }
 };
 
-console.log(reverseStringCStyleLoop("ABCDE"));
+// console.log(reverseStringCStyleLoop("ABCDE"));
 // expect EDCBA
 
 
@@ -32,5 +34,5 @@ console.log(reverseStringCStyleLoop("ABCDE"));
 const reverseStringRecursion = (str) =>
   str === "" ? "" : reverseString(str.substr(1)) + str.charAt(0);
 
-console.log(reverseStringRecursion("ABCDE"));
+// console.log(reverseStringRecursion("ABCDE"));
 // expect EDCBA
