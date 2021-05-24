@@ -23,3 +23,7 @@ const addOne = (groupOfNumbers) => {
 };
 
 console.log(addOne(array));
+// expect [
+// 2, 3, 4,  5, 6,
+// 7, 8, 9, 10
+// ]
