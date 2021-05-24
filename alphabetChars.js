@@ -14,7 +14,9 @@ const containsAllLetters = (str) => {
 };
 
 console.log(containsAllLetters("the quick brown fox jumps over the lazy brown dog"));
-console.log(containsAllLetters("the quic brown fox jumps over the lazy brown dog"));
 // expect:
 // true
+
+console.log(containsAllLetters("the quic brown fox jumps over the lazy brown dog"));
+// expect:
 // false
