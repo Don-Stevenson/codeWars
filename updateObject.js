@@ -57,7 +57,7 @@ console.log("after", { arrOfObjects });
 // console logging a filter where e.a values are greater or equal to 3
 // *******************************************************************
 console.log(
-  "filter",
+  "filtered : ",
   arrOfObjects.filter((e) => e.a >= 3)
 );
 
