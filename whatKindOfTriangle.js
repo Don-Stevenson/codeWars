@@ -35,3 +35,5 @@ console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
 console.log(whatKindOFTriangle(4, 3, 5, isTriangle));
 console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
 console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
+
+// expected results:
