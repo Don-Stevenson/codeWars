@@ -27,13 +27,30 @@ const whatKindOFTriangle = (a, b, c, callback) => {
   } else return `${a}, ${b}, ${c} do NOT represents the sides of a triangle.`;
 };
 
-console.log(whatKindOFTriangle(7, 7, 7, isTriangle));
-console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
-console.log(whatKindOFTriangle(4, 3, 4, isTriangle));
-console.log(whatKindOFTriangle(3, 4, 4, isTriangle));
-console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
-console.log(whatKindOFTriangle(4, 3, 5, isTriangle));
-console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
-console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
 
 // expected results:
+// ****************
+
+// console.log(whatKindOFTriangle(7, 7, 7, isTriangle));
+// 7, 7, 7 represents the sides of an equilateral triangle.
+
+// console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
+// 4, 4, 3 represents the sides of an isosceles triangle.
+
+// console.log(whatKindOFTriangle(4, 3, 4, isTriangle));
+// 4, 3, 4 represents the sides of an isosceles triangle.
+
+// console.log(whatKindOFTriangle(3, 4, 4, isTriangle));
+// 3, 4, 4 represents the sides of an isosceles triangle.
+
+// console.log(whatKindOFTriangle(4, 2, 6, isTriangle));
+// 4, 2, 6 represents the sides of an scalene triangle.
+
+// console.log(whatKindOFTriangle(4, 3, 5, isTriangle));
+// 4, 3, 5 represents the sides of a right triangle.
+
+// console.log(whatKindOFTriangle(18, 2, 7, isTriangle));
+// 18, 2, 7 do NOT represents the sides of a triangle.
+
+console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
+// 3, 4, 5 represents the sides of a right triangle.
