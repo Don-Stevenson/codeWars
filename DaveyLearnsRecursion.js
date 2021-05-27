@@ -5,8 +5,8 @@
 
 const nestedArray = [[[[[[[[[[[[[[[[["a"]]]]]]]]]]]]]]]]];
 
-const findsA = (arr) => {
-};
+const array = [1, 2, 3, "a", 5];
 
+const findsA = (arr) => {};
 
-findsA()
+findsA();
