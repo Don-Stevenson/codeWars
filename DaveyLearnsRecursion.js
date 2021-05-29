@@ -7,6 +7,10 @@ const nestedArray = [[[[[[[[[[[[[[[[["a"]]]]]]]]]]]]]]]]];
 
 const array = [1, 2, 3, "a", 5];
 
-const findsA = (arr) => {};
+const findsA = (arr) => {
+    for (const item of arr){
+        if (arr.isArray(item)) console.log("here");
+    }
+};
 
 findsA();
