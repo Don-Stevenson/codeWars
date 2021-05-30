@@ -3,7 +3,7 @@
 
 // make a function that finds a in a deeply nested array
 
-const nestedArray = [[[[[[[[[[[[[[[[[0, "a"]]]]]]]]]]]]]]]]];
+const nestedArray = [[[3,[[[[[[[[[[[[[[0, "a"]]]]]]]]]]]]]]]]];
 
 const array = [1, 2, 3, "a", 5];
 
@@ -21,4 +21,4 @@ const findsA = (arr) => {
   return "didn't find a";
 };
 
-findsA(array);
+console.log(findsA(nestedArray));
