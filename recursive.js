@@ -27,17 +27,6 @@ const findLetterB = (arr) => {
 // ...going to the next nested array
 // ...going to the next nested array
 // found b here
-// 10
-// 9
-// 8
-// 7
-// 6
-// 5
-// 4
-// 3
-// 2
-// 1
-// 0
 
 // counting up with recursion
 // **************************
