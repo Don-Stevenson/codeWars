@@ -11,7 +11,7 @@ const findsA = (arr) => {
   for (const item of arr) {
     console.log({ item });
     if (Array.isArray(item)) {
-      console.log("here at an array...");
+      console.log("here at an array, going down to the next level...");
       return findsA(item);
     }
     if (item === "a") {
@@ -21,4 +21,4 @@ const findsA = (arr) => {
   return "didn't find a";
 };
 
-console.log(findsA(nestedArray));
+console.log(findsA(array));
