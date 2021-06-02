@@ -3,15 +3,15 @@
 
 // make a function that finds a in a deeply nested array
 
-const nestedArray = [[[3, [[[[[[[[[[[[[[0, "a"]]]]]]]]]]]]]]]]];
+const nestedArray = [[[3, [[[[[[[[[[[[[[2, "a"]]]]]]]]]]]]]]]]];
 
-const array = [1, 2, 3, "a", 5];
+const array = [1, 2, 3, 4, 5, 6, 7, 8, "a", 5];
 
 const findsA = (arr) => {
   for (const item of arr) {
-    console.log({ item });
+    // console.log({ item });
     if (Array.isArray(item)) {
-      console.log("here at an array, going down to the next level...");
+      // console.log("here at an array, going down to the next level...");
       return findsA(item);
     }
     if (item === "a") {
