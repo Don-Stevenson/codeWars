@@ -1,10 +1,7 @@
-<?php>
-$num = 10;
-
-while ($num = 10) {
-    echo "hello";
-    $num ++;
-};
-
-
-?>
+<?php $user = "John"; ?>
+<html>
+<head></head>
+<body>
+Hello <?php echo $user; ?>!
+</body>
+</html>
