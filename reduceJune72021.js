@@ -2,10 +2,9 @@
 
 const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const addingFunction = (array) => {
-  array.map((value) => {
-    console.log({ value });
-  });
-};
+// a custom reducing function that adds up numbers
+const addingFunction = (accumulator, currentVal) => accumulator + currentVal;
 
-addingFunction(numArray);
+// callling the number array with Reduce and then passing in the adding the adding function
+console.log(numArray.reduce(addingFunction));
+// expect 45
