@@ -1,5 +1,5 @@
 // takes in a string and splits the digits then organizes them, puts them in to a string
-const flipbits = (str) =>
+const flipbits = str =>
   str
     .split("")
     .map((b) => (1 - b).toString())
@@ -16,7 +16,7 @@ console.log(removeZeros("0010101000"));
 // expect 10101000
 
 // takes in a base10 and returns number and regular number
-const changeAds = (base10) => {
+const changeAds = base10 => {
   //change base 10 into a string that is base 2
   const base2 = base10.toString(2);
   // console.log("base2 is", base2)
