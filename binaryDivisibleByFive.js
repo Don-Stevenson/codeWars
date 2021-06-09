@@ -1,4 +1,4 @@
-const divisibleByFive = (str) => {
+const divisibleByFive = str => {
     // convert binary num in string to a number
     const num = parseInt(str, 2)
     // prints out what the number is
