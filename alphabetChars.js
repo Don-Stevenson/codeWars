@@ -4,7 +4,7 @@
 // a function that checks if a string contains all the letters from the alphabet
 
 
-const containsAllLetters = (str) => {
+const containsAllLetters = str => {
   const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
   for (const c of str.toLowerCase()) {
     alpha.delete(c);
