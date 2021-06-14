@@ -55,7 +55,7 @@ const tryForEach = function (arr) {
 
 
 // with Map
-
+// ********
 const tryMap = (arr) => {
   arr.map((element) => console.log(element));
 };
