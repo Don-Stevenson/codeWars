@@ -9,6 +9,7 @@ const addElements = (array) => {
   for (let i = 0; i < array.length; i++) {
     // check to see if array element + 2 exists before adding the two values 
     if (array[i + 2]) console.log(array[i] + array[i + 2]);
+    else console.log("this element does not exist");
   }
 };
 
@@ -19,4 +20,5 @@ addElements(numArray);
 // 8
 // 10
 // 12
-
+// this element does not exist
+// this element does not exist
