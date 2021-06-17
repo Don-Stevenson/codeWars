@@ -7,9 +7,9 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 // }
 const addElements = (array) => {
   for (let i = 0; i < array.length; i++) {
-    // check to see if array element + 2 exists before adding the two values 
+    // check to see if array element + 2 exists before adding the two values
     if (array[i + 2]) console.log(array[i] + array[i + 2]);
-    else console.log("this element does not exist");
+    if (!array[i + 2]) console.log("this element does not exist");
   }
 };
 
