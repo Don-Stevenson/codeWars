@@ -18,9 +18,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 // with map
 
 const addElements = (array) => {
-  array.map(element, (index) => {
-    console.log({ element }, { index });
-  });
+  array.map(x =>  console.log(x));
 };
 
 addElements(numArray);
