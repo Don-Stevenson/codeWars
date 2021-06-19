@@ -20,7 +20,9 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 // map((element, index) => { ... } )
 
 const addElements = (array) => {
-  array.map((element, index) => console.log(element, index));
+  array.map((element, index) => {
+    console.log({ element }, { index });
+  });
 };
 
 addElements(numArray);
