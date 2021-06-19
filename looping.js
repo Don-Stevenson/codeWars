@@ -17,16 +17,18 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 
 // with map
 
+// map((element, index) => { ... } )
+
 const addElements = (array) => {
-  array.map(x =>  console.log(x));
+  array.map((element, index) => console.log(element, index));
 };
 
 addElements(numArray);
 // expect
-// 4
-// 6
-// 8
-// 10
-// 12
-// this element does not exist
-// this element does not exist
+// 1 0
+// 2 1
+// 3 2
+// 4 3
+// 5 4
+// 6 5
+// 7 6
