@@ -15,17 +15,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 //   }
 // };
 
-// with map
-
-// map((element, index) => { ... } )
-
-const addElements = (array) => {
-  array.map((element, index) => {
-    console.log({ element }, { index });
-  });
-};
-
-addElements(numArray);
+// console.log(addElements(numArray));
 // expect
 // 1 0
 // 2 1
@@ -34,3 +24,38 @@ addElements(numArray);
 // 5 4
 // 6 5
 // 7 6
+
+
+// with map
+
+// map((element, index) => { ... } )
+
+const addElements = (array) => {
+  let total = 0;
+  array.map((element, index) => {
+    console.log({ element }, { index });
+    total += element;
+    console.log({ total });
+  });
+  return total
+ };
+
+ console.log(addElements(numArray));
+
+// expect 
+// *******
+// { element: 1 } { index: 0 }
+// { total: 1 }
+// { element: 2 } { index: 1 }
+// { total: 3 }
+// { element: 3 } { index: 2 }
+// { total: 6 }
+// { element: 4 } { index: 3 }
+// { total: 10 }
+// { element: 5 } { index: 4 }
+// { total: 15 }
+// { element: 6 } { index: 5 }
+// { total: 21 }
+// { element: 7 } { index: 6 }
+// { total: 28 }
+// 28
