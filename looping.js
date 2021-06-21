@@ -26,7 +26,9 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 // 7 6
 
 
-// with map
+// with map -
+// functions like reduce. Haven't figured out how to call an index ahead 
+// of the current value efficiently with map
 // ********
 
 const addElements = (array) => {
