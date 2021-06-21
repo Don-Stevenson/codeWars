@@ -27,8 +27,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 
 
 // with map
-
-// map((element, index) => { ... } )
+// ********
 
 const addElements = (array) => {
   let total = 0;
