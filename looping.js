@@ -61,21 +61,22 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 // with reduce
 // ***********
 
-//  (accumalator, currentVal, currentIndex, array) 
-// 
+//  (accumalator, currentVal, currentIndex, array)
+//
 
+const reducer = (accum, cur, index, arr) => {
+  console.log({ accum }, { cur }, { index }, { arr });
+  return (accum += cur);
+};
 
 const addElements = (array) => {
-  return array.reduce((accum, cur, index, arr) => {
-    console.log({ accum }, { cur }, {index}, { arr });
-    return accum += cur;
-   });
+  return array.reduce(reducer);
 };
 
 console.log(addElements(numArray));
 
-// expect 
-// 
+// expect
+//
 // { accum: 1 } { cur: 2 } { index: 1 } { arr: [
 //   1, 2, 3, 4,
 //   5, 6, 7
