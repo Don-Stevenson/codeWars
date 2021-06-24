@@ -64,8 +64,9 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 //  (accumalator, currentVal, currentIndex, array)
 //
 
+
 const reducer = (accum, cur, index, arr) => {
-  console.log({ accum }, { cur }, { index }, { arr });
+  // console.log({ accum }, { cur }, { index }, { arr });
   return (accum += cur);
 };
 
@@ -74,7 +75,6 @@ const addElements = (array) => {
 };
 
 console.log(addElements(numArray));
-
 // expect
 //
 // { accum: 1 } { cur: 2 } { index: 1 } { arr: [
@@ -101,4 +101,7 @@ console.log(addElements(numArray));
 //   1, 2, 3, 4,
 //   5, 6, 7
 // ] }
+// 28
+
+// without console log
 // 28
