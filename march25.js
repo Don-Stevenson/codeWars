@@ -10,7 +10,6 @@ const reverseStringSplitRerverseJoin = (str) => {
 // console.log(reverseStringSplitRerverseJoin("ABCDE"));
 // expect EDCBA
 
-
 // with a c style loop
 
 const reverseStringCStyleLoop = (str) => {
@@ -26,7 +25,6 @@ const reverseStringCStyleLoop = (str) => {
 
 // console.log(reverseStringCStyleLoop("ABCDE"));
 // expect EDCBA
-
 
 // with recursion
 // **************
