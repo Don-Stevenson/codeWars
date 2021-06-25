@@ -4,9 +4,10 @@
 const moveZeros = (arr) => {
   let arrOfZeros = [];
   let arrWithoutZeros = [];
-  for (const item of arr) {
-    item === 0 ? arrOfZeros.push(item) : arrWithoutZeros.push(item);
-  }
+
+  arr.map((e) => {
+    e === 0 ? arrOfZeros.push(e) : arrWithoutZeros.push(e);
+  });
   return (finalArr = [...arrWithoutZeros, ...arrOfZeros]);
 };
 
