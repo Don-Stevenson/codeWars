@@ -24,7 +24,7 @@ jim();
 
 
 // higher order function that takes in and runs an anonymous function
-const useAnon = (funct) => {
+const useAnon = funct => {
   funct();
 };
 
