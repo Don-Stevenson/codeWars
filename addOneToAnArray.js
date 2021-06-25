@@ -6,7 +6,7 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // with a c style loop
 // *******************
 
-const addOne = (arr) => {
+const addOne = arr => {
   let addOneNumbers = [];
   for (let i = 0; i < arr.length; i++) {
     addOneNumbers.push(arr[i] + 1);
