@@ -16,7 +16,7 @@
 // create a list of fib numbers to n
 // *********************************
 
-const fib = (n) => {
+const fib = n => {
   if (n >= 0) return getPostiveFib(n);
   else {
     // handling fibonacci of negative numbers
@@ -28,7 +28,7 @@ const fib = (n) => {
 };
 
 // handling fibonacci of positive numbers
-const getPostiveFib = (num) => {
+const getPostiveFib = num => {
   let a = 1;
   let b = 0;
   let temp;
