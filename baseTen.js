@@ -7,7 +7,7 @@ const flipbits = str =>
 // console.log(flipbits('100'))
 
 // to remove any zeros before the first 1
-const removeZeros = (str) => {
+const removeZeros = str => {
   for (const i in str) {
     if (str[i] == 1) return str.slice(i, str.length);
   }
