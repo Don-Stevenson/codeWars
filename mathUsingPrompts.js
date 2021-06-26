@@ -4,7 +4,7 @@ const prompts = require("prompts");
 // Reject an empty value
 //************************************************************************
 
-const validateNum = (value) => {
+const validateNum = value => {
   if (value > 10000 || value < 0 || isNaN(parseFloat(value))) {
     return "Error!! Please enter a whole number between 0 and 10000";
   } else return true;
