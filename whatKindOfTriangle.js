@@ -27,7 +27,6 @@ const whatKindOFTriangle = (a, b, c, callback) => {
   } else return `${a}, ${b}, ${c} do NOT represents the sides of a triangle.`;
 };
 
-
 // expected results:
 // ****************
 
