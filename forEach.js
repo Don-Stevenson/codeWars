@@ -22,7 +22,7 @@ const cStyleLoop = function (arr) {
 
 // with for of loop
 
-const forOfLoop = function (arr) {
+const forOfLoop = (arr) => {
   for (const number of arr) {
     console.log(number);
   }
@@ -40,7 +40,7 @@ const forOfLoop = function (arr) {
 
 // with forEach
 
-const tryForEach = function (arr) {
+const tryForEach = (arr) => {
   arr.forEach((number) => console.log(number));
 };
 
