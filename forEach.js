@@ -5,7 +5,7 @@
 const arr = [1, 2, 3, 4, 5, 6];
 
 // with c style loop
-const cStyleLoop = function (arr) {
+const cStyleLoop = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
   }
@@ -37,7 +37,6 @@ const forOfLoop = (arr) => {
 // 5
 // 6
 
-
 // with forEach
 
 const tryForEach = (arr) => {
@@ -53,10 +52,9 @@ const tryForEach = (arr) => {
 // 5
 // 6
 
-
 // with Map
 // ********
-const tryMap = arr => {
+const tryMap = (arr) => {
   arr.map((element) => console.log(element));
 };
 
