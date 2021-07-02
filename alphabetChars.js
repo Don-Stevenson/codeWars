@@ -15,15 +15,19 @@
 // with map
 
 const containsAllLetters = (str) => {
+    // make a set with all letters of the alphabet
   const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
+  
+  // make the input string lowercase, then split it into an array
   str
     .toLowerCase()
     .split("")
+    // map over the string and delete from the alpha set each letter from the input string
     .map((e) => {
       alpha.delete(e);
     });
 
-  if (alpha.size === 0) return true;
+  if (!alpha.size) return true;
   else return false;
 };
 
