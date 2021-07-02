@@ -15,9 +15,9 @@
 // with map
 
 const containsAllLetters = (str) => {
-    // make a set with all letters of the alphabet
+  // make a set with all letters of the alphabet
   const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
-  
+
   // make the input string lowercase, then split it into an array
   str
     .toLowerCase()
@@ -27,8 +27,7 @@ const containsAllLetters = (str) => {
       alpha.delete(e);
     });
 
-  if (!alpha.size) return true;
-  else return false;
+  return !alpha.size ? true : false;
 };
 
 console.log(containsAllLetters("the quick brown fox jumps over the lazy dog"));
