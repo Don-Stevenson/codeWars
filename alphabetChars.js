@@ -16,18 +16,20 @@
 
 const containsAllLetters = (str) => {
   // make a set with all letters of the alphabet
-  const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
+  const alphaBet = new Set("abcdefghijklmnopqrstuvwxyz");
 
   // make the input string lowercase, then split it into an array
   str
     .toLowerCase()
     .split("")
-    // map over the string and delete from the alpha set each letter from the input string
+    // map over the string and delete from the alphabet set each letter from the input string
     .map((e) => {
-      alpha.delete(e);
+      // delete each element of the array alphabet
+      alphaBet.delete(e);
     });
 
-  return !alpha.size ? true : false;
+  // if alphabet array === 0, return true else return false
+  return !alphaBet.size ? true : false;
 };
 
 console.log(containsAllLetters("the quick brown fox jumps over the lazy dog"));
