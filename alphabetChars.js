@@ -28,7 +28,7 @@ const containsAllLetters = (str) => {
       alphaBet.delete(e);
     });
 
-  // if alphabet array === 0, return true else return false
+  // if alphabet array size is 0, return true else return false
   return !alphaBet.size ? true : false;
 };
 
