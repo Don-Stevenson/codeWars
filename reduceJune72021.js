@@ -8,6 +8,6 @@ const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const addingFunction = (accumulator, currentVal) =>
   accumulator + Math.pow(currentVal, 2);
 
-// callling the number array with Reduce and then passing in the adding the adding function
+// callling the number array with Reduce and then passing in the adding the adding squares function
 console.log(numArray.reduce(addingFunction));
-// expect 45
+// expect 285
