@@ -4,7 +4,7 @@
 // an array with numbers in it
 const numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// a custom reducing function that adds up numbers
+// a custom reducing function that adds up the square of the numbers from the array
 const addingFunction = (accumulator, currentVal) => accumulator + currentVal;
 
 // callling the number array with Reduce and then passing in the adding the adding function
