@@ -18,8 +18,6 @@ arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // expect
 // [ 2, 4, 6, 8, 10 ]
 
-const returnEvens = (array) => {
-  return array.filter((e) => e % 2 === 0);
-};
+const returnEvens = (array) => array.filter((e) => e % 2 === 0);
 
 console.log(returnEvens(arr));
