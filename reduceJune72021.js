@@ -17,5 +17,6 @@ const subtractSquares = (accum, curVal) => accum - Math.sqrt(curVal);
 
 // calling the number array with reduce which takes 
 // in a function that finds the difference of sqrts
+
 console.log(numArray.reduce(subtractSquares));
 // expect -17.306000526035717
