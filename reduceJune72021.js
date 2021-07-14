@@ -15,8 +15,14 @@ console.log(numArray.reduce(addingSquares));
 // function that subtracts the root of each number
 const subtractSquares = (accum, curVal) => accum - Math.sqrt(curVal);
 
-// calling the number array with reduce which takes 
+// function that multiplies accum with the current vals
+const multiplyCurrentVals = (accum, curVal) => accum * curVal;
+
+// calling the number array with reduce which takes
 // in a function that finds the difference of sqrts
 
 console.log(numArray.reduce(subtractSquares));
 // expect -17.306000526035717
+
+console.log(numArray.reduce(multiplyCurrentVals));
+// expect 362880
