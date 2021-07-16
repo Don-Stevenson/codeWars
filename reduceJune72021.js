@@ -26,3 +26,17 @@ console.log(numArray.reduce(subtractSquares));
 
 console.log(numArray.reduce(multiplyCurrentVals));
 // expect 362880
+
+const logVals = (accum, curVal) => console.log({ accum }, { curVal });
+
+console.log(numArray.reduce(logVals));
+// expect
+// { accum: 1 } { curVal: 2 }
+// { accum: undefined } { curVal: 3 }
+// { accum: undefined } { curVal: 4 }
+// { accum: undefined } { curVal: 5 }
+// { accum: undefined } { curVal: 6 }
+// { accum: undefined } { curVal: 7 }
+// { accum: undefined } { curVal: 8 }
+// { accum: undefined } { curVal: 9 }
+// undefined
