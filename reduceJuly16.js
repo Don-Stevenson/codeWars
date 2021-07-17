@@ -3,12 +3,12 @@
 // array of objects
 const arrOfObjs = [
   { a: 1, b: 2 },
-  { c: 3, d: 4 },
+  { a: 3, b: 4 },
 ];
 
 // reducer function
 const reducer = (accum, currentVal) => {
-  console.log({ accum }, { currentVal });
+  accum.a + currentVal.a;
 };
 
 // expect
