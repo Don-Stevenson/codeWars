@@ -14,7 +14,7 @@
 // *************************
 // Use the enable1 word list for the optional bonus challenges.
 
-// microspectrophotometries is the only word with a letter sum of 317. 
+// microspectrophotometries is the only word with a letter sum of 317.
 // Find the only word with a letter sum of 319.
 
 // How many words have an odd letter sum?
@@ -25,10 +25,39 @@
 // zyzzyva and biodegradabilities have the same letter sum as each other (151),
 // and their lengths differ by 11 letters. Find the other pair of words with the same letter sum whose lengths differ by 11 letters.
 
-// cytotoxicity and unreservedness have the same letter sum as each other (188), 
+// cytotoxicity and unreservedness have the same letter sum as each other (188),
 // and they have no letters in common. Find a pair of words that have no letters in common, and that have the same letter sum, which is larger than 188. (There are two such pairs, and one word appears in both pairs.)
 
-// The list of word { geographically, eavesdropper, woodworker, oxymorons } contains 4 words. 
-// Each word in the list has both a different number of letters, and a different letter sum. 
-// The list is sorted both in descending order of word length, and ascending order of letter sum. 
+// The list of word { geographically, eavesdropper, woodworker, oxymorons } contains 4 words.
+// Each word in the list has both a different number of letters, and a different letter sum.
+// The list is sorted both in descending order of word length, and ascending order of letter sum.
 // What's the longest such list you can find?
+
+const letterValues = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+  e: 5,
+  f: 6,
+  g: 7,
+  h: 8,
+  i: 9,
+  j: 10,
+  k: 11,
+  l: 12,
+  m: 13,
+  n: 14,
+  o: 15,
+  p: 16,
+  q: 17,
+  r: 18,
+  s: 19,
+  t: 20,
+  u: 21,
+  v: 22,
+  w: 23,
+  x: 24,
+  y: 25,
+  z: 26,
+};
