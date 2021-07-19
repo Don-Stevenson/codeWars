@@ -61,3 +61,5 @@ const letterValues = {
   y: 25,
   z: 26,
 };
+
+const letterValueAssigner = () => {};
