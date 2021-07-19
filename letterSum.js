@@ -65,3 +65,5 @@ const letterValues = {
 const letterValueAssigner = (str) => {
   console.log({ str });
 };
+
+letterValueAssigner("cab")
