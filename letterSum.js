@@ -62,4 +62,6 @@ const letterValues = {
   z: 26,
 };
 
-const letterValueAssigner = () => {};
+const letterValueAssigner = (str) => {
+  console.log({ str });
+};
