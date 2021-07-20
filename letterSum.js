@@ -63,8 +63,6 @@ const letterValues = {
 };
 
 const letterSum = (str) => {
-//   if (!str) return 0;
-  console.log({ str });
   let total = 0 
   
   str
@@ -76,6 +74,12 @@ const letterSum = (str) => {
   return total
 };
 
-console.log(letterSum("cab"));
-console.log(letterSum("z"));
-console.log(letterSum(""));
+
+// tests
+// *****
+
+console.log(letterSum("cab")); // => 6
+console.log(letterSum("z")); // => 26
+console.log(letterSum("")); // => 0
+console.log(letterSum("excellent"))// => 100
+console.log(letterSum("microspectrophotometries")) // => 317
