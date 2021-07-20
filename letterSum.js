@@ -63,17 +63,19 @@ const letterValues = {
 };
 
 const letterValueAssigner = (str) => {
-  if (!str) return 0;
+//   if (!str) return 0;
   console.log({ str });
-  let total = 0;
+  let total = 0 
+  
   str
     .toLowerCase()
     .split("")
     .map((e) => {
       total += letterValues[e];
     });
-  console.log(total);
   return total
 };
 
 console.log(letterValueAssigner("cab"));
+console.log(letterValueAssigner("z"));
+console.log(letterValueAssigner(""));
