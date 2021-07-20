@@ -62,7 +62,7 @@ const letterValues = {
   z: 26,
 };
 
-const letterValueAssigner = (str) => {
+const letterSum = (str) => {
 //   if (!str) return 0;
   console.log({ str });
   let total = 0 
@@ -76,6 +76,6 @@ const letterValueAssigner = (str) => {
   return total
 };
 
-console.log(letterValueAssigner("cab"));
-console.log(letterValueAssigner("z"));
-console.log(letterValueAssigner(""));
+console.log(letterSum("cab"));
+console.log(letterSum("z"));
+console.log(letterSum(""));
