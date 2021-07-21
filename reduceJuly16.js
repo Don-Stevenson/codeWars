@@ -10,15 +10,16 @@ const arrOfObjs = [
 
 // reducer function
 const reducer = (accum, currentVal) => {
-  accum.a += currentVal.a
-//  console.log(typeof(accum)) 
- 
- 
- return accum
-}
+  accum.a += currentVal.a;
+  //  console.log(typeof(accum))
+  let total = accum.a;
+  console.log(total);
+
+  return accum;
+};
 // expect
 // 4
 
 console.log(arrOfObjs.reduce(reducer));
-// expect 
+// expect
 // { a: 26, b: 2 }
