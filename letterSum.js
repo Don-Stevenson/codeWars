@@ -23,10 +23,13 @@
 // What letter sum is most common, and how many words have it?
 
 // zyzzyva and biodegradabilities have the same letter sum as each other (151),
-// and their lengths differ by 11 letters. Find the other pair of words with the same letter sum whose lengths differ by 11 letters.
+// and their lengths differ by 11 letters. Find the other pair of words with 
+// the same letter sum whose lengths differ by 11 letters.
 
 // cytotoxicity and unreservedness have the same letter sum as each other (188),
-// and they have no letters in common. Find a pair of words that have no letters in common, and that have the same letter sum, which is larger than 188. (There are two such pairs, and one word appears in both pairs.)
+// and they have no letters in common. Find a pair of words that have no letters in common,
+// and that have the same letter sum, which is larger than 188. 
+ // (There are two such pairs, and one word appears in both pairs.)
 
 // The list of word { geographically, eavesdropper, woodworker, oxymorons } contains 4 words.
 // Each word in the list has both a different number of letters, and a different letter sum.
@@ -64,8 +67,7 @@ const letterValues = {
 
 const letterSum = (str) => {
   let total = 0 
-  
-  str
+    str
     .toLowerCase()
     .split("")
     .map((e) => {
