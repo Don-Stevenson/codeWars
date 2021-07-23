@@ -42,7 +42,8 @@ const arrOfObjs = [
 // console.log(sum / arrOfObjs.length);
 
 // expect
-// { a: 26, b: 2 }
+// 6.5
+// 6.5
 
 // console.log(arrOfObjs.reduce((accum, currentVal) => {
 //   return accum + currentVal.a / arrOfObjs.length;
