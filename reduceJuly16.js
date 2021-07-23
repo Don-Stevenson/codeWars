@@ -9,17 +9,53 @@ const arrOfObjs = [
 ];
 
 // reducer function
-const reducer = (accum, currentVal) => {
-  accum.a += currentVal.a;
-  //  console.log(typeof(accum))
-  let total = accum.a;
-  console.log(total);
-
-  return accum;
-};
+// const reducer = (accum, currentVal) => {
+//   accum += currentVal.a;
+//   //  console.log(typeof(accum))
+//   return accum;
+// };
 // expect
 // 4
 
-console.log(arrOfObjs.reduce(reducer));
+// reducer average function
+// const avgReducer = (accum, currentVal) => {
+//   accum += currentVal.a;
+//   //  console.log(typeof(accum))
+//   return accum;
+// };
+
+// need to pass in the initial value of the accumalator as the second parameter
+
+// const initialVal = {sum: 0, count : 0}
+
+// const { sum, count } = arrOfObjs.reduce(
+//   (accum, currentVal) => {
+//     accum.sum += currentVal.a;
+//     accum.count += 1;
+//     return accum;
+//   },
+//   initialVal
+// );
+// console.log(initialVal);
+
+// console.log(sum / count);
+// console.log(sum / arrOfObjs.length);
+
 // expect
 // { a: 26, b: 2 }
+
+// console.log(arrOfObjs.reduce((accum, currentVal) => {
+//   return accum + currentVal.a / arrOfObjs.length;
+// }, 0))
+
+
+const initialVal = {sum: 0, count : 0}
+
+const { sum, count } = arrOfObjs.reduce(
+  (accum, currentVal) => {
+    return {sum: accum.sum + currentVal.a, count: accum.count+1};
+  },
+  initialVal
+);
+console.log(initialVal);
+console.log(sum,count);
