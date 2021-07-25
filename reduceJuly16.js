@@ -49,14 +49,10 @@ const arrOfObjs = [
 //   return accum + currentVal.a / arrOfObjs.length;
 // }, 0))
 
+const initialVal = { sum: 0, count: 0 };
 
-const initialVal = {sum: 0, count : 0}
-
-const { sum, count } = arrOfObjs.reduce(
-  (accum, currentVal) => {
-    return {sum: accum.sum + currentVal.a, count: accum.count+1};
-  },
-  initialVal
-);
+const { sum, count } = arrOfObjs.reduce((accum, currentVal) => {
+  return { sum: accum.sum + currentVal.a, count: accum.count + 1 };
+}, initialVal);
 console.log(initialVal);
-console.log(sum,count);
+console.log(sum, count);
