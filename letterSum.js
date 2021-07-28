@@ -85,3 +85,4 @@ console.log(letterSum("z")); // => 26
 console.log(letterSum("")); // => 0
 console.log(letterSum("excellent"))// => 100
 console.log(letterSum("microspectrophotometries")) // => 317
+console.log(letterSum("supercalifragilisticexpialidocious")) // => 379
