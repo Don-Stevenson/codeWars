@@ -88,3 +88,4 @@ console.log(letterSum("microspectrophotometries")) // => 317
 console.log(letterSum("supercalifragilisticexpialidocious")) // => 379
 console.log(letterSum("12")); // => NaN
 console.log(letterSum("&*")); // => NaN
+console.log(letterSum("Hi&*")); // => NaN 
