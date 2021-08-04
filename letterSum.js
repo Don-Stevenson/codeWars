@@ -68,11 +68,15 @@ const letterValues = {
 const letterSum = (str) => {
   let total = 0;
   str
-         .toLowerCase()
+    .toLowerCase()
     .split("")
-.map((e) => {
-      console.log({e});   if (e === typeof "e") {     total += letterValues[e];     } else console.log("not a letter");
-    });return total;
+    .map((e) => {
+      console.log({ e });
+      if (e === typeof "e") {
+        total += letterValues[e];
+      } else console.log("not a letter");
+    });
+  return total;
 };
 
 // tests
