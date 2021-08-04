@@ -23,13 +23,13 @@
 // What letter sum is most common, and how many words have it?
 
 // zyzzyva and biodegradabilities have the same letter sum as each other (151),
-// and their lengths differ by 11 letters. Find the other pair of words with 
+// and their lengths differ by 11 letters. Find the other pair of words with
 // the same letter sum whose lengths differ by 11 letters.
 
 // cytotoxicity and unreservedness have the same letter sum as each other (188),
 // and they have no letters in common. Find a pair of words that have no letters in common,
-// and that have the same letter sum, which is larger than 188. 
- // (There are two such pairs, and one word appears in both pairs.)
+// and that have the same letter sum, which is larger than 188.
+// (There are two such pairs, and one word appears in both pairs.)
 
 // The list of word { geographically, eavesdropper, woodworker, oxymorons } contains 4 words.
 // Each word in the list has both a different number of letters, and a different letter sum.
@@ -66,16 +66,14 @@ const letterValues = {
 };
 
 const letterSum = (str) => {
-  let total = 0 
-    str
-    .toLowerCase()
+  let total = 0;
+  str
+         .toLowerCase()
     .split("")
-    .map((e) => {
-      total += letterValues[e];
-    });
-  return total
+.map((e) => {
+      console.log({e});   if (e === typeof "e") {     total += letterValues[e];     } else console.log("not a letter");
+    });return total;
 };
-
 
 // tests
 // *****
@@ -83,9 +81,10 @@ const letterSum = (str) => {
 console.log(letterSum("cab")); // => 6
 console.log(letterSum("z")); // => 26
 console.log(letterSum("")); // => 0
-console.log(letterSum("excellent"))// => 100
-console.log(letterSum("microspectrophotometries")) // => 317
-console.log(letterSum("supercalifragilisticexpialidocious")) // => 379
+console.log(letterSum("excellent")); // => 100
+console.log(letterSum("microspectrophotometries")); // => 317
+console.log(letterSum("supercalifragilisticexpialidocious")); // => 379
 console.log(letterSum("12")); // => NaN
 console.log(letterSum("&*")); // => NaN
-console.log(letterSum("Hi&*")); // => NaN 
+console.log(letterSum("Hi&*")); // => NaN
+console.log(letterSum("ddd---")); // => NaN
