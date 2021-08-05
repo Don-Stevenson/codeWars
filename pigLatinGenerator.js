@@ -20,6 +20,5 @@ const pigIt = str => {
 
 
 
-console.log(pigIt("hello Pig latin is cool"));
-// expect
-// ellohay igPay atinlay siay oolcay
+console.log(pigIt("hello Pig latin is cool"));  // => ellohay igPay atinlay siay oolcay
+console.log(pigIt("hello my name is Miss Piggy"));  // => ellohay igPay atinlay siay oolcay
