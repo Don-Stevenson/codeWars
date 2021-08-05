@@ -22,3 +22,4 @@ const pigIt = str => {
 
 console.log(pigIt("hello Pig latin is cool"));  // => ellohay igPay atinlay siay oolcay
 console.log(pigIt("hello my name is Miss Piggy"));  // => ellohay igPay atinlay siay oolcay
+console.log(pigIt("farenheit 451"));  // => arenheitfay 451
