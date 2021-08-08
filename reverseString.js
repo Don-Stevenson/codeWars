@@ -2,13 +2,9 @@
 // with split, reverse and join
 //***************************/
 
-// const reverseString = str => {
-//   let reverseStr = str
-//     .split("")
-//     .reverse()
-//     .join("");
-//   return reverseStr;
-// };
+const reverseString = (str) => {
+  return str.split("").reverse().join("");
+};
 
 // with a c style loop
 
@@ -23,9 +19,8 @@
 // with recursion
 // **************
 
-const reverseString = str => {
-    return(str === "") ? "" : reverseString(str.substr(1)) + str.charAt(0);
-  };
-  
-  console.log(reverseString("12345"));
-  
+// const reverseString = str => {
+//     return(str === "") ? "" : reverseString(str.substr(1)) + str.charAt(0);
+//   };
+
+console.log(reverseString("12345"));
