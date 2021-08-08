@@ -21,4 +21,4 @@ const reverseString = (str) => str.split("").reverse().join("");
 //     return(str === "") ? "" : reverseString(str.substr(1)) + str.charAt(0);
 //   };
 
-console.log(reverseString("12345"));
+console.log(reverseString("12345")); // => 54321
