@@ -5,6 +5,7 @@
 const reverseString = (str) => str.split("").reverse().join("");
 
 // with a c style loop
+// *******************
 
 // const reverseString = str => {
 //   let newStr = "";
