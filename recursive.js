@@ -3,7 +3,7 @@
 
 let arr = [[[[[1, [[2, [[3, ["b"]]]]]]]]]];
 
-const findLetterB = (arr) => {
+const findLetterB = arr => {
   for (const item of arr) {
     if (Array.isArray(item)) {
       console.log("...going to the next nested array");
@@ -30,7 +30,7 @@ const findLetterB = (arr) => {
 
 // counting up with recursion
 // **************************
-const countUsingRecursion = (count) => {
+const countUsingRecursion = count => {
   if (count < 10) {
     console.log(count);
     return countUsingRecursion(count + 1);
@@ -54,7 +54,7 @@ const countUsingRecursion = (count) => {
 
 // counting down with recursion
 //*****************************/
-const countDownFrom = (count) => {
+const countDownFrom = count => {
   if (count > 0) {
     console.log(count);
     return countDownFrom(count - 1);
@@ -77,7 +77,7 @@ const countDownFrom = (count) => {
 
 // old way of counting up, c style loop
 // *************************************
-const oldCounter = (countTo) => {
+const oldCounter = countTo => {
   for (let i = 0; i <= countTo; i++) {
     console.log(`the count is: ${i}`);
   }
@@ -100,7 +100,7 @@ const oldCounter = (countTo) => {
 
 // old way of counting down, c style loop
 // ***************************************
-const oldCountDown = (countFrom) => {
+const oldCountDown = countFrom => {
   for (let i = countFrom; i >= 0; i--) {
     console.log(`the count is: ${i}`);
   }
