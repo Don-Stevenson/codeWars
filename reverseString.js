@@ -2,7 +2,7 @@
 // with split, reverse and join
 //***************************/
 
-const reverseString = (str) => str.split("").reverse().join("");
+const reverseString = str => str.split("").reverse().join("");
 
 // with a c style loop
 // *******************
