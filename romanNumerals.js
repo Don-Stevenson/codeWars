@@ -1,7 +1,7 @@
 const RomanNumerals = {
-    // function that creates a roman numeral based on an arabic number input
-    //**********************************************************************/
-  toRoman: num => {
+  // function that creates a roman numeral based on an arabic number input
+  //**********************************************************************/
+  toRoman: (num) => {
     const romanKeyObj = {
       M: 1000,
       CM: 900,
@@ -15,8 +15,9 @@ const RomanNumerals = {
       IX: 9,
       V: 5,
       IV: 4,
-      I: 1
+      I: 1,
     };
+
     let romanNum = "";
     for (let index in romanKeyObj) {
       while (num >= romanKeyObj[index]) {
@@ -26,7 +27,8 @@ const RomanNumerals = {
     }
     return romanNum;
   },
-  fromRoman: romanNum => {
+  
+  fromRoman: (romanNum) => {
     // function that creates an arabic numeral based on an roman numeral input
     //***********************************************************************/
     const romanKeyObj = {
@@ -36,7 +38,7 @@ const RomanNumerals = {
       L: 50,
       C: 100,
       D: 500,
-      M: 1000
+      M: 1000,
     };
     let total = 0;
     let input = romanNum.split("");
@@ -53,7 +55,7 @@ const RomanNumerals = {
       }
     }
     return total;
-  }
+  },
 };
 
 console.log("roman num to arabic nums ", RomanNumerals.fromRoman("XII"));
