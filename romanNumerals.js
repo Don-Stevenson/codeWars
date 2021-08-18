@@ -1,7 +1,7 @@
 const RomanNumerals = {
   // function that creates a roman numeral based on an arabic number input
   //**********************************************************************/
-  toRoman: (num) => {
+  toRoman: num => {
     const romanKeyObj = {
       M: 1000,
       CM: 900,
@@ -28,7 +28,7 @@ const RomanNumerals = {
     return romanNum;
   },
   
-  fromRoman: (romanNum) => {
+  fromRoman: romanNum => {
     // function that creates an arabic numeral based on an roman numeral input
     //***********************************************************************/
     const romanKeyObj = {
