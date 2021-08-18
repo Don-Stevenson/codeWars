@@ -2,7 +2,7 @@
 // if even divide by 2
 // 4 2 1
 
-const calculateNumsTo4 = (num) => {
+const calculateNumsTo4 = num => {
   console.log("num is ", num);
   if (num === 4 || num === 2 || num === 1)
     return console.log("now in the 4 2 1 loop");
