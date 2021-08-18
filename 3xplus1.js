@@ -7,8 +7,12 @@ const calculateNumsTo4 = (num) => {
   console.log(`num is ${num}
 count is ${count}
 `);
-  if (num === 4 || num === 2 || num === 1)
-    return console.log("now in the 4 2 1 loop");
+  if (num === 4 || num === 2 || num === 1) {
+    console.log("now in the 4 2 1 loop");
+    count += 3;
+    return console.log(`final count is ${count}
+    `);
+  }
   if (num % 2 === 0) {
     count++;
     return calculateNumsTo4(num / 2);
