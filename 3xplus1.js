@@ -24,4 +24,5 @@ count is ${count}
 
 // calculateNumsTo4(3);
 // calculateNumsTo4(12);
-calculateNumsTo4(27);
+// calculateNumsTo4(27);
+console.log(Math.round(Math.random() * 100));
