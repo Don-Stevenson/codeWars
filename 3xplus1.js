@@ -1,7 +1,12 @@
 // if odd 3x +1
 // if even divide by 2
 // 4 2 1
+
+// set count
 let count = 1;
+
+// create a random number
+const randomNum = Math.round(Math.random() * 100);
 
 const calculateNumsTo4 = (num) => {
   console.log(`num is ${num}
@@ -25,4 +30,4 @@ count is ${count}
 // calculateNumsTo4(3);
 // calculateNumsTo4(12);
 // calculateNumsTo4(27);
-console.log(Math.round(Math.random() * 100));
+calculateNumsTo4(randomNum)
