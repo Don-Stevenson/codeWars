@@ -14,6 +14,9 @@ const calculateNumsTo4 = (num) => {
     `);
     if (num === 4 || num === 2 || num === 1) {
       console.log("now in the 4 2 1 loop");
+
+      // add 3 because it will take you back to back two 4
+      // add count + for 2 and 1 scenarios
       count += 3;
       return console.log(`final count is ${count}
       `);
