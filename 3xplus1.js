@@ -13,7 +13,7 @@ const calculateNumsTo4 = (num) => {
     count is ${count}
     `);
     if (num === 4 || num === 2 || num === 1) {
-      console.log("now in the 4 2 1 loop");
+      console.log(`num is ${num} now in the 4 2 1 loop`);
 
       // add 3 because it will take you back to back two 4
       // add count + for 2 and 1 scenarios
