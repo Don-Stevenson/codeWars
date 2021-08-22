@@ -9,28 +9,28 @@ let count = 1;
 const randomNum = Math.round(Math.random() * 100);
 
 const calculateNumsTo4 = (num) => {
-      console.log(`num is ${num}
+  console.log(`num is ${num}
     count is ${count}
     `);
-    if (num === 4 || num === 2 || num === 1) {
-      console.log(`num is ${num} now in the 4 2 1 loop`);
+  if (num === 4) {
+    console.log(`num is ${num} now in the 4 2 1 loop`);
 
-      // add 3 because it will take you back to back two 4
-      // add count + for 2 and 1 scenarios
-      count += 3;
-      return console.log(`final count is ${count}
+    // add 3 because it will take you back to back two 4
+    // add count + for 2 and 1 scenarios
+    count += 3;
+    return console.log(`final count is ${count}
       `);
-    }
-    if (num % 2 === 0) {
-      count++;
-      return calculateNumsTo4(num / 2);
-    } else if (num % 2 !== 0) {
-      count++;
-      return calculateNumsTo4(num * 3 + 1);
-    }
+  }
+  if (num % 2 === 0) {
+    count++;
+    return calculateNumsTo4(num / 2);
+  } else if (num % 2 !== 0) {
+    count++;
+    return calculateNumsTo4(num * 3 + 1);
+  }
 };
 
 // calculateNumsTo4(3);
 // calculateNumsTo4(12);
 // calculateNumsTo4(27);
-calculateNumsTo4(randomNum)
+calculateNumsTo4(randomNum);
