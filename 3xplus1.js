@@ -9,16 +9,19 @@ let count = 1;
 const randomNum = Math.round(Math.random() * 100);
 
 const calculateNumsTo4 = (num) => {
-  console.log(`num is ${num}
+  if (num !== 4) {
+    console.log(`num is ${num}
     count is ${count}
     `);
+  }
   if (num === 4) {
-    console.log(`num is ${num} now in the 4 2 1 loop`);
+    console.log(`num is ${num}. 
+    Now in the 4 2 1 loop, so +3 to count has been added.`);
 
     // add 3 because it will take you back to back two 4
     // add count + for 2 and 1 scenarios
     count += 3;
-    return console.log(`final count is ${count}
+    return console.log(`fThe final count is ${count}
       `);
   }
   if (num % 2 === 0) {
