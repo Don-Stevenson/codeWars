@@ -1,4 +1,4 @@
-const toCamelCase = str => {
+const toCamelCase = (str) => {
   // set up camel case array to add
   let camelCaseStr = [];
 
@@ -17,16 +17,14 @@ const toCamelCase = str => {
 
       // if the above conditions are not met,
       // add the the letter to the camel case string unaltered
-    } else {
-      camelCaseStr.push(str[i]);
-    }
+    } else camelCaseStr.push(str[i]);
   }
   // turn the camel case array into a string, with no spaces or commas
   // return camelCaseStr.join("");
 
   // more complicated than join, change the array into a string,
   //replacing all the commas globally with no spaces ""
-  return result = camelCaseStr.toString().replace(/,/gi, "");
+  return (result = camelCaseStr.toString().replace(/,/gi, ""));
 };
 
 console.log(toCamelCase("snakes on a plane"));
