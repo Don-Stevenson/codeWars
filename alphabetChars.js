@@ -14,7 +14,7 @@
 
 // with map
 
-const containsAllLetters = (str) => {
+const containsAllLetters = str => {
   // make a set with all letters of the alphabet
   const alphaBet = new Set("abcdefghijklmnopqrstuvwxyz");
 
@@ -23,7 +23,7 @@ const containsAllLetters = (str) => {
     .toLowerCase()
     .split("")
     // map over the string and delete from the alphabet set each letter from the input string
-    .map((e) => {
+    .map(e => {
       // delete each element of the array alphabet
       alphaBet.delete(e);
     });
