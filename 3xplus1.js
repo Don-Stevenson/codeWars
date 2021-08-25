@@ -30,8 +30,8 @@ const calculateNumsTo4 = (num) => {
   } else count++;
   return calculateNumsTo4(num * 3 + 1);
 };
-
-calculateNumsTo4(3); // expect num is 3
+calculateNumsTo4(3);
+// expect num is 3
 // count is 1
 
 // num is 10
@@ -46,12 +46,12 @@ calculateNumsTo4(3); // expect num is 3
 // num is 8
 // count is 5
 
-// num is 4. 
+// num is 4.
 // Now in the 4 2 1 loop, so +3 to count has been added.
 // The final count is 9
 //
 // calculateNumsTo4(12);
 // calculateNumsTo4(27);
-calculateNumsTo4(34)
 // calculateNumsTo4(randomNum);
 
+calculateNumsTo4(34);
