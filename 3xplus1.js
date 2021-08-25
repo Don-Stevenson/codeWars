@@ -52,4 +52,6 @@ calculateNumsTo4(3); // expect num is 3
 //
 // calculateNumsTo4(12);
 // calculateNumsTo4(27);
+calculateNumsTo4(34)
 // calculateNumsTo4(randomNum);
+
