@@ -19,7 +19,7 @@ const arr = [
 
 // console.log(arr.filter((element) => element >= 5));
 
-const isPrime = (num) => {
+const isPrime = num => {
   let counter = 0;
   for (let i = 1; i <= num; i++) {
     if (num % i === 0) {
