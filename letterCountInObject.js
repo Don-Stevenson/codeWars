@@ -42,12 +42,12 @@
 // with map
 // ***********
 
-const letterCounter = (word) => {
+const letterCounter = word => {
   // set an empty object
   let obj = {};
 
   // split word into an array of letters using map
-  word.split("").map((key) => {
+  word.split("").map(key => {
     // if the object has the letter as a key already then update the object's value at that key +1
     if (obj[key]) {
       obj[key] = obj[key] + 1;
