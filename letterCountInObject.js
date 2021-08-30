@@ -42,7 +42,7 @@
 // with map
 // ***********
 
-const letterCounter = (word) => {
+const letterCounter = word => {
   // set an empty object
   let obj = {};
 
