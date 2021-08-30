@@ -70,7 +70,7 @@ const reducer = (accum, cur, index, arr) => {
   return (accum += cur);
 };
 
-const addElements = (array) => {
+const addElements = array => {
   return array.reduce(reducer);
 };
 
