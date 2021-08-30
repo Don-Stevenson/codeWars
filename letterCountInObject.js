@@ -48,7 +48,7 @@ const letterCounter = word => {
 
   // split word into an array of letters using map
   word.split("").map((key) => {
-    console.log({ obj }, { key });
+  
     // if the object has the letter as a key already then update the object's value at that key +1
     if (obj[key]) {
       obj[key] = obj[key] + 1;
