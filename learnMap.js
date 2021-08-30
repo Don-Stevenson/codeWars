@@ -17,7 +17,7 @@
 const array = ["a", "b", 3, 4, 5, 6, 7];
 const mappedArray = array.map(x => x * 3);
 
-console.log(`mapped array is: ${mappedArray} 
+console.table(`mapped array is: ${mappedArray} 
 array is still: ${array}`)
 
 // expect:
