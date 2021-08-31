@@ -45,9 +45,9 @@ const mulitplyTwoNums = (A, B) => A * B;
 // basic function that sqaures a number
 // ************************************
 
-const squareOneNum = A => A * A;
+const squareOneNum = A => Math.pow(A, 2);
 
-// console.log(squareOneNum(9))
+console.log(squareOneNum(9))
 // expect 81
 
 // basic function that finds the square root of a number
