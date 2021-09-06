@@ -1,5 +1,4 @@
-const saysHello = () => "hello";
+const saysHello = () => "hello"
 
-
-console.log(saysHello());
+console.log(saysHello())
 // expect "hello"
