@@ -3,34 +3,34 @@
 // 4 2 1
 
 // set count
-let count = 1;
+let count = 1
 
 // create a random number
-const randomNum = Math.round(Math.random() * 100);
+const randomNum = Math.round(Math.random() * 100)
 
-const calculateNumsTo4 = (num) => {
+const calculateNumsTo4 = num => {
   if (num !== 4) {
     console.log(`num is ${num}
     count is ${count}
-    `);
+    `)
   }
   if (num === 4) {
     console.log(`num is ${num}. 
-    Now in the 4 2 1 loop, so +3 to count has been added.`);
+    Now in the 4 2 1 loop, so +3 to count has been added.`)
 
     // add 3 because it will take you back to back two 4
     // add count + for 2 and 1 scenarios
-    count += 3;
+    count += 3
     return console.log(`fThe final count is ${count}
-      `);
+      `)
   }
   if (num % 2 === 0) {
-    count++;
-    return calculateNumsTo4(num / 2);
-  } else count++;
-  return calculateNumsTo4(num * 3 + 1);
-};
-calculateNumsTo4(3);
+    count++
+    return calculateNumsTo4(num / 2)
+  } else count++
+  return calculateNumsTo4(num * 3 + 1)
+}
+calculateNumsTo4(3)
 // expect num is 3
 // count is 1
 
@@ -54,4 +54,4 @@ calculateNumsTo4(3);
 // calculateNumsTo4(27);
 // calculateNumsTo4(randomNum);
 
-calculateNumsTo4(34);
+calculateNumsTo4(34)
