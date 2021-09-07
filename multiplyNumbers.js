@@ -36,10 +36,10 @@
 // console.log(multiply("3465657577757757778799997997965665454777", "5980800080800800677565658688887899808776765566"));
 
 // trying with BigNumber, works but doesn't return all the numbers, starts giving scientific notation ater about 15 digits
-const BigNumber = require("bignumber.js");
+const BigNumber = require("bignumber.js")
 
 function multiply(a, b) {
-  return (new BigNumber(a) * new BigNumber(b)).toString();
+  return (new BigNumber(a) * new BigNumber(b)).toString()
 }
 
 console.log(
@@ -47,5 +47,5 @@ console.log(
     "3465657577757757778799997997965665454777",
     "5980800080800800677565658688887899808776765566"
   )
-);
+)
 // expect 2.07274051210815e+85
