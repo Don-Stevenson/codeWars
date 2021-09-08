@@ -3,14 +3,14 @@
 
 const doesFooThenJunk = (a = "foo") => {
   // when a is foo
-  console.log(`${a} has been completed`);
-  
-  // when a is updated to junk
-  a = "junk";
-  console.log(`Now ${a} has been completed`);
-};
+  console.log(`${a} has been completed`)
 
-doesFooThenJunk();
-// expect 
+  // when a is updated to junk
+  a = "junk"
+  console.log(`Now ${a} has been completed`)
+}
+
+doesFooThenJunk()
+// expect
 // foo has been completed
 // Now junk has been completed
