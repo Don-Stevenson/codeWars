@@ -3,17 +3,17 @@
 
 const factorial = n => {
   if (!(n >= 0 && n <= 12)) {
-    throw new RangeError("the value must be between 0 and 12");
+    throw new RangeError("the value must be between 0 and 12")
   } else if (n === 0) {
-    return 1;
-  } else return (n * factorial(n - 1))
-};
+    return 1
+  } else return n * factorial(n - 1)
+}
 
-console.log(factorial(3));
+console.log(factorial(3))
 // expect 6
 
-console.log(factorial(10));
+console.log(factorial(10))
 // expect 3628800
 
-console.log(factorial(-6));
+console.log(factorial(-6))
 // expect "the value must be between 0 and 12"
