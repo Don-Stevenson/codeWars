@@ -18,17 +18,17 @@
 
 // with map
 const anagrams = (word, inputWords) => {
-  const inputWordSorted = word.split("").sort().join("");
-  let anagramArr = [];
-  inputWords.map((element) => {
+  const inputWordSorted = word.split("").sort().join("")
+  let anagramArr = []
+  inputWords.map(element => {
     if (inputWordSorted === element.split("").sort().join("")) {
-      anagramArr.push(element);
+      anagramArr.push(element)
     }
-  });
-  return anagramArr;
-};
+  })
+  return anagramArr
+}
 
 // console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]));
 // expect [ 'hello', 'ehllo', 'olelh' ]
 
-module.exports = { anagrams };
+module.exports = { anagrams }
