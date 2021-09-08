@@ -1,29 +1,26 @@
 // function that updates an array's values into a new array by adding one
 // **********************************************************************
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // with a c style loop
 // *******************
 
 const addOne = arr => {
-  let addOneNumbers = [];
+  let addOneNumbers = []
   for (let i = 0; i < arr.length; i++) {
-    addOneNumbers.push(arr[i] + 1);
+    addOneNumbers.push(arr[i] + 1)
   }
-  return addOneNumbers;
-};
+  return addOneNumbers
+}
 
-console.log(addOne(array));
+console.log(addOne(array))
 
 // expect:
 // [
 // 2, 3, 4,  5, 6,
 // 7, 8, 9, 10
 // ]
-
-
-
 
 // with a for of loop
 // ******************
