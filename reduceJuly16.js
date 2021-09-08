@@ -6,7 +6,7 @@ const arrOfObjs = [
   { a: 3, b: 4 },
   { a: 3, b: 4 },
   { a: 19, b: 4 },
-];
+]
 
 // reducer function
 // const reducer = (accum, currentVal) => {
@@ -49,16 +49,14 @@ const arrOfObjs = [
 //   return accum + currentVal.a / arrOfObjs.length;
 // }, 0))
 
-
 // putting initial values in an object
-const initialVal = { sum: 0, count: 0 };
+const initialVal = { sum: 0, count: 0 }
 
-
-// destructure sum and count 
+// destructure sum and count
 const { sum, count } = arrOfObjs.reduce((accum, currentVal) => {
-  return { sum: accum.sum + currentVal.a, count: accum.count + 1 };
-}, initialVal);
+  return { sum: accum.sum + currentVal.a, count: accum.count + 1 }
+}, initialVal)
 
 // seeing what has been mutated
-console.log(initialVal);
-console.log(sum, count);
+console.log(initialVal)
+console.log(sum, count)
