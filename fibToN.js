@@ -17,32 +17,32 @@
 // *********************************
 
 const fib = n => {
-  if (n >= 0) return getPostiveFib(n);
+  if (n >= 0) return getPostiveFib(n)
   else {
     // handling fibonacci of negative numbers
     // from wikipedia the formula is: F-n = (-1)n+1 x Fn;
-    const negativeOneToNPlusOne = Math.pow(-1, -n + 1);
-    const posFib = getPostiveFib(-n);
-    return negativeOneToNPlusOne * posFib;
+    const negativeOneToNPlusOne = Math.pow(-1, -n + 1)
+    const posFib = getPostiveFib(-n)
+    return negativeOneToNPlusOne * posFib
   }
-};
+}
 
 // handling fibonacci of positive numbers
 const getPostiveFib = num => {
-  let a = 1;
-  let b = 0;
-  let temp;
-  num = num - 1;
+  let a = 1
+  let b = 0
+  let temp
+  num = num - 1
 
   while (num >= 0) {
-    (temp = a), (a = a + b);
-    b = temp;
-    num--;
+    ;(temp = a), (a = a + b)
+    b = temp
+    num--
   }
-  return b;
-};
+  return b
+}
 
-console.log(getPostiveFib(-50));
+console.log(getPostiveFib(-50))
 // expect 0
 
 // console.log(fib(-8));
@@ -58,4 +58,4 @@ console.log(getPostiveFib(-50));
 
 // // expect 610
 
-module.exports ={fib, getPostiveFib}
+module.exports = { fib, getPostiveFib }
