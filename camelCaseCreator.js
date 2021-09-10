@@ -24,7 +24,7 @@ const toCamelCase = str => {
 
   // more complicated than join, change the array into a string,
   //replacing all the commas globally with no spaces ""
-  return (result = camelCaseStr.toString().replace(/,/gi, ""))
+  return camelCaseStr.toString().replace(/,/gi, "")
 }
 
 console.log(toCamelCase("snakes on a plane"))
