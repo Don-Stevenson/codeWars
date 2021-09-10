@@ -11,17 +11,17 @@
 
 // with a map
 const generateHashtag = str => {
-  if (!str) return false;
-  else if (str.length >= 140) return false;
+  if (!str) return false
+  else if (str.length >= 140) return false
   else {
-    const newStrArr = str.trim().split(" ");
-    let newArr = [];
+    const newStrArr = str.trim().split(" ")
+    let newArr = []
     newStrArr.map(element => {
-      newArr.push(element.charAt(0).toUpperCase() + element.slice(1));
-    });
-    return `#${newArr.join("")}`;
+      newArr.push(element.charAt(0).toUpperCase() + element.slice(1))
+    })
+    return `#${newArr.join("")}`
   }
-};
+}
 
-console.log(generateHashtag("  code   wars   "));
+console.log(generateHashtag("  code   wars   "))
 // expect #CodeWars
