@@ -2,14 +2,14 @@
 // ***************************************
 
 // the array
-const arr = [1, 2, 3, 4, 5, 6];
+const arr = [1, 2, 3, 4, 5, 6]
 
 // with c style loop
-const cStyleLoop = (arr) => {
+const cStyleLoop = arr => {
   for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+    console.log(arr[i])
   }
-};
+}
 
 // cStyleLoop(arr);
 // expect
@@ -22,11 +22,11 @@ const cStyleLoop = (arr) => {
 
 // with for of loop
 
-const forOfLoop = (arr) => {
+const forOfLoop = arr => {
   for (const number of arr) {
-    console.log(number);
+    console.log(number)
   }
-};
+}
 
 // forOfLoop(arr);
 // expect
@@ -39,9 +39,9 @@ const forOfLoop = (arr) => {
 
 // with forEach
 
-const tryForEach = (arr) => {
-  arr.forEach((number) => console.log(number));
-};
+const tryForEach = arr => {
+  arr.forEach(number => console.log(number))
+}
 
 // tryForEach(arr);
 // expect
@@ -54,10 +54,9 @@ const tryForEach = (arr) => {
 
 // with Map
 // ********
-const tryMap = arr => arr.map(element => console.log(element));
+const tryMap = arr => arr.map(element => console.log(element))
 
-
-tryMap(arr);
+tryMap(arr)
 
 // expect
 // 1
