@@ -18,10 +18,22 @@
 
 const nonogramrow = array => {
   if (array.length === 0) return []
-  array.map(e => {
-    console.log(e)
-  })
+  //   if (array !contains 1 ) return []
+  let numArr = []
+  let count = 0
+  for (let i = 0; i < array.length; i++) {
+    console.log(array[1])
+    if (array[i] === 0) i += 1
+    if (array[i] === 1) (count += 1), (i += 1)
+    console.log({ count })
+    if (array[i] === 1 && array[i + 1] === 0)
+      (i += 1), numArr.push(count), (count = 0)
+    console.log({ numArr }, {count})
+  }
+  console.log({ numArr })
+  return numArr
 }
 
 console.log(nonogramrow([]))
 console.log(nonogramrow([0, 1]))
+console.log(nonogramrow([0, 1, 0]))
