@@ -18,22 +18,22 @@
 
 const nonogramrow = array => {
   if (array.length === 0) return []
-  //   if (array !contains 1 ) return []
   let numArr = []
   let count = 0
   for (let i = 0; i < array.length; i++) {
-    console.log(array[1])
-    if (array[i] === 0) i += 1
-    if (array[i] === 1) (count += 1), (i += 1)
-    console.log({ count })
-    if (array[i] === 1 && array[i + 1] === 0)
-      (i += 1), numArr.push(count), (count = 0)
-    console.log({ numArr }, {count})
+    console.log("element : ", array[1])
+    if (array[i] === 1) count += 1
+    console.log("count if array i is 1", count)
+    console.log({ numArr })
   }
-  console.log({ numArr })
+  numArr.push(count)
   return numArr
 }
 
-console.log(nonogramrow([]))
-console.log(nonogramrow([0, 1]))
-console.log(nonogramrow([0, 1, 0]))
+// console.log(nonogramrow([]))
+console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
+console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
+// nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]) //=> [5,4]
+// nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0]) // => [2,1,3]
+// nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1]) // => [2,1,3]
+// nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]) // => [1,1,1,1,1,1,1,1]
