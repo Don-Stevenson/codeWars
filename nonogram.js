@@ -17,24 +17,18 @@
 // If you prefer to do it this way, that's fine, but 0 should not appear in the output in any other case.
 
 const nonogramrow = array => {
-  console.log("ARRAY = ", array)
+  // console.log("ARRAY = ", array)
   if (array.length === 0) return []
 
-  array
-    .join()
-    .split("0,")
-    .map(e => console.log("in map", e))
-
-  let numArr = []
-  let count = 0
-  for (let i = 0; i < array.length; i++) {
-    // console.log("element : ", array[1])
-    if (array[i] === 1) count += 1
-    // console.log("count if array i is 1", count)
-    // console.log({ numArr })
-  }
-  numArr.push(count)
-  return numArr
+  console.log(
+    array
+      .join()
+      .split("0,")
+      // .replace(/,/g, '')
+      .map(e => {
+        console.log(e.replace(/,/g, "").length)
+      })
+  )
 }
 
 // console.log(nonogramrow([]))
@@ -44,3 +38,4 @@ nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]) //=> [5,4]
 // nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0]) // => [2,1,3]
 // nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1]) // => [2,1,3]
 // nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]) // => [1,1,1,1,1,1,1,1]
+// console.log("ready , ".replace(/,/g, ""))
