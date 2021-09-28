@@ -22,8 +22,9 @@ const nonogramrow = array => {
   return array
     .join()
     .split("0,")
-    .filter(e => e)
+    .filter(e => e != 0)
     .map(e => {
+      // console.log(e)
       return e.replace(/,/g, "").length
     })
 }
@@ -33,6 +34,5 @@ console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
 console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
 console.log(nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])) //=> [5,4]
 console.log(nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0])) // => [2,1,3]
-// nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1]) // => [2,1,3]
-// nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]) // => [1,1,1,1,1,1,1,1]
-// console.log("ready , ".replace(/,/g, ""))
+console.log(nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1])) // => [2,1,3]
+console.log(nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])) // => [1,1,1,1,1,1,1,1]
