@@ -18,12 +18,11 @@
 
 const nonogramrow = array => {
   if (array.length === 0) return []
-
+  if (new Set(array).size === 1) return []
   return array
     .join()
     .split("0,")
     .map(e => {
-      if (e === "0") return []
       return e.replace(/,/g, "").length
     })
 }
