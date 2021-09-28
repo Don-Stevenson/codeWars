@@ -24,7 +24,6 @@ const nonogramrow = array => {
     .split("0,")
     .filter(e => e != 0)
     .map(e => {
-      // console.log(e)
       return e.replace(/,/g, "").length
     })
 }
