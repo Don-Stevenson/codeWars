@@ -17,7 +17,7 @@
 // If you prefer to do it this way, that's fine, but 0 should not appear in the output in any other case.
 
 const nonogramrow = array => {
-  if (array.length === 0) return []
+  if (!array.length) return []
   if (array.every(item => item === 0)) return []
   return array
     .join()
