@@ -17,24 +17,21 @@
 // If you prefer to do it this way, that's fine, but 0 should not appear in the output in any other case.
 
 const nonogramrow = array => {
-  // console.log("ARRAY = ", array)
   if (array.length === 0) return []
 
-  console.log(
-    array
-      .join()
-      .split("0,")
-      // .replace(/,/g, '')
-      .map(e => {
-        console.log(e.replace(/,/g, "").length)
-      })
-  )
+  return array
+    .join()
+    .split("0,")
+    .map(e => {
+      if (e === "0") return []
+      return e.replace(/,/g, "").length
+    })
 }
 
-// console.log(nonogramrow([]))
-// console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
+console.log(nonogramrow([]))
+console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
 // console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
-nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1]) //=> [5,4]
+console.log(nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])) //=> [5,4]
 // nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0]) // => [2,1,3]
 // nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1]) // => [2,1,3]
 // nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]) // => [1,1,1,1,1,1,1,1]
