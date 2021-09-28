@@ -18,20 +18,21 @@
 
 const nonogramrow = array => {
   if (array.length === 0) return []
-  if (new Set(array).size === 1) return []
+  if (array.every(item => item === 0)) return []
   return array
     .join()
     .split("0,")
+    .filter(e => e)
     .map(e => {
       return e.replace(/,/g, "").length
     })
 }
 
-console.log(nonogramrow([]))
+console.log(nonogramrow([])) // => []
 console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
-// console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
+console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
 console.log(nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])) //=> [5,4]
-// nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0]) // => [2,1,3]
+console.log(nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0])) // => [2,1,3]
 // nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1]) // => [2,1,3]
 // nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]) // => [1,1,1,1,1,1,1,1]
 // console.log("ready , ".replace(/,/g, ""))
