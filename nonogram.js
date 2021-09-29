@@ -23,9 +23,7 @@ const nonogramrow = array => {
     .join()
     .split("0,")
     .filter(e => e != 0)
-    .map(e => {
-      return e.replace(/,/g, "").length
-    })
+    .map(e => e.replace(/,/g, "").length)
 }
 
 console.log(nonogramrow([])) // => []
