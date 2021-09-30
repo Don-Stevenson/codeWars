@@ -10,7 +10,7 @@
 // Here's where you come in. You must find the value of K such that a phone will not break if dropped
 // from K meters, but will break if dropped from K+1 meters. For the purpose of this challenge,
 // these tests are completely reliable,
-// o a single test at both K and K+1 meters is enough to establish this.
+// so a single test at both K and K+1 meters is enough to establish this.
 // Also, as long as a phone survives the drop, it suffers no damage whatsoever and can be reused
 // in subsequent tests. Also, dropping a phone that's already broken gives you no information.
 
