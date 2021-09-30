@@ -26,19 +26,19 @@
 // You tell your boss, who says it's too expensive to rent the tower for 100 tests.
 // Your boss asks, what's the maximum number of trials you'll need if you have two phone prototypes?
 // After some work, you find the answer is 14. Can you see how to find this number?
-// there are many explanations online that can help, like this one. 
+// there are many explanations online that can help, like this one.
 // Feel free to read up on this problem if you don't understand the general approach.
 
 // If you have three phones, you only need a maximum of 9 trials.
 
 //  Challenge
-// 
+//
 //  Given N, the number of phone prototypes you have, and H, the maximum height that needs to be tested,
 //  determine the maximum number of trials required by an optimal strategy to determine K.
 
-phonedrop(1, 100) // => 100
-// phonedrop(2, 100) => 14
-// phonedrop(3, 100) => 9
+// phoneDrop(1, 100) // => 100
+// phoneDrop(2, 100) // => 14
+// phoneDrop(3, 100) // => 9
 // phonedrop(1, 1) => 1
 // phonedrop(2, 456) => 30
 // phonedrop(3, 456) => 14
@@ -53,6 +53,57 @@ phonedrop(1, 100) // => 100
 //  it takes a maximum of 27 trials to find K when H = 123456789.
 //  Find the smallest N such that phonedrop(N, 123456789) = 27.
 
+// const phoneDrop = (noOfPhones, meters) => {
+//   console.log({ noOfPhones }, { meters })
+// }
+
 let cache = []
 
-const phoneDrop = (noOfPhones, meters) => {}
+const howFarToDrop = (phones, meters, rangeStart, rangeEnd) => {
+  const avg = Math.floor((rangeStart + rangeEnd) / 2)
+  const x1 = phoneDrop(phones - 1, avg - 1)
+  const x2 = phoneDrop(phones, meters - avg)
+  const leftOfIntersection = x1 <= x2
+  if (leftOfIntersection) {
+    const x3 = phoneDrop(phones - 1, avg)
+    const x4 = phoneDrop(phones, meters - (avg + 1))
+    if (x3 >= x4) {
+      return { value: avg, minVal: Math.min(x2, x3) }
+    } else {
+      return howFarToDrop(phones, meters, avg + 1, rangeEnd)
+    }
+  } else {
+    return howFarToDrop(phones, meters, rangeStart, avg - 1)
+  }
+}
+
+const phoneDrop = (phones, meters) => {
+  if (phones === 1 || meters < 2) {
+    return meters
+  }
+  if (cache[phones][meters]) {
+    return cache[phones][meters]
+  }
+  const howFar = howFarToDrop(phones, meters, 1, Math.floor(meters / 2))
+  const tries = howFar.minVal
+  cache[phones][meters] = tries + 1
+  return tries + 1
+}
+
+const solve = (phones, meters) => {
+  for (let i = 0; i < phones + 1; i++) {
+    cache.push([1])
+  }
+  console.log(phoneDrop(phones, meters))
+}
+
+phoneDrop(1, 100) // => 100
+phoneDrop(2, 100) // => 14
+phoneDrop(3, 100) // => 9
+// phonedrop(1, 1) => 1
+// phonedrop(2, 456) => 30
+// phonedrop(3, 456) => 14
+// phonedrop(4, 456) => 11
+// phonedrop(2, 789) => 40
+// phonedrop(3, 789) => 17
+// phonedrop(4, 789) => 12
