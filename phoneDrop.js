@@ -60,6 +60,7 @@
 let cache = []
 
 const howFarToDrop = (phones, meters, rangeStart, rangeEnd) => {
+  console.log({phones},{meters}, {rangeStart}, {rangeEnd});
   const avg = Math.floor((rangeStart + rangeEnd) / 2)
   const x1 = phoneDrop(phones - 1, avg - 1)
   const x2 = phoneDrop(phones, meters - avg)
