@@ -53,55 +53,15 @@
 //  it takes a maximum of 27 trials to find K when H = 123456789.
 //  Find the smallest N such that phonedrop(N, 123456789) = 27.
 
-// const phoneDrop = (noOfPhones, meters) => {
-//   console.log({ noOfPhones }, { meters })
-// }
-
-let cache = {phone: {meters:""}}
-
-const howFarToDrop = (phones, meters, rangeStart, rangeEnd) => {
-  console.log({phones},{meters}, {rangeStart}, {rangeEnd});
-  const avg = Math.floor((rangeStart + rangeEnd) / 2)
-  const x1 = phoneDrop(phones - 1, avg - 1)
-  const x2 = phoneDrop(phones, meters - avg)
-  const leftOfIntersection = x1 <= x2
-  if (leftOfIntersection) {
-    const x3 = phoneDrop(phones - 1, avg)
-    const x4 = phoneDrop(phones, meters - (avg + 1))
-    if (x3 >= x4) {
-      return { value: avg, minVal: Math.min(x2, x3) }
-    } else {
-      return howFarToDrop(phones, meters, avg + 1, rangeEnd)
-    }
-  } else {
-    return howFarToDrop(phones, meters, rangeStart, avg - 1)
-  }
+const phoneDrop = (noOfPhones, meters) => {
+  console.log({ noOfPhones }, { meters })
 }
 
-const phoneDrop = (phones, meters) => {
-  if (phones === 1 || meters < 2) {
-    return meters
-  }
-  console.log({cache});
-  // if (cache[phones][meters]) {
-  //   return cache[phones][meters]
-  // }
-  const howFar = howFarToDrop(phones, meters, 1, Math.floor(meters / 2))
-  const tries = howFar.minVal
-  cache.phones.meters = tries + 1
-  return tries + 1
-}
 
-const solve = (phones, meters) => {
-  for (let i = 0; i < phones + 1; i++) {
-    cache.push([1])
-  }
-  console.log(phoneDrop(phones, meters))
-}
 
 phoneDrop(1, 100) // => 100
-phoneDrop(2, 100) // => 14
-phoneDrop(3, 100) // => 9
+// phoneDrop(2, 100) // => 14
+// phoneDrop(3, 100) // => 9
 // phonedrop(1, 1) => 1
 // phonedrop(2, 456) => 30
 // phonedrop(3, 456) => 14
