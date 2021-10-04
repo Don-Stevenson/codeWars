@@ -57,7 +57,7 @@
 //   console.log({ noOfPhones }, { meters })
 // }
 
-let cache = []
+let cache = {phone: {meters:""}}
 
 const howFarToDrop = (phones, meters, rangeStart, rangeEnd) => {
   console.log({phones},{meters}, {rangeStart}, {rangeEnd});
@@ -82,12 +82,13 @@ const phoneDrop = (phones, meters) => {
   if (phones === 1 || meters < 2) {
     return meters
   }
-  if (cache[phones][meters]) {
-    return cache[phones][meters]
-  }
+  console.log({cache});
+  // if (cache[phones][meters]) {
+  //   return cache[phones][meters]
+  // }
   const howFar = howFarToDrop(phones, meters, 1, Math.floor(meters / 2))
   const tries = howFar.minVal
-  cache[phones][meters] = tries + 1
+  cache.phones.meters = tries + 1
   return tries + 1
 }
 
