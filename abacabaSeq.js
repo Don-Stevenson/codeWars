@@ -52,7 +52,7 @@ const abaFunction = (letterNum) => {
         let letterString = String.fromCharCode(i);
 
         // sets the current interation as combination of the current iteration plus 
-        // the letterstring and then the current itteration again
+        // the letterstring and then the current itteration for each succussive loop
         currentIteration = `${currentIteration}${letterString}${currentIteration}`
     }
     return currentIteration
