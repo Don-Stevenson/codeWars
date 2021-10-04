@@ -39,3 +39,13 @@
 // (This is definitely an oversimplification, but that's the basic idea. 
 // Feel free to ask if you want to know about whether any particular approach uses O(n) 
 // memory.)
+
+const alphabetArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+for (let i = 0; i <= 5; i++) {
+    console.log("in i loop", alphabetArr[i])
+    for (let y = i; y >= 0; y--) {
+        console.log("in y loop", alphabetArr[y])
+    }
+    if (i === 5) console.log("end")
+}
