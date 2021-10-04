@@ -40,12 +40,21 @@
 // Feel free to ask if you want to know about whether any particular approach uses O(n) 
 // memory.)
 
-const alphabetArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-for (let i = 0; i <= 5; i++) {
-    console.log("in i loop", alphabetArr[i])
-    for (let y = i; y >= 0; y--) {
-        console.log("in y loop", alphabetArr[y])
+const abaFunction = (letterNum) => {
+    let currentIteration = ''
+    let charUnicode = 65 // sets unicode to 65, aka "A" as starting point
+    
+    // for loop that uses the unicode as the index, the charUnicode + 
+    // the letternum to get the values of letterNum past A aka charUnicode
+    for (let i = charUnicode; i < charUnicode + letterNum; i++) {
+        // sets the letter from the unicode, eg. 65 => A
+        let letterString = String.fromCharCode(i);
+
+        // sets the current interation as combination of the current iteration plus 
+        // the letterstring and then the current itteration again
+        currentIteration = `${currentIteration}${letterString}${currentIteration}`;
     }
-    if (i === 5) console.log("end")
+    return currentIteration
 }
+console.log(abaFunction(4));
