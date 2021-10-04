@@ -44,7 +44,7 @@
 const abaFunction = (letterNum) => {
     let currentIteration = ''
     let charUnicode = 65 // sets unicode to 65, aka "A" as starting point
-    
+
     // for loop that uses the unicode as the index, the charUnicode + 
     // the letternum to get the values of letterNum past A aka charUnicode
     for (let i = charUnicode; i < charUnicode + letterNum; i++) {
@@ -53,8 +53,8 @@ const abaFunction = (letterNum) => {
 
         // sets the current interation as combination of the current iteration plus 
         // the letterstring and then the current itteration again
-        currentIteration = `${currentIteration}${letterString}${currentIteration}`;
+        currentIteration = `${currentIteration}${letterString}${currentIteration}`
     }
     return currentIteration
 }
-console.log(abaFunction(4));
+console.log(abaFunction(4))
