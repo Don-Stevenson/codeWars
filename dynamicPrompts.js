@@ -1,4 +1,4 @@
-const prompts = require('prompts');
+const prompts = require('prompts')
 
 
 // trying out the dynamic questions in prompts
@@ -15,7 +15,7 @@ const questions = [
     message: 'Name a topping'
   }
 ];
- 
+
 (async () => {
-  const response = await prompts(questions);
-})();
+  const response = await prompts(questions)
+})()
