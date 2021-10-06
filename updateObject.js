@@ -36,17 +36,17 @@ let arrOfObjects = [
 
 // console logging the array of objects before map
 // ***********************************************
-console.log("before : ", { arrOfObjects });
+console.log("before : ", { arrOfObjects })
 // expect :
 // before :  { arrOfObjects: [ { a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 } ] }
 
 // running a map to update the values at e.c in array of values
 // ***********************************************
-arrOfObjects.map(e => (e.c = e.c * 2));
+arrOfObjects.map(e => (e.c = e.c * 2))
 
 // console logging the array of objects after map
 // ***********************************************
-console.log("after : ", { arrOfObjects });
+console.log("after : ", { arrOfObjects })
 // expect: 
 // after :  { arrOfObjects: [ { a: 1, b: 2, c: 6 }, { a: 4, b: 5, c: 12 } ] }
 
