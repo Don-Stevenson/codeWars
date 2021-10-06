@@ -7,3 +7,5 @@ const domainName = url => {
     .split(".");
   return domainName[0] === "www" ? domainName[1] : domainName[0];
 }
+
+console.log(domainName("https://google.com")) // => google
