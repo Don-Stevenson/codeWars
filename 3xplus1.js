@@ -21,7 +21,7 @@ const calculateNumsTo4 = num => {
     // add 3 because it will take you back to back two 4
     // add count + for 2 and 1 scenarios
     count += 3
-    return console.log(`fThe final count is ${count}
+    return console.log(`The final count is ${count}
       `)
   }
   if (num % 2 === 0) {
