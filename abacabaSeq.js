@@ -41,11 +41,11 @@
 // memory.)
 
 
-const abaFunction = (letterNum) => {
+const abaFunction = letterNum => {
     let currentIteration = ''
     let charUnicode = 65 // sets unicode to 65, aka "A" as starting point
 
-    // for loop that uses the unicode as the index, the charUnicode + 
+    // Make a for loop that uses the unicode as the index, the charUnicode + 
     // the letternum to get the values of letterNum past A aka charUnicode
     for (let i = charUnicode; i < charUnicode + letterNum; i++) {
         // sets the letter from the unicode, eg. 65 => A
