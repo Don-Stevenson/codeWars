@@ -8,15 +8,8 @@ const flipbits = str =>
 
 // to remove any zeros before the first 1
 const removeZeros = str => {
-  // str.split("")
-  //   .map(i => {
-  //     console.log(str[i])
-  //     if (str[i] == 1) return str.slice(i, str.length)
-  //   })
-
-  for (const i in str) {
-    console.log(str[i])
-    if (str[i] === "1") return str.slice(i, str.length)
+  for (const index in str) {
+    if (str[index] === "1") return str.slice(index, str.length)
   }
 }
 console.log(removeZeros("0010101000"))
