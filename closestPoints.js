@@ -107,7 +107,16 @@ const closestPair = points => {
 
     // setting the indeces to the above from findDistance as a starting point
     let indecesResult = [0, 1]
-    for (let i = 0; i < points.length; i++) {
+
+    // loops through the array of points, eg [2,5]
+    for (let i = 1; i < points.length; i++) {
+        // loops through the array of points to compare one point to all others
+        for (let j = 1; j < points.length; j++) {
+            // finds the current distance between the points from each loop
+            const currentDistanceBetweenPoints = findDistance(points[i], points[j])
+            console.log({ currentDistanceBetweenPoints });
+        }
+
         console.log(points[i])
 
     }
@@ -115,7 +124,7 @@ const closestPair = points => {
 }
 
 closestPair([[2, 3], [4, 4], [2, 4], [4, 6]])
-closestPair([[5, 3], [2, 5], [6, 7], [1, 2]])
+// closestPair([[5, 3], [2, 5], [6, 7], [1, 2]])
 
 // https://en.wikipedia.org/wiki/Closest_pair_of_points_problem
 
