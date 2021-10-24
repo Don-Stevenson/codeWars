@@ -171,15 +171,15 @@ const elementalForms = (word) => {
     // console.log(loopWord[i]);
 
     if (`${loopWord[i] + word[i + 1]}`) {
-      console.log("here");
-      result.push(`${loopWord[i] + word[i + 1]}`);
+      console.log(`${elements[loopWord[i]]+ elements[word[i + 1]]}`);
+      result.push(`${elements[loopWord[i] + word[i + 1]]}`);
       i += 1;
       console.log(i);
     }
     // for single letters
     if (elements[loopWord[i]]) {
       result.push(elements[loopWord[i]]);
-    }
+    }``
   }
   return result;
 };
