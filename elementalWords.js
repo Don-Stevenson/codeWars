@@ -167,6 +167,7 @@ const elementalForms = (word) => {
   console.log({ word });
 
   if (word === "") return [];
+
   let result = [];
 
   for (let i = 0; i < word.length; i++) {
@@ -185,9 +186,12 @@ const elementalForms = (word) => {
       result.push(
         `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
       );
-    }
+
+      // handle non elemental letters
+    } else if (!ELEMENTS[word[i].toUpperCase()]) return [];
   }
   return [result];
 };
 
 console.log(elementalForms("beach"));
+console.log(elementalForms("z"));
