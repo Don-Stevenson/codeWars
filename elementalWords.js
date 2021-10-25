@@ -200,19 +200,36 @@ const mixOfSingleAndDoubleLetter = (word) => {
       // handle non elemental letters
     } else if (!ELEMENTS[word[i].toUpperCase()]) return [];
   }
-  return [result];
+  return result;
 };
 
+// single letter function
+
+const singleLetter = (word) => {
+  let result = [];
+  for (let i = 0; i < word.length; i++) {
+    if (ELEMENTS[word[i].toUpperCase()]) {
+      result.push(
+        `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
+      );
+    }
+  }
+  return result;
+};
 // higher order function that returns results
 
 const elementalForms = (word) => {
+
+  if (word === "") return [];
   let result = [];
 
-  if (mixOfSingleAndDoubleLetter(word)) result.push(mixOfSingleAndDoubleLetter(word));
+  if (mixOfSingleAndDoubleLetter(word))
+    result.push(mixOfSingleAndDoubleLetter(word));
   if (singleLetter(word)) result.push(singleLetter(word));
   if (doubleLetter(word)) result.push(doubleLetter(word));
-
-  return result
+  // handle non elemental letters
+  if (!ELEMENTS[word[i].toUpperCase()]) return [];
+  return result;
 };
 
 console.log(elementalForms("beach"));
