@@ -42,7 +42,7 @@
 
 // given elements object
 
-const elements = {
+const ELEMENTS = {
   H: "Hydrogen",
   He: "Helium",
   Li: "Lithium",
@@ -164,24 +164,30 @@ const elements = {
 };
 
 const elementalForms = (word) => {
+  console.log({ word });
+
   if (word === "") return [];
   let result = [];
-  const loopWord = word.toUpperCase().split("");
-  for (let i = 0; i < word.length; i++) {
-    // console.log(loopWord[i]);
 
-    if (`${loopWord[i] + word[i + 1]}`) {
-      console.log(`${elements[loopWord[i]]+ elements[word[i + 1]]}`);
-      result.push(`${elements[loopWord[i] + word[i + 1]]}`);
+  for (let i = 0; i < word.length; i++) {
+    // for double letter ELEMENTS
+    if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
+      console.log(`here ${word[i].toUpperCase() + word[i + 1]}`);
+      result.push(
+        `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
+          word[i].toUpperCase() + word[i + 1]
+        })`
+      );
       i += 1;
-      console.log(i);
     }
-    // for single letters
-    if (elements[loopWord[i]]) {
-      result.push(elements[loopWord[i]]);
-    }``
+    // for single letter ELEMENTS
+    else if (ELEMENTS[word[i].toUpperCase()]) {
+      result.push(
+        `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
+      );
+    }
   }
-  return result;
+  return [result];
 };
 
 console.log(elementalForms("beach"));
