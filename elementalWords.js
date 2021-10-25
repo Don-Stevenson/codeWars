@@ -1,5 +1,7 @@
 // Each element in the periodic table has a symbol associated with it. For instance, the symbol for the element Yttrium is Y. A fun thing to do is see if we can form words using symbols of elements strung together. The symbol for Einsteinium is Es, so the symbols for Yttrium and Einsteinium together form:
 
+const { ca } = require("date-fns/locale");
+
 // Y + Es = YEs
 
 // Yes! Ignoring capitalization, we can think of any string of letters formed by the concatenation of one or more element symbols as an elemental word -- per the above,yes is an elemental word. There is only one combination of element symbols that can form yes, but in general, there may be more than one combination of element symbols that can form a given elemental word. Let's call each different combination of element symbols that can form a given elemental word word an elemental form of word.
@@ -163,7 +165,15 @@ const ELEMENTS = {
   Lr: "Lawrencium",
 };
 
-const elementalForms = (word) => {
+// single letter elements only
+
+// double letters elements only
+
+// mix of single and double elements
+
+// higher order function
+
+const mixOfSingleAndDoubleLetter = (word) => {
   console.log({ word });
 
   if (word === "") return [];
@@ -193,5 +203,18 @@ const elementalForms = (word) => {
   return [result];
 };
 
+// higher order function that returns results
+
+const elementalForms = (word) => {
+  let result = [];
+
+  if (mixOfSingleAndDoubleLetter(word)) result.push(mixOfSingleAndDoubleLetter(word));
+  if (singleLetter(word)) result.push(singleLetter(word));
+  if (doubleLetter(word)) result.push(doubleLetter(word));
+
+  return result
+};
+
 console.log(elementalForms("beach"));
 console.log(elementalForms("z"));
+console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
