@@ -203,6 +203,35 @@ const doubleLetter = (word) => {
   return result;
 };
 
+// higher order function mix of single and double elements
+
+const mixOfSingleAndDoubleLetter = (word) => {
+  if (word === "") return [];
+
+  let result = [];
+
+  for (let i = 0; i < word.length; i++) {
+    // for double letter ELEMENTS
+    if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
+      console.log(`here ${word[i].toUpperCase() + word[i + 1]}`);
+      result.push(
+        `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
+          word[i].toUpperCase() + word[i + 1]
+        })`
+      );
+      i += 1;
+    }
+    // for single letter ELEMENTS
+    else if (ELEMENTS[word[i].toUpperCase()]) {
+      result.push(
+        `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
+      );
+
+      // handle non elemental letters
+    } else if (!ELEMENTS[word[i].toUpperCase()]) return [];
+  }
+  return result;
+};
 
 
 
