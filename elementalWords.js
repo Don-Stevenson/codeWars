@@ -237,14 +237,16 @@ const elementalForms = (word) => {
 
   if (doubleLetter(word)) result.push(doubleLetter(word));
   if (singleLetter(word)) result.push(singleLetter(word));
-
-  if (result[0] !== mixOfSingleAndDoubleLetter(word))
-   console.log("result 1",result[1] === mixOfSingleAndDoubleLetter(word));
-   console.log();
-    result.push(mixOfSingleAndDoubleLetter(word));
+  console.log("here", doubleLetter(word))
+  console.log({result});
+  
+  if (!result.includes(doubleLetter(word)))
+   console.log("in mix");
+  //  result.push(mixOfSingleAndDoubleLetter(word));
+  
   return result;
 };
 
-console.log(elementalForms("beach"));
-console.log(elementalForms("z"));
+// console.log(elementalForms("beach"));
+// console.log(elementalForms("z"));
 console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
