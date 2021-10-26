@@ -180,7 +180,7 @@ const singleLetter = (word) => {
       );
     }
   }
-  return result;
+  if (result.length === word.length) return result;
 };
 
 // function that handles double letters
@@ -197,7 +197,7 @@ const doubleLetter = (word) => {
       i += 1;
     }
   }
-  return result;
+  if (result.length * 2 === word.length) return result;
 };
 
 // higher order function mix of single and double elements
@@ -235,11 +235,13 @@ const elementalForms = (word) => {
   if (word === "") return [];
   let result = [];
 
-  if (singleLetter(word)) result.push(singleLetter(word));
   if (doubleLetter(word)) result.push(doubleLetter(word));
+  if (singleLetter(word)) result.push(singleLetter(word));
 
-  // if (mixOfSingleAndDoubleLetter(word))
-  //   result.push(mixOfSingleAndDoubleLetter(word));
+  if (result[0] !== mixOfSingleAndDoubleLetter(word))
+   console.log("result 1",result[1] === mixOfSingleAndDoubleLetter(word));
+   console.log();
+    result.push(mixOfSingleAndDoubleLetter(word));
   return result;
 };
 
