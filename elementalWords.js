@@ -197,11 +197,12 @@ const doubleLetter = (word) => {
       i += 1;
     }
   }
+
+  // check to see if the all the letters in word are acounted for by length
   if (result.length * 2 === word.length) return result;
 };
 
-// higher order function mix of single and double elements
-
+// function mix of single and double elements
 const mixOfSingleAndDoubleLetter = (word) => {
   if (word === "") return [];
 
@@ -232,21 +233,22 @@ const mixOfSingleAndDoubleLetter = (word) => {
 // higher order function that returns the final array of answers
 
 const elementalForms = (word) => {
-  if (word === "") return [];
   let result = [];
+
+  // if given an empty string, return an empty array
+  if (word === "") result;
 
   if (doubleLetter(word)) result.push(doubleLetter(word));
   if (singleLetter(word)) result.push(singleLetter(word));
-  console.log("here", doubleLetter(word))
-  console.log({result});
-  
-  if (!result.includes(doubleLetter(word)))
-   console.log("in mix");
-  //  result.push(mixOfSingleAndDoubleLetter(word));
-  
+  // console.log(result.includes(doubleLetter(word)));
+
+  // Only run if result contains nothing, or if result does not includes the result of doubleLetter
+  if (result.length === 0 || result.includes(doubleLetter(word))) {
+    result.push(mixOfSingleAndDoubleLetter(word));
+  }
   return result;
 };
 
-// console.log(elementalForms("beach"));
-// console.log(elementalForms("z"));
-console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
+console.log(elementalForms("beach")); // => [ [ 'Beryllium (Be)', 'Actinium (Ac)', 'Hydrogen (H)' ] ]
+// console.log(elementalForms("z")); // => []
+// console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
