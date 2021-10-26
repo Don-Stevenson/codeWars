@@ -169,7 +169,6 @@ const ELEMENTS = {
 
 // double letters elements only
 
-
 // single letter function
 
 const singleLetter = (word) => {
@@ -184,14 +183,12 @@ const singleLetter = (word) => {
   return result;
 };
 
-
 // function that handles double letters
 const doubleLetter = (word) => {
   let result = [];
   for (let i = 0; i < word.length; i++) {
     // for double letter ELEMENTS
     if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
-      console.log(`here ${word[i].toUpperCase() + word[i + 1]}`);
       result.push(
         `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
           word[i].toUpperCase() + word[i + 1]
@@ -213,7 +210,6 @@ const mixOfSingleAndDoubleLetter = (word) => {
   for (let i = 0; i < word.length; i++) {
     // for double letter ELEMENTS
     if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
-      console.log(`here ${word[i].toUpperCase() + word[i + 1]}`);
       result.push(
         `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
           word[i].toUpperCase() + word[i + 1]
@@ -233,20 +229,17 @@ const mixOfSingleAndDoubleLetter = (word) => {
   return result;
 };
 
-
-
 // higher order function that returns the final array of answers
 
 const elementalForms = (word) => {
   if (word === "") return [];
   let result = [];
 
-  if (mixOfSingleAndDoubleLetter(word))
-    result.push(mixOfSingleAndDoubleLetter(word));
   if (singleLetter(word)) result.push(singleLetter(word));
   if (doubleLetter(word)) result.push(doubleLetter(word));
-  // handle non elemental letters
-  if (!ELEMENTS[word[i].toUpperCase()]) return [];
+
+  // if (mixOfSingleAndDoubleLetter(word))
+  //   result.push(mixOfSingleAndDoubleLetter(word));
   return result;
 };
 
