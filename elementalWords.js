@@ -180,7 +180,8 @@ const singleLetter = (word) => {
       );
     }
   }
-  if (result.length === word.length) return result;
+  // handle case where params === ""
+  if (result.length === word.length && result.length > 0) return result;
 };
 
 // function that handles double letters
@@ -199,7 +200,7 @@ const doubleLetter = (word) => {
   }
 
   // check to see if the all the letters in word are acounted for by length
-  if (result.length * 2 === word.length) return result;
+  if (result.length * 2 === word.length && result.length > 0) return result;
 };
 
 // function mix of single and double elements
@@ -236,7 +237,7 @@ const elementalForms = (word) => {
   let result = [];
 
   // if given an empty string, return an empty array
-  if (word === "") result;
+  if (word === "") return [];
 
   if (doubleLetter(word)) result.push(doubleLetter(word));
   if (singleLetter(word)) result.push(singleLetter(word));
@@ -246,7 +247,8 @@ const elementalForms = (word) => {
   if (result.length === 0 || result.includes(doubleLetter(word))) {
     result.push(mixOfSingleAndDoubleLetter(word));
   }
-  return result;
+   return result;
+
 };
 
 console.log(elementalForms("beach")); // => [ [ 'Beryllium (Be)', 'Actinium (Ac)', 'Hydrogen (H)' ] ]
