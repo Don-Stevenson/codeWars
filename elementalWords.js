@@ -251,6 +251,24 @@ const elementalForms = (word) => {
 
 };
 
+
+
+// found solution with recursion
+
+// const elementalForms = (word, acc = [], result = []) => {
+//   for (let i = 1; i <= 3; i += 1) {
+//     const el = word.slice(0, i).toLowerCase().replace(/^./, ch => ch.toUpperCase());
+//     if (!ELEMENTS[el]) continue;       
+
+//     const line = [ ...acc, `${ELEMENTS[el]} (${el})` ];   
+//     i === word.length && result.push(line);         
+
+//     elementalForms(word.slice(i), line, result);
+//   }
+  
+//   return result;
+// }
+
 console.log(elementalForms("beach")); // => [ [ 'Beryllium (Be)', 'Actinium (Ac)', 'Hydrogen (H)' ] ]
 // console.log(elementalForms("z")); // => []
 // console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
