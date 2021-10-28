@@ -171,104 +171,106 @@ const ELEMENTS = {
 
 // single letter function
 
-const singleLetter = (word) => {
-  let result = [];
-  for (let i = 0; i < word.length; i++) {
-    if (ELEMENTS[word[i].toUpperCase()]) {
-      result.push(
-        `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
-      );
-    }
-  }
-  // handle case where params === ""
-  if (result.length === word.length && result.length > 0) return result;
-};
+// const singleLetter = (word) => {
+//   let result = [];
+//   for (let i = 0; i < word.length; i++) {
+//     if (ELEMENTS[word[i].toUpperCase()]) {
+//       result.push(
+//         `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
+//       );
+//     }
+//   }
+//   // handle case where params === ""
+//   if (result.length === word.length && result.length > 0) return result;
+// };
 
-// function that handles double letters
-const doubleLetter = (word) => {
-  let result = [];
-  for (let i = 0; i < word.length; i++) {
-    // for double letter ELEMENTS
-    if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
-      result.push(
-        `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
-          word[i].toUpperCase() + word[i + 1]
-        })`
-      );
-      i += 1;
-    }
-  }
+// // function that handles double letters
+// const doubleLetter = (word) => {
+//   let result = [];
+//   for (let i = 0; i < word.length; i++) {
+//     // for double letter ELEMENTS
+//     if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
+//       result.push(
+//         `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
+//           word[i].toUpperCase() + word[i + 1]
+//         })`
+//       );
+//       i += 1;
+//     }
+//   }
 
-  // check to see if the all the letters in word are acounted for by length
-  if (result.length * 2 === word.length && result.length > 0) return result;
-};
+//   // check to see if the all the letters in word are acounted for by length
+//   if (result.length * 2 === word.length && result.length > 0) return result;
+// };
 
-// function mix of single and double elements
-const mixOfSingleAndDoubleLetter = (word) => {
-  if (word === "") return [];
+// // function mix of single and double elements
+// const mixOfSingleAndDoubleLetter = (word) => {
+//   if (word === "") return [];
 
-  let result = [];
+//   let result = [];
 
-  for (let i = 0; i < word.length; i++) {
-    // for double letter ELEMENTS
-    if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
-      result.push(
-        `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
-          word[i].toUpperCase() + word[i + 1]
-        })`
-      );
-      i += 1;
-    }
-    // for single letter ELEMENTS
-    else if (ELEMENTS[word[i].toUpperCase()]) {
-      result.push(
-        `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
-      );
+//   for (let i = 0; i < word.length; i++) {
+//     // for double letter ELEMENTS
+//     if (ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]) {
+//       result.push(
+//         `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
+//           word[i].toUpperCase() + word[i + 1]
+//         })`
+//       );
+//       i += 1;
+//     }
+//     // for single letter ELEMENTS
+//     else if (ELEMENTS[word[i].toUpperCase()]) {
+//       result.push(
+//         `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
+//       );
 
-      // handle non elemental letters
-    } else if (!ELEMENTS[word[i].toUpperCase()]) return [];
-  }
-  return result;
-};
+//       // handle non elemental letters
+//     } else if (!ELEMENTS[word[i].toUpperCase()]) return [];
+//   }
+//   return result;
+// };
 
 // higher order function that returns the final array of answers
 
-const elementalForms = (word) => {
-  let result = [];
+// const elementalForms = (word) => {
+//   let result = [];
 
-  // if given an empty string, return an empty array
-  if (word === "") return [];
+//   // if given an empty string, return an empty array
+//   if (word === "") return [];
 
-  if (doubleLetter(word)) result.push(doubleLetter(word));
-  if (singleLetter(word)) result.push(singleLetter(word));
-  // console.log(result.includes(doubleLetter(word)));
+//   if (doubleLetter(word)) result.push(doubleLetter(word));
+//   if (singleLetter(word)) result.push(singleLetter(word));
+//   // console.log(result.includes(doubleLetter(word)));
 
-  // Only run if result contains nothing, or if result does not includes the result of doubleLetter
-  if (result.length === 0 || result.includes(doubleLetter(word))) {
-    result.push(mixOfSingleAndDoubleLetter(word));
-  }
-   return result;
+//   // Only run if result contains nothing, or if result does not includes the result of doubleLetter
+//   if (result.length === 0 || result.includes(doubleLetter(word))) {
+//     result.push(mixOfSingleAndDoubleLetter(word));
+//   }
+//    return result;
 
-};
-
-
+// };
 
 // found solution with recursion
 
-// const elementalForms = (word, acc = [], result = []) => {
-//   for (let i = 1; i <= 3; i += 1) {
-//     const el = word.slice(0, i).toLowerCase().replace(/^./, ch => ch.toUpperCase());
-//     if (!ELEMENTS[el]) continue;       
+const elementalForms = (word, acc = [], result = []) => {
+  for (let i = 1; i <= 3; i += 1) {
+    const element = word
+      .slice(0, i)
+      .toLowerCase()
+      .replace(/^./, (ch) => ch.toUpperCase());
+    if (!ELEMENTS[element]) continue;
 
-//     const line = [ ...acc, `${ELEMENTS[el]} (${el})` ];   
-//     i === word.length && result.push(line);         
+    const line = [...acc, `${ELEMENTS[element]} (${element})`];
+    i === word.length && result.push(line);
 
-//     elementalForms(word.slice(i), line, result);
-//   }
-  
-//   return result;
-// }
+    elementalForms(word.slice(i), line, result);
+  }
+
+  return result;
+};
 
 console.log(elementalForms("beach")); // => [ [ 'Beryllium (Be)', 'Actinium (Ac)', 'Hydrogen (H)' ] ]
-// console.log(elementalForms("z")); // => []
-// console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
+console.log(elementalForms("z")); // => []
+console.log(elementalForms("Si")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
+console.log(elementalForms("Snack")); // =>   [ [ 'Silicon (Si)' ], [ 'Sulfur (S)', 'Iodine (I)' ]
