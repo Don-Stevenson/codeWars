@@ -19,8 +19,12 @@ const sumIntervals = (intervals) => {
     const elementI = intervals[i];
     console.log({ elementI });
     diffWithinElements.push(elementI[1] - elementI[0]);
-    console.log(diffWithinElements);
+    console.log("last", intervals[i][1]);
+    if (intervals[i+1]) {
+    console.log("first", intervals[i+1][0]);
+    }
   }
+
   console.log(diffWithinElements);
   return diffWithinElements.reduce((accum, e) => (accum += e));
 };
