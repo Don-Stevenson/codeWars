@@ -14,19 +14,26 @@
 // The sum of the lengths of these intervals is 7. Since [1, 4] and [3, 5] overlap, we can treat the interval as [1, 5], which has a length of 4.
 
 const sumIntervals = (intervals) => {
+  console.log({ intervals });
+  let diffBetweenElements = [];
   let diffWithinElements = [];
   for (let i = 0; i < intervals.length; i++) {
     const elementI = intervals[i];
-    console.log({ elementI });
+    // console.log({ elementI });
     diffWithinElements.push(elementI[1] - elementI[0]);
-    console.log("last", intervals[i][1]);
-    if (intervals[i+1]) {
-    console.log("first", intervals[i+1][0]);
+    // console.log("last", intervals[i][1]);
+    if (intervals[i + 1]) {
+      // console.log("first", intervals[i + 1][0]);
+      diffBetweenElements.push(intervals[i][1] - intervals[i + 1][0]);
+      console.log("diff btwn", diffBetweenElements);
     }
   }
-
-  console.log(diffWithinElements);
-  return diffWithinElements.reduce((accum, e) => (accum += e));
+  if (diffBetweenElements.reduce((accum, e) => (accum += e)) > 0) {
+    return (
+      diffWithinElements.reduce((accum, e) => (accum += e)) -
+      diffBetweenElements.reduce((accum, e) => (accum += e))
+    );
+  } else return diffWithinElements.reduce((accum, e) => (accum += e));
 };
 
 // Examples:
