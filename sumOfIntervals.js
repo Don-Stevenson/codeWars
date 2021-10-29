@@ -13,6 +13,10 @@
 // ]
 // The sum of the lengths of these intervals is 7. Since [1, 4] and [3, 5] overlap, we can treat the interval as [1, 5], which has a length of 4.
 
+
+// idea; generate all the intervals per string, 4, 8=> 4,5,6,7,8
+// only push the elements intervals that are not already there
+// use reduce to calculate total 
 const sumIntervals = (intervals) => {
   console.log({ intervals });
   let diffBetweenElements = [];
@@ -37,19 +41,19 @@ const sumIntervals = (intervals) => {
 };
 
 // Examples:
-console.log(
-  sumIntervals([
-    [1, 2],
-    [6, 10],
-    [11, 15],
-  ])
-); // => 9
+// console.log(
+//   sumIntervals([
+//     [1, 2],
+//     [6, 10],
+//     [11, 15],
+//   ])
+// ); // => 9
 
-// sumIntervals( [
-//    [1,4],
-//    [7, 10],
-//    [3, 5]
-// ] ); // => 7
+console.log(sumIntervals( [
+   [1,4],
+   [7, 10],
+   [3, 5]
+] )); // => 7
 
 // sumIntervals( [
 //    [1,5],
