@@ -17,13 +17,10 @@ const sumIntervals = (intervals) => {
   for (let i = 0; i < intervals.length; i++) {
     const elementI = intervals[i];
     console.log({ elementI });
-    for (let y = 0; y < elementI.length; y++) {
-      const elementY = elementI[y];
-      console.log({ elementY });
-    }
+    const diffWithinElements = elementI[1] - elementI[0];
+    console.log(diffWithinElements);
   }
 };
-// console.log(intervals);}
 
 // Examples:
 sumIntervals([
