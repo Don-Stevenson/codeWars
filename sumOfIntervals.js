@@ -13,12 +13,24 @@
 // ]
 // The sum of the lengths of these intervals is 7. Since [1, 4] and [3, 5] overlap, we can treat the interval as [1, 5], which has a length of 4.
 
+const sumIntervals = (intervals) => {
+  for (let i = 0; i < intervals.length; i++) {
+    const elementI = intervals[i];
+    console.log({ elementI });
+    for (let y = 0; y < elementI.length; y++) {
+      const elementY = elementI[y];
+      console.log({ elementY });
+    }
+  }
+};
+// console.log(intervals);}
+
 // Examples:
-// sumIntervals( [
-//    [1,2],
-//    [6, 10],
-//    [11, 15]
-// ] ); // => 9
+sumIntervals([
+  [1, 2],
+  [6, 10],
+  [11, 15],
+]); // => 9
 
 // sumIntervals( [
 //    [1,4],
@@ -33,5 +45,3 @@
 //    [16, 19],
 //    [5, 11]
 // ] ); // => 19
-
-const sumIntervals = (intervals) =>{}
