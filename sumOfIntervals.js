@@ -20,27 +20,39 @@ const sumIntervals = (intervals) => {
   console.log({ intervals });
   let diffBetweenElements = [];
   let diffWithinElements = [];
+
+  const sortedArray = intervals.sort((a, b) => {
+    return a[0] - b[0];
+  });
+
   for (let i = 0; i < intervals.length; i++) {
-    const elementI = intervals[i];
+    const elementI = sortedArray[i];
     // console.log({ elementI });
     diffWithinElements.push(elementI[1] - elementI[0]);
-    // console.log("last", intervals[i][1]);
-    if (intervals[i + 1]) {
-      // console.log("first", intervals[i + 1][0]);
-      diffBetweenElements.push(intervals[i][1] - intervals[i + 1][0]);
+    // console.log({diffWithinElements})
+    if (sortedArray[i + 1]) {
+      // console.log("first", sortedArray[i + 1][0]);
+      diffBetweenElements.push(sortedArray[i][1] - sortedArray[i + 1][0]);
       console.log("diff btwn", diffBetweenElements);
     }
   }
-  if (diffBetweenElements.reduce((accum, e) => (accum += e)) > 0) {
+  // positive
+  if (diffBetweenElements.reduce((accum, e) => (accum += e)) >= 0) {
+    console.log("here");
     return (
       diffWithinElements.reduce((accum, e) => (accum += e)) -
+      diffBetweenElements.reduce((accum, e) => (accum += e))
+    );
+    // if negative
+  } else if (diffBetweenElements.reduce((accum, e) => (accum += e)) < 0) {
+    return (
+      diffWithinElements.reduce((accum, e) => (accum += e)) +
       diffBetweenElements.reduce((accum, e) => (accum += e))
     );
   } else return diffWithinElements.reduce((accum, e) => (accum += e));
 };
 
-// Examples:
-// console.log(
+// Examples: console.log(
 //   sumIntervals([
 //     [1, 2],
 //     [6, 10],
@@ -48,18 +60,18 @@ const sumIntervals = (intervals) => {
 //   ])
 // ); // => 9
 
-console.log(
-  sumIntervals([
-    [1, 4],
-    [7, 10],
-    [3, 5],
-  ])
-); // => 7
+// console.log(
+//   sumIntervals([
+//     [1, 4],
+//     [7, 10],
+//     [3, 5],
+//   ])
+// ); // => 7
 
-// sumIntervals( [
-//    [1,5],
-//    [10, 20],
-//    [1, 6],
-//    [16, 19],
-//    [5, 11]
-// ] ); // => 19
+sumIntervals([
+  [1, 5],
+  [10, 20],
+  [1, 6],
+  [16, 19],
+  [5, 11],
+]); // => 19
