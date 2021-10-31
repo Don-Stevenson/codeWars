@@ -30,6 +30,8 @@ const sumIntervals = (intervals) => {
     // console.log({ elementI });
     diffWithinElements.push(elementI[1] - elementI[0]);
     // console.log({diffWithinElements})
+
+    // check if there is one another element or is this the last
     if (sortedArray[i + 1]) {
       // console.log("first", sortedArray[i + 1][0]);
       diffBetweenElements.push(sortedArray[i][1] - sortedArray[i + 1][0]);
