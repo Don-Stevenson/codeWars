@@ -62,11 +62,16 @@ const sumIntervals = (intervals) => {
 
   for (let i = 0; i < intervals.length; i++) {
     for (let y = intervals[i][0]; y <= intervals[i][1]; y++) {
-      console.log({y});
+      if (!intervals.includes(y)) intervalArr.push(y);
     }
   }
-};
+  console.log({ intervalArr });
 
+  const uniqueValArr = Array.from(new Set(intervalArr));
+  const sortedArr = uniqueValArr.sort((a,b)=> a-b)
+  console.log({sortedArr});
+  return uniqueValArr.reduce((accum, curr) => (accum += curr));
+};
 // Examples: console.log(
 //   sumIntervals([
 //     [1, 2],
@@ -83,10 +88,12 @@ const sumIntervals = (intervals) => {
 //   ])
 // ); // => 7
 
-sumIntervals([
-  [1, 5],
-  [10, 20],
-  [1, 6],
-  [16, 19],
-  [5, 11],
-]); // => 19
+console.log(
+  sumIntervals([
+    [1, 5],
+    [10, 20],
+    [1, 6],
+    [16, 19],
+    [5, 11],
+  ])
+); // => 19
