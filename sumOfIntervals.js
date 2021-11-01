@@ -68,11 +68,13 @@ const sumIntervals = (intervals) => {
   console.log({ intervalArr });
 
   const uniqueValArr = Array.from(new Set(intervalArr));
-  const sortedArr = uniqueValArr.sort((a,b)=> a-b)
-  console.log({sortedArr});
-  return uniqueValArr.reduce((accum, curr) => (accum += curr));
+  const sortedArr = uniqueValArr.sort((a, b) => a - b);
+  console.log({ sortedArr });
+
+  // return uniqueValArr.reduce((accum, curr) => (accum += curr));
 };
-// Examples: console.log(
+// Examples:
+//  console.log(
 //   sumIntervals([
 //     [1, 2],
 //     [6, 10],
@@ -88,12 +90,24 @@ const sumIntervals = (intervals) => {
 //   ])
 // ); // => 7
 
-console.log(
-  sumIntervals([
-    [1, 5],
-    [10, 20],
-    [1, 6],
-    [16, 19],
-    [5, 11],
-  ])
-); // => 19
+// console.log(
+//   sumIntervals([
+//     [1, 5],
+//     [10, 20],
+//     [1, 6],
+//     [16, 19],
+//     [5, 11],
+//   ])
+// ); // => 19
+
+// trying spliting in to non consectuve arrays
+///
+
+const arrSplitter = (array, arrOfArrs = []) => {
+  for (let i = 0; i < array.length; i++) {
+    if (i === 0) arrOfArrs.push(array[i]);
+    else if (array[i + 1] === array[i] + 1) arrOfArrs.push(array[i]);
+    else return arrSplitter(array[i], arrOfArrs);
+  }
+};
+console.log(arrSplitter([1, 2, 3, 4, 6, 7, 8, 10, 11, 12]));
