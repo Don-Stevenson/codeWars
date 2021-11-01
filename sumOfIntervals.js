@@ -61,23 +61,10 @@ const sumIntervals = (intervals) => {
   // make an array of each of the intervals [1,4] => [1,2,3,4]
 
   for (let i = 0; i < intervals.length; i++) {
-    if (intervalArr.includes(intervals)) {
+    for (let y = intervals[i][0]; y <= intervals[i][1]; y++) {
+      console.log({y});
     }
   }
-  // positive
-  if (diffBetweenElements.reduce((accum, e) => (accum += e)) >= 0) {
-    console.log("here");
-    return (
-      diffWithinElements.reduce((accum, e) => (accum += e)) -
-      diffBetweenElements.reduce((accum, e) => (accum += e))
-    );
-    // if negative
-  } else if (diffBetweenElements.reduce((accum, e) => (accum += e)) < 0) {
-    return (
-      diffWithinElements.reduce((accum, e) => (accum += e)) +
-      diffBetweenElements.reduce((accum, e) => (accum += e))
-    );
-  } else return diffWithinElements.reduce((accum, e) => (accum += e));
 };
 
 // Examples: console.log(
