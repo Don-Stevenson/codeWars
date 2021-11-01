@@ -16,26 +16,52 @@
 // idea; generate all the intervals per string, 4, 8=> 4,5,6,7,8
 // only push the elements intervals that are not already there
 // use reduce to calculate total
+// const sumIntervals = (intervals) => {
+//   console.log({ intervals });
+//   let diffBetweenElements = [];
+//   let diffWithinElements = [];
+
+//   const sortedArray = intervals.sort((a, b) => {
+//     return a[0] - b[0];
+//   });
+
+//   for (let i = 0; i < intervals.length; i++) {
+//     const elementI = sortedArray[i];
+//     // console.log({ elementI });
+//     diffWithinElements.push(elementI[1] - elementI[0]);
+//     // console.log({diffWithinElements})
+
+//     // check if there is one another element or is this the last
+//     if (sortedArray[i + 1]) {
+//       // console.log("first", sortedArray[i + 1][0]);
+//       diffBetweenElements.push(sortedArray[i][1] - sortedArray[i + 1][0]);
+//       console.log("diff btwn", diffBetweenElements);
+//     }
+//   }
+//   // positive
+//   if (diffBetweenElements.reduce((accum, e) => (accum += e)) >= 0) {
+//     console.log("here");
+//     return (
+//       diffWithinElements.reduce((accum, e) => (accum += e)) -
+//       diffBetweenElements.reduce((accum, e) => (accum += e))
+//     );
+//     // if negative
+//   } else if (diffBetweenElements.reduce((accum, e) => (accum += e)) < 0) {
+//     return (
+//       diffWithinElements.reduce((accum, e) => (accum += e)) +
+//       diffBetweenElements.reduce((accum, e) => (accum += e))
+//     );
+//   } else return diffWithinElements.reduce((accum, e) => (accum += e));
+// };
+
 const sumIntervals = (intervals) => {
   console.log({ intervals });
-  let diffBetweenElements = [];
-  let diffWithinElements = [];
+  let intervalArr = [];
 
-  const sortedArray = intervals.sort((a, b) => {
-    return a[0] - b[0];
-  });
+  // make an array of each of the intervals [1,4] => [1,2,3,4]
 
   for (let i = 0; i < intervals.length; i++) {
-    const elementI = sortedArray[i];
-    // console.log({ elementI });
-    diffWithinElements.push(elementI[1] - elementI[0]);
-    // console.log({diffWithinElements})
-
-    // check if there is one another element or is this the last
-    if (sortedArray[i + 1]) {
-      // console.log("first", sortedArray[i + 1][0]);
-      diffBetweenElements.push(sortedArray[i][1] - sortedArray[i + 1][0]);
-      console.log("diff btwn", diffBetweenElements);
+    if (intervalArr.includes(intervals)) {
     }
   }
   // positive
