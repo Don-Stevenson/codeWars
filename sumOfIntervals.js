@@ -54,26 +54,90 @@
 //   } else return diffWithinElements.reduce((accum, e) => (accum += e));
 // };
 
-const sumIntervals = (intervals) => {
-  console.log({ intervals });
-  let intervalArr = [];
+// const sumIntervals = (intervals) => {
+//   console.log({ intervals });
+//   let intervalArr = [];
 
-  // make an array of each of the intervals [1,4] => [1,2,3,4]
+//   // make an array of each of the intervals [1,4] => [1,2,3,4]
 
-  for (let i = 0; i < intervals.length; i++) {
-    for (let y = intervals[i][0]; y <= intervals[i][1]; y++) {
-      if (!intervals.includes(y)) intervalArr.push(y);
+//   for (let i = 0; i < intervals.length; i++) {
+//     for (let y = intervals[i][0]; y <= intervals[i][1]; y++) {
+//       if (!intervals.includes(y)) intervalArr.push(y);
+//     }
+//   }
+//   console.log({ intervalArr });
+
+//   const uniqueValArr = Array.from(new Set(intervalArr));
+//   const sortedArr = uniqueValArr.sort((a, b) => a - b);
+//   console.log({ sortedArr });
+
+//   // return uniqueValArr.reduce((accum, curr) => (accum += curr));
+// };
+
+// trying spliting in to non consectuve arrays
+///
+
+// const arrSplitter = (array, arrOfArrs = []) => {
+//   for (let i = 0; i < array.length; i++) {
+//     if (i === 0) arrOfArrs.push(array[i]);
+//     else if (array[i + 1] === array[i] + 1) arrOfArrs.push(array[i]);
+//     else return arrSplitter(array[i], arrOfArrs);
+//   }
+// };
+// console.log(arrSplitter([1, 2, 3, 4, 6, 7, 8, 10, 11, 12]));
+
+// vasiliy solution
+const mergeRedundantIntervals = intervals => {
+  const obj = {};
+  intervals.forEach((interval) => {
+    if (!obj[interval[0]]) {
+      obj[interval[0]] = interval[1];
+    } else {
+      if (obj[interval[0]] < interval[1]) {
+        obj[interval[0]] = interval[1];
+      }
+    }
+  });
+  return Object.keys(obj).map((key) => [Number(key), obj[key]]);
+};
+
+const mergeOverlaps = intervals => {
+  if (intervals.length === 0 || intervals.length === 1) return intervals;
+
+  const result = [[...intervals[0]]];
+  for (let current = 1; current < intervals.length; current++) {
+    let prev = result.length - 1;
+    // check is between
+    if (
+      result[prev][0] <= intervals[current][0] &&
+      result[prev][1] >= intervals[current][0]
+    ) {
+      // check if 2nd number is bigger
+      if (result[prev][1] <= intervals[current][1]) {
+        result[prev][1] = intervals[current][1];
+      }
+    } else {
+      result.push([...intervals[current]]);
     }
   }
-  console.log({ intervalArr });
-
-  const uniqueValArr = Array.from(new Set(intervalArr));
-  const sortedArr = uniqueValArr.sort((a, b) => a - b);
-  console.log({ sortedArr });
-
-  // return uniqueValArr.reduce((accum, curr) => (accum += curr));
+  return result;
 };
-// Examples:
+
+const sumIntervals = intervals => {
+  // remove redundant duplicates and same started sets
+  const nonDuplicateIntervals = mergeRedundantIntervals(intervals);
+  // sort intervals
+  const sortedIntervals = nonDuplicateIntervals.sort((a, b) => {
+    if (a[0] !== b[0]) return a[0] - b[0];
+    else a[1] - b[1];
+  });
+  const filteredIntervals = mergeOverlaps(sortedIntervals);
+  let result = 0;
+  filteredIntervals.forEach((e) => (result += e[1] - e[0]));
+  return result;
+};
+
+// test Examples:
 //  console.log(
 //   sumIntervals([
 //     [1, 2],
@@ -90,72 +154,12 @@ const sumIntervals = (intervals) => {
 //   ])
 // ); // => 7
 
-// console.log(
-//   sumIntervals([
-//     [1, 5],
-//     [10, 20],
-//     [1, 6],
-//     [16, 19],
-//     [5, 11],
-//   ])
-// ); // => 19
-
-// trying spliting in to non consectuve arrays
-///
-
-const arrSplitter = (array, arrOfArrs = []) => {
-  for (let i = 0; i < array.length; i++) {
-    if (i === 0) arrOfArrs.push(array[i]);
-    else if (array[i + 1] === array[i] + 1) arrOfArrs.push(array[i]);
-    else return arrSplitter(array[i], arrOfArrs);
-  }
-};
-console.log(arrSplitter([1, 2, 3, 4, 6, 7, 8, 10, 11, 12]));
-
-// vasiliy solution
-// const mergeRedundantIntervals = intervals => {
-//   const obj = {};
-//   intervals.forEach(interval => {
-//     if (!obj[interval[0]]) {
-//       obj[interval[0]] = interval[1];
-//     } else {
-//       if ( obj[interval[0]] < interval[1] ) {
-//         obj[interval[0]] = interval[1];
-//       }
-//     }
-//   })
-//   return Object.keys(obj).map(key => [Number(key), obj[key]]);
-// }
-
-// const mergeOverlaps = intervals => {
-//   if (intervals.length === 0 || intervals.length === 1) return intervals;
-  
-//   const result = [[...intervals[0]]];
-//   for (let current = 1; current < intervals.length; current++) {
-//     let prev = result.length - 1;
-//     // check is between
-//     if (result[prev][0] <= intervals[current][0] && result[prev][1] >= intervals[current][0]) {
-//       // check if 2nd number is bigger
-//       if (result[prev][1] <= intervals[current][1]) {
-//         result[prev][1] = intervals[current][1];
-//       }
-//     } else {
-//       result.push([...intervals[current]]);
-//     }
-//   }
-//   return result;
-// }
-
-// function sumIntervals(intervals){
-//   // remove redundant duplicates and same started sets
-//   const nonDuplicateIntervals = mergeRedundantIntervals(intervals);
-//   // sort intervals
-//   const sortedIntervals = nonDuplicateIntervals.sort((a,b) => {
-//     if (a[0] !== b[0]) return a[0] - b[0];
-//     else a[1] - b[1];
-//   });
-//   const filteredIntervals = mergeOverlaps(sortedIntervals);
-//   let result = 0;
-//   filteredIntervals.forEach(e => result += (e[1] - e[0]));
-//   return result;
-// }
+console.log(
+  sumIntervals([
+    [1, 5],
+    [10, 20],
+    [1, 6],
+    [16, 19],
+    [5, 11],
+  ]))
+ // => 19
