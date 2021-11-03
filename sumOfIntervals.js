@@ -89,7 +89,7 @@
 // vasiliy solution
 const mergeRedundantIntervals = intervals => {
   const obj = {};
-  intervals.forEach((interval) => {
+  intervals.forEach(interval => {
     if (!obj[interval[0]]) {
       obj[interval[0]] = interval[1];
     } else {
@@ -98,7 +98,7 @@ const mergeRedundantIntervals = intervals => {
       }
     }
   });
-  return Object.keys(obj).map((key) => [Number(key), obj[key]]);
+  return Object.keys(obj).map(key => [Number(key), obj[key]]);
 };
 
 const mergeOverlaps = intervals => {
@@ -133,7 +133,7 @@ const sumIntervals = intervals => {
   });
   const filteredIntervals = mergeOverlaps(sortedIntervals);
   let result = 0;
-  filteredIntervals.forEach((e) => (result += e[1] - e[0]));
+  filteredIntervals.forEach(e => (result += e[1] - e[0]));
   return result;
 };
 
