@@ -112,10 +112,11 @@ const mergeOverlaps = intervals => {
       result[prev][0] <= intervals[current][0] &&
       result[prev][1] >= intervals[current][0]
     ) {
-      // check if 2nd number is bigger
+    // check if 2nd number is bigger
       if (result[prev][1] <= intervals[current][1]) {
         result[prev][1] = intervals[current][1];
       }
+    // else keep the current intervals
     } else {
       result.push([...intervals[current]]);
     }
@@ -124,6 +125,7 @@ const mergeOverlaps = intervals => {
 };
 
 const sumIntervals = intervals => {
+
   // remove redundant duplicates and same started sets
   const nonDuplicateIntervals = mergeRedundantIntervals(intervals);
   // sort intervals
@@ -131,8 +133,11 @@ const sumIntervals = intervals => {
     if (a[0] !== b[0]) return a[0] - b[0];
     else a[1] - b[1];
   });
+  // filter sorted intervals
   const filteredIntervals = mergeOverlaps(sortedIntervals);
   let result = 0;
+  
+  // calculate the result through the difference of each element
   filteredIntervals.forEach(e => (result += e[1] - e[0]));
   return result;
 };
