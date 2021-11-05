@@ -107,7 +107,7 @@ const mergeOverlaps = intervals => {
   const result = [[...intervals[0]]];
   for (let current = 1; current < intervals.length; current++) {
     let prev = result.length - 1;
-    // check is between
+    // check if between
     if (
       result[prev][0] <= intervals[current][0] &&
       result[prev][1] >= intervals[current][0]
