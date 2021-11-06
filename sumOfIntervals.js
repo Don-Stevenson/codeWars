@@ -87,21 +87,27 @@
 // console.log(arrSplitter([1, 2, 3, 4, 6, 7, 8, 10, 11, 12]));
 
 // vasiliy solution
-const mergeRedundantIntervals = intervals => {
+const mergeRedundantIntervals = (intervals) => {
   const obj = {};
-  intervals.forEach(interval => {
+  intervals.forEach((interval) => {
+    // setting a key to the 2nd value, when the first value is not already present
     if (!obj[interval[0]]) {
       obj[interval[0]] = interval[1];
+
+      // if the key value is less than the incoming value from the interval
+      // if true, then set the key value to be the incoming value from 2nd interva
     } else {
       if (obj[interval[0]] < interval[1]) {
         obj[interval[0]] = interval[1];
       }
     }
   });
-  return Object.keys(obj).map(key => [Number(key), obj[key]]);
+
+  // return an array with new key value pairs
+  return Object.keys(obj).map((key) => [Number(key), obj[key]]);
 };
 
-const mergeOverlaps = intervals => {
+const mergeOverlaps = (intervals) => {
   if (intervals.length === 0 || intervals.length === 1) return intervals;
 
   const result = [[...intervals[0]]];
@@ -112,11 +118,11 @@ const mergeOverlaps = intervals => {
       result[prev][0] <= intervals[current][0] &&
       result[prev][1] >= intervals[current][0]
     ) {
-    // check if 2nd number is bigger
+      // check if 2nd number is bigger
       if (result[prev][1] <= intervals[current][1]) {
         result[prev][1] = intervals[current][1];
       }
-    // else keep the current intervals
+      // else keep the current intervals
     } else {
       result.push([...intervals[current]]);
     }
@@ -124,8 +130,7 @@ const mergeOverlaps = intervals => {
   return result;
 };
 
-const sumIntervals = intervals => {
-
+const sumIntervals = (intervals) => {
   // remove redundant duplicates and same started sets
   const nonDuplicateIntervals = mergeRedundantIntervals(intervals);
   // sort intervals
@@ -136,9 +141,9 @@ const sumIntervals = intervals => {
   // filter sorted intervals
   const filteredIntervals = mergeOverlaps(sortedIntervals);
   let result = 0;
-  
+
   // calculate the result through the difference of each element
-  filteredIntervals.forEach(e => (result += e[1] - e[0]));
+  filteredIntervals.forEach((e) => (result += e[1] - e[0]));
   return result;
 };
 
@@ -166,5 +171,6 @@ console.log(
     [1, 6],
     [16, 19],
     [5, 11],
-  ]))
- // => 19
+  ])
+);
+// => 19
