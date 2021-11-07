@@ -16,18 +16,17 @@
 // As a special case, nonogram puzzles usually represent the empty output ([]) as [0].
 // If you prefer to do it this way, that's fine, but 0 should not appear in the output in any other case.
 
-const nonogramrow = array => {
-  return array
+const nonogramrow = array =>
+  array
     .join()
     .split("0,")
     .filter(e => e != 0)
-    .map(e => e.replace(/,/g, "").length)
-}
+    .map(e => e.replace(/,/g, "").length);
 
-console.log(nonogramrow([])) // => []
-console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
-console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
-console.log(nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])) //=> [5,4]
-console.log(nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0])) // => [2,1,3]
-console.log(nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1])) // => [2,1,3]
-console.log(nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])) // => [1,1,1,1,1,1,1,1]
+// console.log(nonogramrow([])) // => []
+// console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
+// console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
+console.log(nonogramrow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])); //=> [5,4]
+// console.log(nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0])) // => [2,1,3]
+// console.log(nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1])) // => [2,1,3]
+// console.log(nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])) // => [1,1,1,1,1,1,1,1]
