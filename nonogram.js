@@ -18,10 +18,11 @@
 
 const nonogramRow = array =>
   array
-    .join()
-    .split("0,")
-    .filter(e => e != 0)
-    .map(e => e.replace(/,/g, "").length);
+    .join()  // make into one big array
+    .split("0,") // split in to separate arrays on 0
+    .filter(e => e != 0) // remove any array with only a 0
+    .map(e => e.replace(/,/g, "").length); // remove commas in the array 
+    // and return an array with the lengths
 
 // console.log(nonogramrow([])) // => []
 // console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
