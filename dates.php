@@ -1,6 +1,6 @@
 <?php
 // set the default timezone to use.
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Toronto');
 
 // Prints something like: Monday
 echo date("l");
@@ -19,6 +19,7 @@ echo "\n";
 echo date(DATE_RFC2822);
 
 echo "\n";
+
 // prints something like: 2000-07-01T00:00:00+00:00
 echo date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
 echo "\n";
