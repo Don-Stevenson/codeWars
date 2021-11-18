@@ -54,12 +54,10 @@
 //  Find the smallest N such that phonedrop(N, 123456789) = 27.
 
 const phoneDrop = (noOfPhones, meters) => {
-  console.log({ noOfPhones }, { meters })
-}
+  console.log({ noOfPhones }, { meters });
+};
 
-
-
-phoneDrop(1, 100) // => 100
+phoneDrop(1, 100); // => 100
 // phoneDrop(2, 100) // => 14
 // phoneDrop(3, 100) // => 9
 // phonedrop(1, 1) => 1
