@@ -67,3 +67,73 @@ phoneDrop(1, 100); // => 100
 // phonedrop(2, 789) => 40
 // phonedrop(3, 789) => 17
 // phonedrop(4, 789) => 12
+
+// //Compares 2 values and returns the bigger one
+
+const returnLargest = (a, b) => a > b ? a : b
+
+console.log(returnLargest(1, 10));
+
+// //Compares 2 values and returns the smaller one
+// int min(int a,int b){
+//   int ans=(a<b)?a:b;
+//   return ans;
+// }
+
+// int solvepuzzle(int n,int k){
+
+//   int numdrops[n+1][k+1];
+//   int i,j,x;
+
+//   for(i=0;i<=k;i++) numdrops[0][i]=0;
+//   for(i=0;i<=k;i++) numdrops[1][i]=i;
+//   for(j=0;j<=n;j++) numdrops[j][0]=0;
+
+//   //This loop fills up the matrix
+//   for(i=2;i<=n;i++){
+//       for(j=1;j<=k;j++){
+
+//           //Defines the minimum as the highest possible value
+//           int minimum=INT_MAX;
+
+//           //Evaluates 1+min{max(numeggs[i][j-x],numeggs[i-1][x-1])), for x:1,2,3...j-1,j}
+//           for(x=1;x<=j;x++) minimum=min(minimum,(1+max(numdrops[i][j-x],numdrops[i-1][x-1])));
+
+//           //Defines the minimum value for numeggs[i][j]
+//           numdrops[i][j]=minimum;
+//       }
+
+//   }
+
+//   cout<<"\nArray:\n\n";
+
+//   //Prints numeggs
+//   for(i=0;i<=n;i++){
+//       for(j=0;j<=k;j++){
+//           cout<<numdrops[i][j]<<" ";
+//       }
+//       cout<<"\n";
+//   }
+
+//   cout<<"\nNumber of trials in the worst case using the best strategy:\n";
+
+//   return numdrops[n][k];
+// }
+
+// int main()
+// {
+//   int e;//Number of eggs
+//   int f;//Number of floors
+
+//   cout<<"Egg dropping puzzle\n\nNumber of eggs:";
+
+//   cin>>e;
+
+//   cout<<"\nNumber of floors:";
+
+//   cin>>f;
+
+//   cout<<solvepuzzle(e,f);
+
+//   return 0;
+// }
