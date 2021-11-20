@@ -72,13 +72,12 @@ phoneDrop(1, 100); // => 100
 
 const returnLargest = (a, b) => a > b ? a : b
 
-console.log(returnLargest(1, 10));
+console.log(returnLargest(1, 10)); // => 10
 
 // //Compares 2 values and returns the smaller one
-// int min(int a,int b){
-//   int ans=(a<b)?a:b;
-//   return ans;
-// }
+const returnSmallest = (a, b) => a < b ? a : b
+
+console.log(returnSmallest(1, 10)); // => 1
 
 // int solvepuzzle(int n,int k){
 
