@@ -53,86 +53,72 @@
 //  it takes a maximum of 27 trials to find K when H = 123456789.
 //  Find the smallest N such that phonedrop(N, 123456789) = 27.
 
-const phoneDrop = (noOfPhones, meters) => {
-  console.log({ noOfPhones }, { meters });
+// initialize case history outside of the
+// function so it doesn't reset to an empty array when called requirsively
+let caseHistory = [];
+
+const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
+  // make case history an empty arrayt if it is nill
+  if (!caseHistory[numOfPhones]) {
+    caseHistory[numOfPhones] = [];
+  }
+
+  // set case history for phones from the number of phones in the casehistory
+  caseHistoryForPhones = caseHistory[numOfPhones];
+
+  // if caseHistory for stories exist this will be the number of trials required
+  if (caseHistoryForPhones[numStories]) {
+    return caseHistoryForPhones[numStories];
+  }
+
+  //Handle 1-story case explicitly
+  if (numStories === 1) {
+    caseHistoryForPhones[numStories] = 1;
+    return 1;
+  }
+
+  //Handle 1-phone case explicitly
+  if (numOfPhones === 1) {
+    caseHistoryForPhones[numStories] = numStories;
+    return numStories;
+  }
+
+  //Get the lowest worst case
+  let lowestWorstCase = numStories;
+
+  // c style for loop that counts down from the number of stories
+  for (let firstDrop = numStories; firstDrop > 0; firstDrop--) {
+    //consider phone breaking
+    let breakWorstCase =
+      1 + phoneDropPuzzleWorstCase(numOfPhones - 1, firstDrop - 1);
+
+    //consider phone not breaking
+    let notBreakWorstCase =
+      1 + phoneDropPuzzleWorstCase(numOfPhones, numStories - firstDrop);
+
+    //get the worst case
+    let worstCase =
+      breakWorstCase > notBreakWorstCase ? breakWorstCase : notBreakWorstCase;
+
+    //update the lowest worst case
+    if (worstCase < lowestWorstCase) {
+      lowestWorstCase = worstCase;
+    }
+  }
+
+  caseHistoryForPhones[numStories] = lowestWorstCase;
+  return lowestWorstCase;
 };
 
-phoneDrop(1, 100); // => 100
-// phoneDrop(2, 100) // => 14
-// phoneDrop(3, 100) // => 9
-// phonedrop(1, 1) => 1
-// phonedrop(2, 456) => 30
-// phonedrop(3, 456) => 14
-// phonedrop(4, 456) => 11
-// phonedrop(2, 789) => 40
-// phonedrop(3, 789) => 17
-// phonedrop(4, 789) => 12
+// phoneDropPuzzleWorstCase(1, 100); // => 100
+// phoneDropPuzzleWorstCase(2, 100) // => 14
+// phoneDropPuzzleWorstCase(3, 100) // => 9
+// phoneDropPuzzleWorstCase(1, 1) => 1
+// phoneDropPuzzleWorstCase(2, 456) => 30
+// phoneDropPuzzleWorstCase(3, 456) => 14
+// phoneDropPuzzleWorstCase(4, 456) => 11
+// phoneDropPuzzleWorstCase(2, 789) => 40
+// phoneDropPuzzleWorstCase(3, 789) => 17
+// phoneDropPuzzleWorstCase(4, 789) => 12
 
-// //Compares 2 values and returns the bigger one
-
-const returnLargest = (a, b) => a > b ? a : b
-
-console.log(returnLargest(1, 10)); // => 10
-
-// //Compares 2 values and returns the smaller one
-const returnSmallest = (a, b) => a < b ? a : b
-
-console.log(returnSmallest(1, 10)); // => 1
-
-// int solvepuzzle(int n,int k){
-
-//   int numdrops[n+1][k+1];
-//   int i,j,x;
-
-//   for(i=0;i<=k;i++) numdrops[0][i]=0;
-//   for(i=0;i<=k;i++) numdrops[1][i]=i;
-//   for(j=0;j<=n;j++) numdrops[j][0]=0;
-
-//   //This loop fills up the matrix
-//   for(i=2;i<=n;i++){
-//       for(j=1;j<=k;j++){
-
-//           //Defines the minimum as the highest possible value
-//           int minimum=INT_MAX;
-
-//           //Evaluates 1+min{max(numeggs[i][j-x],numeggs[i-1][x-1])), for x:1,2,3...j-1,j}
-//           for(x=1;x<=j;x++) minimum=min(minimum,(1+max(numdrops[i][j-x],numdrops[i-1][x-1])));
-
-//           //Defines the minimum value for numeggs[i][j]
-//           numdrops[i][j]=minimum;
-//       }
-
-//   }
-
-//   cout<<"\nArray:\n\n";
-
-//   //Prints numeggs
-//   for(i=0;i<=n;i++){
-//       for(j=0;j<=k;j++){
-//           cout<<numdrops[i][j]<<" ";
-//       }
-//       cout<<"\n";
-//   }
-
-//   cout<<"\nNumber of trials in the worst case using the best strategy:\n";
-
-//   return numdrops[n][k];
-// }
-
-// int main()
-// {
-//   int e;//Number of eggs
-//   int f;//Number of floors
-
-//   cout<<"Egg dropping puzzle\n\nNumber of eggs:";
-
-//   cin>>e;
-
-//   cout<<"\nNumber of floors:";
-
-//   cin>>f;
-
-//   cout<<solvepuzzle(e,f);
-
-//   return 0;
-// }
+console.log(phoneDropPuzzleWorstCase(3, 100));
