@@ -4,9 +4,15 @@
   "description": "",
   "main": "functional.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/tap-test.js | tap-spec"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tape": "^5.3.2"
+  },
+  "devDependencies": {
+    "tap-spec": "^5.0.0"
+  }
 }
