@@ -3,24 +3,24 @@
 // ************************************************
 //
 // const multiplyByX = (arr, num) => {
-//   let newArr = [];
+//   let newArr = []
 //   arr.forEach(element => {
-//     newArr.push(element * num);
+//     newArr.push(element * num)
 //   });
-//   return newArr;
-// };
+//   return newArr
+// }
 
 // // with a for loop
 // //*********************************/
 // const multiplyByX = (arr, num) => {
-//   let newArr = [];
+//   let newArr = []
 //   for (const item of arr) {
-//     newArr.push(item * num);
+//     newArr.push(item * num)
 //   }
-//   return newArr;
-// };
+//   return newArr
+// }
 
-// console.log(multiplyByX([1, 2, 3], 3));
+// console.log(multiplyByX([1, 2, 3], 3))
 
 // with map
 //********************************** */
