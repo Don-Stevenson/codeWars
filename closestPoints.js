@@ -36,40 +36,40 @@
 
 // formula used to find the distance from two points on a Cartsian X Y grid
 const findDistance = ([x1, y1], [x2, y2]) =>
-  Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+  Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
 
 // console.log(findDistance([2, 3], [4, 4])) // => 2.23606797749979
 
 // Calculate a pair of closest points in linearithmic time
-const closestPair = (points) => {
+const closestPair = points => {
   // As a starting point, takes in the first two points and finds the distance.
   // this value used to compare with other distances below
   let minDistance = findDistance(points[0], points[1]);
   // console.log({ minDistance })
 
   // setting the indeces to the above from findDistance as a starting point
-  let indecesResult = [0, 1];
+  let indecesResult = [0, 1]
 
   // loops through the array of points, eg [2,5]
   for (let i = 1; i < points.length; i++) {
     // loops through the array of points to compare one point to all others
     for (let j = 1; j < points.length; j++) {
       // finds the current distance between the two points in each succussive each loop
-      const currentDistanceBetweenPoints = findDistance(points[i], points[j]);
+      const currentDistanceBetweenPoints = findDistance(points[i], points[j])
 
       // checks to see if the values are the same because the indeces
       // are equal which handles dupplicates
       // and if the current distance is less than the minimum distance
       if (i !== j && currentDistanceBetweenPoints < minDistance) {
         // sets these values into their respective values if the above is true
-        minDistance = currentDistanceBetweenPoints;
-        indecesResult = [i, j];
+        minDistance = currentDistanceBetweenPoints
+        indecesResult = [i, j]
       }
     }
   }
   // returns the points from the indices above where the distance was the smallest
-  return [points[indecesResult[0]], points[indecesResult[1]]];
-};
+  return [points[indecesResult[0]], points[indecesResult[1]]]
+}
 
 
 // Tests
