@@ -25,13 +25,13 @@ console.log(addOne(array))
 // with a for of loop
 // ******************
 
-// const addOne = (groupOfNumbers) => {
-//   let newNumbers = [];
+// const addOne = groupOfNumbers => {
+//   let newNumbers = []
 //   for (const item of groupOfNumbers) {
-//     newNumbers.push(item + 1);
+//     newNumbers.push(item + 1)
 //   }
-//   return newNumbers;
-// };
+//   return newNumbers
+// }
 
 // expect [
 // 2, 3, 4,  5, 6,
@@ -39,11 +39,11 @@ console.log(addOne(array))
 // ]
 
 // with map
-// const addOne = (groupOfNumbers) => {
-// return groupOfNumbers.map((element) => element + 1);
-// };
+// const addOne = groupOfNumbers => {
+// return groupOfNumbers.map((element) => element + 1)
+// }
 
-// console.log(addOne(array));
+// console.log(addOne(array))
 // expect [
 // 2, 3, 4,  5, 6,
 // 7, 8, 9, 10
