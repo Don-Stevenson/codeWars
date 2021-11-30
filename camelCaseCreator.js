@@ -39,7 +39,6 @@ const toCamelCase = str => {
     return ""
   }
 
-
   return str.split("").map((e, index) => {
     // console.log(e, index)
     if (e === " " || e === "-") return str[index + 1].toUpperCase()
