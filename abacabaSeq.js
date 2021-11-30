@@ -49,7 +49,7 @@ const abaFunction = letterNum => {
     // the letternum to get the values of letterNum past A aka charUnicode
     for (let i = charUnicode; i < charUnicode + letterNum; i++) {
         // sets the letter from the unicode, eg. 65 => A
-        let letterString = String.fromCharCode(i);
+        let letterString = String.fromCharCode(i)
 
         // sets the current interation as combination of the current iteration plus 
         // the letterstring and then the current itteration for each succussive loop
