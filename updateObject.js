@@ -10,7 +10,7 @@ let arrOfObjects = [
     b: 5,
     c: 6,
   },
-];
+]
 
 // arrOfObjects.forEach(element => {
 //   newThing1 = {
@@ -21,7 +21,7 @@ let arrOfObjects = [
 //     d: element.a,
 //     f: element.a,
 //     g: true
-//   };
+//   }
 
 //   newThing2 = {
 //     // a: element.b,
@@ -31,8 +31,8 @@ let arrOfObjects = [
 //     d: element.a,
 //     f: element.a,
 //     g: true
-//   };
-// });
+//   }
+// })
 
 // console logging the array of objects before map
 // ***********************************************
@@ -54,10 +54,10 @@ console.log("after : ", { arrOfObjects })
 // update the object using a forEach call
 // **************************************
 // arrOfObjects.forEach((item) => {
-//   item.a = 3;
-//   item.dead = true;
+//   item.a = 3
+//   item.dead = true
 //   console.log("item : ", {item})
-// });
+// })
 
 // expect :
 // item :  { item: { a: 3, b: 2, c: 3, dead: true } }
@@ -68,6 +68,6 @@ console.log("after : ", { arrOfObjects })
 // console.log(
 //   "filtered : ",
 //   arrOfObjects.filter((e) => e.a >= 3)
-// );
+// )
 // expect :
 // filtered :  [ { a: 4, b: 5, c: 6 } ]
