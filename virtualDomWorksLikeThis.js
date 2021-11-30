@@ -4,7 +4,7 @@
 // 8:18
 // this
 // 8:18
-const state = { subject: "some name" };
+const state = { subject: "some name" }
 const element = `<html>
     <div>
         <div id="header">
@@ -12,7 +12,7 @@ const element = `<html>
             <p>How are you today?</p>
         </div>
     </div>
-</html>`;
+</html>`
 // 8:18
 // is regular
 // 8:19
@@ -37,7 +37,7 @@ const element = `<html>
           },
         ],
       },
-    ]);
+    ])
 }
 // 8:19
 // so when u tell JS to be like go find me a p tag header
