@@ -1,18 +1,18 @@
 // practicing recursion to find embeded elements with in an array
 // **************************************************************
 
-let arr = [[[[[1, [[2, [[3, ["b"]]]]]]]]]];
+let arr = [[[[[1, [[2, [[3, ["b"]]]]]]]]]]
 
 const findLetterB = arr => {
   for (const item of arr) {
     if (Array.isArray(item)) {
-      console.log("...going to the next nested array");
-      return findLetterB(item);
+      console.log("...going to the next nested array")
+      return findLetterB(item)
     } else if (item === "b") {
-      return `found ${item} here`;
+      return `found ${item} here`
     }
   }
-  return `didn't find 'b' anywhere`;
+  return `didn't find 'b' anywhere`
 };
 // console.log(findLetterB(arr))
 
@@ -32,11 +32,11 @@ const findLetterB = arr => {
 // **************************
 const countUsingRecursion = count => {
   if (count < 10) {
-    console.log(count);
-    return countUsingRecursion(count + 1);
+    console.log(count)
+    return countUsingRecursion(count + 1)
   }
-  return count;
-};
+  return count
+}
 // console.log(countUsingRecursion(0))
 
 // expect
@@ -56,11 +56,11 @@ const countUsingRecursion = count => {
 //*****************************/
 const countDownFrom = count => {
   if (count > 0) {
-    console.log(count);
+    console.log(count)
     return countDownFrom(count - 1);
   }
-  return count;
-};
+  return count
+}
 // console.log(countDownFrom(10))
 // expect
 // 10
@@ -79,9 +79,9 @@ const countDownFrom = count => {
 // *************************************
 const oldCounter = countTo => {
   for (let i = 0; i <= countTo; i++) {
-    console.log(`the count is: ${i}`);
+    console.log(`the count is: ${i}`)
   }
-};
+}
 
 // oldCounter(10);
 
@@ -102,9 +102,9 @@ const oldCounter = countTo => {
 // ***************************************
 const oldCountDown = countFrom => {
   for (let i = countFrom; i >= 0; i--) {
-    console.log(`the count is: ${i}`);
+    console.log(`the count is: ${i}`)
   }
-};
+}
 // oldCountDown(10);
 
 // expect
