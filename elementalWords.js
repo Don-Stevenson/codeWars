@@ -200,14 +200,13 @@ const ELEMENTS = {
 //   }
 
 //   // check to see if the all the letters in word are acounted for by length
-//   if (result.length * 2 === word.length && result.length > 0) return result;
+//   if (result.length * 2 === word.length && result.length > 0) return result
 // }
 
 // // function mix of single and double elements
 // const mixOfSingleAndDoubleLetter = (word) => {
-//   if (word === "") return [];
-
-//   let result = [];
+//   if (word === "") return []
+//   let result = []
 
 //   for (let i = 0; i < word.length; i++) {
 //     // for double letter ELEMENTS
@@ -216,20 +215,20 @@ const ELEMENTS = {
 //         `${ELEMENTS[`${word[i].toUpperCase() + word[i + 1]}`]} (${
 //           word[i].toUpperCase() + word[i + 1]
 //         })`
-//       );
+//       )
 //       i += 1
 //     }
 //     // for single letter ELEMENTS
 //     else if (ELEMENTS[word[i].toUpperCase()]) {
 //       result.push(
 //         `${ELEMENTS[word[i].toUpperCase()]} (${word[i].toUpperCase()})`
-//       );
+//       )
 
 //       // handle non elemental letters
 //     } else if (!ELEMENTS[word[i].toUpperCase()]) return []
 //   }
 //   return result
-// };
+// }
 
 // higher order function that returns the final array of answers
 
@@ -265,9 +264,8 @@ const elementalForms = (word, acc = [], result = []) => {
 
     elementalForms(word.slice(i), line, result)
   }
-
-  return result;
-};
+  return result
+}
 
 console.log(elementalForms("beach")) // => [ [ 'Beryllium (Be)', 'Actinium (Ac)', 'Hydrogen (H)' ] ]
 console.log(elementalForms("z")) // => []
