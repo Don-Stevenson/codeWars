@@ -24,7 +24,7 @@ const findsA = arr => {
   return "didn't find a"
 }
 
-// console.log(findsA(array));
+// console.log(findsA(array))
 // expect:
 // { item: 1 }
 // { item: 2 }
