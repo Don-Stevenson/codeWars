@@ -38,4 +38,4 @@ console.log(() => console.log("Im here"))
 //trying an anonmyous function
 
 //  () => {console.log("Im here")}
-// expect nthining because it is never called;
+// expect nthining because it is never called
