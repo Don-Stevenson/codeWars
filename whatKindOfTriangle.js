@@ -30,10 +30,10 @@ const whatKindOFTriangle = (a, b, c, callback) => {
 // expected results:
 // ****************
 
-// console.log(whatKindOFTriangle(7, 7, 7, isTriangle));
+// console.log(whatKindOFTriangle(7, 7, 7, isTriangle))
 // 7, 7, 7 represents the sides of an equilateral triangle.
 
-// console.log(whatKindOFTriangle(4, 4, 3, isTriangle));
+// console.log(whatKindOFTriangle(4, 4, 3, isTriangle))
 // 4, 4, 3 represents the sides of an isosceles triangle.
 
 // console.log(whatKindOFTriangle(4, 3, 4, isTriangle))
