@@ -8,23 +8,23 @@
 // To check if 3 sides make a triangle,
 // you need to check that every side is less than or equal to the sum of the other two side
 
-const isTriangle = (a, b, c) => a <= b + c && b <= a + c && c <= b + a;
+const isTriangle = (a, b, c) => a <= b + c && b <= a + c && c <= b + a
 
 const whatKindOFTriangle = (a, b, c, callback) => {
   if (callback(a, b, c)) {
     if (a * b * c === Math.pow(a, 3))
-      return `${a}, ${b}, ${c} represents the sides of an equilateral triangle.`;
+      return `${a}, ${b}, ${c} represents the sides of an equilateral triangle.`
     else if (a === c || a === b || b === c)
-      return `${a}, ${b}, ${c} represents the sides of an isosceles triangle.`;
+      return `${a}, ${b}, ${c} represents the sides of an isosceles triangle.`
     else if (
       Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2) ||
       Math.pow(a, 2) + Math.pow(c, 2) === Math.pow(b, 2) ||
       Math.pow(b, 2) + Math.pow(c, 2) === Math.pow(a, 2)
     )
-      return `${a}, ${b}, ${c} represents the sides of a right triangle.`;
-    else return `${a}, ${b}, ${c} represents the sides of an scalene triangle.`;
-  } else return `${a}, ${b}, ${c} do NOT represents the sides of a triangle.`;
-};
+      return `${a}, ${b}, ${c} represents the sides of a right triangle.`
+    else return `${a}, ${b}, ${c} represents the sides of an scalene triangle.`
+  } else return `${a}, ${b}, ${c} do NOT represents the sides of a triangle.`
+}
 
 // expected results:
 // ****************
