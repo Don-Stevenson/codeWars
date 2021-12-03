@@ -22,6 +22,12 @@ const jim = () => {
 jim()
 // expect I'm jim
 
+function sixThousand$ () {
+  console.log("You just cost me 6 thousand dollars")
+}
+
+sixThousand$()
+
 // higher order function that takes in and runs an anonymous function
 const useAnon = funct => {
   funct()
