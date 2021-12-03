@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/Don-Stevenson/codeWars#readme",
   "devDependencies": {
-    "prettier": "2.4.1"
+    "prettier": "2.5.0"
   }
 }
