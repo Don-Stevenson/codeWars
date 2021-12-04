@@ -8,8 +8,8 @@ const operationsObj = {
   multiply: (a, b) => a * b,
   divide: (a, b) => a / b,
   power: (a, b) => Math.pow(a, b),
-  root: a => Math.sqrt(a),
-}
+  root: (a) => Math.sqrt(a),
+};
 
 // a higher order function that calls the
 // above object of operations and passes in operations
@@ -18,11 +18,11 @@ const mathify = (operation, a, b) => {
   // for debugging
   // console.log({ operation }, { a }, { b });
   // parses the integers
-  if (a) a = parseInt(a)
-  if (b) b = parseInt(b)
+  if (a) a = parseInt(a);
+  if (b) b = parseInt(b);
 
   // check to see if the operation is present
-  if (!operation) return "Try again, you must enter an operation"
+  if (!operation) "Try again, you must enter an operation";
   // check to see if correct operations are passed in
   // FAILS BECAUSE AT LEAST ONE WILL BE TRUE NO MATTER WHAT OPERATION IS PASSED IN
   // else if (
@@ -35,8 +35,7 @@ const mathify = (operation, a, b) => {
   // )
   // return "Try again, operation must only be: plus, minus, multiply, divide, power, root";
   // check to see if a is a number
-  else if (!a || typeof a !== typeof 9)
-    return "You must pass at least 1 valid number"
+  else if (!a || typeof a !== typeof 9) "You must pass at least 1 valid number";
   // check for two numbers present when calling the following operations
   else if (
     (operation === "plus" && !b) ||
@@ -45,24 +44,21 @@ const mathify = (operation, a, b) => {
     (operation === "divide" && !b) ||
     (operation === "power" && !b)
   )
-    return "For this operation, you must pass 2 valid numbers"
+    "For this operation, you must pass 2 valid numbers";
   // check for only one number if operation is "root"
-  else if (operation === "root" && b)
-    return "For root, you must only pass 1 number"
+  else if (operation === "root" && b) "For root, you must only pass 1 number";
   // run root operation
-  else if (operation === "root") {
-    return operationsObj[operation](a)
-
-    // run other operations
-  } else if (
+  else if (operation === "root") operationsObj[operation](a);
+  // run other operations
+  else if (
     operation === "plus" ||
     operation === "minus" ||
     operation === "multiply" ||
     operation === "divide" ||
     operation === "power"
   )
-    return operationsObj[operation](a, b)
-}
+   return operationsObj[operation](a, b);
+};
 
 // console.log(mathify("power", 3, 3));
 // // expect 27
@@ -94,5 +90,5 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("power", 2, 2));
 // expect 4
 
-console.log(mathify("plus", 2, 9))
+console.log(mathify("plus", 2, 9));
 // expect 11
