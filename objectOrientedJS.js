@@ -16,6 +16,7 @@ const operationsObj = {
 // ***************************************************
 const mathify = (operation, a, b) => {
   // parses the integers in case of string
+  console.log({operation}, {a}, {b});
 
   // check to see if the operation is present
   if (!operation) return "Try again, you must enter an operation"
@@ -28,11 +29,11 @@ const mathify = (operation, a, b) => {
   if (b) b = parseInt(b)
 
   // check to see if a is a number
-  else if (!a || typeof a !== typeof 9)
+  if (!a || typeof a !== typeof 9)
     return "You must pass at least 1 valid number"
 
   // check for two numbers present when calling the following operations
-  else if (
+   if (
     (operation === "plus" && !b) ||
     (operation === "minus" && !b) ||
     (operation === "multiply" && !b) ||
@@ -42,22 +43,23 @@ const mathify = (operation, a, b) => {
     return "For this operation, you must pass 2 valid numbers"
 
   // check for only one number if operation is "root"
-  else if (operation === "root" && b)
+  if (operation === "root" && b)
     return "For root, you must only pass 1 number"
 
   // run root operation
-  else if (operation === "root") return operationsObj[operation](a)
+  if (operation === "root") return operationsObj[operation](a)
 
   // run other operations
-  else if (
+  if (
     operation === "plus" ||
     operation === "minus" ||
     operation === "multiply" ||
     operation === "divide" ||
     operation === "power"
-  )
+  ) {
+  
     return operationsObj[operation](a, b)
-
+  }
   // handle a scenario when nothing else is true
   else
     return `    Try again, operation must only be: 
@@ -65,7 +67,7 @@ const mathify = (operation, a, b) => {
     you must enter at least one valid number`
 }
 
-// console.log(mathify("power", 3, 3))
+console.log(mathify("power", 3, 3))
 // // expect 27
 
 // console.log(mathify("root", 3))
@@ -101,5 +103,5 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("plus"))
 // expect Try again, you must enter at least one number
 
-console.log(mathify("", ""))
+// console.log(mathify("", ""))
 // expect Try again, you must enter at least one number
