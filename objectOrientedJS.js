@@ -16,11 +16,15 @@ const operationsObj = {
 // ***************************************************
 const mathify = (operation, a, b) => {
   // parses the integers in case of string
-  if (a) a = parseInt(a)
-  if (b) b = parseInt(b)
+
+  // check to see if the operation is present
+  if (!a) return "Try again, you must enter at least one number"
 
   // check to see if the operation is present
   if (!operation) return "Try again, you must enter an operation"
+  
+  if (a) a = parseInt(a)
+  if (b) b = parseInt(b)
 
   // check to see if a is a number
   else if (!a || typeof a !== typeof 9)
@@ -92,3 +96,6 @@ const mathify = (operation, a, b) => {
 
 // console.log(mathify("plus", 2, 9))
 // expect 11
+
+console.log(mathify("plus"))
+// expect Try again, you must enter at least one number
