@@ -18,10 +18,11 @@ const mathify = (operation, a, b) => {
   // parses the integers in case of string
 
   // check to see if the operation is present
-  if (!a) return "Try again, you must enter at least one number"
+  if (!operation) return "Try again, you must enter an operation"
 
   // check to see if the operation is present
-  if (!operation) return "Try again, you must enter an operation"
+  if (!a) return "Try again, you must enter at least one number"
+
   
   if (a) a = parseInt(a)
   if (b) b = parseInt(b)
@@ -80,7 +81,7 @@ const mathify = (operation, a, b) => {
 // // expect "Try again, you must enter an operation"
 
 // console.log(mathify("power", ""))
-// // expect You must pass at least 1 valid number
+// // expect Try again, you must enter at least one number
 
 // console.log(mathify("plus", "3", "4"))
 // // expect 7
@@ -97,5 +98,8 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("plus", 2, 9))
 // expect 11
 
-console.log(mathify("plus"))
+// console.log(mathify("plus"))
+// expect Try again, you must enter at least one number
+
+console.log(mathify("", ""))
 // expect Try again, you must enter at least one number
