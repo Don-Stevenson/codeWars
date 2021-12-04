@@ -30,7 +30,7 @@ const reverseStringCStyleLoop = str => {
 // **************
 
 const reverseStringRecursion = str =>
-  str === "" ? "" : reverseString(str.substr(1)) + str.charAt(0)
+  str === "" ? "" : reverseStringRecursion(str.substr(1)) + str.charAt(0)
 
-// console.log(reverseStringRecursion("ABCDE"));
+console.log(reverseStringRecursion("ABCDE"));
 // expect EDCBA
