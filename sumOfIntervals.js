@@ -21,7 +21,7 @@
 //   let diffBetweenElements = []
 //   let diffWithinElements = []
 
-const mergeRedundantIntervals = (intervals) => {
+const mergeRedundantIntervals = intervals => {
   const obj = {}
   intervals.forEach((interval) => {
     // setting a key to the 2nd value, when the first value is not already present
@@ -41,7 +41,7 @@ const mergeRedundantIntervals = (intervals) => {
   return Object.keys(obj).map((key) => [Number(key), obj[key]])
 }
 
-const mergeOverlaps = (intervals) => {
+const mergeOverlaps = intervals => {
   if (intervals.length === 0 || intervals.length === 1) return intervals
 
   const result = [[...intervals[0]]]
@@ -64,7 +64,7 @@ const mergeOverlaps = (intervals) => {
   return result
 }
 
-const sumIntervals = (intervals) => {
+const sumIntervals = intervals => {
   // remove redundant duplicates and same started sets
   const nonDuplicateIntervals = mergeRedundantIntervals(intervals)
   // sort intervals
