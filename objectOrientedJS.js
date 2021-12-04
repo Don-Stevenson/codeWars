@@ -22,7 +22,7 @@ const mathify = (operation, a, b) => {
   if (!operation) return "Try again, you must enter an operation"
 
   // check to see if the operation is present
-  if (!a) return "Try again, you must enter at least one number"
+  if (!a) return `Try again You must pass at least 1 valid number`
 
   
   if (a) a = parseInt(a)
@@ -30,7 +30,7 @@ const mathify = (operation, a, b) => {
 
   // check to see if a is a number
   if (!a || typeof a !== typeof 9)
-    return "You must pass at least 1 valid number"
+    return "Try again, you must pass at least 1 valid number"
 
   // check for two numbers present when calling the following operations
    if (
@@ -40,11 +40,11 @@ const mathify = (operation, a, b) => {
     (operation === "divide" && !b) ||
     (operation === "power" && !b)
   )
-    return "For this operation, you must pass 2 valid numbers"
+    return `Try again, for ${operation} you must pass 2 valid numbers`
 
   // check for only one number if operation is "root"
   if (operation === "root" && b)
-    return "For root, you must only pass 1 number"
+    return "For root you must only pass 1 number"
 
   // run root operation
   if (operation === "root") return operationsObj[operation](a)
@@ -67,7 +67,7 @@ const mathify = (operation, a, b) => {
     you must enter at least one valid number`
 }
 
-console.log(mathify("power", 3, 3))
+// console.log(mathify("power", 3, 3))
 // // expect 27
 
 // console.log(mathify("root", 3))
@@ -92,7 +92,7 @@ console.log(mathify("power", 3, 3))
 // expect -1
 
 // console.log(mathify("power", 2))
-// For this operation, you must pass 2 valid numbers
+// For power you must pass 2 valid numbers
 
 // console.log(mathify("power", 2, 2))
 // expect 4
@@ -103,5 +103,5 @@ console.log(mathify("power", 3, 3))
 // console.log(mathify("plus"))
 // expect Try again, you must enter at least one number
 
-// console.log(mathify("", ""))
-// expect Try again, you must enter at least one number
+console.log(mathify("", ""))
+// expect "Try again, you must enter an operation"
