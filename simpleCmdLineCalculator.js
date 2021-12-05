@@ -1,5 +1,5 @@
 // destructure the args into variables from proccess.argv
-const [operation, a, b] = process.argv.slice(2);
+const [operation, a, b] = process.argv.slice(2)
 
 // object to store the different operations
 // and formula functions
@@ -12,7 +12,7 @@ const operationsObj = {
   divide: (a, b) => a / b,
   power: (a, b) => Math.pow(a, b),
   root: (a) => Math.sqrt(a),
-};
+}
 
 // a higher order function that calls the
 // above object of operations and passes in operations
@@ -26,8 +26,8 @@ const mathify = (operation, a, b) => {
   if (!a) return `Try again You must pass at least 1 valid number`;
   
   // parses the integers in case of string
-  if (a) a = parseInt(a);
-  if (b) b = parseInt(b);
+  if (a) a = parseInt(a)
+  if (b) b = parseInt(b)
 
   // check to see if a is a number
   if (!a || typeof a !== typeof 9)
@@ -47,7 +47,7 @@ const mathify = (operation, a, b) => {
   if (operation === "root" && b) return "For root you must only pass 1 number";
 
   // run root operation
-  if (operation === "root") return operationsObj[operation](a);
+  if (operation === "root") return operationsObj[operation](a)
 
   // run other operations
   if (
@@ -57,13 +57,13 @@ const mathify = (operation, a, b) => {
     operation === "divide" ||
     operation === "power"
   ) {
-    return operationsObj[operation](a, b);
+    return operationsObj[operation](a, b)
   }
   // handle a scenario when nothing else is true
   else
     return `    Try again, operation must only be: 
     plus, minus, multiply, divide, power, root and 
-    you must enter at least one valid number`;
+    you must enter at least one valid number`
 };
 
 // console.log(mathify("power", 3, 3))
@@ -105,4 +105,4 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("", ""));
 // expect "Try again, you must enter an operation"
 
-console.log(mathify(operation, a, b));
+console.log(mathify(operation, a, b))
