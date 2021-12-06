@@ -19,7 +19,7 @@ const operationsObj = {
 // ***************************************************
 const mathify = (operation, a, b) => {
   // check to see if the operation is present
-  if (!operation) return "Try again, you must enter an operation"
+  if (!operation) return "Try again, you must enter a valid operation"
 
   // check to see if the operation is present
   if (!a) return `Try again, You must pass at least 1 valid number`
@@ -69,7 +69,7 @@ const mathify = (operation, a, b) => {
   }
   // handle a scenario when nothing else is true
   else
-    return `    Try again, operation must only be: 
+    return `    Try again, the operation must only be: 
     plus, minus, multiply, divide, power, root and 
     you must enter at least one valid number`
 }
