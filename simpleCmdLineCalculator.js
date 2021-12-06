@@ -22,7 +22,7 @@ const mathify = (operation, a, b) => {
   if (!operation) return "Try again, you must enter an operation"
 
   // check to see if the operation is present
-  if (!a) return `Try again You must pass at least 1 valid number`
+  if (!a) return `Try again, You must pass at least 1 valid number`
 
   // parses the integers in case of string
   if (a) a = parseInt(a)
@@ -47,18 +47,23 @@ const mathify = (operation, a, b) => {
 
   // run root operation
   if (operation === "root")
-  return `The ${operation} of ${a} = ${operationsObj[operation](a)}` 
+    return `The ${operation} of ${a} = ${operationsObj[operation](a)}` 
 
   // power
   if (operation === "power")
     return `${a} to the ${operation} of ${b} = ${operationsObj[operation](a, b)}`
 
+  // divide
+  if (operation === "multiply")
+    return  `${a} mulitplied by ${b} = ${operationsObj[operation](a,b)}`
+  // multiply
+  if (operation === "divide")
+    return  `${a} divided by ${b} = ${operationsObj[operation](a,b)}`
+
   // run other operations
   if (
     operation === "plus" ||
-    operation === "minus" ||
-    operation === "multiply" ||
-    operation === "divide"
+    operation === "minus" 
   ) {
     return `${a} ${operation} ${b} = ${operationsObj[operation](a,b)}`
   }
@@ -66,7 +71,7 @@ const mathify = (operation, a, b) => {
   else
     return `    Try again, operation must only be: 
     plus, minus, multiply, divide, power, root and 
-    you must enter at least one valid number`;
+    you must enter at least one valid number`
 }
 
 // console.log(mathify("power", 3, 3))
