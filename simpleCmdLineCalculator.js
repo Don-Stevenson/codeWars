@@ -40,7 +40,7 @@ const mathify = (operation, a, b) => {
     (operation === "divide" && !b) ||
     (operation === "power" && !b)
   )
-    return `Try again, for ${operation} you must pass 2 valid numbers`
+    return `Try again, for ${operation} you must pass 2 valid numbers. ${a} ${operation} ___?`
 
   // check for only one number if operation is "root"
   if (operation === "root" && b) return "For root you must only pass 1 number"
