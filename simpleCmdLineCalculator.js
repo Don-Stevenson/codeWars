@@ -1,5 +1,5 @@
 // destructure the args into variables from proccess.argv
-const [operation, a, b] = process.argv.slice(2);
+const [operation, a, b] = process.argv.slice(2)
 
 // object to store the different operations
 // and formula functions
@@ -12,7 +12,7 @@ const operationsObj = {
   divide: (a, b) => a / b,
   power: (a, b) => Math.pow(a, b),
   root: (a) => Math.sqrt(a),
-};
+}
 
 // a higher order function that calls the
 // above object of operations and passes in operations
@@ -22,7 +22,7 @@ const mathify = (operation, a, b) => {
   if (!operation) return "Try again, you must enter a valid operation"
 
   // check to see if the operation is present
-  if (!a) return `Try again, You must pass at least 1 valid number`
+  if (!a) return `Try again, you must pass at least 1 valid number`
 
   // parses the integers in case of string
   if (a) a = parseInt(a)
@@ -56,6 +56,7 @@ const mathify = (operation, a, b) => {
   // divide
   if (operation === "multiply")
     return  `${a} mulitplied by ${b} = ${operationsObj[operation](a,b)}`
+    
   // multiply
   if (operation === "divide")
     return  `${a} divided by ${b} = ${operationsObj[operation](a,b)}`
