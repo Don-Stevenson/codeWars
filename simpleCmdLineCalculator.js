@@ -1,5 +1,5 @@
 // destructure the args into variables from proccess.argv
-const [operation, a, b] = process.argv.slice(2)
+const  [a, operation, b] = process.argv.slice(2)
 
 // object to store the different operations
 // and formula functions
