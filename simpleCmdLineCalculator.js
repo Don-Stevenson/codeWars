@@ -19,14 +19,18 @@ const operationsObj = {
 // ***************************************************
 const mathify = (operation, a, b) => {
   // check to see if the operation is present
-  if (!operation) return "Try again, you must enter a valid operation"
+  if (!operation) 
+    return "Try again, you must enter a valid operation"
 
   // check to see if the operation is present
-  if (!a) return `Try again, you must pass at least 1 valid number`
+  if (!a)
+    return `Try again, you must pass at least 1 valid number`
 
   // parses the integers in case of string
-  if (a) a = parseInt(a)
-  if (b) b = parseInt(b)
+  if (a)
+    a = parseInt(a)
+  if (b) 
+    b = parseInt(b)
 
   // check to see if a is a number
   if (!a || typeof a !== typeof 9)
@@ -43,7 +47,8 @@ const mathify = (operation, a, b) => {
     return `Try again, for ${operation} you must pass 2 valid numbers. ${a} ${operation} ___?`
 
   // check for only one number if operation is "root"
-  if (operation === "root" && b) return "For root you must only pass 1 number"
+  if (operation === "root" && b)
+    return "For root you must only pass 1 number"
 
   // run root operation
   if (operation === "root")
