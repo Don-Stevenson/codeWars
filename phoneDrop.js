@@ -1,10 +1,10 @@
 // Scenario
 // This is a pretty common problem. You may have seen it before.
 
-// // You work for a mobile phone developer known for their robust design.
-//  The marketing division is working on a slogan for the latest model: "Able to survive a K-meter drop!".
-//  They just need to know the largest possible whole number value of K they can truthfully claim.
-//  Someone has already dropped one from 101 meters up and it broke,
+// You work for a mobile phone developer known for their robust design.
+// The marketing division is working on a slogan for the latest model: "Able to survive a K-meter drop!".
+// They just need to know the largest possible whole number value of K they can truthfully claim.
+// Someone has already dropped one from 101 meters up and it broke,
 // so they know the largest possible value is somewhere between 0 and 100 inclusive.
 
 // Here's where you come in. You must find the value of K such that a phone will not break if dropped
@@ -31,10 +31,10 @@
 
 // If you have three phones, you only need a maximum of 9 trials.
 
-//  Challenge
+// Challenge
 //
-//  Given N, the number of phone prototypes you have, and H, the maximum height that needs to be tested,
-//  determine the maximum number of trials required by an optimal strategy to determine K.
+// Given N, the number of phone prototypes you have, and H, the maximum height that needs to be tested,
+// determine the maximum number of trials required by an optimal strategy to determine K.
 
 // phoneDrop(1, 100) // => 100
 // phoneDrop(2, 100) // => 14
@@ -55,62 +55,61 @@
 
 // initialize case history outside of the
 // function so it doesn't reset to an empty array when called requirsively
-let caseHistory = [];
+let caseHistory = []
 
 const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   // make case history an empty arrayt if it is nill
   if (!caseHistory[numOfPhones]) {
-    caseHistory[numOfPhones] = [];
+    caseHistory[numOfPhones] = []
   }
 
   // set case history for phones from the number of phones in the casehistory
-  caseHistoryForPhones = caseHistory[numOfPhones];
+  caseHistoryForPhones = caseHistory[numOfPhones]
 
   // if caseHistory for stories exist this will be the number of trials required
   if (caseHistoryForPhones[numStories]) {
-    return caseHistoryForPhones[numStories];
+    return caseHistoryForPhones[numStories]
   }
 
   //Handle 1-story case explicitly
   if (numStories === 1) {
-    caseHistoryForPhones[numStories] = 1;
-    return 1;
+    caseHistoryForPhones[numStories] = 1
+    return 1
   }
 
   //Handle 1-phone case explicitly
   if (numOfPhones === 1) {
-    caseHistoryForPhones[numStories] = numStories;
-    return numStories;
+    caseHistoryForPhones[numStories] = numStories
+    return numStories
   }
 
   //Get the lowest worst case
-  let lowestWorstCase = numStories;
+  let lowestWorstCase = numStories
 
   // c style for loop that counts down from the number of stories
   for (let firstDrop = numStories; firstDrop > 0; firstDrop--) {
     //consider phone breaking
     let breakWorstCase =
-      1 + phoneDropPuzzleWorstCase(numOfPhones - 1, firstDrop - 1);
+      1 + phoneDropPuzzleWorstCase(numOfPhones - 1, firstDrop - 1)
 
     //consider phone not breaking
     let notBreakWorstCase =
-      1 + phoneDropPuzzleWorstCase(numOfPhones, numStories - firstDrop);
+      1 + phoneDropPuzzleWorstCase(numOfPhones, numStories - firstDrop)
 
     //get the worst case
     let worstCase =
-      breakWorstCase > notBreakWorstCase ? breakWorstCase : notBreakWorstCase;
+      breakWorstCase > notBreakWorstCase ? breakWorstCase : notBreakWorstCase
 
     //update the lowest worst case
     if (worstCase < lowestWorstCase) {
-      lowestWorstCase = worstCase;
+      lowestWorstCase = worstCase
     }
   }
 
-  caseHistoryForPhones[numStories] = lowestWorstCase;
-  return lowestWorstCase;
-};
-
-// phoneDropPuzzleWorstCase(1, 100); // => 100
+  caseHistoryForPhones[numStories] = lowestWorstCase
+  return lowestWorstCase
+}
+// => 100
 // phoneDropPuzzleWorstCase(2, 100) // => 14
 // phoneDropPuzzleWorstCase(3, 100) // => 9
 // phoneDropPuzzleWorstCase(1, 1) => 1
@@ -121,4 +120,4 @@ const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
 // phoneDropPuzzleWorstCase(3, 789) => 17
 // phoneDropPuzzleWorstCase(4, 789) => 12
 
-console.log(phoneDropPuzzleWorstCase(3, 100));
+console.log(phoneDropPuzzleWorstCase(3, 100))
