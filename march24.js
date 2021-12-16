@@ -2,7 +2,7 @@
 // ****************************
 
 const addOne = num => num++
-// console.log(addOne(8));
+// console.log(addOne(8))
 // expect
 // 9
 
