@@ -1,12 +1,13 @@
 // const countDownFromNumToZero = (num) => {
-//   let baseNum = 0;
+//   let baseNum = 0
 //   if (num > baseNum) {
-//     console.log(num);
-//     return countDownFromNumToZero(num - 76.89);
-//   } else return baseNum;
+//     console.log(num)
+//     return countDownFromNumToZero(num - 76.89)
+//   } else return baseNum
 // }
-// console.log(countDownFromNumToZero(1000));
+// console.log(countDownFromNumToZero(1000))
 
+// with recursion
 
 const countDownTo = num =>  num < 10 ? console.log(num, countDownTo(num+=1)) : "done " + num
 
@@ -23,12 +24,6 @@ countDownTo(0)
 // 2 undefined
 // 1 undefined
 // 0 undefined
-
-
-
-
-
-
 
 // let arr = [1,2,3,[4]]
 
