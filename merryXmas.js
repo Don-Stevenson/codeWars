@@ -4,37 +4,37 @@
 // *************************************
 
 // a string that contains the letters of the alphabet
-const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !";
+const alphBetStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ !"
 
 // a function that replaces characters at a certain spot in a string
 const replaceAt = (index, char, str) => {
-  const a = str.split("");
-  a[index] = char;
-  return a.join("");
+  const a = str.split("")
+  a[index] = char
+  return a.join("")
 };
 
 // a function that takes in a string, generates a random number,
 // matches that number to the input and then returns a string with the correct output
 const makeResult = input => {
-  let result = "";
+  let result = ""
 
   while (result !== input) {
-    const randNum = Math.floor(Math.random() * 28);
+    const randNum = Math.floor(Math.random() * 28)
 
     // handling double input letters
     if (input[0] === input[1] && randNum === alphBetStr.indexOf(input[0])) {
-      result = replaceAt(0, alphBetStr[randNum], result);
-      result = replaceAt(1, alphBetStr[randNum], result);
+      result = replaceAt(0, alphBetStr[randNum], result)
+      result = replaceAt(1, alphBetStr[randNum], result)
     }
     // handling two different input letters
     else if (randNum === alphBetStr.indexOf(input[0])) {
-      result = replaceAt(0, alphBetStr[randNum], result);
+      result = replaceAt(0, alphBetStr[randNum], result)
     } else if (randNum === alphBetStr.indexOf(input[1])) {
-      result = replaceAt(1, alphBetStr[randNum], result);
+      result = replaceAt(1, alphBetStr[randNum], result)
     }
   }
-  return result;
-};
+  return result
+}
 
 console.log(
   makeResult("ME") +
@@ -48,4 +48,4 @@ console.log(
     makeResult("IA") +
     makeResult("N") +
     makeResult("!")
-);
+)
