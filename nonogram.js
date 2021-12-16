@@ -21,13 +21,13 @@ const nonogramRow = array =>
     .join()  // make into one big array
     .split("0,") // split in to separate arrays on 0
     .filter(e => e != 0) // remove any array with only a 0
-    .map(e => e.replace(/,/g, "").length); // remove commas in the array 
+    .map(e => e.replace(/,/g, "").length) // remove commas in the array 
     // and return an array with the lengths
 
 // console.log(nonogramrow([])) // => []
 // console.log(nonogramrow([0, 0, 0, 0, 0])) // => []
 // console.log(nonogramrow([1, 1, 1, 1, 1])) // => [5]
-console.log(nonogramRow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])); //=> [5,4]
+console.log(nonogramRow([0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1])) //=> [5,4]
 // console.log(nonogramrow([1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0])) // => [2,1,3]
 // console.log(nonogramrow([0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1])) // => [2,1,3]
 // console.log(nonogramrow([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])) // => [1,1,1,1,1,1,1,1]
