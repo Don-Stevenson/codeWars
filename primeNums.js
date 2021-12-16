@@ -23,7 +23,7 @@ The following is a list of those prime numbers: ${result}
           `
 }
 
-// console.log(primeNums(1000));
+// console.log(primeNums(1000))
 
 // checks whether a number is prime or not
 //****************************************/
@@ -40,13 +40,13 @@ const isPrimeNum = num => {
   }
   // if counter is exactly equal to 2, a prime number is found
   if (counter === 2) {
-    // return true;
+    // return true
     return `Yes, ${num} is a prime number`
     // otherwise, num is not a prime number
   } else return `No, ${num} is NOT a prime number`
-  // false;
+  // false
 }
-// console.log(isPrimeNum(6));
+// console.log(isPrimeNum(6))
 
 // with try prompts
 // ****************
@@ -94,9 +94,9 @@ async function questions() {
   let response = await prompts(question, { onCancel })
 
   console.log(isPrimeNum(response.value))
-  // response = await prompts(question2, { onCancel });
-  // console.log(isPrimeNum(response.value));
-  // response = await prompts(question2);
+  // response = await prompts(question2, { onCancel })
+  // console.log(isPrimeNum(response.value))
+  // response = await prompts(question2)
 }
 
 questions()
