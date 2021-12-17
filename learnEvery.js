@@ -14,3 +14,8 @@ const isValueAbove = value => (value > 0 ? true : false)
 
 console.log(negArr.every(isValueAbove))
 // expect false
+
+
+const letterArr = ["a", "b", "c", "d", "e", "f", "g"]
+
+const whenValueIsF = value=> console.log(value);
