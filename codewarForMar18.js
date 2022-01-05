@@ -6,12 +6,12 @@
 //   let newArr = []
 //   arr.forEach(element => {
 //     newArr.push(element * num)
-//   });
+//   })
 //   return newArr
 // }
 
 // // with a for loop
-// //*********************************/
+// // *********************************
 // const multiplyByX = (arr, num) => {
 //   let newArr = []
 //   for (const item of arr) {
@@ -23,7 +23,7 @@
 // console.log(multiplyByX([1, 2, 3], 3))
 
 // with map
-//********************************** */
+// **********************************
 const multiplyByX = (arr, num) => arr.map(e => e * num)
 
 console.log(multiplyByX([1, 2, 3], 3))
