@@ -5,16 +5,16 @@
 // *******************************************************
 
 // const anagrams = (word, inputWords) => {
-//   const wordSorted = word.split("").sort().join("");
-//   let anagramArr = [];
+//   const wordSorted = word.split("").sort().join("")
+//   let anagramArr = []
 //   for (const word of inputWords) {
-//     const wordsSorted = word.split("").sort().join("");
+//     const wordsSorted = word.split("").sort().join("")
 //     if (wordSorted === wordsSorted) {
-//       anagramArr.push(word);
+//       anagramArr.push(word)
 //     }
 //   }
-//   return anagramArr;
-// };
+//   return anagramArr
+// }
 
 // with map
 const anagrams = (word, inputWords) => {
