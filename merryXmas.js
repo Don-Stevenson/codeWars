@@ -11,7 +11,7 @@ const replaceAt = (index, char, str) => {
   const a = str.split("")
   a[index] = char
   return a.join("")
-};
+}
 
 // a function that takes in a string, generates a random number,
 // matches that number to the input and then returns a string with the correct output
