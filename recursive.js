@@ -13,7 +13,7 @@ const findLetterB = arr => {
     }
   }
   return `didn't find 'b' anywhere`
-};
+}
 // console.log(findLetterB(arr))
 
 // expect
@@ -57,7 +57,7 @@ const countUsingRecursion = count => {
 const countDownFrom = count => {
   if (count > 0) {
     console.log(count)
-    return countDownFrom(count - 1);
+    return countDownFrom(count - 1)
   }
   return count
 }
@@ -83,7 +83,7 @@ const oldCounter = countTo => {
   }
 }
 
-// oldCounter(10);
+// oldCounter(10)
 
 // expect
 // 0
@@ -105,7 +105,7 @@ const oldCountDown = countFrom => {
     console.log(`the count is: ${i}`)
   }
 }
-// oldCountDown(10);
+// oldCountDown(10)
 
 // expect
 // 10
