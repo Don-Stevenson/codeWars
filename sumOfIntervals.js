@@ -12,8 +12,7 @@
 //    [3, 5]
 // ]
 // The sum of the lengths of these intervals is 7. Since [1, 4] and [3, 5] overlap, we can treat the interval as [1, 5], which has a length of 4.
-
-// idea; generate all the intervals per string, 4, 8 => 4,5,6,7,8
+// idea generate all the intervals per string, 4, 8 => 4,5,6,7,8
 // only push the elements intervals that are not already there
 // use reduce to calculate total
 // const sumIntervals = (intervals) => {
@@ -71,15 +70,15 @@ const sumIntervals = intervals => {
   const sortedIntervals = nonDuplicateIntervals.sort((a, b) => {
     if (a[0] !== b[0]) return a[0] - b[0]
     else a[1] - b[1]
-  });
+  })
   // filter sorted intervals
-  const filteredIntervals = mergeOverlaps(sortedIntervals);
+  const filteredIntervals = mergeOverlaps(sortedIntervals)
   let result = 0
 
   // calculate the result through the difference of each element
   filteredIntervals.forEach((e) => (result += e[1] - e[0]))
   return result
-};
+}
 
 // test Examples:
 //  console.log(
