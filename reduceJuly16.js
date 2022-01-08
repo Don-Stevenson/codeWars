@@ -46,7 +46,7 @@ const arrOfObjs = [
 // 6.5
 
 // console.log(arrOfObjs.reduce((accum, currentVal) => {
-//   return accum + currentVal.a / arrOfObjs.length;
+//   return accum + currentVal.a / arrOfObjs.length
 // }, 0))
 
 // putting initial values in an object
