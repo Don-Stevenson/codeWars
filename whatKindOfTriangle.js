@@ -15,7 +15,7 @@ const whatKindOFTriangle = (a, b, c, callback) => {
     if (a * b * c === Math.pow(a, 3))
       `${a}, ${b}, ${c} represents the sides of an equilateral triangle.`
     else if (a === c || a === b || b === c)
-      `${a}, ${b}, ${c} represents the sides of an isosceles triangle.`;
+      `${a}, ${b}, ${c} represents the sides of an isosceles triangle.`
     else if (
       Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2) ||
       Math.pow(a, 2) + Math.pow(c, 2) === Math.pow(b, 2) ||
@@ -50,5 +50,5 @@ const whatKindOFTriangle = (a, b, c, callback) => {
 // console.log(whatKindOFTriangle(18, 2, 7, isTriangle))
 // 18, 2, 7 do NOT represents the sides of a triangle.
 
-console.log(whatKindOFTriangle(3, 4, 5, isTriangle));
+console.log(whatKindOFTriangle(3, 4, 5, isTriangle))
 // 3, 4, 5 represents the sides of a right triangle.
