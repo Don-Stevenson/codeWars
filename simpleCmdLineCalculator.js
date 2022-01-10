@@ -73,6 +73,7 @@ const mathify = (operation, a, b) => {
   ) {
     return `${a} ${operation} ${b} = ${operationsObj[operation](a,b)}`
   }
+  
   // handle a scenario when nothing else is true
   else
     return `    Try again, the operation must only be: 
