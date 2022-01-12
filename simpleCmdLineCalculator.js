@@ -114,6 +114,9 @@ const mathify = (operation, a, b) => {
 // console.log(mathify("plus"))
 // expect Try again, you must enter at least one number
 
+// console.log(mathify("pls"))
+// expect Try again, you must enter at least one number
+
 // console.log(mathify("", ""))
 // expect "Try again, you must enter an operation"
 
