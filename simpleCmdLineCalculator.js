@@ -18,6 +18,9 @@ const operationsObj = {
 // above object of operations and passes in operations
 // ***************************************************
 const mathify = (operation, a, b) => {
+  console.log(`Welcome to the Simple Commandd Line Calculator. 
+The following are valid operations:
+plus, minus, multiply, divide, power and root.`)
   // check to see if the operation is present
   if (!operation) return `Try again, you must enter a valid operation.
   The required format: is number operation number`
