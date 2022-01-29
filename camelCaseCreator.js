@@ -20,7 +20,7 @@
 //     } else camelCaseStr.push(str[i])
 //   }
 //   // turn the camel case array into a string, with no spaces or commas
-//   // return camelCaseStr.join("");
+//   // return camelCaseStr.join("")
 
 //   // more complicated than join, change the array into a string,
 //   //replacing all the commas globally with no spaces ""
