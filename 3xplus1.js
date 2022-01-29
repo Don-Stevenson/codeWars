@@ -50,8 +50,8 @@ calculateNumsTo4(3)
 // Now in the 4 2 1 loop, so +3 to count has been added.
 // The final count is 9
 //
-// calculateNumsTo4(12);
-// calculateNumsTo4(27);
-// calculateNumsTo4(randomNum);
+// calculateNumsTo4(12)
+// calculateNumsTo4(27)
+// calculateNumsTo4(randomNum)
 
 calculateNumsTo4(34)
