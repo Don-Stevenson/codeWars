@@ -11,7 +11,7 @@ const cStyleLoop = arr => {
   }
 }
 
-// cStyleLoop(arr);
+// cStyleLoop(arr)
 // expect
 // 1
 // 2
@@ -28,7 +28,7 @@ const forOfLoop = arr => {
   }
 }
 
-// forOfLoop(arr);
+// forOfLoop(arr)
 // expect
 // 1
 // 2
@@ -43,7 +43,7 @@ const tryForEach = arr => {
   arr.forEach(number => console.log(number))
 }
 
-// tryForEach(arr);
+// tryForEach(arr)
 // expect
 // 1
 // 2
