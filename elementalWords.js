@@ -1,6 +1,6 @@
 // Each element in the periodic table has a symbol associated with it. For instance, the symbol for the element Yttrium is Y. A fun thing to do is see if we can form words using symbols of elements strung together. The symbol for Einsteinium is Es, so the symbols for Yttrium and Einsteinium together form:
 
-const { ca } = require("date-fns/locale");
+const { ca } = require("date-fns/locale")
 
 // Y + Es = YEs
 
