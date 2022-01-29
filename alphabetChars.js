@@ -4,13 +4,13 @@
 // a function that checks if a string contains all the letters from the alphabet
 
 // const containsAllLetters = str => {
-//   const alpha = new Set("abcdefghijklmnopqrstuvwxyz");
+//   const alpha = new Set("abcdefghijklmnopqrstuvwxyz")
 //   for (const c of str.toLowerCase()) {
-//     alpha.delete(c);
-//     if (alpha.size === 0) return true;
+//     alpha.delete(c)
+//     if (alpha.size === 0) return true
 //   }
-//   return false;
-// };
+//   return false
+// }
 
 // with map
 
