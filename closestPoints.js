@@ -44,7 +44,7 @@ const findDistance = ([x1, y1], [x2, y2]) =>
 const closestPair = points => {
   // As a starting point, takes in the first two points and finds the distance.
   // this value used to compare with other distances below
-  let minDistance = findDistance(points[0], points[1]);
+  let minDistance = findDistance(points[0], points[1])
   // console.log({ minDistance })
 
   // setting the indeces to the above from findDistance as a starting point
@@ -83,7 +83,7 @@ const closestPair = points => {
 //     [3, 7],
 //     [4, 6],
 //   ])
-// ); // = > [ [ 3, 7 ], [ 4, 6 ] ]
+// ) // = > [ [ 3, 7 ], [ 4, 6 ] ]
 // console.log(
 //   closestPair([
 //     [5, 3],
@@ -91,7 +91,7 @@ const closestPair = points => {
 //     [6, 7],
 //     [1, 2],
 //   ])
-// ); // =>[ [ 2, 5 ], [ 1, 2 ] ]
+// ) // =>[ [ 2, 5 ], [ 1, 2 ] ]
 
 //handles duplicate values
 
