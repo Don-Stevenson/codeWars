@@ -33,13 +33,13 @@ const isPrime = num => {
 
 // using filter to return an array of only prime nums by checking
 // if numbers are prime or not
-// console.log(arr.filter((e) => isPrime(e)));
+// console.log(arr.filter((e) => isPrime(e)))
 // // expect [
 //    2,  3,  5,  7, 11,
 //    13, 17, 19, 23, 29
 //  ]
 
-// console.log(isPrime(9));
+// console.log(isPrime(9))
 // No, 9 is not a prime number.
 
 console.log(isPrime(5))
