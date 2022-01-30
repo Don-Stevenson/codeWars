@@ -63,32 +63,32 @@ const letterValues = {
   x: 24,
   y: 25,
   z: 26,
-};
+}
 
 const letterSum = (str) => {
-  let total = 0;
+  let total = 0
   str
     .toLowerCase()
     .split("")
     .map((e) => {
-      console.log({ e });
+      console.log({ e })
       if (e === typeof "e") {
-        total += letterValues[e];
-      } else console.log("not a letter");
-    });
-  return total;
-};
+        total += letterValues[e]
+      } else console.log("not a letter")
+    })
+  return total
+}
 
 // tests
 // *****
 
-console.log(letterSum("cab")); // => 6
-console.log(letterSum("z")); // => 26
-console.log(letterSum("")); // => 0
-console.log(letterSum("excellent")); // => 100
-console.log(letterSum("microspectrophotometries")); // => 317
-console.log(letterSum("supercalifragilisticexpialidocious")); // => 379
-console.log(letterSum("12")); // => NaN
-console.log(letterSum("&*")); // => NaN
-console.log(letterSum("Hi&*")); // => NaN
-console.log(letterSum("ddd---")); // => NaN
+console.log(letterSum("cab")) // => 6
+console.log(letterSum("z")) // => 26
+console.log(letterSum(""))// => 0
+console.log(letterSum("excellent"))// => 100
+console.log(letterSum("microspectrophotometries")) // => 317
+console.log(letterSum("supercalifragilisticexpialidocious")) // => 379
+console.log(letterSum("12")) // => NaN
+console.log(letterSum("&*")) // => NaN
+console.log(letterSum("Hi&*")) // => NaN
+console.log(letterSum("ddd---")) // => NaN
