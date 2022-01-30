@@ -13,29 +13,29 @@
 // const letterCounter = word => {
 
 //   // set an empty object
-//   let obj = {};
+//   let obj = {}
 
 //   // split word into an array of letters
-//   const wordLetters = word.split("");
+//   const wordLetters = word.split("")
 
 //   // for every leller in the array
 //   for (const letter of wordLetters) {
 
 //     // set the key to each letter
-//     const key = letter;
+//     const key = letter
 
 //     // set the value to one
-//     const val = 1;
+//     const val = 1
 
 //     // if the object has the letter as a key already then update the object's value at that key +1
 //     if (obj[key]) {
-//       obj[key] = obj[key] + 1;
+//       obj[key] = obj[key] + 1
 
 //       // else set the object key to the letter and set the value to 1
-//     } else obj[key] = val;
+//     } else obj[key] = val
 //   }
-//   return obj;
-// };
+//   return obj
+// }
 
 // expect { h: 1, e: 1, l: 2, o: 1 }
 
@@ -44,22 +44,22 @@
 
 const letterCounter = word => {
   // set an empty object
-  let obj = {};
+  let obj = {}
 
   // split word into an array of letters using map
   word.split("").map((key) => {
   
     // if the object has the letter as a key already then update the object's value at that key +1
     if (obj[key]) {
-      obj[key] = obj[key] + 1;
+      obj[key] = obj[key] + 1
 
       // else set the object key to the letter and set the value to 1
-    } else obj[key] = 1;
+    } else obj[key] = 1
     // }
-  });
+  })
 
-  return obj;
-};
+  return obj
+}
 
-console.log(letterCounter("hello")); // ==> { h: 1, e: 1, l: 2, o: 1 }
-console.log(letterCounter("stardust")); // ==> { s: 2, t: 2, a: 1, r: 1, d: 1, u: 1 }
+console.log(letterCounter("hello")) // ==> { h: 1, e: 1, l: 2, o: 1 }
+console.log(letterCounter("stardust")) // ==> { s: 2, t: 2, a: 1, r: 1, d: 1, u: 1 }
