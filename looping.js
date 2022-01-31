@@ -1,21 +1,21 @@
 // a function adding two elements together
 
-const numArray = [1, 2, 3, 4, 5, 6, 7];
+const numArray = [1, 2, 3, 4, 5, 6, 7]
 
 // for (const item of array) {
-//   console.log("item is:", item);
+//   console.log("item is:", item)
 // }
 
 // with c style loop
 // const addElements = (array) => {
 //   for (let i = 0; i < array.length; i++) {
 //     // check to see if array element + 2 exists before adding the two values
-//     if (array[i + 2]) console.log(array[i] + array[i + 2]);
-//     if (!array[i + 2]) console.log("this element does not exist");
+//     if (array[i + 2]) console.log(array[i] + array[i + 2])
+//     if (!array[i + 2]) console.log("this element does not exist")
 //   }
-// };
+// }
 
-// console.log(addElements(numArray));
+// console.log(addElements(numArray))
 // expect
 // 1 0
 // 2 1
@@ -31,14 +31,14 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 // ********
 
 // const addElements = (array) => {
-//   let total = 0;
+//   let total = 0
 //   array.map((element, index) => {
-//     console.log({ element }, { index });
-//     total += element;
-//     console.log({ total });
-//   });
+//     console.log({ element }, { index })
+//     total += element
+//     console.log({ total })
+//   })
 //   return total
-//  };
+//  }
 
 // expect
 // *******
@@ -66,15 +66,15 @@ const numArray = [1, 2, 3, 4, 5, 6, 7];
 
 
 const reducer = (accum, cur, index, arr) => {
-  // console.log({ accum }, { cur }, { index }, { arr });
-  return (accum += cur);
-};
+  // console.log({ accum }, { cur }, { index }, { arr })
+  return (accum += cur)
+}
 
 const addElements = array => {
-  return array.reduce(reducer);
-};
+  return array.reduce(reducer)
+}
 
-console.log(addElements(numArray));
+console.log(addElements(numArray))
 // expect
 //
 // { accum: 1 } { cur: 2 } { index: 1 } { arr: [
