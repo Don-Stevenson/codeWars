@@ -1,16 +1,16 @@
 const cstyleLoop = () => {
   for (let i = 0; i < 20; i++) {
-    console.log(`this is ${i}`);
+    console.log(`this is ${i}`)
   }
-};
+}
 // calls the above function but won't run because of the below problem
-cstyleLoop();
+cstyleLoop()
 
 // console will yell because you can't rename a varible
 // after it's been named with const
 var cstyleLoop = () => {
-  console.log("this worked");
-};
+  console.log("this worked")
+}
 
 // expect:
 
