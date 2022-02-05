@@ -106,6 +106,6 @@ const closestPair = points => {
 //     [7, 4], // F
 //     [7, 9], // G
 //   ])
-// ); // => [[5,5], [5,5]]
+// ) // => [[5,5], [5,5]]
 
 // https://en.wikipedia.org/wiki/Closest_pair_of_points_problem
