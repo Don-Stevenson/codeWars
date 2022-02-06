@@ -80,10 +80,10 @@ const updateDurationObj = (durationObj, taskList) => {
         switch (element.taskType) {
           case "Pick Up":
             durationObj[i].pickUp += 1
-            break;
+            break
           case "Drop Off":
             durationObj[i].dropOff += 1
-            break;
+            break
           case "Other":
             durationObj[i].other += 1
         }
@@ -109,7 +109,7 @@ const driverCSV = (data, driverLastName, dateInterval) => {
   const durationObj = makeDurationObj(dateInterval)
   updateDurationObj(durationObj, driverTasks)
   return durationObj
-};
+}
 
 console.log(driverCSV(data, "Lastname1", 100))
 // expected results
