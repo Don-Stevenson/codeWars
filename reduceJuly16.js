@@ -58,5 +58,5 @@ const { sum, count } = arrOfObjs.reduce((accum, currentVal) => {
 }, initialVal)
 
 // seeing what has been mutated
-console.log(initialVal)
-console.log(sum, count)
+console.log({initialVal})
+console.log({sum}, {count})
