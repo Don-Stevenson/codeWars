@@ -47,7 +47,7 @@ const mulitplyTwoNums = (A, B) => A * B
 
 const squareOneNum = A => Math.pow(A, 2)
 
-console.log(squareOneNum(9))
+// console.log(squareOneNum(9))
 // expect 81
 
 // basic function that finds the square root of a number
@@ -58,8 +58,14 @@ const sqrRootNum = A => Math.sqrt(A)
 // console.log(sqrRootNum(81))
 // expect 9
 
+const temps = [0, -5, -6, -11, -12, -3, -1]
 
-const standardDeviation = () => {
+
+const meanTemps = (array) => array.reduce((a, b) => a + b) / array.length;
+
+console.log(meanTemps(temps));
+
+const standardDeviation = (popsize, popMean, instanceOfPopValue ) => {
 
 }
 
