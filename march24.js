@@ -57,3 +57,11 @@ const sqrRootNum = A => Math.sqrt(A)
 
 // console.log(sqrRootNum(81))
 // expect 9
+
+
+const standardDeviation = () => {
+
+}
+
+// console.log(standardDeviation())
+// expect
