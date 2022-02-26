@@ -61,13 +61,17 @@ const sqrRootNum = A => Math.sqrt(A)
 const temps = [0, -5, -6, -11, -12, -3, -1]
 
 
-const meanTemps = (array) => array.reduce((a, b) => a + b) / array.length;
+const meanTemps = (array) => array.reduce((a, b) => a + b) / array.length
 
-console.log(meanTemps(temps));
+// console.log(meanTemps(temps))
 
-const standardDeviation = (popsize, popMean, instanceOfPopValue ) => {
-
+const standardDeviation = (popArray) => {
+   const popSize = popArray.length
+   const meanTemps = popArray.reduce((a, b) => a + b) / popArray.length
+   return Math.sqrt(popArray
+    .map(x => Math.pow(x - meanTemps, 2))
+    .reduce((a, b) => a + b) / popSize)
 }
-
+console.log(standardDeviation(temps))
 // console.log(standardDeviation())
 // expect
