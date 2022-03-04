@@ -53,9 +53,7 @@ const arrOfObjs = [
 const initialVal = { sum: 0, count: 0 }
 
 // destructure sum and count
-const { sum, count } = arrOfObjs.reduce((accum, currentVal) => {
-  return { sum: accum.sum + currentVal.a, count: accum.count + 1 }
-}, initialVal)
+const { sum, count } = arrOfObjs.reduce((accum, currentVal) => {return { sum: accum.sum + currentVal.a, count: accum.count + 1 }}, initialVal)
 
 // seeing what has been mutated
 console.log({initialVal})
