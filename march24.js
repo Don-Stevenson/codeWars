@@ -75,3 +75,4 @@ const standardDeviation = (popArray) => {
 console.log("Standard deviation is: ",standardDeviation(temps))
 // console.log(standardDeviation())
 // expect
+// Standard deviation is:  4.304719763805532
