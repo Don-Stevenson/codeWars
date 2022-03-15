@@ -70,7 +70,7 @@ const standardDeviation = popArray => {
                 .map(x => Math.pow(x - meanTemps(popArray), 2))
                 .reduce((a, b) => a + b) / popArray.length)}
 
-console.log("Standard deviation is: ",standardDeviation(temps))
+console.log(`Standard deviation is: ${standardDeviation(temps)}`)
 // console.log(standardDeviation())
 // expect
 // Standard deviation is:  4.304719763805532
