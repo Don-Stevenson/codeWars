@@ -65,10 +65,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7]
 //
 
 
-const reducer = (accum, cur, index, arr) => {
-  // console.log({ accum }, { cur }, { index }, { arr })
-  return (accum += cur)
-}
+const reducer = (accum, cur) => (accum += cur)
 
 const addElements = array => {
   return array.reduce(reducer)
