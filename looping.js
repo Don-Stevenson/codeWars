@@ -7,7 +7,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7]
 // }
 
 // with c style loop
-// const addElements = (array) => {
+// const addElements = array => {
 //   for (let i = 0; i < array.length; i++) {
 //     // check to see if array element + 2 exists before adding the two values
 //     if (array[i + 2]) console.log(array[i] + array[i + 2])
@@ -30,7 +30,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7]
 // of the current value efficiently with map
 // ********
 
-// const addElements = (array) => {
+// const addElements = array => {
 //   let total = 0
 //   array.map((element, index) => {
 //     console.log({ element }, { index })
