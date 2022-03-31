@@ -2,6 +2,15 @@
 
 const numArray = [1, 2, 3, 4, 5, 6, 7]
 
+
+const logElements = (array) => {
+  for (number of array) {
+    console.log(number)
+  }
+}
+
+logElements(numArray)
+
 // for (const item of array) {
 //   console.log("item is:", item)
 // }
@@ -65,13 +74,13 @@ const numArray = [1, 2, 3, 4, 5, 6, 7]
 //
 
 
-const reducer = (accum, cur) => (accum += cur)
+// const reducer = (accum, cur) => (accum += cur)
 
-const addElements = array => {
-  return array.reduce(reducer)
-}
+// const addElements = array => {
+//   return array.reduce(reducer)
+// }
 
-console.log(addElements(numArray))
+// console.log(addElements(numArray))
 // expect
 //
 // { accum: 1 } { cur: 2 } { index: 1 } { arr: [
