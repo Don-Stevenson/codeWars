@@ -16,19 +16,14 @@
 //   return anagramArr
 // }
 
-// with map
+// with filter
 const anagrams = (word, inputWords) => {
   const inputWordSorted = word.split("").sort().join("")
-  let anagramArr = []
-  inputWords.map(element => {
-    if (inputWordSorted === element.split("").sort().join("")) {
-      anagramArr.push(element)
-    }
-  })
-  return anagramArr
+  return inputWords.filter(element => element.split("").sort().join("") === inputWordSorted) 
+
 }
 
-// console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]))
+console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]))
 // expect [ 'hello', 'ehllo', 'olelh' ]
 
 module.exports = { anagrams }
