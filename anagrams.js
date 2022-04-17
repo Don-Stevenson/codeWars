@@ -16,12 +16,17 @@
 //   return anagramArr
 // }
 
-// with filter
-const anagrams = (word, inputWords) => {
-  const inputWordSorted = word.split("").sort().join("")
-  return inputWords.filter(element => element.split("").sort().join("") === inputWordSorted) 
+// // with filter
+// const anagrams = (word, inputWords) => {
+//   const inputWordSorted = word.split("").sort().join("")
+//   return inputWords.filter(element => element.split("").sort().join("") === inputWordSorted)
 
-}
+// }
+
+const wordSorter = (words) => words.split("").sort().join("")
+// with Sorting function
+const anagrams = (word, inputWords) =>
+  inputWords.filter(element => wordSorter(element) === wordSorter(word))
 
 console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]))
 // expect [ 'hello', 'ehllo', 'olelh' ]
