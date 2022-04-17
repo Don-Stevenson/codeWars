@@ -2,12 +2,21 @@
 
 const numArray = [1, 2, 3, 4, 5, 6, 7]
 
+
+const logElements = array => {
+  for (number of array) {
+    console.log({number})
+  }
+}
+
+logElements(numArray)
+
 // for (const item of array) {
 //   console.log("item is:", item)
 // }
 
 // with c style loop
-// const addElements = (array) => {
+// const addElements = array => {
 //   for (let i = 0; i < array.length; i++) {
 //     // check to see if array element + 2 exists before adding the two values
 //     if (array[i + 2]) console.log(array[i] + array[i + 2])
@@ -30,7 +39,7 @@ const numArray = [1, 2, 3, 4, 5, 6, 7]
 // of the current value efficiently with map
 // ********
 
-// const addElements = (array) => {
+// const addElements = array => {
 //   let total = 0
 //   array.map((element, index) => {
 //     console.log({ element }, { index })
@@ -65,16 +74,13 @@ const numArray = [1, 2, 3, 4, 5, 6, 7]
 //
 
 
-const reducer = (accum, cur, index, arr) => {
-  // console.log({ accum }, { cur }, { index }, { arr })
-  return (accum += cur)
-}
+// const reducer = (accum, cur) => (accum += cur)
 
-const addElements = array => {
-  return array.reduce(reducer)
-}
+// const addElements = array => {
+//   return array.reduce(reducer)
+// }
 
-console.log(addElements(numArray))
+// console.log(addElements(numArray))
 // expect
 //
 // { accum: 1 } { cur: 2 } { index: 1 } { arr: [

@@ -9,7 +9,8 @@
 
 // with recursion
 
-const countDownTo = num =>  num < 10 ? console.log(num, countDownTo(num+=1)) : "done " + num
+const countDownTo = num =>
+  num < 10 ? console.log(num, countDownTo((num += 1))) : "done " + num
 
 countDownTo(0)
 
@@ -35,7 +36,7 @@ countDownTo(0)
 //     } else if (item === num) {
 //       return `found the number ${item}`
 //     }
-//   } 
+//   }
 //   return `could not find the number ${num}`
 // }
 

@@ -8,14 +8,14 @@ cstyleLoop()
 
 // console will yell because you can't rename a varible
 // after it's been named with const
-var cstyleLoop = () => {
-  console.log("this worked")
-}
+// var cstyleLoop = () => {
+//   console.log("this worked")
+// }
 
 // expect:
 
 // /home/don/lighthouse/codeWars/letVsConst.js:11
 // var cstyleLoop = () => {
-//  ^
+//  
 //
 //  SyntaxError: Identifier 'cstyleLoop' has already been declared
