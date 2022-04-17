@@ -23,7 +23,7 @@
 
 // }
 
-const wordSorter = (words) => words.split("").sort().join("")
+const wordSorter = word => word.split("").sort().join("")
 // with Sorting function
 const anagrams = (word, inputWords) =>
   inputWords.filter(element => wordSorter(element) === wordSorter(word))
