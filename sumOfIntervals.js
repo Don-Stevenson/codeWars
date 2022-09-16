@@ -22,7 +22,7 @@
 
 const mergeRedundantIntervals = intervals => {
   const obj = {}
-  intervals.forEach((interval) => {
+  intervals.forEach(interval => {
     // setting a key to the 2nd value, when the first value is not already present
     if (!obj[interval[0]]) {
       obj[interval[0]] = interval[1]
@@ -37,7 +37,7 @@ const mergeRedundantIntervals = intervals => {
   })
 
   // return an array with new key value pairs
-  return Object.keys(obj).map((key) => [Number(key), obj[key]])
+  return Object.keys(obj).map(key => [Number(key), obj[key]])
 }
 
 const mergeOverlaps = intervals => {
@@ -76,7 +76,7 @@ const sumIntervals = intervals => {
   let result = 0
 
   // calculate the result through the difference of each element
-  filteredIntervals.forEach((e) => (result += e[1] - e[0]))
+  filteredIntervals.forEach(e => (result += e[1] - e[0]))
   return result
 }
 

@@ -7,7 +7,7 @@ doesFoo()
 // expect foo
 
 // anonmyous function stored in a variable called didFoo
-const didFoo = function () {
+const didFoo = function() {
   console.log("did foo")
 }
 
@@ -22,7 +22,7 @@ const jim = () => {
 jim()
 // expect I'm jim
 
-function sixThousand$ () {
+function sixThousand$() {
   console.log("You just cost me 6 thousand dollars")
 }
 

@@ -4,10 +4,9 @@ const integers = [2, 4, 0, 100, 4, 11, 2602, 36]
 // **********************************************************************
 
 const findOutlier = integers => {
-
   // make an array that is only the even integers
   const evenIntsArr = integers.filter(x => x % 2 === 0)
-  
+
   // make an array that is only the odd integers
 
   const oddIntsArr = integers.filter(x => x % 2 !== 0)

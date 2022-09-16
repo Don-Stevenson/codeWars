@@ -11,7 +11,7 @@ const operationsObj = {
   multiply: (a, b) => a * b,
   divide: (a, b) => a / b,
   power: (a, b) => Math.pow(a, b),
-  root: (a) => Math.sqrt(a),
+  root: a => Math.sqrt(a),
 }
 
 // a higher order function that calls the
@@ -22,11 +22,13 @@ const mathify = (operation, a, b) => {
 The following are valid operations:
 plus, minus, multiply, divide, power and root.`)
   // check to see if the operation is present
-  if (!operation) return `Try again, you must enter a valid operation.
+  if (!operation)
+    return `Try again, you must enter a valid operation.
   The required format: is number operation number`
 
   // check to see if the operation is present
-  if (!a) return `Try again, you must pass at least 1 valid number. 
+  if (!a)
+    return `Try again, you must pass at least 1 valid number. 
   The required format: is number operation number`
 
   // parses the integers in case of string

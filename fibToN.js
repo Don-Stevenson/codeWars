@@ -35,7 +35,7 @@ const getPostiveFib = num => {
   num = num - 1
 
   while (num >= 0) {
-    (temp = a), (a = a + b)
+    ;(temp = a), (a = a + b)
     b = temp
     num--
   }

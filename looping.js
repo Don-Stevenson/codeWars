@@ -2,10 +2,9 @@
 
 const numArray = [1, 2, 3, 4, 5, 6, 7]
 
-
 const logElements = array => {
   for (number of array) {
-    console.log({number})
+    console.log({ number })
   }
 }
 
@@ -72,7 +71,6 @@ logElements(numArray)
 
 //  (accumalator, currentVal, currentIndex, array)
 //
-
 
 // const reducer = (accum, cur) => (accum += cur)
 

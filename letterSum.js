@@ -65,12 +65,12 @@ const letterValues = {
   z: 26,
 }
 
-const letterSum = (str) => {
+const letterSum = str => {
   let total = 0
   str
     .toLowerCase()
     .split("")
-    .map((e) => {
+    .map(e => {
       console.log({ e })
       if (e === typeof "e") {
         total += letterValues[e]
@@ -84,8 +84,8 @@ const letterSum = (str) => {
 
 console.log(letterSum("cab")) // => 6
 console.log(letterSum("z")) // => 26
-console.log(letterSum(""))// => 0
-console.log(letterSum("excellent"))// => 100
+console.log(letterSum("")) // => 0
+console.log(letterSum("excellent")) // => 100
 console.log(letterSum("microspectrophotometries")) // => 317
 console.log(letterSum("supercalifragilisticexpialidocious")) // => 379
 console.log(letterSum("12")) // => NaN

@@ -34,7 +34,7 @@ const reducerFunc = (accumalator, currentVal, currentIndex, array) => {
 const addObj = {
   a: 2,
   b: 4,
-  c: 6
+  c: 6,
 }
 
 // const total =

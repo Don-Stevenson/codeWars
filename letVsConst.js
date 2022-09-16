@@ -16,6 +16,6 @@ cstyleLoop()
 
 // /home/don/lighthouse/codeWars/letVsConst.js:11
 // var cstyleLoop = () => {
-//  
+//
 //
 //  SyntaxError: Identifier 'cstyleLoop' has already been declared
