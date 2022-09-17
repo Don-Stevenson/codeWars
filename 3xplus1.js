@@ -20,8 +20,7 @@ const calculateNumsTo4 = num => {
 
     // add 3 because it will take you back to back two 4
     // add count + for 2 and 1 scenarios
-    count += 3
-    return console.log(`The final count is ${count}
+    return console.log(`The final count is ${count + 3}
       `)
   }
   if (num % 2 === 0) {
@@ -30,7 +29,7 @@ const calculateNumsTo4 = num => {
   } else count++
   return calculateNumsTo4(num * 3 + 1)
 }
-calculateNumsTo4(3)
+// calculateNumsTo4(3)
 // expect num is 3
 // count is 1
 
@@ -52,6 +51,7 @@ calculateNumsTo4(3)
 //
 // calculateNumsTo4(12)
 // calculateNumsTo4(27)
-// calculateNumsTo4(randomNum)
-
-calculateNumsTo4(34)
+calculateNumsTo4(
+  10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+) //=> expect: The final count is 696
+// calculateNumsTo4(34)
