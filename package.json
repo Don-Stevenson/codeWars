@@ -10,10 +10,11 @@
     "ansi-regex": ">=5.0.1",
     "bignumber.js": "^9.0.0",
     "date-fns": "^2.15.0",
-    "mocha": "^8.3.2",
+    "mathjs": "^11.2.1",
     "minimist": ">=1.2.6",
-    "prompts": "^2.3.2",
-    "nanoid": ">=3.1.31"
+    "mocha": "^8.3.2",
+    "nanoid": ">=3.1.31",
+    "prompts": "^2.3.2"
   },
   "scripts": {
     "test": "mocha"
