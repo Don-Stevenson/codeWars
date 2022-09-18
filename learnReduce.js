@@ -3,7 +3,7 @@
 
 // const array = [1, 2, 3, 4, 5, 6, 7]
 
-const { add } = require("date-fns")
+// const { add } = require("date-fns")
 
 // const obj = {
 //   a: 1,
@@ -56,3 +56,17 @@ Object.values(addObj).reduce(reducerFunc)
 // current Value: 6
 // current Index: 2
 // array is: 2,4,6,2
+
+// reduce right
+const numbers = [1, 2, 3]
+
+const sum = numbers.reduceRight(function(previousValue, currentValue) {
+  console.log({ previousValue, currentValue })
+  return previousValue + currentValue
+})
+
+console.log(`Result:${sum}`)
+// expect
+// { previousValue: 3, currentValue: 2 }
+// { previousValue: 5, currentValue: 1 }
+// Result:6
