@@ -60,7 +60,7 @@ Object.values(addObj).reduce(reducerFunc)
 // reduce right
 const numbers = [1, 2, 3]
 
-const sum = numbers.reduceRight(function(previousValue, currentValue) {
+const sum = numbers.reduceRight((previousValue, currentValue) => {
   console.log({ previousValue, currentValue })
   return previousValue + currentValue
 })
