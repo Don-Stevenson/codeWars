@@ -9,14 +9,12 @@ const standardDeviation = arr => {
   })
 
   const total = arr.reduce((acc, curr) => acc + curr, 0)
-
   return Math.sqrt(total / arr.length)
 }
 
 console.log(standardDeviation([2, 4, 4, 4, 5, 5, 7, 9]))
 
 //Output: 2
-
 //
 
 const math = require("mathjs")
