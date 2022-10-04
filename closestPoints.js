@@ -71,10 +71,8 @@ const closestPair = points => {
   return [points[indecesResult[0]], points[indecesResult[1]]]
 }
 
-
 // Tests
 // *****
-
 
 // console.log(
 //   closestPair([

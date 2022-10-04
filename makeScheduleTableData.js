@@ -50,7 +50,7 @@ const { resourceLimits } = require("node:worker_threads")
 // make an array of objects depending on the interval given, eg 2, 4, 7, 28 days
 // initial it with default data in each object
 // *******************************************
-const makeDurationObj = (givenNoOfDays) => {
+const makeDurationObj = givenNoOfDays => {
   const iterator = 365 - givenNoOfDays
   const objectArr = []
   for (let i = 1; i <= iterator; i += givenNoOfDays) {
@@ -72,7 +72,7 @@ const makeDurationObj = (givenNoOfDays) => {
 // whether a specific task is present
 // **************************************************************
 const updateDurationObj = (durationObj, taskList) => {
-  taskList.forEach((element) => {
+  taskList.forEach(element => {
     const dayOfYear = getDayOfYear(Date.parse(element.date))
 
     for (let i = 0; i < durationObj.length; i++) {
@@ -102,7 +102,7 @@ const updateDurationObj = (durationObj, taskList) => {
 // **************************************************************
 
 const driverCSV = (data, driverLastName, dateInterval) => {
-  const driverTasks = data.filter((currentTask) => {
+  const driverTasks = data.filter(currentTask => {
     return currentTask.driverLastName === driverLastName
   })
 

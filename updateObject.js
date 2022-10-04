@@ -47,9 +47,8 @@ arrOfObjects.map(e => (e.c = e.c * 2))
 // console logging the array of objects after map
 // ***********************************************
 console.log("after : ", { arrOfObjects })
-// expect: 
+// expect:
 // after :  { arrOfObjects: [ { a: 1, b: 2, c: 6 }, { a: 4, b: 5, c: 12 } ] }
-
 
 // update the object using a forEach call
 // **************************************

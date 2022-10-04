@@ -256,7 +256,7 @@ const elementalForms = (word, acc = [], result = []) => {
     const element = word
       .slice(0, i)
       .toLowerCase()
-      .replace(/^./, (ch) => ch.toUpperCase())
+      .replace(/^./, ch => ch.toUpperCase())
     if (!ELEMENTS[element]) continue
 
     const line = [...acc, `${ELEMENTS[element]} (${element})`]

@@ -3,7 +3,10 @@
 // ***************************
 
 const reverseStringSplitRerverseJoin = str => {
-  let reverseStr = str.split("").reverse().join("")
+  let reverseStr = str
+    .split("")
+    .reverse()
+    .join("")
   return reverseStr
 }
 

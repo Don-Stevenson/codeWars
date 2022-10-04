@@ -12,7 +12,7 @@
 
 // console.log(isNaN(parseFloat("Hello"))) // => True
 
-// console.log(isNaN(parseFloat("345"))) 
+// console.log(isNaN(parseFloat("345")))
 // // => False - parses the number in parseFloat
 // //and then evaluates that as a number, returning false
 

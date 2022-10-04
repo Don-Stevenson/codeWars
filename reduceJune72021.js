@@ -27,7 +27,9 @@ const multiplyCurrentVals = (accum, curVal) => accum * curVal
 // console.log(numArray.reduce(multiplyCurrentVals))
 // expect 362880
 
-const logVals = (accum, curVal) => {return { accum }, { curVal }}
+const logVals = (accum, curVal) => {
+  return { accum }, { curVal }
+}
 
 console.log(numArray.reduce(logVals))
 // expect
