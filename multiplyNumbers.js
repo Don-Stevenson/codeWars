@@ -38,9 +38,7 @@
 // trying with BigNumber, works but doesn't return all the numbers, starts giving scientific notation ater about 15 digits
 const BigNumber = require("bignumber.js")
 
-function multiply(a, b) {
-  return (new BigNumber(a) * new BigNumber(b)).toString()
-}
+const multiply = (a, b) => (new BigNumber(a) * new BigNumber(b)).toString()
 
 console.log(
   multiply(
