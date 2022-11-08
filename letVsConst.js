@@ -8,9 +8,9 @@ cstyleLoop()
 
 // console will yell because you can't rename a varible
 // after it's been named with const
-// var cstyleLoop = () => {
-//   console.log("this worked")
-// }
+var cstyleLoop = () => {
+  console.log("this worked")
+}
 
 // expect:
 
