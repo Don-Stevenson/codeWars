@@ -7,7 +7,7 @@ doesFoo()
 // expect foo
 
 // anonmyous function stored in a variable called didFoo
-const didFoo = function() {
+const didFoo = function () {
   console.log("did foo")
 }
 

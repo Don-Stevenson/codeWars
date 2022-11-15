@@ -31,11 +31,11 @@ const fib = n => {
 const getPostiveFib = num => {
   let a = 1
   let b = 0
-  let temp
   num = num - 1
 
   while (num >= 0) {
-    ;(temp = a), (a = a + b)
+    let temp = a
+    a = a + b
     b = temp
     num--
   }
@@ -45,10 +45,10 @@ const getPostiveFib = num => {
 console.log(getPostiveFib(-50))
 // expect 0
 
-// console.log(fib(-8))
+console.log(fib(-8))
 // // expect -21
 
-// console.log(fib(12))
+console.log(fib(12))
 // // expect -144
 
 // console.log(fib(6))

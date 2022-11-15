@@ -9,11 +9,7 @@ let count = 1
 const randomNum = Math.round(Math.random() * 100)
 
 const calculateNumsTo4 = num => {
-  if (num !== 4) {
-    console.log(`num is ${num}
-    count is ${count}
-    `)
-  }
+  if (num !== 4) console.log(`num is ${num} count is ${count}`)
   if (num === 4) {
     console.log(`num is ${num}. 
     Now in the 4 2 1 loop, so +3 to count has been added.`)
@@ -52,6 +48,6 @@ const calculateNumsTo4 = num => {
 // calculateNumsTo4(12)
 // calculateNumsTo4(27)
 calculateNumsTo4(
-  10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
-) //=> expect: The final count is 696
+  1000000000000000000000000000000000000000000000001
+) //=> expect: The final count is 596
 // calculateNumsTo4(34)

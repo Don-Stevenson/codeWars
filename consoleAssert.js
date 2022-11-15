@@ -15,7 +15,6 @@ const doesArrContainTwo = arr => {
   let count = 1
   console.table(arr)
   arr.map(element => {
-    console.log({ count })
     console.assert(element !== 2, "found the number 2")
     count += 1
   })
