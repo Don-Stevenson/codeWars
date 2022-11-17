@@ -13,12 +13,7 @@ const flipbits = str =>
 //   }
 // }
 
-const removeZeros = numStr => {
-  numStr.split().map((e, index) => {
-    console.log({ e }, { index })
-    if (e === 0 && index === "1") return numStr.slice(index, num.length)
-  })
-}
+const removeZeros = numStr => numStr.replace(/^0+/, '');
 
 console.log(removeZeros("0010101000"))
 // expect 10101000
