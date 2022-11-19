@@ -33,17 +33,15 @@
 
 // with Map
 const toCamelCase = str => {
-
-  // if the string entered is empty, return an empty string
-  if (str === "") {
-    return ""
-  }
-
-  return str.split("").map((e, index) => {
-    // console.log(e, index)
-    if (e === " " || e === "-") return str[index + 1].toUpperCase()
-    else return e
-  }).toString().replace(/,/gi, "")
+  // split and map over the string passed in
+  return str.split(' ').map((word, index) => {
+    // If it is the first word make sure to lowercase all the chars.
+    if (index === 0) {
+      return word.toLowerCase();
+    }
+    // If it is not, the first word only upper case the first char and lowercase the rest.
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }).join('');
 }
 
 console.log(toCamelCase("snakes on a plane")) // returns => snakesOonAaPplane
