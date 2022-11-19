@@ -22,11 +22,7 @@ console.log(removeZeros("0010101000"))
 const changeAds = base10 => {
   //change base 10 into a string that is base 2
   const base2 = base10.toString(2)
-  // console.log("base2 is", base2)
-
-  //
   const mask = removeZeros(flipbits(base2))
-  // console.log("mask is :", mask)
   //find the regular number from the mask, to base 2
   return parseInt(mask, 2)
 }
