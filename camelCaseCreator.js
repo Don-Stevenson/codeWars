@@ -44,6 +44,7 @@ const toCamelCase = str => {
   }).join('');
 }
 
-console.log(toCamelCase("snakes on a plane")) // returns => snakesOonAaPplane
-// expect : snakesOnAPlane
+// console.log(toCamelCase("snakes on a plane")) // returns => snakesOonAaPplane
 
+
+console.log(toCamelCase("sNaKES on a pLANE")) // returns => snakesOonAaPplane
