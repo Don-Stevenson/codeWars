@@ -14,5 +14,5 @@ const questions = [
     message: "Name a topping",
   },
 ](async () => {
-  const response = await prompts(questions)
+  await prompts(questions)
 })()
