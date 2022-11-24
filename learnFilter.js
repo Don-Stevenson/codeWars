@@ -54,9 +54,7 @@ const isPrime = num => {
       counter++
     }
   }
-  if (counter === 2) {
-    return `Yes, ${num} is a prime number.`
-  } else return `No, ${num} is not a prime number.`
+  return (counter === 2) ? `Yes, ${num} is a prime number.` : `No, ${num} is not a prime number.`
 }
 
 // using filter to return an array of only prime nums by checking
