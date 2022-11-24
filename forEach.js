@@ -39,9 +39,9 @@ const forOfLoop = arr => {
 
 // with forEach
 
-const tryForEach = arr => {
+const tryForEach = arr =>
   arr.forEach(number => console.log(number))
-}
+
 
 // tryForEach(arr)
 // expect
