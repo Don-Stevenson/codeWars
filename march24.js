@@ -64,13 +64,12 @@ const meanTemps = array => array.reduce((a, b) => a + b) / array.length
 
 console.log(`The mean temperature is: ${meanTemps(temps)}`)
 
-const standardDeviation = popArray => {
-  return Math.sqrt(
-    popArray
-      .map(x => Math.pow(x - meanTemps(popArray), 2))
-      .reduce((a, b) => a + b) / popArray.length
-  )
-}
+const standardDeviation = popArray => Math.sqrt(
+  popArray
+    .map(x => Math.pow(x - meanTemps(popArray), 2))
+    .reduce((a, b) => a + b) / popArray.length
+)
+
 
 console.log(`The standard deviation is: ${standardDeviation(temps)}`)
 // console.log(standardDeviation())
