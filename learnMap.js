@@ -17,14 +17,12 @@
 const array = ["a", "b", 3, 4, 5, 6, 7]
 const mappedArray = array.map(x => x * 3)
 
-const mappedWithBraces = array.map(x => {
-  return x * 3 // => requires the return otherwise: mappedWithBraces array is: ,,,,,,
-})
+const mappedWithBraces = array.map(x => x * 3)
 
 console.table(`mapped array is: ${mappedArray} 
 mappedWithBraces array is: ${mappedWithBraces} 
 array is still: ${array}`)
 
-// expect:
-// mapped array is: NaN,NaN,9,12,15,18,21
+// mapped array is: NaN,NaN,9,12,15,18,21 
+// mappedWithBraces array is: NaN,NaN,9,12,15,18,21 
 // array is still: a,b,3,4,5,6,7
