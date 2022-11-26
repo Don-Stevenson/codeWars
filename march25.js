@@ -2,15 +2,13 @@
 // with split, reverse and join
 // ***************************
 
-const reverseStringSplitRerverseJoin = str => {
-  let reverseStr = str
-    .split("")
-    .reverse()
-    .join("")
-  return reverseStr
-}
+const reverseString = str => str
+  .split("")
+  .reverse()
+  .join("")
 
-// console.log(reverseStringSplitRerverseJoin("ABCDE"))
+
+// console.log(reverseString("ABCDE"))
 // expect EDCBA
 
 // with a c style loop
