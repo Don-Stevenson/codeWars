@@ -11,5 +11,5 @@ const reverseString = string =>
 
 
 
-console.log(reverseString("tame children"));
+console.log(reverseString("tame children"))
 // expect nerdlihc emat
