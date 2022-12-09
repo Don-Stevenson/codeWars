@@ -46,7 +46,7 @@ const RomanNumerals = {
     for (let i = 0; i < input.length; i++) {
       let currentLetter = romanKeyObj[input[i]]
       let nextLetter = romanKeyObj[input[i + 1]]
-      if (currentLetter === undefined) return null
+      if (!currentLetter) null
       else {
         if (currentLetter < nextLetter) {
           total += nextLetter - currentLetter
@@ -59,4 +59,6 @@ const RomanNumerals = {
 }
 
 console.log("roman num to arabic nums ", RomanNumerals.fromRoman("XII"))
+// roman num to arabic nums  12
 console.log("arabic num to Roman nums", RomanNumerals.toRoman(201))
+// arabic num to Roman nums CCI
