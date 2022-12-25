@@ -16,7 +16,7 @@ const arrOfPoints2 = [2, 5, 3, 6] // true
 
 
 const doPointsOverlap = ([a, b, c, d]) =>
-    (c <= a) && (b <= d) || (a <= c) && (d <= b) ? true : false
+    (a <= c) && (d <= b) || (c <= b) && (a <= d) ? true : false
 
 
 console.log(doPointsOverlap(arrOfPoints))
