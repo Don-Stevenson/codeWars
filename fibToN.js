@@ -42,13 +42,13 @@ const getPostiveFib = num => {
   return b
 }
 
-console.log(getPostiveFib(-50))
-// expect 0
+// console.log(getPostiveFib(-50))
+// // expect 0
 
-console.log(fib(-8))
-// // expect -21
+// console.log(fib(-8))
+// // // expect -21
 
-console.log(fib(12))
+// console.log(fib(12))
 // // expect -144
 
 // console.log(fib(6))
