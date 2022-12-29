@@ -39,7 +39,7 @@ console.log(addOne(array))
 // ]
 
 // with map
-const addOne = groupOfNumbers => groupOfNumbers.map((element) => element + 1)
+const addOne = groupOfNumbers => groupOfNumbers.map(element => element + 1)
 
 
 // console.log(addOne(array))
