@@ -33,5 +33,17 @@ describe("test doPointsOverlap", () => {
     it("[undefined, 20, 1, 100] should return false", () =>
         assert.deepStrictEqual(doPointsOverlap([undefined, 20, 1, 100]), false)
     )
+    it("** because of 0  and false being equal to false, I guess** [false, 20, 1, 100] should return true", () =>
+        assert.deepStrictEqual(doPointsOverlap([false, 20, 1, 100]), true)
+    )
+    it("** because of true and a number being equal to true, I guess** [true, 20, 1, 100] should return true", () =>
+        assert.deepStrictEqual(doPointsOverlap([true, 20, 1, 100]), true)
+    )
+    it("** because of true and a number being equal to true, I guess** [true, true, true, true] should return true", () =>
+        assert.deepStrictEqual(doPointsOverlap([true, true, true, true]), true)
+    )
+    it("** because of false and a number being equal to false, I guess** [false, false, false, false] should return true", () =>
+        assert.deepStrictEqual(doPointsOverlap([false, false, false, false]), true)
+    )
 })
 
