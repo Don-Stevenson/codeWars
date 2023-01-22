@@ -16,7 +16,7 @@ const catFetchFilter = async () => {
         const filteredCatsArrJSON = await filteredCatsArr.json()
 
         //  Filtering after the fetch has been made works
-        const longCats = filteredCatsArrJSON.filter((cat) => cat.height > 500)
+        const longCats = filteredCatsArrJSON.filter((cat) => cat.height > 500 && cat.width > 2000)
         console.log(longCats)
         return longCats
     } catch (error) {
