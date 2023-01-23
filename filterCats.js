@@ -7,16 +7,16 @@ import fetch from "node-fetch"
 
 const catFetchFilter = async () => {
     try {
-        const filteredCatsArr = await fetch(
+        const catsArr = await fetch(
             "https://api.thecatapi.com/v1/images/search?limit=10"
         )
-        // const filteredCatsArrJSON = await filteredCatsArr.json().filter((cat) => cat.height > 500)
-        // console.log(filteredCatsArrJSON) => throws and error because you cant use filter on a async call
+        // const catsArrJSON = await catsArr.json().filter((cat) => cat.height > 500)
+        // console.log(catsArrJSON) => throws and error because you cant use filter on a async call
 
-        const filteredCatsArrJSON = await filteredCatsArr.json()
+        const catsArrJSON = await catsArr.json()
 
         //  Filtering after the fetch has been made works
-        const longCats = filteredCatsArrJSON.filter((cat) => cat.height > 500 && cat.width > 2000)
+        const longCats = catsArrJSON.filter((cat) => cat.height > 500 && cat.width > 2000)
         console.log(longCats)
         return longCats
     } catch (error) {
