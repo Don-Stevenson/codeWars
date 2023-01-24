@@ -16,9 +16,10 @@ const catFetchFilter = async () => {
         const catsArrJSON = await catsArr.json()
 
         //  Filtering after the fetch has been made works
-        const longCats = catsArrJSON.filter(cat => cat.height > 500 && cat.width > 2000)
-        console.log(longCats)
-        return longCats
+        const longWideCats = catsArrJSON.filter(cat => cat.height > 500 && cat.width > 2000)
+        const shortNarrowCats = catsArrJSON.filter(cat => cat.height < 500 && cat.width < 2000)
+        console.log({ longWideCats }, { shortNarrowCats })
+        return longWideCats, shortNarrowCats
     } catch (error) {
         console.error(error)
     }
