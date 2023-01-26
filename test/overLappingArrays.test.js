@@ -84,5 +84,8 @@ describe("test doPointsOverlap", () => {
     it("[undefined, undefined, undefined, undefined] should return false", () =>
         assert.deepStrictEqual(doPointsOverlap([undefined, undefined, undefined, undefined]), false)
     )
+    it("[NaN, NaN, NaN, NaN] should return false", () =>
+        assert.deepStrictEqual(doPointsOverlap([NaN, NaN, NaN, NaN]), false)
+    )
 })
 
