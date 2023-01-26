@@ -10,10 +10,10 @@ const catFetchFilter = async () => {
         const catsArr = await fetch(
             "https://api.thecatapi.com/v1/images/search?limit=10"
         )
+        const catsArrJSON = await catsArr.json()
         // const catsArrJSON = await catsArr.json().filter((cat) => cat.height > 500)
         // console.log(catsArrJSON) => throws and error because you cant use filter on a async call
 
-        const catsArrJSON = await catsArr.json()
 
         //  Filtering after the fetch has been made works
         const longWideCats = catsArrJSON.filter(cat => cat.height > 500 && cat.width > 2000)
