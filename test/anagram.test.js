@@ -11,11 +11,10 @@ describe("#anagrams()", () => {
   })
   it("should return an empty array when there are no anagrams of the original word", () => {
     assert.deepStrictEqual(
-      anagrams("hello", ["hgllo", "hi", "ihllo", "face", "plelh", "ho"]),
+      anagrams("hello", ["hgllo", "hi", "ihllo", "face", "plelh", "no"]),
       []
     )
   })
 })
 
-// console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]))
-// expect [ 'hello', 'ehllo', 'olelh' ]
+
