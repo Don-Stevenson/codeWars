@@ -90,5 +90,8 @@ describe("test doPointsOverlap", () => {
     it("[null, null, null, null] should return true", () =>
         assert.deepStrictEqual(doPointsOverlap([null, null, null, null]), true)
     )
+    it("[0, 0, 0, 0] should return true", () =>
+        assert.deepStrictEqual(doPointsOverlap([0, 0, 0, 0]), true)
+    )
 })
 
