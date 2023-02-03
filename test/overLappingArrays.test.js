@@ -97,4 +97,3 @@ describe("test doPointsOverlap", () => {
         assert.deepStrictEqual(doPointsOverlap([Infinity, Infinity, Infinity, Infinity]), true)
     )
 })
-
