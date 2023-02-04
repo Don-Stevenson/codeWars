@@ -19,7 +19,8 @@ const mixedLetters = ["a", "c", "d", "e", "f", "g", "h"]
 
 const letterArr = ["f", "f", "f", "f", "f", "f", "f"]
 
-const isEveryValueF = value => (value === "f" ? true : false)
+const isEveryValueF = value =>
+    value === "f" ? true : false
 
 console.log(letterArr.every(isEveryValueF)) // => true
 
