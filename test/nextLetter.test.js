@@ -8,4 +8,14 @@ describe("next letter", () => {
             nextLetter("f"), "g"
         )
     })
+    it("given h should return i", () => {
+        assert.deepStrictEqual(
+            nextLetter("h"), "i"
+        )
+    })
+    it("given h should return i", () => {
+        assert.deepStrictEqual(
+            nextLetter("z"), undefined
+        )
+    })
 })
