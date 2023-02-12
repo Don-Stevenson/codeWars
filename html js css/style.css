@@ -8,7 +8,8 @@ body {
   display: flex;
 }
 .available{
-  align-content: flex-end;
+  align-content: flex-start;
+  align-items: center;
 }
 
 body {
