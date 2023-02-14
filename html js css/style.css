@@ -6,10 +6,12 @@ body {
 
 .app-wrapper{
   display: flex;
+  align-content: center;
 }
+
 .available{
   align-content: flex-start;
-  align-items: center;
+  align-items: center;  
 }
 
 body {
