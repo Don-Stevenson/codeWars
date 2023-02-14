@@ -12,7 +12,9 @@ body {
 .available{
   align-content: flex-start;
   align-items: center;  
+  background-color: var(--bone);
 }
+
 
 body {
   background-color: var(--old-lavender)
