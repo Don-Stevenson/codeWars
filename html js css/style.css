@@ -4,13 +4,13 @@ body {
   padding: 0;
 }
 
-.app-wrapper{
+.app-wrapper {
   display: flex;
   align-content: center;
 }
 
-.available{
-  align-content: flex-start;
+.available {
+  justify-content: center;
   align-items: center;  
   background-color: var(--bone);
 }
