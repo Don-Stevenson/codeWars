@@ -20,6 +20,10 @@ body {
   background-color: var(--old-lavender)
 }
 
+.p { 
+  color: var(--desert-sand)
+}
+
 /* CSS Colour palette */
 colours {
   --light-goldenrod-yellow: #f2f6d0ff;
@@ -27,7 +31,4 @@ colours {
   --bone: #d9d2b6ff;
   --desert-sand: #e4be9eff;
   --old-lavender: #71697aff;
-}
-
-.p{  --desert-sand: #e4be9eff;
 }
