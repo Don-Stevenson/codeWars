@@ -4,8 +4,24 @@ body {
   padding: 0;
 }
 
-body {
+.app-wrapper {
+  display: flex;
+  align-content: center;
+}
+
+.available {
+  justify-content: center;
+  align-items: center;  
+  background-color: var(--bone);
+}
+
+
+.body {
   background-color: var(--old-lavender)
+}
+
+.p { 
+  color: var(--desert-sand)
 }
 
 /* CSS Colour palette */

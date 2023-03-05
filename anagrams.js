@@ -32,7 +32,7 @@ const wordSorter = word =>
 const anagrams = (word, inputWords) =>
   inputWords.filter(element => wordSorter(element) === wordSorter(word))
 
-console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]))
+// console.log(anagrams("hello", ["hello", "hi", "ehllo", "face", "olelh", "ho"]))
 // expect [ 'hello', 'ehllo', 'olelh' ]
 
 module.exports = { anagrams }
