@@ -17,3 +17,8 @@ console.log(divisibleByFive("1010101010010001"))
 // expect
 // str is  43665
 // true
+
+console.log(divisibleByFive("101"))
+// expect
+// str is 3
+// false
