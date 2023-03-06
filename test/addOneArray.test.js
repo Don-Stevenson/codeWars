@@ -15,3 +15,8 @@ describe("#addOne()", () => {
   )
 })
 
+describe("#addOne()", () => {
+  it("should NOT equal an array of the same integers", () =>
+    assert.notDeepEqual(addOne(array), [1, 2, 3, 4, 5, 6, 7, 8, 9])
+  )
+})
