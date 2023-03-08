@@ -17,4 +17,7 @@ describe("#addOne()", () => {
 
   it("should NOT equal an array of the of '-2' integers", () =>
     assert.notDeepEqual(addOne(array), [-1, 0, 1, 2, 3, 4, 5, 6, 7]))
+
+  it("should NOT equal an array of the of '-3' integers", () =>
+    assert.notDeepEqual(addOne(array), [-2, -1, 0, 1, 2, 3, 4, 5, 6]))
 })
