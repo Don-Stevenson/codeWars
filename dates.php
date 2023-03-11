@@ -20,6 +20,6 @@ echo date(DATE_RFC2822);
 
 echo "\n";
 
-// prints something like: 2000-07-01T00:00:00+00:00
+// prints: 2000-07-01T00:00:00+00:00
 echo date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
 echo "\n";
