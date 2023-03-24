@@ -19,7 +19,7 @@
     "prompts": "^2.3.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --recursive tests/*.js"
   },
   "repository": {
     "type": "git",
