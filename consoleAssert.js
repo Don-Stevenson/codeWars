@@ -22,14 +22,18 @@ const doesArrContainTwo = arr => {
 
 doesArrContainTwo(arr)
 
-// expect :
-// { count: 1 }
-// { count: 2 }
+// expect:
+// ┌─────────┬────────┐
+// │ (index) │ Values │
+// ├─────────┼────────┤
+// │    0    │   1    │
+// │    1    │   2    │
+// │    2    │   3    │
+// │    3    │   4    │
+// │    4    │   5    │
+// │    5    │   6    │
+// │    6    │   7    │
+// │    7    │  '8'   │
+// │    8    │   ''   │
+// └─────────┴────────┘
 // Assertion failed: found the number 2
-// { count: 3 }
-// { count: 4 }
-// { count: 5 }
-// { count: 6 }
-// { count: 7 }
-// { count: 8 }
-// { count: 9 }
