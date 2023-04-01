@@ -76,3 +76,6 @@ console.log(isPrime(13))
 
 console.log(isPrime(17))
 // Yes, 13 is a prime number.
+
+console.log(isPrime(101))
+// Yes, 101 is a prime number.
