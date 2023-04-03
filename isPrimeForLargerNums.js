@@ -1,3 +1,5 @@
+const { bignumber } = require("mathjs")
+
 // add some checks to avoid running counter unneccessarily
 
 const isPrimeForLargerNums = num => {
@@ -17,5 +19,5 @@ const isPrimeForLargerNums = num => {
   }
 }
 // console.log(isPrimeForLargerNums(11))
-console.log(isPrimeForLargerNums(1346001801791331))
+console.log(isPrimeForLargerNums(bignumber(13460018017913321131)))
 //Yes, 1346001801791331 is a prime number.
