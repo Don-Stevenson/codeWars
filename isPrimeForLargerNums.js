@@ -8,13 +8,11 @@ const isPrimeForLargerNums = num => {
     for (let i = 1; i <= num; i++) {
       if (num % i === 0) {
         counter++
-        if (counter > 2) {
-          return `${num} is not a prime number.`
-        }
+        if (counter > 2) `${num} is not a prime number.`
       }
+      return `Yes, ${num} is a prime number.`
     }
-    return `Yes, ${num} is a prime number.`
   }
 }
 // console.log(isPrimeForLargerNums(11))
-console.log(isPrimeForLargerNums(134600180))
+console.log(isPrimeForLargerNums(13460018017))
