@@ -15,5 +15,5 @@ const isPrimeForLargerNums = num => {
   }
 }
 // console.log(isPrimeForLargerNums(11))
-console.log(isPrimeForLargerNums(13460018017))
-// Yes, 13460018017 is a prime number.
+console.log(isPrimeForLargerNums(1346001801791))
+// Yes, 1346001801791 is a prime number.
