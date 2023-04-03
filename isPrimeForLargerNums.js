@@ -4,7 +4,7 @@ const { bignumber } = require("mathjs")
 
 const isPrimeForLargerNums = num => {
 
-  if (num <= 1)
+  if (num <= 2)
     return `Yes, ${num} is a prime number.`
 
   const last_number = +num.toString().slice(-1)
