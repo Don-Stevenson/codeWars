@@ -1,3 +1,5 @@
+// add some checks to avoid running counter unneccessarily
+
 const isPrimeForLargerNums = num => {
   const last_number = +num.toString().slice(-1)
 
