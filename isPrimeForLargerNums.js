@@ -7,10 +7,9 @@ const isPrimeForLargerNums = num => {
         return `No, ${num} is not a prime number.`
       }
     }
-    console.log({ counter })
   }
   return `Yes, ${num} is a prime number.`
 }
 
 // console.log(isPrimeForLargerNums(11))
-console.log(isPrimeForLargerNums(110))
+console.log(isPrimeForLargerNums(1100101))
