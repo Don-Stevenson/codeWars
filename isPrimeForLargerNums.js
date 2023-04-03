@@ -12,4 +12,4 @@ const isPrimeForLargerNums = num => {
 }
 
 // console.log(isPrimeForLargerNums(11))
-console.log(isPrimeForLargerNums(1100101))
+console.log(isPrimeForLargerNums(11001013))
