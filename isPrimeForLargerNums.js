@@ -1,10 +1,8 @@
-const { bignumber } = require("mathjs")
-
 // add some checks to avoid running counter unneccessarily
 
 const isPrimeForLargerNums = num => {
 
-  if (num <= 2)
+  if (parseInt(num) <= 2)
     return `Yes, ${num} is a prime number.`
 
   const last_number = +num.toString().slice(-1)
@@ -22,6 +20,6 @@ const isPrimeForLargerNums = num => {
     }
   }
 }
-// console.log(isPrimeForLargerNums(11))
-console.log(isPrimeForLargerNums(BigInt(1346001801791331)))
+
+console.log(isPrimeForLargerNums((`13460018017913313`)))
 //Yes, 1346001801791331 is a prime number.
