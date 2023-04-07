@@ -11,12 +11,12 @@ const isPrimeForLargerNums = num => {
     for (let i = 1; i <= num; i++) {
       if (num % i === 0) {
         counter++
-        if (counter > 2) `No, ${num} is not a prime number.`
+        if (counter > 2)`No, ${num} is not a prime number.`
       }
     }
     return `Yes, ${num} is a prime number.`
   }
 }
 
-console.log(isPrimeForLargerNums(13460013131))
-//Yes, 13460013131 is a prime number.
+console.log(isPrimeForLargerNums(134600131311))
+//Yes, 134600131311 is a prime number.
