@@ -1,5 +1,3 @@
-// add some checks to avoid running counter unneccessarily
-
 const isPrimeForLargerNums = num => {
   if (num <= 2) return `Yes, ${num} is a prime number.`
 
@@ -8,7 +6,7 @@ const isPrimeForLargerNums = num => {
     return `No, ${num} is not a prime number.`
   else {
     let counter = 0
-    for (let i = 1; i <= num; i++) {
+    for (let i = 1; i <= num; i += 2) {
       if (num % i === 0) {
         counter++
         if (counter > 2)`No, ${num} is not a prime number.`
@@ -18,5 +16,5 @@ const isPrimeForLargerNums = num => {
   }
 }
 
-console.log(isPrimeForLargerNums(134600131311))
+console.log(isPrimeForLargerNums(1311))
 //Yes, 134600131311 is a prime number.
