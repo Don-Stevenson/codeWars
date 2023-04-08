@@ -1,3 +1,5 @@
+const { performance } = require('perf_hooks');
+
 const isPrimeForLargerNums = num => {
   if (num <= 2) return `Yes, ${num} is a prime number.`
 
@@ -15,6 +17,11 @@ const isPrimeForLargerNums = num => {
     return `Yes, ${num} is a prime number.`
   }
 }
+const startTime = performance.now()
 
-console.log(isPrimeForLargerNums(1311))
+console.log(isPrimeForLargerNums(1311212121))
+
+const endTime = performance.now()
+
+console.log(`Call to run isPrimeForLargerNums took ${endTime - startTime} milliseconds`)
 //Yes, 134600131311 is a prime number.
