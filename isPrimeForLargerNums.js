@@ -10,14 +10,19 @@ const isPrimeForLargerNums = num => {
     let counter = 0
     for (let i = 1; i <= num; i += 2) {
       const last_number_of_i = +i.toString().slice(-1)
+
       // handles skipping of 5
       if (last_number_of_i === 3) {
-        i += 2
-      } else {
         if (num % i === 0) {
           counter++
           if (counter > 2) `No, ${num} is not a prime number.`
         }
+        // Skip over last number when it equals 5
+        i += 2
+        // console.log({ i })
+      } else if (num % i === 0) {
+        counter++
+        if (counter > 2) `No, ${num} is not a prime number.`
       }
     }
     return `Yes, ${num} is a prime number.`
@@ -25,7 +30,7 @@ const isPrimeForLargerNums = num => {
 }
 const startTime = performance.now()
 
-console.log(isPrimeForLargerNums(5))
+console.log(isPrimeForLargerNums(7))
 
 const endTime = performance.now()
 
