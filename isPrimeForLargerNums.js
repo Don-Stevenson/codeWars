@@ -27,13 +27,10 @@ const isPrimeForLargerNums = num => {
 }
 const startTime = performance.now()
 
-console.log(isPrimeForLargerNums(121212113))
-
 const endTime = performance.now()
 
 console.log(
-  `Call to run isPrimeForLargerNums took ${
-    (endTime - startTime) / 1000
-  } seconds`
+  `${isPrimeForLargerNums(121212113)}
+Call to run isPrimeForLargerNums took ${(endTime - startTime) / 1000} seconds`
 )
 //Yes, 134600131311 is a prime number.
