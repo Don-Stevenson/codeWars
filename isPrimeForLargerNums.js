@@ -19,7 +19,7 @@ const isPrimeForLargerNums = num => {
 }
 const startTime = performance.now()
 
-console.log(isPrimeForLargerNums(1311212121))
+console.log(isPrimeForLargerNums(131121212113))
 
 const endTime = performance.now()
 
