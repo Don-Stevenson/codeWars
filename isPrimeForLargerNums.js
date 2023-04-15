@@ -13,13 +13,13 @@ const isPrimeForLargerNums = num => {
       if (last_number_of_i === 3) {
         if (num % i === 0) {
           counter++
-          if (counter > 2)`No, ${num} is not a prime number.`
+          if (counter > 2) `No, ${num} is not a prime number.`
         }
         // Skip over last number when it equals 5
         i += 2
       } else if (num % i === 0) {
         counter++
-        if (counter > 2)`No, ${num} is not a prime number.`
+        if (counter > 2) `No, ${num} is not a prime number.`
       }
     }
     return `Yes, ${num} is a prime number.`
@@ -27,11 +27,13 @@ const isPrimeForLargerNums = num => {
 }
 const startTime = performance.now()
 
-console.log(isPrimeForLargerNums(131121212113))
+console.log(isPrimeForLargerNums(121212113))
 
 const endTime = performance.now()
 
 console.log(
-  `Call to run isPrimeForLargerNums took ${endTime - startTime} milliseconds`
+  `Call to run isPrimeForLargerNums took ${
+    (endTime - startTime) / 1000
+  } seconds`
 )
 //Yes, 134600131311 is a prime number.
