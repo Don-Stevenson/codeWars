@@ -15,7 +15,7 @@ const isPrimeForLargerNums = num => {
           counter++
           if (counter > 2)`No, ${num} is not a prime number.`
         }
-        // Skip over last number when it equals 5
+        // Skip over the next number as it equals equals 5
         i += 2
       } else if (num % i === 0) {
         counter++
