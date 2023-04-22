@@ -26,11 +26,11 @@ const isPrimeForLargerNums = num => {
   }
 }
 const startTime = performance.now()
-const result = isPrimeForLargerNums(1111111111)
+const resultOfIsPrimeForLargerNums = isPrimeForLargerNums(111111)
 const endTime = performance.now()
 
 console.log(
-  `${result}
+  `${resultOfIsPrimeForLargerNums}
 Call to run isPrimeForLargerNums took ${((endTime - startTime) / 1000).toFixed(
     3
   )} seconds`
