@@ -19,14 +19,17 @@ const isPrimeForLargerNums = num => {
         i += 2
       } else if (num % i === 0) {
         counter++
-        if (counter > 2)`No, ${num} is not a prime number.`
       }
+      if (counter > 2) return `Counter is ${counter} Here No, ${num} is not a prime number.`
     }
-    return `Yes, ${num} is a prime number.`
+    if (counter === 2) return `Counter is ${counter}
+    Yes, ${num} is a prime number.`
+    else return `Counter is ${counter}
+    No, ${num} is not a prime number.`
   }
 }
 const startTime = performance.now()
-const resultOfIsPrimeForLargerNums = isPrimeForLargerNums(11137)
+const resultOfIsPrimeForLargerNums = isPrimeForLargerNums(11111111)
 const endTime = performance.now()
 
 console.log(
