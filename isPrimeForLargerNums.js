@@ -2,10 +2,9 @@ const { performance } = require("perf_hooks")
 
 const isPrimeForLargerNums = num => {
   const last_number = +num.toString().slice(-1)
-
   if (num <= 2 || num === 5) return `Yes, ${num} is a prime number.`
-  if (last_number % 2 === 0 || last_number % 5 === 0)
-    return `No, ${num} is not a prime number.`
+  if (last_number === 2 || last_number === 5 || last_number === 0)
+    return `Last number is either a 2, a 5, or is a 0 and is > 10. No, ${num} is not a prime number.`
   else {
     let counter = 0
     for (let i = 1; i <= num; i += 2) {
@@ -29,7 +28,7 @@ const isPrimeForLargerNums = num => {
   }
 }
 const startTime = performance.now()
-const resultOfIsPrimeForLargerNums = isPrimeForLargerNums(11111111)
+const resultOfIsPrimeForLargerNums = isPrimeForLargerNums(1115)
 const endTime = performance.now()
 
 console.log(
