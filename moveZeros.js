@@ -8,7 +8,7 @@ const moveZeros = arr => {
   arr.map(e => {
     e === 0 ? arrOfZeros.push(e) : arrWithoutZeros.push(e)
   })
-  return ([...arrWithoutZeros, ...arrOfZeros])
+  return [...arrWithoutZeros, ...arrOfZeros]
 }
 
 console.log(moveZeros([0, 1, 4, 45, 0, 0, 7, 9]))

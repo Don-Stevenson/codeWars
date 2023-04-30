@@ -2,36 +2,8 @@
 // *******************
 
 const arr = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24,
-  25,
-  26,
-  27,
-  28,
-  29,
-  30,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25, 26, 27, 28, 29, 30,
 ]
 
 // const filterByGreaterThan3 = (arr) => {
@@ -54,7 +26,9 @@ const isPrime = num => {
       counter++
     }
   }
-  return counter === 2 ? `Yes, ${num} is a prime number.` : `No, ${num} is not a prime number.`
+  return counter === 2
+    ? `Yes, ${num} is a prime number.`
+    : `No, ${num} is not a prime number.`
 }
 
 // using filter to return an array of only prime nums by checking
@@ -80,9 +54,5 @@ console.log(isPrime(17))
 console.log(isPrime(101))
 // Yes, 101 is a prime number.
 
-
 console.log(isPrime(1010100103))
 // Yes, 101 is a prime number.
-
-
-

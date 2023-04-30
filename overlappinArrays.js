@@ -12,6 +12,6 @@
 //         c----d
 
 const doPointsOverlap = ([a, b, c, d]) =>
-    (a <= c) && (d <= b) || (c <= b) && (a <= d) ? true : false
+  (a <= c && d <= b) || (c <= b && a <= d) ? true : false
 
 module.exports = { doPointsOverlap }
