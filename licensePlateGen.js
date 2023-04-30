@@ -3,7 +3,7 @@ const howManyLicensePlates = 26 * 26 * 26 * 26 * 10 * 10 * 10
 
 // 14 570 000 million people in ontario
 // if each person gets one car, how many cars with different liscense plates can each person own?
-console.log(`With 14 570 000 million people in ontario, and approx 456976000 license plates possible given our current format. 
+console.log(`With 14.57 million people in ontario, and approx 456.976 million license plates possible given our current format. 
 Each person can own max of ${Math.round(
   howManyLicensePlates / 14570000
 )} cars with different license plates`)
