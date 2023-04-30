@@ -63,7 +63,7 @@ const letterValues = {
   x: 24,
   y: 25,
   z: 26,
-};
+}
 
 const letterSum = str => {
   let total = 0
@@ -79,13 +79,13 @@ const letterSum = str => {
 // tests
 // *****
 
-console.log(letterSum("cab")); // => 6
-console.log(letterSum("z")); // => 26
-console.log(letterSum("")); // => 0
-console.log(letterSum("excellent")); // => 100
-console.log(letterSum("microspectrophotometries")); // => 317
-console.log(letterSum("supercalifragilisticexpialidocious")); // => 379
-console.log(letterSum("12")); // => NaN
-console.log(letterSum("&*")); // => NaN
-console.log(letterSum("Hi&*")); // => NaN
-console.log(letterSum("ddd---")); // => NaN
+console.log(letterSum("cab")) // => 6
+console.log(letterSum("z")) // => 26
+console.log(letterSum("")) // => 0
+console.log(letterSum("excellent")) // => 100
+console.log(letterSum("microspectrophotometries")) // => 317
+console.log(letterSum("supercalifragilisticexpialidocious")) // => 379
+console.log(letterSum("12")) // => NaN
+console.log(letterSum("&*")) // => NaN
+console.log(letterSum("Hi&*")) // => NaN
+console.log(letterSum("ddd---")) // => NaN
