@@ -12,18 +12,21 @@ const isPrimeForLargerNums = num => {
       if (last_number_of_i === 3) {
         if (num % i === 0) {
           counter++
-          if (counter > 2)`No, ${num} is not a prime number.`
+          if (counter > 2) `No, ${num} is not a prime number.`
         }
         // Skip over the next number as it equals equals 5
         i += 2
       } else if (num % i === 0) {
         counter++
       }
-      if (counter > 2) return `Counter is ${counter} Here No, ${num} is not a prime number.`
+      if (counter > 2)
+        return `Counter is ${counter} Here No, ${num} is not a prime number.`
     }
-    if (counter === 2) return `Counter is ${counter}
+    if (counter === 2)
+      return `Counter is ${counter}
     Yes, ${num} is a prime number.`
-    else return `Counter is ${counter}
+    else
+      return `Counter is ${counter}
     No, ${num} is not a prime number.`
   }
 }
