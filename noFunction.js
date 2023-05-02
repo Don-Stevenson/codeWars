@@ -4,4 +4,4 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 // array.map(e => console.log(e * 10))
 
 const initialValue = 0
-console.log(array.reduce((prev, curr,) => prev + curr, initialValue))
+console.log(array.reduce((prev, curr) => prev + curr, initialValue))

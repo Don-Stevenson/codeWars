@@ -41,7 +41,6 @@ console.log(addOne(array))
 // with map
 const addOne = groupOfNumbers => groupOfNumbers.map(element => element + 1)
 
-
 // console.log(addOne(array))
 // expect [
 // 2, 3, 4,  5, 6,

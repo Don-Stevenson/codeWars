@@ -23,8 +23,12 @@ const generateHashtag = str => {
 console.log(generateHashtag("  code   wars   "))
 // expect #CodeWars
 
-console.log(generateHashtag("                                                real talk                                                                                                                                               "))
+console.log(
+  generateHashtag(
+    "                                                real talk                                                                                                                                               "
+  )
+)
 // expect false
 
-console.log(generateHashtag("hot blooded turkey roaster                 "));
+console.log(generateHashtag("hot blooded turkey roaster                 "))
 // str.length >= 140

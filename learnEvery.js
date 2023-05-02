@@ -21,8 +21,7 @@ const letterArr = ["f", "f", "f", "f", "f", "f", "f"]
 
 const numbersArr = [1, 2, 3, 4, 5, 6, 7]
 
-const isEveryValueF = value =>
-    value === "f" ? true : false
+const isEveryValueF = value => (value === "f" ? true : false)
 
 console.log(letterArr.every(isEveryValueF)) // => true
 
