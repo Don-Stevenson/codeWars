@@ -2,7 +2,7 @@
 
 const numArray = [1, 2, 3, 4, 5, 6, 7]
 
-const logElements = (array) => {
+const logElements = array => {
   for (number of array) {
     console.log({ number })
   }
