@@ -10,4 +10,7 @@ const reverseString = string =>
   string === "" ? "" : reverseString(string.substr(1)) + string.charAt(0)
 
 console.log(reverseString("tame children"))
-// expect nerdlihc emat
+// expect ==> nerdlihc emat
+
+console.log(reverseString("racecar"))
+// expect ==> racecar
