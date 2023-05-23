@@ -14,3 +14,6 @@ console.log(reverseString("tame children"))
 
 console.log(reverseString("racecar"))
 // expect ==> racecar
+
+console.log(reverseString("Plum"))
+// expect ==> mulP
