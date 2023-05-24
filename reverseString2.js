@@ -17,3 +17,9 @@ console.log(reverseString("racecar"))
 
 console.log(reverseString("Plum"))
 // expect ==> mulP
+
+console.log(reverseString("Plum"))
+// expect ==> mulP
+
+console.log(reverseString("plumulp"))
+// expect ==> plumulp
