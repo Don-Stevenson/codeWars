@@ -23,3 +23,6 @@ console.log(reverseString("Plum"))
 
 console.log(reverseString("plumulp"))
 // expect ==> plumulp
+
+console.log(reverseString("pumpkin"))
+// expect ==> nikpmup
