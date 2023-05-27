@@ -26,3 +26,6 @@ console.log(reverseString("plumulp"))
 
 console.log(reverseString("pumpkin"))
 // expect ==> nikpmup
+
+console.log(reverseString("amanacanalpanama"))
+// expect ==> amanacanalpanama
