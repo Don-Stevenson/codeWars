@@ -22,3 +22,5 @@ const reverseString = str =>
   str === "" ? "" : reverseString(str.substr(1)) + str.charAt(0)
 
 console.log(reverseString("12345")) // => 54321
+
+console.log(reverseString("larry")) // => yrral
