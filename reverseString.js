@@ -25,3 +25,5 @@ console.log(reverseString("12345")) // => 54321
 
 console.log(reverseString("larry")) // => yrral
 console.log(reverseString("reverse")) // => esrever
+
+console.log(reverseString("man")) // => nam
