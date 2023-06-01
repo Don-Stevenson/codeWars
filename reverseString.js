@@ -27,3 +27,4 @@ console.log(reverseString("larry")) // => yrral
 console.log(reverseString("reverse")) // => esrever
 
 console.log(reverseString("man")) // => nam
+console.log(reverseString("jam")) // => maj
