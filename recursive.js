@@ -12,11 +12,11 @@ const findLetterB = arr => {
       return `found ${item} here`
     }
   }
-  return `didn't find 'b' anywhere`
+  return `didn't find 'b'`
 }
-// console.log(findLetterB(arr))
+console.log(findLetterB(arr))
 
-// expect
+// expect =>
 // ...going to the next nested array
 // ...going to the next nested array
 // ...going to the next nested array
