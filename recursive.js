@@ -1,7 +1,7 @@
 // practicing recursion to find embeded elements with in an array
 // **************************************************************
 
-let arr = [[[[[1, [[2, [[3, ["b"]]]]]]]]]]
+let arr = [[[[[[[1, [[2, [[3, ["b"]]]]]]]]]]]]
 
 const findLetterB = arr => {
   for (const item of arr) {
