@@ -1,12 +1,7 @@
 const standardDeviation = arr => {
-  const mean =
-    arr.reduce((acc, curr) => {
-      return acc + curr
-    }, 0) / arr.length
+  const mean = arr.reduce((acc, curr) => acc + curr, 0) / arr.length
 
-  arr = arr.map(el => {
-    return (el - mean) ** 2
-  })
+  arr = arr.map(el => (el - mean) ** 2)
 
   const total = arr.reduce((acc, curr) => acc + curr, 0)
   return Math.sqrt(total / arr.length)
