@@ -31,9 +31,9 @@
 // // expect : snakesOnAPlane
 
 // with Map
-const toCamelCase = str => {
+const toCamelCase = str =>
   // split and map over the string passed in
-  return str
+  str
     .split(" ")
     .map((word, index) => {
       // If it is the first word make sure to lowercase all the chars.
@@ -44,7 +44,6 @@ const toCamelCase = str => {
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     })
     .join("")
-}
 
 // console.log(toCamelCase("snakes on a plane")) // returns => snakesOonAaPplane
 console.log(toCamelCase("sNaKES on a pLANE")) // returns => snakesOonAaPplane
