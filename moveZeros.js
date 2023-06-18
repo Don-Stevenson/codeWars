@@ -5,9 +5,7 @@ const moveZeros = arr => {
   let arrOfZeros = []
   let arrWithoutZeros = []
 
-  arr.map(e => {
-    e === 0 ? arrOfZeros.push(e) : arrWithoutZeros.push(e)
-  })
+  arr.map(e => (e === 0 ? arrOfZeros.push(e) : arrWithoutZeros.push(e)))
   return [...arrWithoutZeros, ...arrOfZeros]
 }
 
