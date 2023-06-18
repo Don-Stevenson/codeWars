@@ -13,3 +13,6 @@ const moveZeros = arr => {
 
 console.log(moveZeros([0, 1, 4, 45, 0, 0, 7, 9]))
 // expected result [  1, 4, 45, 7,  9, 0,  0, 0 ]
+
+console.log(moveZeros([9, 0, 0, 12, 123, 0, 0, 5]))
+// expected result [  1, 4, 45, 7,  9, 0,  0, 0 ]
