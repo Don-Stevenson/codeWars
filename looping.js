@@ -1,4 +1,4 @@
-// a function adding two elements together
+// a function logging elements together
 
 const numArray = [1, 2, 3, 4, 5, 6, 7]
 
@@ -9,6 +9,26 @@ const logElements = array => {
 }
 
 logElements(numArray)
+// expect:
+// { number: 1 }
+// { number: 2 }
+// { number: 3 }
+// { number: 4 }
+// { number: 5 }
+// { number: 6 }
+// { number: 7 }
+
+const mapLogElements = array => array.map(e => console.log({ e }))
+
+mapLogElements(numArray)
+// expect:
+// { e: 1 }
+// { e: 2 }
+// { e: 3 }
+// { e: 4 }
+// { e: 5 }
+// { e: 6 }
+// { e: 7 }
 
 // for (const item of array) {
 //   console.log("item is:", item)
