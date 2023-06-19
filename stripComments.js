@@ -7,7 +7,7 @@ const removeMarkers = (input, markersForDeletion) => {
   const inputArr = input.split("")
   // fiters out the input array, by only returning whats not for deleting,
   // and joins it back into a string
-  return inputArr.filter(item => !markersForDeletion.includes(item)).join("")n
+  return inputArr.filter(item => !markersForDeletion.includes(item)).join("")
 }
 
 console.log(removeMarkers("this is a show", "isahows"))
