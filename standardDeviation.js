@@ -7,7 +7,15 @@ const standardDeviation = arr => {
   return Math.sqrt(total / arr.length)
 }
 
-console.log(standardDeviation([2, 4, 4, 5, 7, 9, 12]))
+const getStandardDeviation = array => {
+  const n = array.length
+  const mean = array.reduce((a, b) => a + b) / n
+  return Math.sqrt(
+    array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n
+  )
+}
+
+console.log(getStandardDeviation([2, 4, 4, 5, 7, 9, 12]))
 
 //Output: 2
 //
