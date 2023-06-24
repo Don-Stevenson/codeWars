@@ -8,10 +8,10 @@ const standardDeviation = arr => {
 }
 
 const getStandardDeviation = array => {
-  const n = array.length
-  const mean = array.reduce((a, b) => a + b) / n
+  const noOfElements = array.length
+  const mean = array.reduce((a, b) => a + b) / noOfElements
   return Math.sqrt(
-    array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n
+    array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / noOfElements
   )
 }
 
@@ -24,7 +24,7 @@ const math = require("mathjs")
 
 const arr = [2, 4, 4, 5, 7, 9, 12]
 
-const standardDev = math.round(math.std(arr), 3)
+const standardDev = math.round(math.standardDev(arr), 3)
 console.log(standardDev)
 
 //Output: 3.436
