@@ -1,13 +1,13 @@
 const standardDeviation = arr => {
   const mean = arr.reduce((acc, curr) => acc + curr, 0) / arr.length
 
-  arr = arr.map(el => (el - mean) ** 2)
+  const differenceOfMeansSquared = arr.map(el => (el - mean) ** 2)
 
-  const total = arr.reduce((acc, curr) => acc + curr, 0)
+  const total = differenceOfMeansSquared.reduce((acc, curr) => acc + curr, 0)
   return Math.sqrt(total / arr.length)
 }
 
-console.log(standardDeviation([2, 4, 4, 4, 5, 5, 7, 9]))
+console.log(standardDeviation([2, 4, 4, 5, 7, 9, 12]))
 
 //Output: 2
 //
