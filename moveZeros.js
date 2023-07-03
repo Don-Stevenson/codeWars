@@ -23,3 +23,6 @@ console.log(moveZeros([12, 12432, 0, 19, 44, 2, 08, 0]))
 
 console.log(moveZeros([9, 8, 0, 7, 0, 0, 0001, 0000]))
 // expected result [9, 8, 7, 1, 0, 0, 0, 0]
+
+console.log(moveZeros(["a", 8, 0, 7, 0, 0, 0001, 0000]))
+// expected result ["a", 8, 7, 1, 0, 0, 0, 0]
