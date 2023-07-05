@@ -32,3 +32,6 @@ console.log(moveZeros([0, "a", 0, "b", 0, 0, 7, 0, 0, 0001, 0000]))
 
 console.log(moveZeros([0, "a", 0, "c", 0, "b", "Aa", 0, 0, 0001, 0000]))
 // expected result ['a', 'c', 'b', 'Aa', 1, 0, 0, 0, 0, 0, 0]
+
+console.log(moveZeros([0, "e", 1, "ff", 0, "dd", "Dog", 0, 0, 0001, 0000]))
+// expected result ['e', 1, 'ff','dd', 'Dog', 1, 0, 0, 0, 0, 0]
