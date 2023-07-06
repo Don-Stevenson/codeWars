@@ -23,8 +23,12 @@ console.log(getStandardDeviation([2, 4, 4, 5, 7, 9, 12]))
 const math = require("mathjs")
 
 const arr = [2, 4, 4, 5, 7, 9, 12]
+const arr2 = [1, 4, 4, 5, 2, 4, 19]
 
-const standardDev = math.round(math.standardDev(arr), 3)
+const standardDev = math.round(getStandardDeviation(arr), 3)
 console.log(standardDev)
 
 //Output: 3.436
+
+const standardDev2 = math.round(getStandardDeviation(arr2), 3)
+console.log(standardDev2)
