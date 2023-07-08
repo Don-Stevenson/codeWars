@@ -32,3 +32,5 @@ console.log(standardDev)
 
 const standardDev2 = math.round(getStandardDeviation(arr2), 3)
 console.log(standardDev2)
+
+//Output: 5.628
