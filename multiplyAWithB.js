@@ -13,3 +13,6 @@ const multiplyTwoNumbers = () =>
 
 console.log(multiplyTwoNumbers(args)) /* 3 4 */
 // expect 12
+
+// console.log(multiplyTwoNumbers(args)) /* 3 'foo' */
+// expect NaN
