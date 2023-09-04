@@ -21,8 +21,11 @@ const lastNItems = (arr, numOfItems) => {
       for (let i = 0; i < numOfItems; i++) {
         finalArr.push(arr[index + i])
       }
-      return finalArr
+      for (const element of finalArr) {
+        if (!element) finalArr.pop(element)
+      }
     }
+    return finalArr
   })
 }
 
