@@ -29,6 +29,8 @@ const lastNItems = (arr, numOfItems) => {
   })
 }
 
+// TODO: find recursive function to flatten array or remove empty arrays
+
 console.log(lastNItems(array, 3))
 console.log(lastNItems(array, 6))
 // Expect:
