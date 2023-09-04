@@ -35,3 +35,20 @@ console.log(moveZeros([0, "a", 0, "c", 0, "b", "Aa", 0, 0, 0001, 0000]))
 
 console.log(moveZeros([0, "e", 1, "ff", 0, "dd", "Dog", 0, 0, 0001, 0000]))
 // expected result ['e', 1, 'ff','dd', 'Dog', 1, 0, 0, 0, 0, 0]
+
+console.log(
+  moveZeros([
+    000,
+    "gdf",
+    01,
+    "dgffgff",
+    0000,
+    "dd",
+    "cat",
+    00,
+    00,
+    0000001,
+    0000,
+  ])
+)
+// expected result [ 'gdf', 1, 'dgffgff', 'dd', 'cat', 1, 0, 0, 0, 0, 0 ]
