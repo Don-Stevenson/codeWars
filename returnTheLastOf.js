@@ -13,11 +13,11 @@ const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 
 const lastNItems = (arr, numOfItems) => {
   return arr.map((e, index) => {
-    console.log({ e }, { index }, { numOfItems })
+    // console.log({ e }, { index }, { numOfItems })
 
     let finalArr = []
     if (index === arr.length - numOfItems) {
-      console.log(arr[index])
+      // console.log(arr[index])
       for (let i = 0; i < numOfItems; i++) {
         finalArr.push(arr[index + i])
       }
@@ -27,3 +27,29 @@ const lastNItems = (arr, numOfItems) => {
 }
 
 console.log(lastNItems(array, 3))
+console.log(lastNItems(array, 6))
+// Expect:
+// [
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined,
+//   [ 'h', 'i', 'j' ],
+//   undefined,
+//   undefined
+// ]
+// [
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined,
+//   [ 'e', 'f', 'g', 'h', 'i', 'j' ],
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined,
+//   undefined
+// ]
