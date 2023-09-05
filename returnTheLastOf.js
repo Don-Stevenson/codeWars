@@ -12,49 +12,15 @@ const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 // }
 
 const lastNItems = (arr, numOfItems) => {
-  return arr.map((e, index) => {
-    // console.log({ e }, { index }, { numOfItems })
-
-    let finalArr = []
-    if (index === arr.length - numOfItems) {
-      // console.log(arr[index])
-      for (let i = 0; i < numOfItems; i++) {
-        finalArr.push(arr[index + i])
-      }
-      for (const element of finalArr) {
-        if (!element) finalArr.pop(element)
-      }
+  let finalArr = []
+  arr.map((e, index) => {
+    const lastNItems = arr.length - numOfItems
+    if (index >= lastNItems) {
+      finalArr.push(e)
     }
-    return finalArr
   })
+  return finalArr
 }
-
-// TODO: find recursive function to flatten array or remove empty arrays
-
-console.log(lastNItems(array, 3))
 console.log(lastNItems(array, 6))
-// Expect:
-// [
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined,
-//   [ 'h', 'i', 'j' ],
-//   undefined,
-//   undefined
-// ]
-// [
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined,
-//   [ 'e', 'f', 'g', 'h', 'i', 'j' ],
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined,
-//   undefined
-// ]
+// result:
+// [ 'e', 'f', 'g', 'h', 'i', 'j' ]
