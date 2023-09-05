@@ -1,7 +1,5 @@
 // returns the last n things of an array
 
-const { filter } = require("mathjs")
-
 const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 
 // const lastNItems = (arr, numOfItems) => {
