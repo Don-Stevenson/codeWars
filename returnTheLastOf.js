@@ -23,10 +23,10 @@ const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 // }
 // console.log(lastNItems(array, 6))
 
-const lastNItems = (arr, numOfItems) =>
+const returnsTheLastNItems = (arr, numOfItems) =>
   arr.filter((e, index) => index >= arr.length - numOfItems)
 
-console.log(lastNItems(array, 2))
+console.log(returnsTheLastNItems(array, 2))
 
 // result:
 // [ 'e', 'f', 'g', 'h', 'i', 'j' ]
