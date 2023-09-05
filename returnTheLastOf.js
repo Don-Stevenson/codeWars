@@ -1,5 +1,7 @@
 // returns the last n things of an array
 
+const { filter } = require("mathjs")
+
 const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 
 // const lastNItems = (arr, numOfItems) => {
@@ -11,16 +13,22 @@ const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 //   return itemsArr
 // }
 
-const lastNItems = (arr, numOfItems) => {
-  let finalArr = []
-  arr.map((e, index) => {
-    const lastNItems = arr.length - numOfItems
-    if (index >= lastNItems) {
-      finalArr.push(e)
-    }
-  })
-  return finalArr
-}
-console.log(lastNItems(array, 6))
+// const lastNItems = (arr, numOfItems) => {
+//   let finalArr = []
+//   arr.map((e, index) => {
+//     const lastNItems = arr.length - numOfItems
+//     if (index >= lastNItems) {
+//       finalArr.push(e)
+//     }
+//   })
+//   return finalArr
+// }
+// console.log(lastNItems(array, 6))
+
+const lastNItems = (arr, numOfItems) =>
+  arr.filter((e, index) => index >= arr.length - numOfItems)
+
+console.log(lastNItems(array, 2))
+
 // result:
 // [ 'e', 'f', 'g', 'h', 'i', 'j' ]
