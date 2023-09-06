@@ -26,10 +26,10 @@ const array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 // with map, but finalArr is required to remove undefined entries to the array
 // [ 'e', 'f', 'g', 'h', 'i', 'j' ]
 
-// const returnsTheLastNItems = (arr, numOfItems) =>
-//   arr.filter((e, index) => index >= arr.length - numOfItems)
+const returnsTheLastNItems = (arr, numOfItems) =>
+  arr.filter((e, index) => index >= arr.length - numOfItems)
 
-// console.log(returnsTheLastNItems(array, 2))
+console.log(returnsTheLastNItems(array, 2))
 
 // result:
 // [ 'e', 'f', 'g', 'h', 'i', 'j' ]
