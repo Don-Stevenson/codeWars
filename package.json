@@ -10,6 +10,7 @@
     "ansi-regex": ">=5.0.1",
     "bignumber.js": "^9.0.0",
     "date-fns": "^2.15.0",
+    "lodash": "^4.17.19",
     "mathjs": "^11.2.1",
     "minimatch": "^5.1.0",
     "minimist": ">=1.2.6",
