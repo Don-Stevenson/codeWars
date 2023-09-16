@@ -1,3 +1,3 @@
-print("Hello, World!")
-name = input("What's your name? ")
-print("Hello {}!\n Congrats, you've made your first python script!".format(name))
+print("Hello, user!")
+name = input("What's your name?")
+print("Hello {}!\nCongrats, you've made your first python script!".format(name))
