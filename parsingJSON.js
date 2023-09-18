@@ -1,4 +1,4 @@
-// works in react
+import fetch from "node-fetch"
 
 const catFetch = async () => {
   try {
@@ -6,6 +6,7 @@ const catFetch = async () => {
       "https://api.thecatapi.com/v1/breeds/search?q=maine%20coon"
     )
     const catJSON = await catResponse.json()
+    console.log(catJSON)
     return catJSON
   } catch (error) {
     console.error(error)
