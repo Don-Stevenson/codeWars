@@ -25,7 +25,6 @@ const classifyString = testData => {
     line.match(postalCodeRegex)
   )
   if (postalCodeLineIndex !== -1) return postalCodeLine
-  else return "not found"
 
   if (postalCodeRegex.test(testData)) return "This is a postal code"
   const streetAddressRegex = /\d{1,}(\s{1}\w{1,})(\s{1}?\w{1,})+/g // checks for numbers then any amount of words after
@@ -51,5 +50,7 @@ const classifyString = testData => {
   if (postalCodeRegex.test(testData) || streetAddressRegex.test(testData))
     return "This is a street address"
   // full name checker
+
+  console.log({ lines })
 }
 console.log(classifyString(address))
