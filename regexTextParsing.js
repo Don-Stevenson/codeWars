@@ -8,14 +8,14 @@ const lines = [
   "Winnipeg, MB",
   "278 Elm Street",
   "JA",
-  "$200",
   "416-908-9995",
+  "$200.00",
   "Date Sep 10 2023",
   "R3M 3H1",
   "Sheetal Jaitly",
 ]
 const classifyString = testData => {
-  const priceRegex = /(?<=\$?)(\d*([.,](?=\d{3}))?\d+)+((?!\2)[.,]\d\d)?$/
+  const priceRegex = /^\$?[0-9]+(\.[0-9][0-9])?$/
   const [priceLine] = testData.filter(line => line.match(priceRegex))
 
   const getsPrice = line => {
