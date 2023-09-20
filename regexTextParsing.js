@@ -1,63 +1,62 @@
 import pkg from "lodash"
 const { findIndex, get } = pkg
 
-// /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)(\.)?(\w*)?(\.)?(\s*\d{0,2}\s*),(\s*\d{4})/
-// return what kind of data it is
-// NOTE: if phone number is (416)-908 999, concatenated to customerAddress, it considers it a postal code
 const lines = [
-  "Winnipeg, MB",
-  "278 Elm Street",
+  // "Winnipeg MB",
+  // "278 Elm Street",
+  // "Sheetal Jaitly",
   "JA",
-  "416-908-9995",
-  "$200.00",
+  // "416-908-9995",
+  // "$200.00",
   "Date Sep 10 2023",
-  "R3M 3H1",
-  "Sheetal Jaitly",
+  // "R3M 3H1",
 ]
 const classifyString = testData => {
+  // regexs
   const priceRegex = /^\$?[0-9]+(\.[0-9][0-9])?$/
-  const [priceLine] = testData.filter(line => line.match(priceRegex))
+  const phoneRegex = /(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/
+  const postalCodeRegex = /[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/
+  const firstPartOfPostalCodeRegex = /[A-Z][0-9][A-Z]/
+  const streetAddressRegex = /\d{1,}(\s{1}\w{1,})(\s{1}?\w{1,})+/g
+  const cityAndProvinceRegex =
+    /^[A-Za-z ]+,? ?((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)$/
+  const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
+  const [priceLine] = testData.filter(line => line.match(priceRegex))
   const getsPrice = line => {
     if (priceRegex.test(line)) {
       const [price] = line.match(priceRegex)
       return price
     }
-    return ""
+    return "Phone number could not be read"
   }
   const priceLineIndex = findIndex(testData, line => {
     return line.match(priceRegex)
   })
 
   const price = getsPrice(priceLine)
-  // console.log({ price })
-  // console.log({ priceLineIndex })
 
-  // removes price line
-  // console.log("test before price removed", testData)
+  // removes price from consideration
   if (price) testData.splice(priceLineIndex, 1)
-  // console.log("test data after price removed", testData)
 
-  const phoneLineIndex = findIndex(testData, line =>
-    line.match(/(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/)
-  )
+  const phoneLineIndex = findIndex(testData, line => line.match(phoneRegex))
 
   const getsPhoneNumber = (testData, phoneLineIndex) => {
     const phone = get(testData, phoneLineIndex, "")
-    return phone ? phone.replace(/-/g, "") : ""
+    return phone ? phone.replace(/-/g, "") : "Phone number could not be read"
   }
   const customerPhone = getsPhoneNumber(testData, phoneLineIndex)
-  // console.log(customerPhone)
+
   // Find phone number and remove it from consideration
-  testData.splice(phoneLineIndex, 1)
-  // console.log("test data after phone removed", testData)
+  if (customerPhone) {
+    testData.splice(phoneLineIndex, 1)
+  }
 
   // find a line that matches the postal code regex
-  const [postalCodeLine] = testData.filter(line =>
-    line.match(/[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/)
-  )
+  const [postalCodeLine] = testData.filter(line => line.match(postalCodeRegex))
+
   const postalCodeLineIndex = findIndex(testData, line =>
-    line.match(/[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/)
+    line.match(postalCodeRegex)
   )
 
   const checkPostalCodeOwnLine = postalCodeLine => {
@@ -66,14 +65,17 @@ const classifyString = testData => {
       return testData.splice(postalCodeLineIndex, 1)
     } else return ""
   }
+
   const postalIfOnItsOwnLine = checkPostalCodeOwnLine(postalCodeLine)
 
+  // gets the postal if its present
   const getsPostalCode = postalCodeLine => {
     if (!postalCodeLine) return ""
     else {
       const addressArray = postalCodeLine.split(" ")
+
       const postalCodeFirstHalfIndex = findIndex(addressArray, line =>
-        line.match(/[A-Z][0-9][A-Z]/)
+        line.match(firstPartOfPostalCodeRegex)
       )
       const postalCode = `${addressArray[postalCodeFirstHalfIndex]} ${
         addressArray[postalCodeFirstHalfIndex + 1]
@@ -82,15 +84,10 @@ const classifyString = testData => {
     }
   }
 
-  // console.log("Here get PostalCode", getsPostalCode(postalCodeLine))
-
   const parsedPostalCode = getsPostalCode(postalCodeLine)
 
-  const cityAndProvinceRegex =
-    /^[A-Za-z ]+,? ?((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)$/
-
-  const removesPostCodeFromAddress = postalCodeLine => {
-    console.log({ postalCodeLine })
+  // handles address where postal code is pressent or not
+  const removesPostalCodeFromAddress = postalCodeLine => {
     if (!postalCodeLine) {
       return testData.filter(line => {
         line.match(cityAndProvinceRegex)
@@ -103,28 +100,24 @@ const classifyString = testData => {
     }
   }
 
-  // Find street and remove it from consideration
-  const [streetLine] = testData.filter(line =>
-    line.match(/\d{1,}(\s{1}\w{1,})(\s{1}?\w{1,})+/g)
-  )
-  const [streetAddress] = streetLine
-    ? streetLine.match(/\d{1,}(\s{1}\w{1,})(\s{1}?\w{1,})+/g)
-    : ""
+  const cityAndProvinceNoPostalCode =
+    removesPostalCodeFromAddress(postalCodeLine)
+
+  const [streetLine] = testData.filter(line => line.match(streetAddressRegex))
+  const [streetAddress] = streetLine ? streetLine.match(streetAddressRegex) : ""
   const streetIndex = findIndex(testData, line =>
-    line.match(/\d{1,}(\s{1}\w{1,})(\s{1}?\w{1,})+/g)
+    line.match(streetAddressRegex)
   )
-  testData.splice(streetIndex, 1)
 
-  console.log("test data after street removed", testData)
+  // conditionally removes street address
+  if (cityAndProvinceNoPostalCode || streetLine.length > 0) {
+    testData.splice(streetIndex, 1)
+  }
 
-  const cityAndProvinceNoPostalCode = removesPostCodeFromAddress(postalCodeLine)
-  console.log({ cityAndProvinceNoPostalCode })
-
-  // need to remove postal code from testdata
   const cityIndex = findIndex(testData, line => {
     return line.match(cityAndProvinceRegex)
   })
-  // console.log({ cityIndex })
+
   const getCityAndProvince = lines => {
     return lines.filter(line => {
       if (cityIndex !== -1) {
@@ -132,52 +125,34 @@ const classifyString = testData => {
       }
     })
   }
+
   const cityAndProvince = getCityAndProvince(testData)
-  console.log({ cityAndProvince })
+
+  // puts the city and province into two lines, either from the function or the regex match
   const cityAndProvinceSplit =
     cityAndProvince.length > 0
       ? cityAndProvince[0].split(" ")
       : cityAndProvinceNoPostalCode
 
-  testData.push(`${cityAndProvince[0]} ${cityAndProvince[1]}`)
+  // if present remove city and province it from consideration
 
-  // { cityAndProvinceNoPostalCode: [ 'Winnipeg,', 'MB' ] } - if postal code is in the same line
-  // { cityAndProvince: [ 'Winnipeg, MB' ] } - if postal code is in another line
+  if (cityAndProvinceSplit.length > 0) {
+    testData.splice(cityIndex, 1)
+    console.log("test data after city removed", testData)
+  }
 
-  // join if noPostalCode into one value, then push that to testData, then we don't need to use
-  // cityAndProvince[0] and
+  const [fullNameLine] = testData.filter(line => line.match(fullNameRegex))
+  const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
 
-  // remove city and province it from consideration
-  testData.splice(cityIndex, 1)
+  const customerName = fullName ? fullName : "Full name could not be read"
 
-  console.log("test data after city removed", testData)
-
-  // TODO: Find name and remove it from consideration
-  // update to datawithOutPostal code instead of filter
-  const [fullNameLine] = testData.filter(line =>
-    line.match(/^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/)
-  )
-  // console.log({ fullNameLine })
-  const fullNameIndex = findIndex(testData, line =>
-    line.match(/^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/)
-  )
-  const [customerName] = fullNameLine
-    ? fullNameLine.match(/^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/)
-    : ""
-  // console.log({ customerName })
-  testData.splice(fullNameIndex, 1)
-
-  // console.log("testData after splice after name removed", testData)
-
-  // clean up the following
-
-  // TODO: concat streetAddress, city and postal code
-  // TODO: if postal code is there, concat it to address
-
-  const customerAddress = `${streetAddress} ${
+  // returns the customer address
+  const customerAddress = `${
+    streetAddress ? streetAddress : "Address could not be read."
+  } ${
     cityAndProvinceSplit[0]
       ? cityAndProvinceSplit[0]
-      : "City could not be read."
+      : "Town / City could not be read."
   } ${
     cityAndProvinceSplit[1]
       ? cityAndProvinceSplit[1]
@@ -194,6 +169,4 @@ const classifyString = testData => {
   return parsed
 }
 
-// works with proper postal code, breaks with out
-// console logs parsed above
 console.log(classifyString(lines))
