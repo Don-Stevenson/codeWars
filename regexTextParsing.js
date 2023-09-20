@@ -2,17 +2,17 @@ import pkg from "lodash"
 const { findIndex, get } = pkg
 
 const lines = [
-  // "Winnipeg MB",
-  // "278 Elm Street",
-  // "Sheetal Jaitly",
+  "Winnipeg MB",
+  "278 Elm Street",
+  "Sheetal Jaitly",
   "JA",
-  // "416-908-9995",
+  "416-908-9995",
   // "$200.00",
   "Date Sep 10 2023",
-  // "R3M 3H1",
+  "R3M 3H1",
 ]
 const classifyString = testData => {
-  // regexs
+  // regexes used
   const priceRegex = /^\$?[0-9]+(\.[0-9][0-9])?$/
   const phoneRegex = /(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/
   const postalCodeRegex = /[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/
@@ -28,7 +28,7 @@ const classifyString = testData => {
       const [price] = line.match(priceRegex)
       return price
     }
-    return "Phone number could not be read."
+    return "Price could not be read."
   }
   const priceLineIndex = findIndex(testData, line => {
     return line.match(priceRegex)
@@ -134,21 +134,17 @@ const classifyString = testData => {
       ? cityAndProvince[0].split(" ")
       : cityAndProvinceNoPostalCode
 
-  // if present remove city and province it from consideration
-
+  // conditionally removes city and province it from consideration
   if (cityAndProvinceSplit.length > 0) {
     testData.splice(cityIndex, 1)
-    console.log("test data after city removed", testData)
   }
 
   const [fullNameLine] = testData.filter(line => line.match(fullNameRegex))
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
 
   const customerName = fullName ? fullName : "Full name could not be read."
-
-  // returns the customer address
   const customerAddress = `${
-    streetAddress ? streetAddress : "Address could not be read."
+    streetAddress ? streetAddress : "Street address could not be read."
   } ${
     cityAndProvinceSplit[0]
       ? cityAndProvinceSplit[0]
@@ -165,7 +161,6 @@ const classifyString = testData => {
     customerAddress,
     customerName,
   }
-
   return parsed
 }
 
