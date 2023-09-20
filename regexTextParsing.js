@@ -7,7 +7,7 @@ const lines = [
   "Sheetal Jaitly",
   "JA",
   "416-908-9995",
-  // "$200.00",
+  "$200.00",
   "Date Sep 10 2023",
   "R3M 3H1",
 ]
@@ -22,6 +22,7 @@ const classifyString = testData => {
     /^[A-Za-z ]+,? ?((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)$/
   const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
+  // handles the price
   const [priceLine] = testData.filter(line => line.match(priceRegex))
   const getsPrice = line => {
     if (priceRegex.test(line)) {
@@ -39,6 +40,7 @@ const classifyString = testData => {
   // removes price from consideration
   if (price) testData.splice(priceLineIndex, 1)
 
+  // handles the phone number
   const phoneLineIndex = findIndex(testData, line => line.match(phoneRegex))
 
   const getsPhoneNumber = (testData, phoneLineIndex) => {
@@ -52,7 +54,7 @@ const classifyString = testData => {
     testData.splice(phoneLineIndex, 1)
   }
 
-  // find a line that matches the postal code regex
+  // handles the postal code
   const [postalCodeLine] = testData.filter(line => line.match(postalCodeRegex))
 
   const postalCodeLineIndex = findIndex(testData, line =>
@@ -83,10 +85,9 @@ const classifyString = testData => {
       return postalCode
     }
   }
-
   const parsedPostalCode = getsPostalCode(postalCodeLine)
 
-  // handles address where postal code is pressent or not
+  // handles the address
   const removesPostalCodeFromAddress = postalCodeLine => {
     if (!postalCodeLine) {
       return testData.filter(line => {
@@ -103,6 +104,7 @@ const classifyString = testData => {
   const cityAndProvinceNoPostalCode =
     removesPostalCodeFromAddress(postalCodeLine)
 
+  // handles the street address
   const [streetLine] = testData.filter(line => line.match(streetAddressRegex))
   const [streetAddress] = streetLine ? streetLine.match(streetAddressRegex) : ""
   const streetIndex = findIndex(testData, line =>
@@ -128,7 +130,6 @@ const classifyString = testData => {
 
   const cityAndProvince = getCityAndProvince(testData)
 
-  // puts the city and province into two lines, either from the function or the regex match
   const cityAndProvinceSplit =
     cityAndProvince.length > 0
       ? cityAndProvince[0].split(" ")
@@ -139,10 +140,11 @@ const classifyString = testData => {
     testData.splice(cityIndex, 1)
   }
 
+  // handles full name
   const [fullNameLine] = testData.filter(line => line.match(fullNameRegex))
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
-
   const customerName = fullName ? fullName : "Full name not found."
+
   const customerAddress = `${
     streetAddress ? streetAddress : "Street address not found."
   } ${
