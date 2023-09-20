@@ -8,7 +8,7 @@ const shouldIgnore = line =>
   line.match(/Date:/)
 
 const lines =
-  "Price is: $28.83\nSuresh Bhat\n18 ALEX CAMPELL\nKING QUEEN JOKER CITY, ON A1A 1A1\n416-994-9860\nDate Apr 23 2020\nH\nTx: 182728839\nRefile:0\n"
+  "$28.75\nSuresh Bhat\n18 ALEX CAMPELL\nKING CITY, Ontario A1A 1A1\n416-994-9860\nDate Apr 23 2020\nH\nTx: 182728839\nRefile:0\n"
 const classifyString = text => {
   const testData = text.split("\n").filter(line => !shouldIgnore(line))
   console.log({ testData })
@@ -23,8 +23,6 @@ const classifyString = text => {
   const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
   // handles the price
-  // const [priceLine] = testData.filter(line => line.match(priceRegex))
-
   const getsPrice = arrayOfLines => {
     // if price is on its own line
     const priceWhenOnItsOwnline = arrayOfLines.filter(line =>
@@ -40,7 +38,7 @@ const classifyString = text => {
     )
 
     if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
-    if (parsedPrice) return parsedPrice[0]
+    if (parsedPrice.length > 0) return parsedPrice[0]
     else return "Price not found."
   }
 
@@ -97,13 +95,37 @@ const classifyString = text => {
     }
   }
   const parsedPostalCode = getsPostalCode(postalCodeLine)
-
   // handles the address
   const removesPostalCodeFromAddress = postalCodeLine => {
     if (!postalCodeLine) {
-      return testData.filter(line => {
+      // section handles when there is no postal code
+      const cityAndProvinceNoPostalCode = testData.filter(line =>
         line.match(cityAndProvinceRegex)
+      )
+      if (cityAndProvinceNoPostalCode.length > 0)
+        return cityAndProvinceNoPostalCode
+
+      const provinceRegexWithExtraCharsAtEnd =
+        /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
+
+      // returns city and province with a bad postcode
+      const parsedCityAndProvinceLine = testData.filter(line => {
+        const provExtraWordsCheck = provinceRegexWithExtraCharsAtEnd.test(line)
+        if (provExtraWordsCheck)
+          return line.match(provinceRegexWithExtraCharsAtEnd)
       })
+
+      const provinceIndex = parsedCityAndProvinceLine[0].match(
+        provinceRegexWithExtraCharsAtEnd
+      ).index
+
+      const parsedCityAndProvince = parsedCityAndProvinceLine[0]
+        .split("")
+        .splice(0, provinceIndex + 2)
+        .join("")
+      return [parsedCityAndProvince]
+
+      // return the line where the city and province are but remove the bad postal code
     }
     if (postalCodeLine) {
       const addressArray = postalCodeLine.split(" ")
@@ -114,6 +136,8 @@ const classifyString = text => {
 
   const cityAndProvinceNoPostalCode =
     removesPostalCodeFromAddress(postalCodeLine)
+
+  console.log({ cityAndProvinceNoPostalCode })
 
   // handles the street address
   const [streetLine] = testData.filter(line => line.match(streetAddressRegex))
@@ -130,26 +154,8 @@ const classifyString = text => {
   const cityIndex = findIndex(testData, line => {
     return line.match(cityAndProvinceRegex)
   })
-  // console.log({ cityIndex })
 
   const getCityAndProvince = arrayOfLines => {
-    // const priceWhenOnItsOwnline = arrayOfLines.filter(line =>
-    //   priceRegex.test(line)
-    // )
-    // // if price is not on its own line
-    // const allCombinedElements = arrayOfLines
-    //   .map(line => line.split(" "))
-    //   .join()
-    //   .split(",")
-    // const parsedPrice = allCombinedElements.filter(element =>
-    //   priceRegex.test(element)
-    // )
-
-    // if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
-    // if (parsedPrice) return parsedPrice[0]
-    // else return "Price not found."
-
-    // console.log({ lines })
     const cityAndProvinceOnOwnLine = arrayOfLines.filter(line =>
       line.match(cityAndProvinceRegex)
     )
@@ -158,13 +164,10 @@ const classifyString = text => {
   }
 
   const cityAndProvince = getCityAndProvince(testData)
-  console.log({ cityAndProvince })
   const cityAndProvinceSplit =
     cityAndProvince.length > 0 ? cityAndProvince : cityAndProvinceNoPostalCode
-  console.log({ cityAndProvinceSplit })
-  console.log({ cityAndProvinceNoPostalCode })
 
-  // conditionally removes city and province it from consideration
+  // conditionally removes city and province from consideration
   if (cityAndProvinceSplit.length > 0) {
     testData.splice(cityIndex, 1)
   }
@@ -180,21 +183,15 @@ const classifyString = text => {
 
   const handleCityAndProvince = cityAndProvinceArray => {
     // if city has two or more words
+    console.log({ cityAndProvinceArray })
     if (cityAndProvinceArray.length > 2) {
       const cityProvCombined = cityAndProvinceArray.join(" ")
-      console.log({ cityProvCombined })
       return `${cityProvCombined}`
     } else {
       const cityWithCheck = cityAndProvinceArray[0]
         ? cityAndProvinceArray[0]
         : "Town or City not found."
-      console.log({ cityWithCheck })
-
-      const provinceWithCheck = cityAndProvinceArray[1]
-        ? cityAndProvinceArray[1]
-        : "Province not found."
-      console.log({ provinceWithCheck })
-      return `${cityWithCheck} ${provinceWithCheck}`
+      return `${cityWithCheck}`
     }
   }
 
@@ -203,9 +200,8 @@ const classifyString = text => {
   const postalCodeCheck = postalIfOnItsOwnLine
     ? postalIfOnItsOwnLine
     : parsedPostalCode
-  console.log({ postalCodeCheck })
 
-  const customerAddress = `${streetAddressWithCheck} ${cityProvCombined} ${postalCodeCheck}`
+  const customerAddress = `${streetAddressWithCheck}, ${cityProvCombined} ${postalCodeCheck}`
   const parsed = {
     price,
     customerPhone,
