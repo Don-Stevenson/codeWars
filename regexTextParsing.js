@@ -8,10 +8,9 @@ const shouldIgnore = line =>
   line.match(/Date:/)
 
 const lines =
-  "$28.75\nSuresh Bhat\n18 ALEX CAMPELL\nKING CITY, Ontario A1A 1A1\n416-994-9860\nDate Apr 23 2020\nH\nTx: 182728839\nRefile:0\n"
+  "$28.75\nSuresh Bhat\n18 ALEX CAMPELL\nKING CITY, Ontario\nA1A 1A1\n416-994-9860\nDate Apr 23 2020\nH\nTx: 182728839\nRefile:0\n"
 const classifyString = text => {
   const testData = text.split("\n").filter(line => !shouldIgnore(line))
-  console.log({ testData })
   // regexes used
   const priceRegex = /^\$[0-9]+(\.[0-9][0-9])?$/ // note: price regex requires a dollar sign to pass
   const phoneRegex = /(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/
@@ -39,7 +38,7 @@ const classifyString = text => {
 
     if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
     if (parsedPrice.length > 0) return parsedPrice[0]
-    else return "Price not found."
+    else return ""
   }
 
   // handle where there is just one line with price
@@ -56,7 +55,7 @@ const classifyString = text => {
 
   const getsPhoneNumber = (testData, phoneLineIndex) => {
     const phone = get(testData, phoneLineIndex, "")
-    return phone ? phone.replace(/-/g, "") : "Phone number not found."
+    return phone ? phone.replace(/-/g, "") : ""
   }
   const customerPhone = getsPhoneNumber(testData, phoneLineIndex)
 
@@ -137,8 +136,6 @@ const classifyString = text => {
   const cityAndProvinceNoPostalCode =
     removesPostalCodeFromAddress(postalCodeLine)
 
-  console.log({ cityAndProvinceNoPostalCode })
-
   // handles the street address
   const [streetLine] = testData.filter(line => line.match(streetAddressRegex))
   const [streetAddress] = streetLine ? streetLine.match(streetAddressRegex) : ""
@@ -175,22 +172,19 @@ const classifyString = text => {
   // handles full name
   const [fullNameLine] = testData.filter(line => line.match(fullNameRegex))
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
-  const customerName = fullName ? fullName : "Full name not found."
+  const customerName = fullName ? fullName : ""
 
-  const streetAddressWithCheck = streetAddress
-    ? streetAddress
-    : "Street address not found."
+  const streetAddressWithCheck = streetAddress ? streetAddress : ""
 
   const handleCityAndProvince = cityAndProvinceArray => {
     // if city has two or more words
-    console.log({ cityAndProvinceArray })
     if (cityAndProvinceArray.length > 2) {
       const cityProvCombined = cityAndProvinceArray.join(" ")
       return `${cityProvCombined}`
     } else {
       const cityWithCheck = cityAndProvinceArray[0]
         ? cityAndProvinceArray[0]
-        : "Town or City not found."
+        : ""
       return `${cityWithCheck}`
     }
   }
