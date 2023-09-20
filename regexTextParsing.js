@@ -28,7 +28,7 @@ const classifyString = testData => {
       const [price] = line.match(priceRegex)
       return price
     }
-    return "Price could not be read."
+    return "Price not found."
   }
   const priceLineIndex = findIndex(testData, line => {
     return line.match(priceRegex)
@@ -43,7 +43,7 @@ const classifyString = testData => {
 
   const getsPhoneNumber = (testData, phoneLineIndex) => {
     const phone = get(testData, phoneLineIndex, "")
-    return phone ? phone.replace(/-/g, "") : "Phone number could not be read."
+    return phone ? phone.replace(/-/g, "") : "Phone number not found."
   }
   const customerPhone = getsPhoneNumber(testData, phoneLineIndex)
 
@@ -142,17 +142,15 @@ const classifyString = testData => {
   const [fullNameLine] = testData.filter(line => line.match(fullNameRegex))
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
 
-  const customerName = fullName ? fullName : "Full name could not be read."
+  const customerName = fullName ? fullName : "Full name not found."
   const customerAddress = `${
-    streetAddress ? streetAddress : "Street address could not be read."
+    streetAddress ? streetAddress : "Street address not found."
   } ${
     cityAndProvinceSplit[0]
       ? cityAndProvinceSplit[0]
-      : "Town or City could not be read."
+      : "Town or City not found."
   } ${
-    cityAndProvinceSplit[1]
-      ? cityAndProvinceSplit[1]
-      : "Province could not be read."
+    cityAndProvinceSplit[1] ? cityAndProvinceSplit[1] : "Province not found."
   } ${postalIfOnItsOwnLine ? postalIfOnItsOwnLine : parsedPostalCode}`
 
   const parsed = {
