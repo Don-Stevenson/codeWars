@@ -37,7 +37,6 @@ const classifyString = testData => {
 
   const price = getsPrice(priceLine)
 
-  // removes price from consideration
   if (price) testData.splice(priceLineIndex, 1)
 
   // handles the phone number
@@ -49,7 +48,6 @@ const classifyString = testData => {
   }
   const customerPhone = getsPhoneNumber(testData, phoneLineIndex)
 
-  // Find phone number and remove it from consideration
   if (customerPhone) {
     testData.splice(phoneLineIndex, 1)
   }
@@ -70,7 +68,6 @@ const classifyString = testData => {
 
   const postalIfOnItsOwnLine = checkPostalCodeOwnLine(postalCodeLine)
 
-  // gets the postal if its present
   const getsPostalCode = postalCodeLine => {
     if (!postalCodeLine) return ""
     else {
