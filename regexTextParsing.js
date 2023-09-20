@@ -1,19 +1,19 @@
 import pkg from "lodash"
 const { findIndex, get } = pkg
 
-const lines = [
-  "Winnipeg MB",
-  "278 Elm Street",
-  "Sheetal Jaitly",
-  "JA",
-  "416-908-9995",
-  "$200.00",
-  "Date Sep 10 2023",
-  "R3M 3H1",
-]
-const classifyString = testData => {
+const shouldIgnore = line =>
+  !line ||
+  line.match(/Tx:/) ||
+  line.match(/Re(f|t)ills:/) ||
+  line.match(/Date:/)
+
+const lines =
+  "Price is: $28.83\nSuresh Bhat\n18 ALEX CAMPELL\nKING QUEEN JOKER CITY, ON A1A 1A1\n416-994-9860\nDate Apr 23 2020\nH\nTx: 182728839\nRefile:0\n"
+const classifyString = text => {
+  const testData = text.split("\n").filter(line => !shouldIgnore(line))
+  console.log({ testData })
   // regexes used
-  const priceRegex = /^\$?[0-9]+(\.[0-9][0-9])?$/
+  const priceRegex = /^\$[0-9]+(\.[0-9][0-9])?$/ // note: price regex requires a dollar sign to pass
   const phoneRegex = /(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/
   const postalCodeRegex = /[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/
   const firstPartOfPostalCodeRegex = /[A-Z][0-9][A-Z]/
@@ -23,21 +23,35 @@ const classifyString = testData => {
   const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
   // handles the price
-  const [priceLine] = testData.filter(line => line.match(priceRegex))
-  const getsPrice = line => {
-    if (priceRegex.test(line)) {
-      const [price] = line.match(priceRegex)
-      return price
-    }
-    return "Price not found."
+  // const [priceLine] = testData.filter(line => line.match(priceRegex))
+
+  const getsPrice = arrayOfLines => {
+    // if price is on its own line
+    const priceWhenOnItsOwnline = arrayOfLines.filter(line =>
+      priceRegex.test(line)
+    )
+    // if price is not on its own line
+    const allCombinedElements = arrayOfLines
+      .map(line => line.split(" "))
+      .join()
+      .split(",")
+    const parsedPrice = allCombinedElements.filter(element =>
+      priceRegex.test(element)
+    )
+
+    if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
+    if (parsedPrice) return parsedPrice[0]
+    else return "Price not found."
   }
+
+  // handle where there is just one line with price
   const priceLineIndex = findIndex(testData, line => {
     return line.match(priceRegex)
   })
 
-  const price = getsPrice(priceLine)
+  const price = getsPrice(testData)
 
-  if (price) testData.splice(priceLineIndex, 1)
+  if (priceLineIndex > -1) testData.splice(priceLineIndex, 1)
 
   // handles the phone number
   const phoneLineIndex = findIndex(testData, line => line.match(phoneRegex))
@@ -116,21 +130,39 @@ const classifyString = testData => {
   const cityIndex = findIndex(testData, line => {
     return line.match(cityAndProvinceRegex)
   })
+  // console.log({ cityIndex })
 
-  const getCityAndProvince = lines => {
-    return lines.filter(line => {
-      if (cityIndex !== -1) {
-        return line.match(cityAndProvinceRegex)
-      }
-    })
+  const getCityAndProvince = arrayOfLines => {
+    // const priceWhenOnItsOwnline = arrayOfLines.filter(line =>
+    //   priceRegex.test(line)
+    // )
+    // // if price is not on its own line
+    // const allCombinedElements = arrayOfLines
+    //   .map(line => line.split(" "))
+    //   .join()
+    //   .split(",")
+    // const parsedPrice = allCombinedElements.filter(element =>
+    //   priceRegex.test(element)
+    // )
+
+    // if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
+    // if (parsedPrice) return parsedPrice[0]
+    // else return "Price not found."
+
+    // console.log({ lines })
+    const cityAndProvinceOnOwnLine = arrayOfLines.filter(line =>
+      line.match(cityAndProvinceRegex)
+    )
+    if (cityAndProvinceOnOwnLine.length > 0) return cityAndProvinceOnOwnLine
+    else return ""
   }
 
   const cityAndProvince = getCityAndProvince(testData)
-
+  console.log({ cityAndProvince })
   const cityAndProvinceSplit =
-    cityAndProvince.length > 0
-      ? cityAndProvince[0].split(" ")
-      : cityAndProvinceNoPostalCode
+    cityAndProvince.length > 0 ? cityAndProvince : cityAndProvinceNoPostalCode
+  console.log({ cityAndProvinceSplit })
+  console.log({ cityAndProvinceNoPostalCode })
 
   // conditionally removes city and province it from consideration
   if (cityAndProvinceSplit.length > 0) {
@@ -142,16 +174,38 @@ const classifyString = testData => {
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
   const customerName = fullName ? fullName : "Full name not found."
 
-  const customerAddress = `${
-    streetAddress ? streetAddress : "Street address not found."
-  } ${
-    cityAndProvinceSplit[0]
-      ? cityAndProvinceSplit[0]
-      : "Town or City not found."
-  } ${
-    cityAndProvinceSplit[1] ? cityAndProvinceSplit[1] : "Province not found."
-  } ${postalIfOnItsOwnLine ? postalIfOnItsOwnLine : parsedPostalCode}`
+  const streetAddressWithCheck = streetAddress
+    ? streetAddress
+    : "Street address not found."
 
+  const handleCityAndProvince = cityAndProvinceArray => {
+    // if city has two or more words
+    if (cityAndProvinceArray.length > 2) {
+      const cityProvCombined = cityAndProvinceArray.join(" ")
+      console.log({ cityProvCombined })
+      return `${cityProvCombined}`
+    } else {
+      const cityWithCheck = cityAndProvinceArray[0]
+        ? cityAndProvinceArray[0]
+        : "Town or City not found."
+      console.log({ cityWithCheck })
+
+      const provinceWithCheck = cityAndProvinceArray[1]
+        ? cityAndProvinceArray[1]
+        : "Province not found."
+      console.log({ provinceWithCheck })
+      return `${cityWithCheck} ${provinceWithCheck}`
+    }
+  }
+
+  const cityProvCombined = handleCityAndProvince(cityAndProvinceSplit)
+
+  const postalCodeCheck = postalIfOnItsOwnLine
+    ? postalIfOnItsOwnLine
+    : parsedPostalCode
+  console.log({ postalCodeCheck })
+
+  const customerAddress = `${streetAddressWithCheck} ${cityProvCombined} ${postalCodeCheck}`
   const parsed = {
     price,
     customerPhone,
