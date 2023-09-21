@@ -207,8 +207,7 @@ function parseLabel(text = "") {
   // this section handles full name
   const [fullNameLine] = lines.filter(line => line.match(fullNameRegex))
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
-  const handledName = handleName(lines, fullName)
-  const customerName = handledName || ""
+  const customerName = handleName(lines, fullName)
 
   const streetAddressWithCheck = streetAddress || ""
 
