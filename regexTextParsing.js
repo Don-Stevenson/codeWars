@@ -10,7 +10,7 @@ const shouldIgnore = line =>
 const lines =
   "$28.75\nSuresh Bhat\n18 ALEX CAMPELL\nKING CITY, Ontario\nA1A 1A1\n416-994-9860\nDate Apr 23 2020\nH\nTx: 182728839\nRefile:0\n"
 const classifyString = text => {
-  const testData = text.split("\n").filter(line => !shouldIgnore(line))
+  const lines = text.split("\n").filter(line => !shouldIgnore(line))
   // regexes used
   const priceRegex = /^\$[0-9]+(\.[0-9][0-9])?$/ // note: price regex requires a dollar sign to pass
   const phoneRegex = /(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/
@@ -19,6 +19,8 @@ const classifyString = text => {
   const streetAddressRegex = /\d{1,}(\s{1}\w{1,})(\s{1}?\w{1,})+/g
   const cityAndProvinceRegex =
     /^[A-Za-z ]+,? ?((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)$/
+  const provinceRegexWithExtraCharsAtEnd =
+    /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
   const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
   // handles the price
@@ -42,38 +44,38 @@ const classifyString = text => {
   }
 
   // handle where there is just one line with price
-  const priceLineIndex = findIndex(testData, line => {
+  const priceLineIndex = findIndex(lines, line => {
     return line.match(priceRegex)
   })
 
-  const price = getsPrice(testData)
+  const price = getsPrice(lines)
 
-  if (priceLineIndex > -1) testData.splice(priceLineIndex, 1)
+  if (priceLineIndex > -1) lines.splice(priceLineIndex, 1)
 
   // handles the phone number
-  const phoneLineIndex = findIndex(testData, line => line.match(phoneRegex))
+  const phoneLineIndex = findIndex(lines, line => line.match(phoneRegex))
 
-  const getsPhoneNumber = (testData, phoneLineIndex) => {
-    const phone = get(testData, phoneLineIndex, "")
+  const getsPhoneNumber = (lines, phoneLineIndex) => {
+    const phone = get(lines, phoneLineIndex, "")
     return phone ? phone.replace(/-/g, "") : ""
   }
-  const customerPhone = getsPhoneNumber(testData, phoneLineIndex)
+  const customerPhone = getsPhoneNumber(lines, phoneLineIndex)
 
   if (customerPhone) {
-    testData.splice(phoneLineIndex, 1)
+    lines.splice(phoneLineIndex, 1)
   }
 
   // handles the postal code
-  const [postalCodeLine] = testData.filter(line => line.match(postalCodeRegex))
+  const [postalCodeLine] = lines.filter(line => line.match(postalCodeRegex))
 
-  const postalCodeLineIndex = findIndex(testData, line =>
+  const postalCodeLineIndex = findIndex(lines, line =>
     line.match(postalCodeRegex)
   )
 
   const checkPostalCodeOwnLine = postalCodeLine => {
     if (!postalCodeLine) return ""
     if (postalCodeLine.length === 7) {
-      return testData.splice(postalCodeLineIndex, 1)
+      return lines.splice(postalCodeLineIndex, 1)
     } else return ""
   }
 
@@ -98,17 +100,14 @@ const classifyString = text => {
   const removesPostalCodeFromAddress = postalCodeLine => {
     if (!postalCodeLine) {
       // section handles when there is no postal code
-      const cityAndProvinceNoPostalCode = testData.filter(line =>
+      const cityAndProvinceNoPostalCode = lines.filter(line =>
         line.match(cityAndProvinceRegex)
       )
       if (cityAndProvinceNoPostalCode.length > 0)
         return cityAndProvinceNoPostalCode
 
-      const provinceRegexWithExtraCharsAtEnd =
-        /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
-
       // returns city and province with a bad postcode
-      const parsedCityAndProvinceLine = testData.filter(line => {
+      const parsedCityAndProvinceLine = lines.filter(line => {
         const provExtraWordsCheck = provinceRegexWithExtraCharsAtEnd.test(line)
         if (provExtraWordsCheck)
           return line.match(provinceRegexWithExtraCharsAtEnd)
@@ -137,18 +136,16 @@ const classifyString = text => {
     removesPostalCodeFromAddress(postalCodeLine)
 
   // handles the street address
-  const [streetLine] = testData.filter(line => line.match(streetAddressRegex))
+  const [streetLine] = lines.filter(line => line.match(streetAddressRegex))
   const [streetAddress] = streetLine ? streetLine.match(streetAddressRegex) : ""
-  const streetIndex = findIndex(testData, line =>
-    line.match(streetAddressRegex)
-  )
+  const streetIndex = findIndex(lines, line => line.match(streetAddressRegex))
 
   // conditionally removes street address
   if (cityAndProvinceNoPostalCode || streetLine.length > 0) {
-    testData.splice(streetIndex, 1)
+    lines.splice(streetIndex, 1)
   }
 
-  const cityIndex = findIndex(testData, line => {
+  const cityIndex = findIndex(lines, line => {
     return line.match(cityAndProvinceRegex)
   })
 
@@ -160,17 +157,17 @@ const classifyString = text => {
     else return ""
   }
 
-  const cityAndProvince = getCityAndProvince(testData)
+  const cityAndProvince = getCityAndProvince(lines)
   const cityAndProvinceSplit =
     cityAndProvince.length > 0 ? cityAndProvince : cityAndProvinceNoPostalCode
 
   // conditionally removes city and province from consideration
   if (cityAndProvinceSplit.length > 0) {
-    testData.splice(cityIndex, 1)
+    lines.splice(cityIndex, 1)
   }
 
   // handles full name
-  const [fullNameLine] = testData.filter(line => line.match(fullNameRegex))
+  const [fullNameLine] = lines.filter(line => line.match(fullNameRegex))
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
   const customerName = fullName ? fullName : ""
 
