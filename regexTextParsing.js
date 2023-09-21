@@ -141,7 +141,6 @@ const lines =
 
 function parseLabel(text = "") {
   const lines = text.split("\n").filter(line => !shouldIgnore(line))
-  console.log("Lines in are :", lines)
   // handle where there is just one line with price
   const priceLineIndex = findIndex(lines, line => {
     return line.match(priceRegex)
