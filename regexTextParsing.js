@@ -5,11 +5,12 @@ const { findIndex, get } = pkg
 const shouldIgnore = line =>
   !line ||
   line.match(/Tx:/) ||
+  line.match(/Rx(:?)/) ||
   line.match(/Re(f|t)ill(s?):/) ||
   line.match(/Date:/)
 
 // regexes used
-const priceRegex = /^\$[0-9]+(\.[0-9][0-9])?$/ // note: price regex requires a dollar sign to pass
+const priceRegex = /^\$?[0-9]+(\.[0-9][0-9])?$/
 const phoneRegex = /(\(?)\d{3}(\)?)(-?|\s?)\d{3}(-?|\s?)\d{4}/
 const postalCodeRegex = /[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/
 const firstPartOfPostalCodeRegex = /[A-Z][0-9][A-Z]/
@@ -22,21 +23,63 @@ const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
 // this section handles the price
 const getsPrice = arrayOfLines => {
-  // if price is on its own line
-  const priceWhenOnItsOwnline = arrayOfLines.filter(line =>
-    priceRegex.test(line)
+  // filter the address out, then return the index of the address within array of lines
+  const linesWithoutAddress = arrayOfLines.filter(
+    line => !line.match(streetAddressRegex)
   )
+
+  const priceWhenOnItsOwnline = arrayOfLines.filter(line => {
+    return priceRegex.test(line)
+  })
+
+  const parsedPriceLineWithoutColonAndAddress = linesWithoutAddress.filter(
+    line => line.indexOf(":") !== -1
+  )
+  console.log({ parsedPriceLineWithoutColonAndAddress })
+
+  const handleParsedPriceLineWithoutColonAndAddress = line =>
+    line.length > 0 ? line[0].split(":")[1].trim() : ""
+
+  const parsedPriceWithoutColonAndAddress =
+    handleParsedPriceLineWithoutColonAndAddress(
+      parsedPriceLineWithoutColonAndAddress
+    )
+  console.log({ parsedPriceWithoutColonAndAddress })
+  console.log({ priceWhenOnItsOwnline })
+
+  // if price priceWhenOnItsOwnline contains a string after number, not the price, splice out the not price line from array of lines
   // if price is not on its own line
-  const allCombinedElements = arrayOfLines
+  const allCombinedElements = linesWithoutAddress
     .map(line => line.split(" "))
     .join()
     .split(",")
+
+  console.log({ allCombinedElements })
   const parsedPrice = allCombinedElements.filter(element =>
     priceRegex.test(element)
   )
-  if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
-  if (parsedPrice.length > 0) return parsedPrice[0]
-  else return ""
+
+  const choosePrice = (
+    parsedPriceWithoutColonAndAddress,
+    priceWhenOnItsOwnline,
+    parsedPrice
+  ) => {
+    console.log({ parsedPrice })
+    if (parsedPriceWithoutColonAndAddress)
+      return parsedPriceWithoutColonAndAddress
+    if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
+    if (parsedPrice.length > 0) return parsedPrice[0]
+    else return ""
+  }
+
+  const price = choosePrice(
+    parsedPriceWithoutColonAndAddress,
+    priceWhenOnItsOwnline,
+    parsedPrice
+  )
+
+  if (price[0] === "$") return price.substring(1)
+  return price
 }
 
 const getsPhoneNumber = (lines, phoneLineIndex) => {
@@ -137,19 +180,14 @@ const handleCityAndProvince = cityAndProvinceArray => {
 }
 
 const lines =
-  "Patient Pays: $28.83\nSend to: Jane Doe\n18 KING ROAD\nJOKER CITY, ON\n123-456-7890\nDate Apr 23 2020\nH\nTx: 1827407923839\nRefill:0\n"
+  "Doe, Jane Auston\n999 Anywhere Creek Crest\nMaple ON\n(123) 456-7890\nSignature\nT1234567.1\n16-Jan-2023\nRx 1234567\nPatient Pays:$10.00"
+
+// const lines =
+//   "Patient Pays: $28.83\nSend to: Jane Doe\n18 KING ROAD\nJOKER CITY, ON\n123-456-7890\nDate Apr 23 2020\nH\nTx: 1827407923839\nRefill:0\n"
 
 function parseLabel(text = "") {
   const lines = text.split("\n").filter(line => !shouldIgnore(line))
-  // handle where there is just one line with price
-  const priceLineIndex = findIndex(lines, line => {
-    return line.match(priceRegex)
-  })
-
-  const price = getsPrice(lines).substring(1)
-
-  if (priceLineIndex > -1) lines.splice(priceLineIndex, 1)
-
+  console.log({ lines })
   // this section handles the phone number
   const phoneLineIndex = findIndex(lines, line => line.match(phoneRegex))
 
@@ -158,6 +196,15 @@ function parseLabel(text = "") {
   if (customerPhone) {
     lines.splice(phoneLineIndex, 1)
   }
+
+  // handle where there is just one line with price
+  const priceLineIndex = findIndex(lines, line => {
+    return line.match(priceRegex)
+  })
+
+  const price = getsPrice(lines)
+
+  if (priceLineIndex > -1) lines.splice(priceLineIndex, 1)
 
   // this section handles the postal code
   const [postalCodeLine] = lines.filter(line => line.match(postalCodeRegex))
