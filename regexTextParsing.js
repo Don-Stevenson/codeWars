@@ -21,6 +21,9 @@ const provinceRegexWithExtraCharsAtEnd =
   /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
 const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
+const handleParsedPriceLineWithoutColonAndAddress = line =>
+  line.length > 0 ? line[0].split(":")[1].trim() : ""
+
 // this section handles the price
 const getsPrice = arrayOfLines => {
   // filter the address out, then return the index of the address within array of lines
@@ -36,9 +39,6 @@ const getsPrice = arrayOfLines => {
     line => line.indexOf(":") !== -1
   )
   console.log({ parsedPriceLineWithoutColonAndAddress })
-
-  const handleParsedPriceLineWithoutColonAndAddress = line =>
-    line.length > 0 ? line[0].split(":")[1].trim() : ""
 
   const parsedPriceWithoutColonAndAddress =
     handleParsedPriceLineWithoutColonAndAddress(
