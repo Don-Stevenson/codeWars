@@ -21,10 +21,23 @@ const provinceRegexWithExtraCharsAtEnd =
   /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
 const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
+// this section handles the price
 const handleParsedPriceLineWithoutColonAndAddress = line =>
   line.length > 0 ? line[0].split(":")[1].trim() : ""
 
-// this section handles the price
+const choosePrice = (
+  parsedPriceWithoutColonAndAddress,
+  priceWhenOnItsOwnline,
+  parsedPrice
+) => {
+  console.log({ parsedPrice })
+  if (parsedPriceWithoutColonAndAddress)
+    return parsedPriceWithoutColonAndAddress
+  if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
+  if (parsedPrice.length > 0) return parsedPrice[0]
+  else return ""
+}
+
 const getsPrice = arrayOfLines => {
   // filter the address out, then return the index of the address within array of lines
   const linesWithoutAddress = arrayOfLines.filter(
@@ -58,19 +71,6 @@ const getsPrice = arrayOfLines => {
   const parsedPrice = allCombinedElements.filter(element =>
     priceRegex.test(element)
   )
-
-  const choosePrice = (
-    parsedPriceWithoutColonAndAddress,
-    priceWhenOnItsOwnline,
-    parsedPrice
-  ) => {
-    console.log({ parsedPrice })
-    if (parsedPriceWithoutColonAndAddress)
-      return parsedPriceWithoutColonAndAddress
-    if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
-    if (parsedPrice.length > 0) return parsedPrice[0]
-    else return ""
-  }
 
   const price = choosePrice(
     parsedPriceWithoutColonAndAddress,
@@ -141,6 +141,8 @@ const removesPostalCodeFromAddress = (
 
     // return the line where the city and province are but remove the bad postal code
   }
+
+  // remove this check?
   if (postalCodeLine) {
     const addressArray = postalCodeLine.split(" ")
     const postalCodeArray = parsedPostalCode.split(" ")
