@@ -6,11 +6,12 @@ const catFetch = async () => {
       "https://api.thecatapi.com/v1/breeds/search?q=maine%20coon"
     )
     const catJSON = await catResponse.json()
-    return catJSON[0]
+    const catJSONobj = await catJSON[0]
+    console.log(catJSONobj)
   } catch (error) {
     console.error(error)
   }
 }
 
-// log catFetch to the consol
+// log catFetch to the cons
 catFetch()
