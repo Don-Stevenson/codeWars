@@ -21,10 +21,23 @@ const provinceRegexWithExtraCharsAtEnd =
   /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
 const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
+// this section handles the price
 const handleParsedPriceLineWithoutColonAndAddress = line =>
   line.length > 0 ? line[0].split(":")[1].trim() : ""
 
-// this section handles the price
+const choosePrice = (
+  parsedPriceWithoutColonAndAddress,
+  priceWhenOnItsOwnline,
+  parsedPrice
+) => {
+  console.log({ parsedPrice })
+  if (parsedPriceWithoutColonAndAddress)
+    return parsedPriceWithoutColonAndAddress
+  if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
+  if (parsedPrice.length > 0) return parsedPrice[0]
+  else return ""
+}
+
 const getsPrice = arrayOfLines => {
   // filter the address out, then return the index of the address within array of lines
   const linesWithoutAddress = arrayOfLines.filter(
@@ -58,19 +71,6 @@ const getsPrice = arrayOfLines => {
   const parsedPrice = allCombinedElements.filter(element =>
     priceRegex.test(element)
   )
-
-  const choosePrice = (
-    parsedPriceWithoutColonAndAddress,
-    priceWhenOnItsOwnline,
-    parsedPrice
-  ) => {
-    console.log({ parsedPrice })
-    if (parsedPriceWithoutColonAndAddress)
-      return parsedPriceWithoutColonAndAddress
-    if (priceWhenOnItsOwnline.length > 0) return priceWhenOnItsOwnline[0]
-    if (parsedPrice.length > 0) return parsedPrice[0]
-    else return ""
-  }
 
   const price = choosePrice(
     parsedPriceWithoutColonAndAddress,
@@ -141,6 +141,8 @@ const removesPostalCodeFromAddress = (
 
     // return the line where the city and province are but remove the bad postal code
   }
+
+  // remove this check?
   if (postalCodeLine) {
     const addressArray = postalCodeLine.split(" ")
     const postalCodeArray = parsedPostalCode.split(" ")
@@ -179,13 +181,7 @@ const handleCityAndProvince = cityAndProvinceArray => {
   }
 }
 
-const lines =
-  "Doe, Jane Auston\n999 Anywhere Creek Crest\nMaple ON\n(123) 456-7890\nSignature\nT1234567.1\n16-Jan-2023\nRx 1234567\nPatient Pays:$10.00"
-
-// const lines =
-//   "Patient Pays: $28.83\nSend to: Jane Doe\n18 KING ROAD\nJOKER CITY, ON\n123-456-7890\nDate Apr 23 2020\nH\nTx: 1827407923839\nRefill:0\n"
-
-function parseLabel(text = "") {
+const parseLabel = (text = "") => {
   const lines = text.split("\n").filter(line => !shouldIgnore(line))
   console.log({ lines })
   // this section handles the phone number
@@ -272,5 +268,7 @@ function parseLabel(text = "") {
   }
   return parsed
 }
+
+const lines = `"$28\nSam Barr\n123 ANYWHERE STREET\nDate Apr 23 2020\nKING CITY, ON M6J 2G4\n416123456\nH\nTx: 1232728839\nRefile:0\n"`
 
 console.log(parseLabel(lines))

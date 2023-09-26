@@ -1,7 +1,7 @@
 // Testing the function that updates an array's values into a new array by adding one
 // **********************************************************************************
 
-const assert = require("assert");
+const assert = require("assert")
 
 const { addOne, array } = require("../addOne.js")
 
