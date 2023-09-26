@@ -269,5 +269,6 @@ const parseLabel = (text = "") => {
   return parsed
 }
 
+const lines = `"$28\nSam Barr\n123 ANYWHERE STREET\nDate Apr 23 2020\nKING CITY, ON M6J 2G4\n416123456\nH\nTx: 1232728839\nRefile:0\n"`
+
 console.log(parseLabel(lines))
-module.exports = { parseLabel, lines }

@@ -6,7 +6,7 @@
   "directories": {
     "test": "tests"
   },
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "ansi-regex": ">=5.0.1",
     "bignumber.js": "^9.0.0",
