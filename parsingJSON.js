@@ -13,5 +13,5 @@ const catFetch = async () => {
   }
 }
 
-// log catFetch to the cons
+// logs catFetch to the console
 catFetch()
