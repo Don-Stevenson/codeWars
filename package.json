@@ -4,9 +4,9 @@
   "description": "## My work with challenges found on codewars.",
   "main": "addStrings.js",
   "directories": {
-    "test": "test"
+    "test": "tests"
   },
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "ansi-regex": ">=5.0.1",
     "bignumber.js": "^9.0.0",
@@ -16,13 +16,12 @@
     "mathjs": "^11.2.1",
     "minimatch": "^5.1.0",
     "minimist": ">=1.2.6",
-    "mocha": "^10.1.0",
     "nanoid": ">=3.1.31",
     "node-fetch": "^3.3.2",
     "prompts": "^2.3.2"
   },
   "scripts": {
-    "test": "mocha --recursive tests/*.js"
+    "test": "tape tape-tests/**/*.test.js | tap-dot"
   },
   "repository": {
     "type": "git",
@@ -36,6 +35,9 @@
   },
   "homepage": "https://github.com/Don-Stevenson/codeWars#readme",
   "devDependencies": {
-    "prettier": "2.5.0"
+    "@babel/preset-env": "^7.22.20",
+    "prettier": "2.5.0",
+    "tap-dot": "^2.0.0",
+    "tape": "^5.7.0"
   }
 }

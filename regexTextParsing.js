@@ -181,13 +181,7 @@ const handleCityAndProvince = cityAndProvinceArray => {
   }
 }
 
-const lines =
-  "Doe, Jane Auston\n999 Anywhere Creek Crest\nMaple ON\n(123) 456-7890\nSignature\nT1234567.1\n16-Jan-2023\nRx 1234567\nPatient Pays:$10.00"
-
-// const lines =
-//   "Patient Pays: $28.83\nSend to: Jane Doe\n18 KING ROAD\nJOKER CITY, ON\n123-456-7890\nDate Apr 23 2020\nH\nTx: 1827407923839\nRefill:0\n"
-
-function parseLabel(text = "") {
+const parseLabel = (text = "") => {
   const lines = text.split("\n").filter(line => !shouldIgnore(line))
   console.log({ lines })
   // this section handles the phone number
@@ -276,3 +270,4 @@ function parseLabel(text = "") {
 }
 
 console.log(parseLabel(lines))
+module.exports = { parseLabel, lines }

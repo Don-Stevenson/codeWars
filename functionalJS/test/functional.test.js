@@ -1,5 +1,5 @@
 const test = require("tape")
-var tapSpec = require('tap-spec')
+var tapSpec = require("tap-spec")
 const { partialAdd, pipe } = require("../functional")
 // test('sample test', t => {
 //   const actual = true
@@ -8,7 +8,7 @@ const { partialAdd, pipe } = require("../functional")
 //   t.end()
 // })
 
-test("addOne() should add one when any number is passed", (t) => {
+test("addOne() should add one when any number is passed", t => {
   const input = [
     {
       num: 0,
@@ -35,7 +35,7 @@ test("addOne() should add one when any number is passed", (t) => {
   t.end()
 })
 
-test("addTwo() should add two when any number is passed", (t) => {
+test("addTwo() should add two when any number is passed", t => {
   const input = [
     {
       num: 0,
@@ -62,7 +62,7 @@ test("addTwo() should add two when any number is passed", (t) => {
   t.end()
 })
 
-test("pipe() should compose functions in sequential order", (t) => {
+test("pipe() should compose functions in sequential order", t => {
   const addOne = partialAdd(1)
   const addTwo = partialAdd(2)
   const actual = pipe(addOne, addTwo, addOne)(1)
