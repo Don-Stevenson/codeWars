@@ -7,7 +7,7 @@ const catFetch = async () => {
     )
     const catJSON = await catResponse.json()
     const catJSONobj = await catJSON[0]
-    console.log(catJSONobj)
+    console.log(catJSONobj.description)
   } catch (error) {
     console.error(error)
   }
