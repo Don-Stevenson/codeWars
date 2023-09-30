@@ -8,10 +8,10 @@ const quickSort = array => {
   const smallerThanPivot = []
   const largerThanPivot = []
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] < pivot) smallerThanPivot.push(array[i])
-    if (array[i] > pivot) largerThanPivot.push(array[i])
-  }
+  array.map(e => {
+    if (e < pivot) smallerThanPivot.push(e)
+    if (e > pivot) largerThanPivot.push(e)
+  })
   return `${quickSort(smallerThanPivot)}${pivot},${quickSort(largerThanPivot)}`
 }
 console.log(quickSort(array))
