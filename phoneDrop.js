@@ -55,7 +55,7 @@
 
 // initialize case history outside of the
 // function so it doesn't reset to an empty array when called requirsively
-let caseHistory = []
+const caseHistory = []
 
 const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   // make case history an empty arrayt if it is nill
@@ -64,7 +64,7 @@ const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   }
 
   // set case history for phones from the number of phones in the casehistory
-  caseHistoryForPhones = caseHistory[numOfPhones]
+  const caseHistoryForPhones = caseHistory[numOfPhones]
 
   // if caseHistory for stories exist this will be the number of trials required
   if (caseHistoryForPhones[numStories]) {
