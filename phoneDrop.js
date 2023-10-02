@@ -89,21 +89,21 @@ const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   // c style for loop that counts down from the number of stories
   for (let firstDrop = numStories; firstDrop > 0; firstDrop--) {
     //consider phone breaking
-    let breakWorstCase =
+    const breakWorstCase =
       1 + phoneDropPuzzleWorstCase(numOfPhones - 1, firstDrop - 1)
 
     //consider phone not breaking
-    let notBreakWorstCase =
+    const notBreakWorstCase =
       1 + phoneDropPuzzleWorstCase(numOfPhones, numStories - firstDrop)
 
     //get the worst case
-    let worstCase =
+    const worstCase =
       breakWorstCase > notBreakWorstCase ? breakWorstCase : notBreakWorstCase
 
     //update the lowest worst case
-    if (worstCase < lowestWorstCase) {
-      lowestWorstCase = worstCase
-    }
+    worstCase < lowestWorstCase
+      ? (lowestWorstCase = worstCase)
+      : lowestWorstCase
   }
 
   caseHistoryForPhones[numStories] = lowestWorstCase
