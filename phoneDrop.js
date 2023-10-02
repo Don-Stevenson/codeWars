@@ -55,7 +55,7 @@
 
 // initialize case history outside of the
 // function so it doesn't reset to an empty array when called requirsively
-let caseHistory = []
+const caseHistory = []
 
 const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   // make case history an empty arrayt if it is nill
@@ -64,7 +64,7 @@ const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   }
 
   // set case history for phones from the number of phones in the casehistory
-  caseHistoryForPhones = caseHistory[numOfPhones]
+  const caseHistoryForPhones = caseHistory[numOfPhones]
 
   // if caseHistory for stories exist this will be the number of trials required
   if (caseHistoryForPhones[numStories]) {
@@ -89,21 +89,21 @@ const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
   // c style for loop that counts down from the number of stories
   for (let firstDrop = numStories; firstDrop > 0; firstDrop--) {
     //consider phone breaking
-    let breakWorstCase =
+    const breakWorstCase =
       1 + phoneDropPuzzleWorstCase(numOfPhones - 1, firstDrop - 1)
 
     //consider phone not breaking
-    let notBreakWorstCase =
+    const notBreakWorstCase =
       1 + phoneDropPuzzleWorstCase(numOfPhones, numStories - firstDrop)
 
     //get the worst case
-    let worstCase =
+    const worstCase =
       breakWorstCase > notBreakWorstCase ? breakWorstCase : notBreakWorstCase
 
     //update the lowest worst case
-    if (worstCase < lowestWorstCase) {
-      lowestWorstCase = worstCase
-    }
+    worstCase < lowestWorstCase
+      ? (lowestWorstCase = worstCase)
+      : lowestWorstCase
   }
 
   caseHistoryForPhones[numStories] = lowestWorstCase
