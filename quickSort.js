@@ -29,6 +29,6 @@ const quickSort = array => {
     
     `
   )
-  return `${quickSort(smallerThanPivot)}${pivot} ${quickSort(largerThanPivot)}`
+  return `${quickSort(smallerThanPivot)} ${pivot}${quickSort(largerThanPivot)}`
 }
 console.log(quickSort(array))
