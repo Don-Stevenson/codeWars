@@ -3,7 +3,6 @@
 const array = [9, 2, 3, 5, 7, 8, 1, 4, 6]
 
 // const sortedArrary = array.sort().toString()
-// console.log({ sortedArrary })
 const quickSort = array => {
   if (array.length === 0) return array
   const pivot = array[0]
