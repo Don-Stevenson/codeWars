@@ -186,7 +186,6 @@ const parseLabel = (text = "") => {
   console.log({ lines })
   // this section handles the phone number
   const phoneLineIndex = findIndex(lines, line => line.match(phoneRegex))
-
   const customerPhone = getsPhoneNumber(lines, phoneLineIndex)
 
   if (customerPhone) {
@@ -251,12 +250,10 @@ const parseLabel = (text = "") => {
   const [fullName] = fullNameLine ? fullNameLine.match(fullNameRegex) : ""
   const customerName = handleName(lines, fullName)
 
+  // this section returns the final valiues
   const streetAddressWithCheck = streetAddress || ""
-
   const cityProvCombined = handleCityAndProvince(cityAndProvinceSplit)
-
   const postalCodeWithCheck = postalIfOnItsOwnLine || parsedPostalCode
-
   const customerAddress =
     `${streetAddressWithCheck}, ${cityProvCombined} ${postalCodeWithCheck}`.trim()
 
