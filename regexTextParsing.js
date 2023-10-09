@@ -21,7 +21,6 @@ const provinceRegexWithExtraCharsAtEnd =
   /((AB|BC|SK|MB|ON|QC|N[BSTLU]|PE|YT|Alberta|ALBERTA|British Columbia|BRITISH COLUMBIA|Saskatchewan|SASKATCHEWAN|Manitoba|MANITOBA|Ontario|ONTARIO|Quebec|QUEBEC|New Brunswick|NEW BRUNSWICK|Nova Scotia|NOVA SCOTIA|Prince Edward Island|PRINCE EDWARD ISLAND|Newfoundland and Labrador|NEWFOUNDLAND AND LABRADOR|Nunavut|NUNAVUT|Northwest Territories|NORTHWEST TERRITORIES|Yukon|YUKON),? ?)[A-Za-z0-9 ]+,?/
 const fullNameRegex = /^[a-zA-Z]+ [a-zA-Z]+ ?-?[a-zA-Z]+$/
 
-// this section handles the price
 const handleParsedPriceLineWithoutColonAndAddress = line =>
   line.length > 0 ? line[0].split(":")[1].trim() : ""
 
@@ -192,7 +191,8 @@ const parseLabel = (text = "") => {
     lines.splice(phoneLineIndex, 1)
   }
 
-  // handle where there is just one line with price
+  // this section handles the price
+  // handle case where there is just one line with price
   const priceLineIndex = findIndex(lines, line => {
     line.match(priceRegex)
   })
@@ -216,12 +216,6 @@ const parseLabel = (text = "") => {
 
   const parsedPostalCode = getsPostalCode(postalCodeLine)
 
-  const cityAndProvinceNoPostalCode = removesPostalCodeFromAddress(
-    postalCodeLine,
-    lines,
-    parsedPostalCode
-  )
-
   // this section handles the street address
   const [streetLine] = lines.filter(line => line.match(streetAddressRegex))
   const [streetAddress] = streetLine ? streetLine.match(streetAddressRegex) : ""
@@ -239,6 +233,12 @@ const parseLabel = (text = "") => {
   const cityAndProvince = getCityAndProvince(lines)
   const cityAndProvinceSplit =
     cityAndProvince.length > 0 ? cityAndProvince : cityAndProvinceNoPostalCode
+
+  const cityAndProvinceNoPostalCode = removesPostalCodeFromAddress(
+    postalCodeLine,
+    lines,
+    parsedPostalCode
+  )
 
   // conditionally removes city and province from consideration
   if (cityAndProvinceSplit.length > 0) {
