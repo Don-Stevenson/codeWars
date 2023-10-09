@@ -45,7 +45,7 @@ const getsPrice = arrayOfLines => {
   )
 
   const priceWhenOnItsOwnline = arrayOfLines.filter(line => {
-    return priceRegex.test(line)
+    priceRegex.test(line)
   })
 
   const parsedPriceLineWithoutColonAndAddress = linesWithoutAddress.filter(
@@ -194,7 +194,7 @@ const parseLabel = (text = "") => {
 
   // handle where there is just one line with price
   const priceLineIndex = findIndex(lines, line => {
-    return line.match(priceRegex)
+    line.match(priceRegex)
   })
 
   const price = getsPrice(lines)
@@ -233,7 +233,7 @@ const parseLabel = (text = "") => {
   }
 
   const cityIndex = findIndex(lines, line => {
-    return line.match(cityAndProvinceRegex)
+    line.match(cityAndProvinceRegex)
   })
 
   const cityAndProvince = getCityAndProvince(lines)
