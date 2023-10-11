@@ -7,7 +7,7 @@ const doesFooThenJunk = (a = "foo") => {
 
   // when a is updated to junk
   a = "junk"
-  console.log(`Now ${a} has been completed`)
+  if (a === "junk") console.log(`Now ${a} has been completed`)
 }
 
 doesFooThenJunk()
