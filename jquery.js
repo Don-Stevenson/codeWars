@@ -1,8 +1,6 @@
 const mobileViewCheck = () => $(window).width() <= 450
 
-$(window).on("resize", function () {
-  return mobileViewCheck()
-})
+$(window).on("resize", mobileViewCheck())
 
 $(".ftitle").click(function () {
   if (mobileViewCheck()) {
