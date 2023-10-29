@@ -29,7 +29,7 @@ console.log(
     "                                                real talk                                                                                                                                               "
   )
 )
-// Hashtag > 140 charatcers, which is too long!
+// Your hashtag > 140 charatcers, which is too long!
 
 console.log(generateHashtag("hot blooded turkey roaster                 "))
 // str.length >= 140
