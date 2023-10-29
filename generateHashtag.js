@@ -11,7 +11,8 @@
 
 // with a map
 const generateHashtag = str => {
-  if (!str || str.length >= 140) return false
+  if (!str || str.length >= 140)
+    return false, "Your hashtag > 140 charatcers, which is too long!"
   const newStrArr = str.trim().split(" ")
   let newArr = []
   newStrArr.map(element => {
@@ -28,7 +29,7 @@ console.log(
     "                                                real talk                                                                                                                                               "
   )
 )
-// expect false
+// Hashtag > 140 charatcers, which is too long!
 
 console.log(generateHashtag("hot blooded turkey roaster                 "))
 // str.length >= 140
