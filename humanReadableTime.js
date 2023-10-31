@@ -17,6 +17,7 @@ const humanReadable = seconds => {
   let minRemain = mins - hours * 60
   let secsRemain = seconds - mins * 60
 
+  // handle single digits for formatting consistency
   minRemain < 10 ? (minRemain = `0${minRemain}`) : minRemain
   secsRemain < 10 ? (secsRemain = `0${secsRemain}`) : secsRemain
   hours < 10 ? (hours = `0${hours}`) : hours
