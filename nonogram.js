@@ -20,7 +20,7 @@ const nonogramRow = array =>
   array
     .join() // make into one big array
     .split("0,") // split in to separate arrays on 0
-    .filter(e => e) // remove any elements that are 0
+    .filter(e => e) // remove any elements that are null
     .map(e => e.replace(/,/g, "").length) // remove commas in the array
 // and return an array with the lengths
 
