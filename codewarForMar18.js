@@ -26,5 +26,8 @@
 // **********************************
 const multiplyByX = (arr, num) => arr.map(e => e * num)
 
-console.log(multiplyByX([1, 2, 3], 3))
+// console.log(multiplyByX([1, 2, 3], 3))
 // expect : [ 3, 6, 9 ]
+
+console.log(multiplyByX([1, 2, 3], 10))
+// expect : [ 10, 20, 30 ]
