@@ -2,13 +2,13 @@
 
 // even nums with map and push
 
-const returnEvens = array => {
-  let evenArray = []
-  array.map(e =>
-    e % 2 === 0 ? evenArray.push(e) : console.log(`${e} is not even`)
-  )
-  return evenArray
-}
+// const returnEvens = array => {
+//   let evenArray = []
+//   array.map(e =>
+//     e % 2 === 0 ? evenArray.push(e) : console.log(`${e} is not even`)
+//   )
+//   return evenArray
+// }
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -23,6 +23,8 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 //   }
 //   return evenArray
 // }
+
+const returnEvens = array => array.filter(e => e % 2 === 0)
 
 // console.log(returnEvens(arr))
 // expect
