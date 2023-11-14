@@ -6,3 +6,5 @@ const domainName = url => {
 }
 
 console.log(domainName("https://google.com")) // => google
+
+console.log(domainName("www.google.com")) // => google
