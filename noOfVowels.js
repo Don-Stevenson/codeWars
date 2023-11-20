@@ -15,11 +15,28 @@
 // }
 
 const vowels = ["a", "e", "i", "o", "u"]
-// with filter
+//  with filter
+// const numberOfVowels = input =>
+//   input.split("").filter(letter => {
+//     return vowels.includes(letter)
+//   }).length
+
+//  with reduce
+// const numberOfVowels = input =>
+//   input.split("").reduce((acc, letter) => {
+//     return vowels.includes(letter) ? acc + 1 : acc
+//   }, 0)
+
+// with map
 const numberOfVowels = input =>
-  input.split("").filter(letter => {
-    return vowels.includes(letter)
-  }).length
+  input
+    .split("")
+    .map(letter => {
+      return vowels.includes(letter) ? 1 : 0
+    })
+    .reduce((acc, num) => {
+      return acc + num
+    }, 0)
 
 console.log(numberOfVowels("orange")) // => 3
 console.log(numberOfVowels("lighthouse labs")) // => 5
