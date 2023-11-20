@@ -1,6 +1,8 @@
 // Scenario
 // This is a pretty common problem. You may have seen it before.
 
+import { phoneDropPuzzleWorstCase } from "./phoneDropRefactor"
+
 // You work for a mobile phone developer known for their robust design.
 // The marketing division is working on a slogan for the latest model: "Able to survive a K-meter drop!".
 // They just need to know the largest possible whole number value of K they can truthfully claim.
@@ -55,60 +57,8 @@
 
 // initialize case history outside of the
 // function so it doesn't reset to an empty array when called requirsively
-const caseHistory = []
+export const caseHistory = []
 
-const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
-  // make case history an empty arrayt if it is nill
-  if (!caseHistory[numOfPhones]) {
-    caseHistory[numOfPhones] = []
-  }
-
-  // set case history for phones from the number of phones in the casehistory
-  const caseHistoryForPhones = caseHistory[numOfPhones]
-
-  // if caseHistory for stories exist this will be the number of trials required
-  if (caseHistoryForPhones[numStories]) {
-    return caseHistoryForPhones[numStories]
-  }
-
-  //Handle 1-story case explicitly
-  if (numStories === 1) {
-    caseHistoryForPhones[numStories] = 1
-    return 1
-  }
-
-  //Handle 1-phone case explicitly
-  if (numOfPhones === 1) {
-    caseHistoryForPhones[numStories] = numStories
-    return numStories
-  }
-
-  //Get the lowest worst case
-  let lowestWorstCase = numStories
-
-  // c style for loop that counts down from the number of stories
-  for (let firstDrop = numStories; firstDrop > 0; firstDrop--) {
-    //consider phone breaking
-    const breakWorstCase =
-      1 + phoneDropPuzzleWorstCase(numOfPhones - 1, firstDrop - 1)
-
-    //consider phone not breaking
-    const notBreakWorstCase =
-      1 + phoneDropPuzzleWorstCase(numOfPhones, numStories - firstDrop)
-
-    //get the worst case
-    const worstCase =
-      breakWorstCase > notBreakWorstCase ? breakWorstCase : notBreakWorstCase
-
-    //update the lowest worst case
-    worstCase < lowestWorstCase
-      ? (lowestWorstCase = worstCase)
-      : lowestWorstCase
-  }
-
-  caseHistoryForPhones[numStories] = lowestWorstCase
-  return lowestWorstCase
-}
 // => 100
 // phoneDropPuzzleWorstCase(2, 100) // => 14
 // phoneDropPuzzleWorstCase(3, 100) // => 9
