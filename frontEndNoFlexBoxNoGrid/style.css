@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.max-width-wrapper {
+  padding-inline-start: 128px;
+  padding-inline-end: 128px;
+}
+
+.white-container {
+  padding-block-start: 64px;
+}
+.dark-container {
+  border-top: 8px solid hsl(0deg, 0%, 60%);
+  padding-block-start: 32px;
+  padding-block-end: 32px;
+}
+.bg-dark {
+  background-color: hsl(0deg, 0%, 40%);
+}
+
+.bg-white {
+  background-color: hsl(0deg, 0%, 100%);
+}
+
+.indented-heading {
+  background-color: hsl(45deg, 100%, 50%);
+  border-bottom: 8px solid hsl(45deg, 100%, 40%);
+  width: fit-content;
+  padding: 8px 32px;
+  margin-inline-start: -32px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+.card {
+  padding: 8px 16px 16px 16px;
+  max-width: 625px;
+  border-bottom: 8px solid hsl(0deg, 0%, 60%);
+}
+.title {
+  margin: 0;
+  padding-block-end: 16px;
+}
+
+.white-container .intro-chunk > p {
+  max-width: 260px;
+}
+​ .white-container .intro-chunk > p:last-child {
+  padding-block-end: 32px;
+}
+
+.white-container .intro-chunk > p > strong {
+  color: hsl(160deg, 100%, 30%);
+}
+
+.intro-chunk {
+  padding: 8px 16px 16px 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .max-width-wrapper {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+
+  .max-width-wrapper {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+  .card {
+    max-width: 100%;
+  }
+}
