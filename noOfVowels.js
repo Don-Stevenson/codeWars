@@ -27,16 +27,27 @@ const vowels = ["a", "e", "i", "o", "u"]
 //     return vowels.includes(letter) ? acc + 1 : acc
 //   }, 0)
 
-// with map
-const numberOfVowels = input =>
-  input
-    .split("")
-    .map(letter => {
-      return vowels.includes(letter) ? 1 : 0
-    })
-    .reduce((acc, num) => {
-      return acc + num
-    }, 0)
+// // with map
+// const numberOfVowels = input =>
+//   input
+//     .split("")
+//     .map(letter => {
+//       return vowels.includes(letter) ? 1 : 0
+//     })
+//     .reduce((acc, num) => {
+//       return acc + num
+//     }, 0)
+
+// with forEach
+const numberOfVowels = input => {
+  let vowelNum = 0
+  input.split("").forEach(letter => {
+    if (vowels.includes(letter)) {
+      vowelNum++
+    }
+  })
+  return vowelNum
+}
 
 console.log(numberOfVowels("orange")) // => 3
 console.log(numberOfVowels("lighthouse labs")) // => 5
