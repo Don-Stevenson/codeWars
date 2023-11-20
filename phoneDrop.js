@@ -120,4 +120,4 @@ const phoneDropPuzzleWorstCase = (numOfPhones, numStories) => {
 // phoneDropPuzzleWorstCase(3, 789) => 17
 // phoneDropPuzzleWorstCase(4, 789) => 12
 
-console.log(phoneDropPuzzleWorstCase(3, 100))
+console.log(phoneDropPuzzleWorstCase(3, 100)) //==> 9
