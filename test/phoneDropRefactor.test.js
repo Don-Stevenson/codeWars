@@ -1,4 +1,4 @@
-import { phoneDropPuzzleWorstCase } from "./phoneDropRefactor.js"
+import { phoneDropPuzzleWorstCase } from "../phoneDropRefactor.js"
 const test = require("tape")
 
 describe("phoneDropPuzzleWorstCase", () => {
