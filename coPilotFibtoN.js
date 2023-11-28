@@ -30,3 +30,6 @@ console.log(fib(5))
 
 console.log(fib(15))
 // expect 610
+
+console.log(fib(-1))
+// expect undefined
