@@ -33,3 +33,6 @@ console.log(fib(15))
 
 console.log(fib(-1))
 // expect undefined
+
+console.log(fib(123))
+// expect 22698374052006863956975682 or 2.269837405200687e+25
