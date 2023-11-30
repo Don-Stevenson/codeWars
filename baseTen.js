@@ -4,7 +4,7 @@ const flipbits = str =>
     .split("")
     .map(b => (1 - b).toString())
     .join("")
-// console.log(flipbits('100'))
+// console.log(flipbits('100')) expect 011
 
 // to remove any zeros before the first 1
 // const removeZeros = str => {
