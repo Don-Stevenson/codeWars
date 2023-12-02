@@ -21,6 +21,8 @@
 
 // Consider your entire calibration document. What is the sum of all of the calibration values?
 
+const arrayOfValues = ["1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"]
+
 const filterNums = str => str.replace(/\D/g, "")
 
 const oneNumberValue = num => num * 11
@@ -32,8 +34,17 @@ const threePlusNumberValue = num => {
   return numArr[0] + numArr[numArr.length - 1]
 }
 
-const sumOfCalibartionValues = str => {}
+const findSumOfCalibartionValues = str =>
+  str.reduce((acc, e) => {
+    if (filterNums(e).length === 1) {
+      return acc + parseInt(oneNumberValue(filterNums(e)))
+    }
+    if (filterNums(e).length === 2) {
+      return acc + parseInt(twoNumberValue(filterNums(e)))
+    }
+    if (filterNums(e).length > 2) {
+      return acc + parseInt(threePlusNumberValue(filterNums(e)))
+    }
+  }, 0)
 
-console.log(filterNums("1abc2"))
-
-console.log(threePlusNumberValue("123456789"))
+console.log(findSumOfCalibartionValues(arrayOfValues))
