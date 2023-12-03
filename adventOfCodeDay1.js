@@ -27,8 +27,6 @@ const filterNums = str => str.replace(/\D/g, "")
 
 const oneNumberValue = num => num * 11
 
-const twoNumberValue = num => num
-
 const threePlusNumberValue = num => {
   const numArr = num.split("")
   return numArr[0] + numArr[numArr.length - 1]
@@ -40,11 +38,11 @@ const findSumOfCalibartionValues = str =>
       return acc + parseInt(oneNumberValue(filterNums(e)))
     }
     if (filterNums(e).length === 2) {
-      return acc + parseInt(twoNumberValue(filterNums(e)))
+      return acc + parseInt(filterNums(e))
     }
     if (filterNums(e).length > 2) {
       return acc + parseInt(threePlusNumberValue(filterNums(e)))
     }
   }, 0)
 
-console.log(findSumOfCalibartionValues(arrayOfValues))
+console.log(findSumOfCalibartionValues(arrayOfValues)) // exoected output: 142
