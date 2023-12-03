@@ -27,10 +27,8 @@ const filterNums = str => str.replace(/\D/g, "")
 
 const oneNumberValue = num => num * 11
 
-const threePlusNumberValue = num => {
-  const numArr = num.split("")
-  return numArr[0] + numArr[numArr.length - 1]
-}
+const threePlusNumberValue = num =>
+  num.split("")[0] + num.split("")[num.length - 1]
 
 const findSumOfCalibartionValues = str =>
   str.reduce((acc, e) => {
