@@ -45,26 +45,14 @@ const bagContents = {
 }
 
 const isGamePossibleChecker = (games, bagContents) => {
-  const gamesArray = games.split(";")
-  const gamesArraySplit = gamesArray.map(e => e.split(","))
-  const gamesArraySplitTrimmed = gamesArraySplit.map(e => e.map(e => e.trim()))
-  const gamesArraySplitTrimmedSorted = gamesArraySplitTrimmed.map(e => e.sort())
-  const gamesArraySplitTrimmedSortedString = gamesArraySplitTrimmedSorted.map(
-    e => e.join("")
-  )
-  const bagContentsSorted = Object.entries(bagContents).sort()
-  const bagContentsSortedString = bagContentsSorted.map(e => e.join(""))
-  const bagContentsSortedStringJoin = bagContentsSortedString.join("")
-  const gamesArraySplitTrimmedSortedStringJoin =
-    gamesArraySplitTrimmedSortedString.join("")
-  const isGamePossible = gamesArraySplitTrimmedSortedStringJoin.includes(
-    bagContentsSortedStringJoin
-  )
-  return isGamePossible
+  const gamesArray = games.split("; ")
+  const gamesArraySplit = gamesArray.map(game => game.split(", "))
+
+  console.log(gamesArraySplit)
 }
 
 console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
-console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
-console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
-console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
-console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
+// console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
+// console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
+// console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
+// console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
