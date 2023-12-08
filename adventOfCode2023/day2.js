@@ -37,6 +37,8 @@ const game3 = "8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red"
 const game4 = "1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red"
 const game5 = "6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
 
+const gamesArray = [game1, game2, game3, game4, game5]
+
 const bagContents = {
   red: 12,
   green: 13,
@@ -44,12 +46,16 @@ const bagContents = {
 }
 
 const isGamePossibleChecker = (games, bagContents) => {
-  const gamesArray = games.split("; ")
-  console.log(gamesArray)
-  gamesArray.map(game => {
-    const gameSplit = game.split(", ")
+  const gamesArray = games.split("; ").join(" ").split(" ")
+  console.log({ gamesArray })
+  const gamesInArray = gamesArray.map(e => {
+    if (typeof parseInt(e) === typeof 2) {
+      console.log("is a number")
+      if (parseInt(e) < bagContents.red) {
+        console.log("is less than red")
+      }
+    }
   })
-  // const obj = Object.fromEntries(gamesArraySplit)
 }
 
 console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
