@@ -47,8 +47,6 @@ const bagContents = {
 const isGamePossibleChecker = (games, bagContents) => {
   const gamesArray = games.split("; ").join(" ").split(" ")
   return gamesArray.map(e => {
-    console.log({ e })
-
     if (e === "red," || e === "green," || e === "blue,") {
       console.log(e)
     }
