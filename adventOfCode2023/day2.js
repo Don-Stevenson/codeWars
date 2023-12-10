@@ -46,10 +46,7 @@ const bagContents = {
 
 const isGamePossibleChecker = (games, bagContents) => {
   const gamesArray = games.split("; ").join(" ").split(" ")
-  console.log({ gamesArray })
-
   for (const game of gamesArray) {
-    console.log({ game })
     if (typeof parseInt(game) === typeof 2) {
       if (
         parseInt(game) > bagContents.red ||
