@@ -46,23 +46,21 @@ const bagContents = {
 
 const isGamePossibleChecker = (games, bagContents) => {
   const gamesArray = games.split("; ").join(" ").split(" ")
-  return gamesArray.map(e => {
-    if (e === "red," || e === "green," || e === "blue,") {
-      console.log(e)
-    }
+  console.log({ gamesArray })
 
-    if (typeof parseInt(e) === typeof 2) {
+  for (const game of gamesArray) {
+    console.log({ game })
+    if (typeof parseInt(game) === typeof 2) {
       if (
-        parseInt(e) > bagContents.red ||
-        parseInt(e) > bagContents.green ||
-        parseInt(e) > bagContents.blue
+        parseInt(game) > bagContents.red ||
+        parseInt(game) > bagContents.green ||
+        parseInt(game) > bagContents.blue
       ) {
         return false
-      } else {
-        return true
       }
     }
-  })
+  }
+  return true
 }
 
 console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
