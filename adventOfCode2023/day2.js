@@ -44,8 +44,10 @@ const bagContents = {
   blue: 14,
 }
 
+const createGamesArray = games => games.split("; ").join(" ").split(" ")
+
 const isGamePossibleChecker = (games, bagContents) => {
-  const gamesArray = games.split("; ").join(" ").split(" ")
+  const gamesArray = createGamesArray(games)
   for (const game of gamesArray) {
     if (typeof parseInt(game) === typeof 2) {
       if (
@@ -61,7 +63,7 @@ const isGamePossibleChecker = (games, bagContents) => {
 }
 
 console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
-// console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
-// console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
-// console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
-// console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
+console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
+console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
+console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
+console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
