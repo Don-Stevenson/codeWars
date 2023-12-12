@@ -63,29 +63,33 @@ const isGameImpossibleChecker = (games, bagContents) => {
 }
 
 const areGamesPossibleChecker = (games, bagContents) => {
-  const gamesArray = createGamesArray(games)
-  for (let i = 0; i < gamesArray.length; i++) {
-    console.log("games array[i]", gamesArray[i])
-    if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
-      if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
-        return false
+  console.log("games", games)
+  for (const game of games) {
+    console.log("game", game)
+    const gamesArray = createGamesArray(game)
+    for (let i = 0; i < gamesArray.length; i++) {
+      console.log("games array[i]", gamesArray[i])
+      if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
+        if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
+          return false
+        }
       }
-    }
-    if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
-      if (parseInt(gamesArray[i - 1]) > bagContents.red) {
-        return false
+      if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
+        if (parseInt(gamesArray[i - 1]) > bagContents.red) {
+          return false
+        }
       }
-    }
-    if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
-      if (parseInt(gamesArray[i - 1]) > bagContents.green) {
-        return false
+      if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
+        if (parseInt(gamesArray[i - 1]) > bagContents.green) {
+          return false
+        }
       }
     }
   }
   return true
 }
 
-console.log(areGamesPossibleChecker(game1, bagContents)) // expected output: true;
+console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: true;
 
 // console.log(isGameImpossibleChecker(game1, bagContents)) // expected output: true
 // console.log(isGameImpossibleChecker(game2, bagContents)) // expected output: true
