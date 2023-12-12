@@ -46,7 +46,7 @@ const bagContents = {
 
 const createGamesArray = games => games.split("; ").join(" ").split(" ")
 
-const isGamePossibleChecker = (games, bagContents) => {
+const isGameImpossibleChecker = (games, bagContents) => {
   const gamesArray = createGamesArray(games)
   for (const game of gamesArray) {
     if (typeof parseInt(game) === typeof 2) {
@@ -62,7 +62,7 @@ const isGamePossibleChecker = (games, bagContents) => {
   return true
 }
 
-const isBlueGamePossibleChecker = (games, bagContents) => {
+const areGamesPossibleChecker = (games, bagContents) => {
   const gamesArray = createGamesArray(games)
   for (let i = 0; i < gamesArray.length; i++) {
     console.log("games array[i]", gamesArray[i])
@@ -71,14 +71,24 @@ const isBlueGamePossibleChecker = (games, bagContents) => {
         return false
       }
     }
+    if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
+      if (parseInt(gamesArray[i - 1]) > bagContents.red) {
+        return false
+      }
+    }
+    if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
+      if (parseInt(gamesArray[i - 1]) > bagContents.green) {
+        return false
+      }
+    }
   }
   return true
 }
 
-console.log(isBlueGamePossibleChecker(game1, bagContents)) // expected output: true;
+console.log(areGamesPossibleChecker(game1, bagContents)) // expected output: true;
 
-// console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
-// console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
-// console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
-// console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
-// console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
+// console.log(isGameImpossibleChecker(game1, bagContents)) // expected output: true
+// console.log(isGameImpossibleChecker(game2, bagContents)) // expected output: true
+// console.log(isGameImpossibleChecker(game3, bagContents)) // expected output: false
+// console.log(isGameImpossibleChecker(game4, bagContents)) // expected output: false
+// console.log(isGameImpossibleChecker(game5, bagContents)) // expected output: true
