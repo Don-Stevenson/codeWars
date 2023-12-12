@@ -64,11 +64,10 @@ const isGamePossibleChecker = (games, bagContents) => {
 
 const isBlueGamePossibleChecker = (games, bagContents) => {
   const gamesArray = createGamesArray(games)
-  for (let i = 1; i < gamesArray.length; i++) {
+  for (let i = 0; i < gamesArray.length; i++) {
     console.log("games array[i]", gamesArray[i])
-
-    if (typeof parseInt(gamesArray[i]) === typeof 2) {
-      if (parseInt(gamesArray[i]) > bagContents.blue) {
+    if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
+      if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
         return false
       }
     }
@@ -78,8 +77,8 @@ const isBlueGamePossibleChecker = (games, bagContents) => {
 
 console.log(isBlueGamePossibleChecker(game1, bagContents)) // expected output: true;
 
-console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
-console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
-console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
-console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
-console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
+// console.log(isGamePossibleChecker(game1, bagContents)) // expected output: true
+// console.log(isGamePossibleChecker(game2, bagContents)) // expected output: true
+// console.log(isGamePossibleChecker(game3, bagContents)) // expected output: false
+// console.log(isGamePossibleChecker(game4, bagContents)) // expected output: false
+// console.log(isGamePossibleChecker(game5, bagContents)) // expected output: true
