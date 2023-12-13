@@ -55,11 +55,11 @@ const isGameImpossibleChecker = (games, bagContents) => {
         parseInt(game) > bagContents.green ||
         parseInt(game) > bagContents.blue
       ) {
-        return false
+        return true
       }
     }
   }
-  return true
+  return false
 }
 
 const areGamesPossibleChecker = (games, bagContents) => {
