@@ -47,7 +47,7 @@ const bagContents = {
 const createGamesArray = games => games.split("; ").join(" ").split(" ")
 
 const areGamesPossibleChecker = (games, bagContents) => {
-  // console.log("games", games)
+  console.log("games", games)
   for (const game of games) {
     // console.log("game", game)
     const gamesArray = createGamesArray(game)
@@ -56,19 +56,19 @@ const areGamesPossibleChecker = (games, bagContents) => {
       if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
           console.log("blue", gamesArray[i - 1], bagContents.blue)
-          return false
+          // return false
         }
       }
       if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.red) {
           console.log("red", gamesArray[i - 1], bagContents.red)
-          return false
+          // return false
         }
       }
       if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.green) {
           console.log("red", gamesArray[i - 1], bagContents.green)
-          return false
+          // return false
         }
       }
     }
