@@ -63,7 +63,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
       }
       if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.green) {
-          console.log("red", gamesArray[i - 1], bagContents.green)
+          console.log("green", gamesArray[i - 1], bagContents.green)
         }
       }
     }
