@@ -49,10 +49,8 @@ const createGamesArray = games => games.split("; ").join(" ").split(" ")
 const areGamesPossibleChecker = (games, bagContents) => {
   console.log("games", games)
   for (const game of games) {
-    // console.log("game", game)
     const gamesArray = createGamesArray(game)
     for (let i = 0; i < gamesArray.length; i++) {
-      // console.log("games array[i]", gamesArray[i])
       if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
           console.log("blue", gamesArray[i - 1], bagContents.blue)
