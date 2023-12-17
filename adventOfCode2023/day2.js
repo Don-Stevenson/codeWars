@@ -56,19 +56,16 @@ const areGamesPossibleChecker = (games, bagContents) => {
       if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
           console.log("blue", gamesArray[i - 1], bagContents.blue)
-          // return false
         }
       }
       if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.red) {
           console.log("red", gamesArray[i - 1], bagContents.red)
-          // return false
         }
       }
       if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.green) {
           console.log("red", gamesArray[i - 1], bagContents.green)
-          // return false
         }
       }
     }
