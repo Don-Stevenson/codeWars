@@ -56,7 +56,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
     for (let i = 0; i < gamesArray.length; i++) {
       if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
-          console.log(`"blue game that is not possible ===  games array index game ${index}. Here the value of blue ${gamesArray[i - 1]},  is greater than ${bagContents.blue}`)
+          console.log(`"blue game that is not possible ===  games array index game ${(i)}. Here the value of blue ${gamesArray[i - 1]},  is greater than ${bagContents.blue}`)
         }
       }
       if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
