@@ -100,7 +100,9 @@ const areGamesPossibleChecker = (games, bagContents) => {
       }
     }
   })
-  return impossibleGames
+  impossibleGames = Array.from(new Set(impossibleGames))
+
+  return impossibleGames.reduce((a, b) => a + b, 0)
 }
 
 console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: true;
