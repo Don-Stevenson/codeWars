@@ -63,6 +63,7 @@ const bagContents = {
 const createGamesArray = games => games.split("; ").join(" ").split(" ")
 
 const areGamesPossibleChecker = (games, bagContents) => {
+  console.log("games", games);
   let possibleGames = []
   games.map((game, index) => {
     const gamesArray = createGamesArray(game)
@@ -102,7 +103,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
   })
   possibleGames = Array.from(new Set(possibleGames))
 
-  return possibleGames.reduce((a, b) => a + b, 0)
+  return possibleGames
 }
 
 console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: true;
