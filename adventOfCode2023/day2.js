@@ -104,6 +104,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
   possibleGames = Array.from(new Set(possibleGames))
 
   return possibleGames
+  // "Returning possible games, needs to remove the impossible games' index if not possible"
 }
 
 console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: true;
