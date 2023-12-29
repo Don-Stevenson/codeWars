@@ -59,43 +59,29 @@ const bagContents = {
   green: 13,
   blue: 14,
 }
+const possibleGamesIndex = [1, 2, 3, 4, 5]
 
 const createGamesArray = games => games.split("; ").join(" ").split(" ")
 
 const areGamesPossibleChecker = (games, bagContents) => {
-  console.log("games", games)
   let impossibleGames = []
+
   games.map((game, index) => {
     const gamesArray = createGamesArray(game)
 
     for (let i = 0; i < gamesArray.length; i++) {
       if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
-          console.log(
-            `Blue game that is not possible ===  game index: ${index}. Here the value of blue ${
-              gamesArray[i - 1]
-            }, is greater than ${bagContents.blue}`
-          )
           impossibleGames.push(index + 1)
         }
       }
       if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.red) {
-          console.log(
-            `Red game that is not possible === game index: ${index}.  Here the value of red ${
-              gamesArray[i - 1]
-            }, is greater than ${bagContents.red}`
-          )
           impossibleGames.push(index + 1)
         }
       }
       if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
         if (parseInt(gamesArray[i - 1]) > bagContents.green) {
-          console.log(
-            `Green game that is not possible ===  game index: ${index}. Here the value of green ${
-              gamesArray[i - 1]
-            }, is greater than ${bagContents.green}`
-          )
           impossibleGames.push(index + 1)
         }
       }
@@ -103,12 +89,9 @@ const areGamesPossibleChecker = (games, bagContents) => {
   })
   impossibleGames = Array.from(new Set(impossibleGames))
 
-  const possibleGames = [1, 2, 3, 4, 5]
-
-  return possibleGames
+  return possibleGamesIndex
     .filter(game => !impossibleGames.includes(game))
     .reduce((a, b) => a + b, 0)
-  // "Returning possible games, needs to remove the impossible games' index if not possible"
 }
 
 console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: true;
