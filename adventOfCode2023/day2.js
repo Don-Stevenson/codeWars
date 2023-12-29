@@ -103,7 +103,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
   })
   impossibleGames = Array.from(new Set(impossibleGames))
 
-  const possibleGames = [0, 1, 2, 3, 4]
+  const possibleGames = [1, 2, 3, 4, 5]
 
   return possibleGames
     .filter(game => !impossibleGames.includes(game))
