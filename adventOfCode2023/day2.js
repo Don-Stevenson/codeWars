@@ -63,47 +63,51 @@ const bagContents = {
 const createGamesArray = games => games.split("; ").join(" ").split(" ")
 
 const areGamesPossibleChecker = (games, bagContents) => {
-  console.log("games", games);
-  let possibleGames = []
+  console.log("games", games)
+  let impossibleGames = []
   games.map((game, index) => {
     const gamesArray = createGamesArray(game)
 
     for (let i = 0; i < gamesArray.length; i++) {
       if (gamesArray[i] === "blue" || gamesArray[i] === "blue,") {
-        if (parseInt(gamesArray[i - 1]) <= bagContents.blue) {
+        if (parseInt(gamesArray[i - 1]) > bagContents.blue) {
           console.log(
-            `Blue game that is possible ===  game index: ${index}. Here the value of blue ${
+            `Blue game that is not possible ===  game index: ${index}. Here the value of blue ${
               gamesArray[i - 1]
             }, is greater than ${bagContents.blue}`
           )
-          possibleGames.push(index)
+          impossibleGames.push(index)
         }
       }
       if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
-        if (parseInt(gamesArray[i - 1]) <= bagContents.red) {
+        if (parseInt(gamesArray[i - 1]) > bagContents.red) {
           console.log(
-            `Red game that is possible === game index: ${index}.  Here the value of red ${
+            `Red game that is not possible === game index: ${index}.  Here the value of red ${
               gamesArray[i - 1]
             }, is greater than ${bagContents.red}`
           )
-          possibleGames.push(index)
+          impossibleGames.push(index)
         }
       }
       if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
-        if (parseInt(gamesArray[i - 1]) <= bagContents.green) {
+        if (parseInt(gamesArray[i - 1]) > bagContents.green) {
           console.log(
-            `Green game that is possible ===  game index: ${index}. Here the value of green ${
+            `Green game that is not possible ===  game index: ${index}. Here the value of green ${
               gamesArray[i - 1]
             }, is greater than ${bagContents.green}`
           )
-          possibleGames.push(index)
+          impossibleGames.push(index)
         }
       }
     }
   })
-  possibleGames = Array.from(new Set(possibleGames))
+  impossibleGames = Array.from(new Set(impossibleGames))
+
+  const possibleGames = [0, 1, 2, 3, 4]
 
   return possibleGames
+    .filter(game => !impossibleGames.includes(game))
+    .reduce((a, b) => a + b, 0)
   // "Returning possible games, needs to remove the impossible games' index if not possible"
 }
 
