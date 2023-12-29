@@ -76,7 +76,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
               gamesArray[i - 1]
             }, is greater than ${bagContents.blue}`
           )
-          impossibleGames.push(index)
+          impossibleGames.push(index + 1)
         }
       }
       if (gamesArray[i] === "red" || gamesArray[i] === "red,") {
@@ -86,7 +86,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
               gamesArray[i - 1]
             }, is greater than ${bagContents.red}`
           )
-          impossibleGames.push(index)
+          impossibleGames.push(index + 1)
         }
       }
       if (gamesArray[i] === "green" || gamesArray[i] === "green,") {
@@ -96,7 +96,7 @@ const areGamesPossibleChecker = (games, bagContents) => {
               gamesArray[i - 1]
             }, is greater than ${bagContents.green}`
           )
-          impossibleGames.push(index)
+          impossibleGames.push(index + 1)
         }
       }
     }
