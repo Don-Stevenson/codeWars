@@ -94,4 +94,4 @@ const areGamesPossibleChecker = (games, bagContents) => {
     .reduce((a, b) => a + b, 0)
 }
 
-console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: true;
+console.log(areGamesPossibleChecker(gamesArray, bagContents)) // expected output: 8
