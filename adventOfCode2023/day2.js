@@ -1,7 +1,3 @@
-// Advent of Code[About][Events][Shop][Log In]
-//    0x0000|2023[Calendar][AoC++][Sponsors][Leaderboard][Stats]
-// Our sponsors help make Advent of Code possible:
-// TNG Technology Consulting - We solve hard IT problems - all year round!
 // --- Day 2: Cube Conundrum ---
 // You're launched high into the atmosphere! The apex of your trajectory just barely reaches
 // the surface of a large island floating in the sky. You gently land in a fluffy pile of leaves.
@@ -19,6 +15,7 @@
 // Each game is listed with its ID number (like the 11 in Game 11: ...)
 // followed by a semicolon-separated list of subsets of cubes that were revealed from the bag
 // (like 3 red, 5 green, 4 blue).
+
 // For example, the record of a few games might look like this:
 
 // Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
@@ -38,7 +35,6 @@
 
 // Determine which games would have been possible if the bag had been loaded with only 12 red cubes,
 // 13 green cubes, and 14 blue cubes. What is the sum of the IDs of those games?
-
 // To play, please identify yourself via one of these services:
 
 const game1 = "3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"
