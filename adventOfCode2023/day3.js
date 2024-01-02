@@ -51,10 +51,12 @@ const sampleInputSchematicStr = `467..114..
 .664.598..`
 
 const sumsPartNumbers = inputSchematicStr => {
-  console.log(inputSchematicStr.split(""))
   const verifiedPartNums = inputSchematicStr.split(".").filter((e, index) => {
+    console.log({e})
     return (typeof parseInt(e) === typeof 2)
   })
+
+  console.log({verifiedPartNums})
 
   return verifiedPartNums.reduce((a, b) => a + b, 0)
 }
