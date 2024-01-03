@@ -39,7 +39,8 @@
 // Of course, the actual engine schematic is much larger. What is the sum of all of the
 // part numbers in the engine schematic?
 
-const sampleInputSchematicStr = `467..114..
+const sampleInputSchematicStr =
+`467..114.
 ...*......
 ..35..633.
 ......#...
@@ -51,14 +52,11 @@ const sampleInputSchematicStr = `467..114..
 .664.598..`
 
 const sumsPartNumbers = inputSchematicStr => {
-  const verifiedPartNums = inputSchematicStr.split(".").filter((e, index) => {
-    console.log({e})
-    return (typeof parseInt(e) === typeof 2)
-  })
+  const partNums = inputSchematicStr.split("") // split on periods
 
-  console.log({verifiedPartNums})
+  console.log({ partNums })
 
-  return verifiedPartNums.reduce((a, b) => a + b, 0)
+  return partNums.reduce((a, b) => a + b, 0)
 }
 
 console.log(sumsPartNumbers(sampleInputSchematicStr))
