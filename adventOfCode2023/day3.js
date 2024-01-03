@@ -54,6 +54,13 @@ const sampleInputSchematicStr =
 const sumsPartNumbers = inputSchematicStr => {
   const partNums = inputSchematicStr.split("") // split on periods
 
+  partNums.map((char, i) => {
+    if (typeof parseInt(char) === typeof 2){
+      console.log("here", parseInt(char));
+     return partNums[i] = parseInt(char)
+    } 
+  })
+
   console.log({ partNums })
 
   return partNums.reduce((a, b) => a + b, 0)
