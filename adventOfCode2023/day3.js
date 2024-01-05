@@ -57,7 +57,6 @@ const sumsPartNumbers = inputSchematicStr => {
   partNums.map((char, i) => {
     if (typeof parseInt(char) === typeof 2){
       console.log("here", parseInt(char));
-     return partNums[i] = parseInt(char)
     } 
   })
 
