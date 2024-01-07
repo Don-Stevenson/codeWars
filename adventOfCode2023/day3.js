@@ -39,8 +39,7 @@
 // Of course, the actual engine schematic is much larger. What is the sum of all of the
 // part numbers in the engine schematic?
 
-const sampleInputSchematicStr =
-`467..114.
+const sampleInputSchematicStr = `467..114.
 ...*......
 ..35..633.
 ......#...
@@ -50,19 +49,41 @@ const sampleInputSchematicStr =
 ......755.
 ...$.*....
 .664.598..`
+const data = [1,2,3,4,5,6,7,8,9,10,11,12];
+
+const chunkSize = 3
+const chunked = data.reduce((result, _, i) => {
+  const s = data.slice(chunkSize * i, chunkSize * (i + 1))
+  if (s.length) result.push(s)
+  return result
+}, [])
 
 const sumsPartNumbers = inputSchematicStr => {
   const partNums = inputSchematicStr.split("") // split on periods
 
-  partNums.map((char, i) => {
-    if (typeof parseInt(char) === typeof 2){
-      console.log("here", parseInt(char));
-    } 
+  const parsedNums = partNums.filter((char, i) => {
+    const parsedChar = parseInt(char)
+    if (parsedChar) {
+      console.log({ parsedChar })
+      return parsedChar
+    }
   })
+  
 
-  console.log({ partNums })
+  const threeNums = parsedNums.reduce((result, _, i) => {
+    const s = parsedNums.slice(chunkSize * i, chunkSize * (i + 1))
+    if (s.length) result.push(s)
+    return result
+  }, [])
 
-  return partNums.reduce((a, b) => a + b, 0)
+  console.log({ threeNums });
+
+  return parsedNums.reduce((sum, num) => {
+    console.log({ sum, num })
+    if (num) {
+      return sum + parseInt(num)
+    }
+  }, 0)
 }
 
 console.log(sumsPartNumbers(sampleInputSchematicStr))
