@@ -49,7 +49,7 @@ const sampleInputSchematicStr = `467..114.
 ......755.
 ...$.*....
 .664.598..`
-const data = [1,2,3,4,5,6,7,8,9,10,11,12];
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 const chunkSize = 3
 const chunked = data.reduce((result, _, i) => {
@@ -63,12 +63,8 @@ const sumsPartNumbers = inputSchematicStr => {
 
   const parsedNums = partNums.filter((char, i) => {
     const parsedChar = parseInt(char)
-    if (parsedChar) {
-      console.log({ parsedChar })
-      return parsedChar
-    }
+    if (parsedChar) return parsedChar
   })
-  
 
   const threeNums = parsedNums.reduce((result, _, i) => {
     const s = parsedNums.slice(chunkSize * i, chunkSize * (i + 1))
@@ -76,10 +72,9 @@ const sumsPartNumbers = inputSchematicStr => {
     return result
   }, [])
 
-  console.log({ threeNums });
+  console.log({ threeNums })
 
   return parsedNums.reduce((sum, num) => {
-    console.log({ sum, num })
     if (num) {
       return sum + parseInt(num)
     }
