@@ -72,9 +72,9 @@ const sumsPartNumbers = inputSchematicStr => {
     return result
   }, [])
 
-  console.log({ threeNums })
+  const numbsArr = threeNums.map(num => num.join(""))
 
-  return parsedNums.reduce((sum, num) => {
+  return numbsArr.reduce((sum, num) => {
     if (num) {
       return sum + parseInt(num)
     }
