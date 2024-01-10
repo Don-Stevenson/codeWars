@@ -63,6 +63,7 @@ const sumsPartNumbers = inputSchematicStr => {
 
   const parsedNums = partNums.filter((char, i) => {
     const parsedChar = parseInt(char)
+    console.log({i});
     if (parsedChar) return parsedChar
   })
 
