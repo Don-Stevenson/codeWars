@@ -57,18 +57,17 @@ const arrayofCards = [Card1, Card2, Card3, Card4, Card5, Card6]
 
 const cardpoints = card => {
   const cardArray = card.split("|")
+  // console.log({ cardArray })
   const winningNumbers = cardArray[0].split(" ")
+  // console.log({ winningNumbers })
   const myNumbers = cardArray[1].split(" ")
-
-  console.log({ myNumbers })
+  // console.log({ myNumbers })
   let points = 0
   return winningNumbers.map(winningNumber => {
-    console.log({ winningNumber })
+    // console.log({ winningNumber })
     if (winningNumbers.includes(winningNumber)) {
-      console.log("winning number found")
       points += 1
     }
-    console.log({ points })
     return points
   })
 }
