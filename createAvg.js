@@ -6,7 +6,12 @@ const retunsAvg = arr => {
   return sum / arr.length
 }
 
+const returnsAvgWithReduce = arr =>
+  arr.reduce((acc, cur) => acc + cur, 0) / arr.length
+
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 console.log(retunsAvg(arr))
 // expect 5.5
+
+console.log(returnsAvgWithReduce(arr)) // expect 5.5
