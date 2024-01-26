@@ -1,6 +1,6 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-const retunsAvg = (arr, sum = 0) => {
+const retunsAvgWithCStyleLoop = (arr, sum = 0) => {
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i]
   }
@@ -15,8 +15,15 @@ const returnsAvgWithMap = (arr, sum = 0) => {
   return sum / arr.length
 }
 
-console.log(retunsAvg(arr)) // expect 5.5
+const returnsAvgWithForEach = (arr, sum = 0) => {
+  arr.forEach(num => (sum += num))
+  return sum / arr.length
+}
 
-console.log(returnsAvgWithReduce(arr)) // expect 5.5
+console.log("retunsAvgWithCStyleLoop: ", retunsAvgWithCStyleLoop(arr)) // expect 5.5
 
-console.log(returnsAvgWithMap(arr)) // expect 5.5
+console.log("returnsAvgWithReduce: ", returnsAvgWithReduce(arr)) // expect 5.5
+
+console.log("returnsAvgWithMap: ", returnsAvgWithMap(arr)) // expect 5.5
+
+console.log("returnsAvgWithForEach: ", returnsAvgWithForEach(arr)) // expect 5.5
