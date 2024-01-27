@@ -7,6 +7,13 @@ const retunsAvgWithCStyleLoop = (arr, sum = 0) => {
   return sum / arr.length
 }
 
+const retunsAvgWithForOfLoop = (arr, sum = 0) => {
+  for (const num of arr) {
+    sum += num
+  }
+  return sum / arr.length
+}
+
 const returnsAvgWithReduce = arr =>
   arr.reduce((acc, cur) => acc + cur, 0) / arr.length
 
@@ -27,3 +34,4 @@ console.log("returnsAvgWithReduce: ", returnsAvgWithReduce(arr)) // expect 5.5
 console.log("returnsAvgWithMap: ", returnsAvgWithMap(arr)) // expect 5.5
 
 console.log("returnsAvgWithForEach: ", returnsAvgWithForEach(arr)) // expect 5.5
+console.log("returnsAvgWithForOfLoop: ", retunsAvgWithForOfLoop(arr)) // expect 5.5
