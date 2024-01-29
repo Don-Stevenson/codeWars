@@ -28,10 +28,7 @@ const returnsAvgWithForEach = (arr, sum = 0) => {
 }
 
 console.log("retunsAvgWithCStyleLoop: ", retunsAvgWithCStyleLoop(arr)) // expect 5.5
-
 console.log("returnsAvgWithReduce: ", returnsAvgWithReduce(arr)) // expect 5.5
-
 console.log("returnsAvgWithMap: ", returnsAvgWithMap(arr)) // expect 5.5
-
 console.log("returnsAvgWithForEach: ", returnsAvgWithForEach(arr)) // expect 5.5
 console.log("returnsAvgWithForOfLoop: ", retunsAvgWithForOfLoop(arr)) // expect 5.5
