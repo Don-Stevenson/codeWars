@@ -1,9 +1,9 @@
 // Function that turns a number of seconds into hour,
 // min and sec format
 // *************************************************
-
 // Notes: needs refactoring on the logic of mins, secs,
 // hours, but produces the requires and passes
+
 const date = new Date().toLocaleDateString("en-US", {
   weekday: "long",
   day: "numeric",
