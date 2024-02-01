@@ -16,13 +16,11 @@ def quick_sort(arr):
 #     pivot = arr[0]
 #     left_arr = []
 #     right_arr = []
-
 #     for i in range(1, len(arr)):
 #         if arr[i] < pivot:
 #             left_arr.append(arr[i])
 #         else:
 #             right_arr.append(arr[i])
-
 #     return quick_sort(left_arr) + [pivot] + quick_sort(right_arr)
 
 
