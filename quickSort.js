@@ -65,14 +65,24 @@
 //   return [...quickSort(left), pivot, ...quickSort(right)]
 // }
 
-const quickSort = arr => {
-  if (arr.length <= 1) return arr // Base case
-  const pivot = arr[0]
+// const quickSort = arr => {
+//   if (arr.length <= 1) return arr // Base case
+//   const pivot = arr[0]
 
-  const left = arr.filter(e => e < pivot)
-  const right = arr.filter(e => e > pivot)
-  return [...quickSort(left), pivot, ...quickSort(right)]
-}
+//   const left = arr.filter(e => e < pivot)
+//   const right = arr.filter(e => e > pivot)
+//   return [...quickSort(left), pivot, ...quickSort(right)]
+// }
+
+const quickSort = arr =>
+  arr.length <= 1
+    ? arr
+    : [
+        ...quickSort(arr.filter(e => e < arr[0])),
+        arr[0],
+        ...quickSort(arr.filter(e => e > arr[0])),
+      ]
+
 const unsortedArray = [9, 2, 1, 3, 8, 4, 7, 5, 6]
 const sortedArray = quickSort(unsortedArray)
 
