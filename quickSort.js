@@ -86,5 +86,5 @@ const quickSort = arr =>
 const unsortedArray = [9, 2, 1, 3, 8, 4, 7, 5, 6]
 const sortedArray = quickSort(unsortedArray)
 
-console.log("Unsorted array:", unsortedArray)
-console.log("Sorted array:", sortedArray)
+console.log("Unsorted array:", unsortedArray) // [9, 2, 1, 3, 8, 4, 7, 5, 6]
+console.log("Sorted array:", sortedArray) //  [1, 2, 3, 4, 5, 6, 7, 8, 9]
