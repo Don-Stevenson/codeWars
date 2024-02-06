@@ -8,19 +8,16 @@
 //         Running the function
 //         *************
 // `)
-
 //   if (array.length === 0) return array
 //   const pivot = array[0]
 //   const smallerThanPivot = []
 //   const largerThanPivot = []
-
 //   array.map(e => {
 //     if (e < pivot) {
 //       smallerThanPivot.push(e)
 //       console.log(
 //         `
 //          Inside e < pivot
-
 //          pivot: ${pivot}
 //          smallerThanPivot: ${smallerThanPivot}
 //          largerThanPivot: ${smallerThanPivot}`
@@ -31,14 +28,12 @@
 //       console.log(
 //         `
 //          Inside e > pivot
-
 //          pivot: ${pivot}
 //          smallerThanPivot: ${smallerThanPivot}
 //          largerThanPivot: ${smallerThanPivot}`
 //       )
 //     }
 //   })
-
 //   return `${quickSort(smallerThanPivot)} ${pivot}${quickSort(largerThanPivot)}`
 // }
 // console.log("final sorted array is: ", quickSort(array))
@@ -49,11 +44,9 @@
 //   if (arr.length <= 1) {
 //     return arr // Base case: already sorted
 //   }
-
 //   const pivot = arr[0]
 //   const left = []
 //   const right = []
-
 //   for (let i = 1; i < arr.length; i++) {
 //     if (arr[i] < pivot) {
 //       left.push(arr[i])
@@ -61,7 +54,6 @@
 //       right.push(arr[i])
 //     }
 //   }
-
 //   return [...quickSort(left), pivot, ...quickSort(right)]
 // }
 
