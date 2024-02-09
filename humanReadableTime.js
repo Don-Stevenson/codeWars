@@ -24,6 +24,7 @@ const humanReadable = seconds => {
 
   return `${hours}:${minRemain}:${secsRemain}`
 }
+
 console.log(humanReadable(30021))
 // expect
 // { date: 'Wednesday, March 24' }
