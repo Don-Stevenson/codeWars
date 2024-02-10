@@ -39,3 +39,8 @@ const reverseString2 = string => {
 
 console.log(reverseString2("tame children"))
 // expect ==> nerdlihc emat
+
+const reverseString3 = str => str.split("").reverse().join("")
+
+console.log(reverseString3("tame children"))
+// expect ==> nerdlihc emat
