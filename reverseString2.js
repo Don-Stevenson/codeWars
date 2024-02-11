@@ -37,10 +37,21 @@ const reverseString2 = string => {
   return reversed
 }
 
-console.log(reverseString2("tame children"))
-// expect ==> nerdlihc emat
-
 const reverseString3 = str => str.split("").reverse().join("")
 
 console.log(reverseString3("tame children"))
+// expect ==> nerdlihc emat
+
+const reverseString4 = str => str.split("").reverse().join("")
+
+console.log(reverseString4("tame children"))
+// expect ==> nerdlihc emat
+
+const reverseString5 = str =>
+  str
+    .split("")
+    .map((_, i) => str[str.length - 1 - i])
+    .join("")
+
+console.log(reverseString5("tame children"))
 // expect ==> nerdlihc emat
