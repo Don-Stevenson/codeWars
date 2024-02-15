@@ -39,12 +39,12 @@ const reverseString2 = string => {
 
 const reverseString3 = str => str.split("").reverse().join("")
 
-console.log(reverseString3("tame children"))
+console.log("3 ", reverseString3("tame children"))
 // expect ==> nerdlihc emat
 
 const reverseString4 = str => str.split("").reverse().join("")
 
-console.log(reverseString4("tame children"))
+console.log("4 ", reverseString4("tame children"))
 // expect ==> nerdlihc emat
 
 const reverseString5 = str =>
@@ -53,5 +53,12 @@ const reverseString5 = str =>
     .map((_, i) => str[str.length - 1 - i])
     .join("")
 
-console.log(reverseString5("tame children"))
+console.log("5 ", reverseString5("tame children"))
+// expect ==> nerdlihc emat
+
+const reverseString6 = str =>
+  str.split("").reduce((reversed, character) => character + reversed, "")
+// reversed is the accumulator and character is the current value
+
+console.log("6 ", reverseString6("tame children"))
 // expect ==> nerdlihc emat
