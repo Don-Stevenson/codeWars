@@ -62,3 +62,25 @@ const reverseString6 = str =>
 
 console.log("6 ", reverseString6("tame children"))
 // expect ==> nerdlihc emat
+
+const reverseString8 = str => {
+  let reversed = ""
+  for (let character of str) {
+    reversed = character + reversed
+  }
+  return reversed
+}
+
+console.log("8 ", reverseString8("tame children"))
+// expect ==> nerdlihc emat
+
+const reverseString9 = string => {
+  let stringThatIsReversed = []
+  for (let i = string.length; i >= 0; i--) {
+    stringThatIsReversed.push(string[i])
+  }
+  return stringThatIsReversed.join("")
+}
+
+console.log("9 ", reverseString9("tame children"))
+// expect ==> nerdlihc emat
