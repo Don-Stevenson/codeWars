@@ -6,7 +6,7 @@
 //     return stringThatIsReversed.join("")
 // }
 
-const { re } = require("mathjs")
+const { re, log } = require("mathjs")
 
 const reverseString = string =>
   string === "" ? "" : reverseString(string.substr(1)) + string.charAt(0)
@@ -90,3 +90,6 @@ console.log("9 ", reverseString9("tame children"))
 const reverseString10 = str => {
   return str.split("").reduce((reversed, character) => character + reversed, "")
 }
+
+log("10 ", reverseString10("tame children"))
+// expect ==> 10 nerdlihc emat
