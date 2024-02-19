@@ -6,8 +6,6 @@
 //     return stringThatIsReversed.join("")
 // }
 
-const { re, log } = require("mathjs")
-
 const reverseString = string =>
   string === "" ? "" : reverseString(string.substr(1)) + string.charAt(0)
 
@@ -39,15 +37,17 @@ const reverseString2 = string => {
   return reversed
 }
 
+console.log("2 ", reverseString2("tame children"))
+
 const reverseString3 = str => str.split("").reverse().join("")
 
 console.log("3 ", reverseString3("tame children"))
-// expect ==> nerdlihc emat
+// expect ==> 3 nerdlihc emat
 
 const reverseString4 = str => str.split("").reverse().join("")
 
 console.log("4 ", reverseString4("tame children"))
-// expect ==> nerdlihc emat
+// expect ==> 4 nerdlihc emat
 
 const reverseString5 = str =>
   str
@@ -56,16 +56,16 @@ const reverseString5 = str =>
     .join("")
 
 console.log("5 ", reverseString5("tame children"))
-// expect ==> nerdlihc emat
+// expect ==> 5 nerdlihc emat
 
 const reverseString6 = str =>
   str.split("").reduce((reversed, character) => character + reversed, "")
 // reversed is the accumulator and character is the current value
 
 console.log("6 ", reverseString6("tame children"))
-// expect ==> nerdlihc emat
+// expect ==> 6 nerdlihc emat
 
-const reverseString8 = str => {
+const reverseString7 = str => {
   let reversed = ""
   for (let character of str) {
     reversed = character + reversed
@@ -73,10 +73,10 @@ const reverseString8 = str => {
   return reversed
 }
 
-console.log("8 ", reverseString8("tame children"))
-// expect ==> nerdlihc emat
+console.log("7 ", reverseString7("tame children"))
+// expect ==> 7 nerdlihc emat
 
-const reverseString9 = string => {
+const reverseString8 = string => {
   let stringThatIsReversed = []
   for (let i = string.length; i >= 0; i--) {
     stringThatIsReversed.push(string[i])
@@ -84,12 +84,11 @@ const reverseString9 = string => {
   return stringThatIsReversed.join("")
 }
 
+console.log("8 ", reverseString8("tame children"))
+// expect ==> 8 nerdlihc emat
+
+const reverseString9 = string =>
+  string.match(/./g).reduce((acc, char) => char + acc, "")
+
 console.log("9 ", reverseString9("tame children"))
-// expect ==> nerdlihc emat
-
-const reverseString10 = str => {
-  return str.split("").reduce((reversed, character) => character + reversed, "")
-}
-
-log("10 ", reverseString10("tame children"))
-// expect ==> 10 nerdlihc emat
+// expect ==> 9 nerdlihc emat
