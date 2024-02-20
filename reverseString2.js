@@ -93,10 +93,8 @@ const reverseString9 = string =>
 console.log("9 ", reverseString9("tame children"))
 // expect ==> 9 nerdlihc emat
 
-const reverseStringWithRecursion = string =>
-  string === ""
-    ? ""
-    : reverseStringWithRecursion(string.substr(1)) + string.charAt(0)
+const reverseString10 = string =>
+  string === "" ? "" : reverseString10(string.substr(1)) + string.charAt(0)
 
-console.log(reverseStringWithRecursion("tame children"))
+console.log("10 ", reverseString10("tame children"))
 // expect ==> nerdlihc emat
