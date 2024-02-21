@@ -6,8 +6,8 @@
 //     return stringThatIsReversed.join("")
 // }
 
-const reverseString = string =>
-  string === "" ? "" : reverseString(string.substr(1)) + string.charAt(0)
+const reverseString = str =>
+  str === "" ? "" : reverseString(str.substr(1)) + str.charAt(0)
 
 console.log(reverseString("tame children"))
 // expect ==> nerdlihc emat
@@ -29,10 +29,10 @@ console.log(reverseString("pumpkin"))
 console.log(reverseString("amanacanalpanama"))
 // expect ==> amanacanalpanama
 
-const reverseString2 = string => {
+const reverseString2 = str => {
   let reversed = ""
-  for (let i = string.length - 1; i >= 0; i--) {
-    reversed += string[i]
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i]
   }
   return reversed
 }
@@ -76,10 +76,10 @@ const reverseString7 = str => {
 console.log("7 ", reverseString7("tame children"))
 // expect ==> 7 nerdlihc emat
 
-const reverseString8 = string => {
+const reverseString8 = str => {
   let stringThatIsReversed = []
-  for (let i = string.length; i >= 0; i--) {
-    stringThatIsReversed.push(string[i])
+  for (let i = str.length; i >= 0; i--) {
+    stringThatIsReversed.push(str[i])
   }
   return stringThatIsReversed.join("")
 }
@@ -87,14 +87,8 @@ const reverseString8 = string => {
 console.log("8 ", reverseString8("tame children"))
 // expect ==> 8 nerdlihc emat
 
-const reverseString9 = string =>
-  string.match(/./g).reduce((acc, char) => char + acc, "")
+const reverseString9 = str =>
+  str.match(/./g).reduce((acc, char) => char + acc, "")
 
 console.log("9 ", reverseString9("tame children"))
 // expect ==> 9 nerdlihc emat
-
-const reverseString10 = string =>
-  string === "" ? "" : reverseString10(string.substr(1)) + string.charAt(0)
-
-console.log("10 ", reverseString10("tame children"))
-// expect ==> nerdlihc emat
