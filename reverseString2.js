@@ -92,3 +92,15 @@ const reverseString9 = str =>
 
 console.log("9 ", reverseString9("tame children"))
 // expect ==> 9 nerdlihc emat
+
+const reverseString10 = str => {
+  str = str.split("")
+  let result = ""
+  while (str.length) {
+    result += str.pop()
+  }
+  return result
+}
+
+console.log("10 ", reverseString10("tame children"))
+// expect ==> 10 nerdlihc emat
