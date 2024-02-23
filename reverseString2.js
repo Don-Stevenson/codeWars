@@ -104,3 +104,14 @@ const reverseString10 = str => {
 
 console.log("10 ", reverseString10("tame children"))
 // expect ==> 10 nerdlihc emat
+
+const reverseString11 = str => {
+  let reversed = ""
+  for (const letter of str) {
+    reversed = letter + reversed
+  }
+  return reversed
+}
+
+console.log("11 ", reverseString11("tame children"))
+// expect ==> 11 nerdlihc emat
