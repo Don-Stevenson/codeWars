@@ -115,3 +115,6 @@ const reverseString11 = str => {
 
 console.log("11 ", reverseString11("tame children"))
 // expect ==> 11 nerdlihc emat
+
+const reverseString12 = str =>
+  str.map((_, i) => str[str.length - 1 - i]).join("")
