@@ -29,6 +29,9 @@ console.log(reverseString("pumpkin"))
 console.log(reverseString("amanacanalpanama"))
 // expect ==> amanacanalpanama
 
+console.log(reverseString("tacocat"))
+// expect ==> tacocat
+
 const reverseString2 = str => {
   let reversed = ""
   for (let i = str.length - 1; i >= 0; i--) {
