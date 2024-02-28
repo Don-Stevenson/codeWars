@@ -1,8 +1,12 @@
-const test = require("tape")
-// const { parseLabel, lines } = require("../regexTestParsing.js")
+import test from "tape"
 
-// console.log({ lines })
-const someAsyncThing = () => "foo"
+const someAsyncThing = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(true)
+    }, 10)
+  })
+}
 
 test("test using promises", async function (t) {
   const result = await someAsyncThing()
