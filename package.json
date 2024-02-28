@@ -16,6 +16,7 @@
     "mathjs": "^11.2.1",
     "minimatch": "^5.1.0",
     "minimist": ">=1.2.6",
+    "mocha": "^10.3.0",
     "nanoid": ">=3.1.31",
     "node-fetch": "^3.3.2",
     "prompts": "^2.3.2"
@@ -38,6 +39,6 @@
     "@babel/preset-env": "^7.22.20",
     "prettier": "2.5.0",
     "tap-dot": "^2.0.0",
-    "tape": "^5.7.0"
+    "tape": "^5.7.5"
   }
 }
