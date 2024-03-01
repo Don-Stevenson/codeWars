@@ -164,3 +164,18 @@ test("Reverse a string with a non-palindrome phrase", t => {
   t.notEqual(reverseString11("let sleeping dogs lie"), "let sleeping dogs lie")
   t.end()
 })
+
+test("Reverse a string with a non-palindrome phrase", t => {
+  t.equal(reverseString("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString2("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString3("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString4("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString5("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString6("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString7("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString8("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString9("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString10("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.equal(reverseString11("let sleeping dogs lie"), "eil sgod gnipeels tel")
+  t.end()
+})
