@@ -179,3 +179,18 @@ test("Reverse a string with a non-palindrome phrase", t => {
   t.equal(reverseString11("let sleeping dogs lie"), "eil sgod gnipeels tel")
   t.end()
 })
+
+test("Reverse a string with a number ", t => {
+  t.equal(reverseString("123456"), "654321")
+  t.equal(reverseString2("123456"), "654321")
+  t.equal(reverseString3("123456"), "654321")
+  t.equal(reverseString4("123456"), "654321")
+  t.equal(reverseString5("123456"), "654321")
+  t.equal(reverseString6("123456"), "654321")
+  t.equal(reverseString7("123456"), "654321")
+  t.equal(reverseString8("123456"), "654321")
+  t.equal(reverseString9("123456"), "654321")
+  t.equal(reverseString10("123456"), "654321")
+  t.equal(reverseString11("123456"), "654321")
+  t.end()
+})
