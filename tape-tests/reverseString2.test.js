@@ -1,6 +1,6 @@
 import test from "tape"
 
-// Run: npm test tape-tests/reverseString2.test.js
+// Run: npm test
 import {
   reverseString,
   reverseString2,
