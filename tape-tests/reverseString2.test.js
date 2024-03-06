@@ -236,3 +236,17 @@ test("Reverse a string with a trailing space", t => {
   t.equal(reverseString11("1234 "), " 4321")
   t.end()
 })
+
+test("Reverse a string with a leading space", t => {
+  t.equal(reverseString(" 1234"), "4321 ")
+  t.equal(reverseString2(" 1234"), "4321 ")
+  t.equal(reverseString3(" 1234"), "4321 ")
+  t.equal(reverseString4(" 1234"), "4321 ")
+  t.equal(reverseString5(" 1234"), "4321 ")
+  t.equal(reverseString6(" 1234"), "4321 ")
+  t.equal(reverseString7(" 1234"), "4321 ")
+  t.equal(reverseString8(" 1234"), "4321 ")
+  t.equal(reverseString10(" 1234"), "4321 ")
+  t.equal(reverseString11(" 1234"), "4321 ")
+  t.end()
+})
