@@ -22,7 +22,8 @@
     "prompts": "^2.3.2"
   },
   "scripts": {
-    "test": "tape tape-tests/**/*.test.js | tap-dot"
+    "testMocha": "mocha *.test.js",
+    "test": "tape /**/*.test.js | tap-dot"
   },
   "repository": {
     "type": "git",
