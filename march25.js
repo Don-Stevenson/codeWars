@@ -31,3 +31,12 @@ const reverseStringRecursion = str =>
 
 console.log(reverseStringRecursion("ABCDE"))
 // expect EDCBA
+
+// with reduce
+// **********
+
+const reverseStringReduce = str =>
+  str.split("").reduce((acc, char) => char + acc, "")
+
+console.log(reverseStringReduce("ABCDE"))
+// expect EDCBA
