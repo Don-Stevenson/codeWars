@@ -60,10 +60,9 @@ const questions = [
     initial: "Enter value here",
     validate: value => validateNum(value),
   },
-]
-;// Run the program
+] // Run the program
 // *****************
-(async () => {
+;(async () => {
   const response = await prompts(questions)
 
   // operations in an object
