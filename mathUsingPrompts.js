@@ -4,11 +4,10 @@ const prompts = require("prompts")
 // Reject an empty value
 //************************************************************************
 
-const validateNum = value => {
-  if (value > 10000 || value < 0 || isNaN(parseFloat(value))) {
-    return "Error!! Please enter a whole number between 0 and 10000"
-  } else return true
-}
+const validateNum = value =>
+  value > 10000 || value < 0 || isNaN(parseFloat(value))
+    ? "Error!! Please enter a whole number between 0 and 10000"
+    : true
 
 const questions = [
   // questions for the program to use
@@ -32,11 +31,11 @@ const questions = [
     validate: value => {
       // logic to evaluate value includes on of the signs in the mathSigns array
       // **********************************************************************
-      const mathSigns = ["+", "-", "*", "/", "power", "sqrt"]
-      if (mathSigns.includes(value)) {
-        return true
-      }
-      return "Error!! Please use only +, -, *, /, power, sqrt"
+      const mathSigns = ["+", "-", "*", "/", "power", "sqrt"](
+        mathSigns.includes(value)
+      )
+        ? true
+        : "Error!! Please use only +, -, *, /, power, sqrt"
     },
   },
 
@@ -141,4 +140,7 @@ const questions = [
       console.log(output)
     }
   }
-)()
+)
+
+// Run the program
+validateNum()
