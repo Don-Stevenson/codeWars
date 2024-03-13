@@ -1,4 +1,4 @@
-const prompts = require("prompts")
+import prompts from "prompts"
 
 // Validate function that makes sure that the number is between 0 and 1000.
 // Reject an empty value
@@ -60,85 +60,84 @@ const questions = [
     initial: "Enter value here",
     validate: value => validateNum(value),
   },
-](
-  // Run the program
-  // *****************
-  async () => {
-    const response = await prompts(questions)
+]
+;// Run the program
+// *****************
+(async () => {
+  const response = await prompts(questions)
 
-    // operations in an object
-    // ***********************
-    const operations = {
-      "+": response.B + response.C,
-      "-": response.B - response.C,
-      "*": response.B * response.C,
-      "/": response.B / response.C,
-      power: Math.pow(response.B, response.C),
-      sqrt: Math.sqrt(response.C),
-    }
+  // operations in an object
+  // ***********************
+  const operations = {
+    "+": response.B + response.C,
+    "-": response.B - response.C,
+    "*": response.B * response.C,
+    "/": response.B / response.C,
+    power: Math.pow(response.B, response.C),
+    sqrt: Math.sqrt(response.C),
+  }
 
-    // using object oriented programming instead of IF/ELSE or SWITCH
-    // **************************************************************
-    let answer = operations[response.operator]
+  // using object oriented programming instead of IF/ELSE or SWITCH
+  // **************************************************************
+  let answer = operations[response.operator]
 
-    // operator selection logic with switch statements
-    // *********************** ***********************
-    // switch (response.operator) {
-    //   case "+":
-    //     answer = response.B + response.C
-    //     break
-    //   case "-":
-    //     answer = response.B - response.C
-    //     break
-    //   case "*":
-    //     answer = response.B * response.C
-    //     break
-    //   case "/":
-    //     answer = response.B / response.C
-    //     break
-    //  case "power":
-    //     answer = Math.pow(response.B, response.C)
-    //     break
-    // case "sqrt":
-    //     answer = sqrt: Math.sqrt(response.C)
-    //     break
-    // }
+  // operator selection logic with switch statements
+  // *********************** ***********************
+  // switch (response.operator) {
+  //   case "+":
+  //     answer = response.B + response.C
+  //     break
+  //   case "-":
+  //     answer = response.B - response.C
+  //     break
+  //   case "*":
+  //     answer = response.B * response.C
+  //     break
+  //   case "/":
+  //     answer = response.B / response.C
+  //     break
+  //  case "power":
+  //     answer = Math.pow(response.B, response.C)
+  //     break
+  // case "sqrt":
+  //     answer = sqrt: Math.sqrt(response.C)
+  //     break
+  // }
 
-    // With if else statements
-    // ***********************
-    // if (response.operator === "+") {
-    //   answer = response.B + response.C
-    // } else if (response.operator === "-") {
-    //   answer = response.B - response.C
-    // } else if (response.operator === "*") {
-    //   answer = response.B * response.C
-    // } else if (response.operator === "/"){
-    //   answer = response.B / response.C
-    // } else if (response.operator === "power"){
-    //   answer = Math.pow(response.B, response.C)
-    // } else
-    //   answer =  Math.sqrt(response.C)
-    // }
-    if (response.operator === "sqrt") {
-      // Setting up output to display the expression and answer when sqrt is selected
-      // and give the user a simple message to say thanks
-      // ************************************************
-      let output = `
+  // With if else statements
+  // ***********************
+  // if (response.operator === "+") {
+  //   answer = response.B + response.C
+  // } else if (response.operator === "-") {
+  //   answer = response.B - response.C
+  // } else if (response.operator === "*") {
+  //   answer = response.B * response.C
+  // } else if (response.operator === "/"){
+  //   answer = response.B / response.C
+  // } else if (response.operator === "power"){
+  //   answer = Math.pow(response.B, response.C)
+  // } else
+  //   answer =  Math.sqrt(response.C)
+  // }
+  if (response.operator === "sqrt") {
+    // Setting up output to display the expression and answer when sqrt is selected
+    // and give the user a simple message to say thanks
+    // ************************************************
+    let output = `
       The square root of ${response.C} = ${answer}
   
       Thank you for using The Simple Math Program!!!
       `
-      console.log(output)
-    } else {
-      // Setting up output to display the expression and answer
-      // and give the user a simple message to say thanks
-      // ******************************************************
-      let output = `
+    console.log(output)
+  } else {
+    // Setting up output to display the expression and answer
+    // and give the user a simple message to say thanks
+    // ******************************************************
+    let output = `
       ${response.B} ${response.operator} ${response.C} = ${answer}
   
       Thank you for using The Simple Math Program!!!
       `
-      console.log(output)
-    }
+    console.log(output)
   }
-)()
+})()
