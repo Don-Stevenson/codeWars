@@ -22,7 +22,7 @@ const operationsObj = {
 // above object of operations and passes in operations
 const mathify = (operation, a, b) => {
   if (!operation && !a && !b)
-    console.log(`Welcome to the Simple Command Line Calculator. 
+    console.log(`Welcome to the Simple Command Line Calculator!
 The following are valid operations:
 plus, minus, multiply, divide, power and root.`)
   // check to see if the operation is present
@@ -60,16 +60,27 @@ plus, minus, multiply, divide, power and root.`)
   if (operation === "root" && b) return `For root you must only pass 1 number`
 
   if (operation === "root")
-    return `The ${operation} of ${a} = ${operationsObj[operation](a)}`
+    return `The ${operation} of ${a} = ${operationsObj[operation](
+      a
+    )}\nThanks for using the Simple Command Line Calculator!`
 
   if (operation === "power" || operation === "^")
-    return `${a} ${operation} of ${b} = ${operationsObj[operation](a, b)}`
+    return `${a} ${operation} of ${b} = ${operationsObj[operation](
+      a,
+      b
+    )}\nThanks for using the Simple Command Line Calculator!`
 
   if (operation === "multiply" || operation === "*")
-    return `${a} ${operation} ${b} = ${operationsObj[operation](a, b)}`
+    return `${a} ${operation} ${b} = ${operationsObj[operation](
+      a,
+      b
+    )}\nThanks for using the Simple Command Line Calculator!`
 
   if (operation === "divide" || operation === "/")
-    return `${a} ${operation} ${b} = ${operationsObj[operation](a, b)}`
+    return `${a} ${operation} ${b} = ${operationsObj[operation](
+      a,
+      b
+    )}\nThanks for using the Simple Command Line Calculator!`
 
   if (
     operation === "plus" ||
@@ -77,17 +88,15 @@ plus, minus, multiply, divide, power and root.`)
     operation === "+" ||
     operation === "-"
   ) {
-    return `${a} ${operation} ${b} = ${operationsObj[operation](a, b)}`
+    return `${a} ${operation} ${b} = ${operationsObj[operation](
+      a,
+      b
+    )}\nThanks for using the Simple Command Line Calculator!`
   }
 
   // handle other scenarios
   else
-    return `    Try again, the operation must only be: 
-    plus(+), minus(-), multiply(*), divide(/), power(^), root and 
-    you must enter at least one valid number
-    Please note that to use * for multiplication
-    you must escape the operation with a backslash '\\',
-    i.e. \\*
+    return `\nTry again, the operation must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root and\nyou must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
     `
 }
 
