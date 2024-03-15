@@ -7,10 +7,15 @@ const [a, operation, b] = process.argv.slice(2)
 //******************************************
 const operationsObj = {
   plus: (a, b) => a + b,
+  "+": (a, b) => a + b,
   minus: (a, b) => a - b,
+  "-": (a, b) => a - b,
   multiply: (a, b) => a * b,
+  "*": (a, b) => a * b,
   divide: (a, b) => a / b,
+  "/": (a, b) => a / b,
   power: (a, b) => Math.pow(a, b),
+  "^": (a, b) => Math.pow(a, b),
   root: a => Math.sqrt(a),
 }
 
@@ -29,7 +34,7 @@ plus, minus, multiply, divide, power and root.`)
   // check to see if the operation is present
   if (!a)
     return `Try again, you must pass at least 1 valid number. 
-  The required format: is number operation number`
+  The required format is: number operation number`
 
   // parses the integers in case of string
   if (a) a = parseInt(a)
@@ -41,11 +46,11 @@ plus, minus, multiply, divide, power and root.`)
 
   // check for two numbers present when calling the following operations
   if (
-    (operation === "plus" && !b) ||
-    (operation === "minus" && !b) ||
-    (operation === "multiply" && !b) ||
-    (operation === "divide" && !b) ||
-    (operation === "power" && !b)
+    ((operation === "plus" || operation === "+") && !b) ||
+    ((operation === "minus" || operation === "-") && !b) ||
+    ((operation === "multiply" || operation === "*") && !b) ||
+    ((operation === "divide" || operation === "/") && !b) ||
+    ((operation === "power" || operation === "/") && !b)
   )
     return `Try again, for ${operation} you must pass 2 valid numbers. ${a} ${operation} ___?`
 
