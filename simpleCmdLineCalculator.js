@@ -22,13 +22,12 @@ const operationsObj = {
 // above object of operations and passes in operations
 const mathify = (operation, a, b) => {
   if (!operation && !a && !b)
-    console.log(`Welcome to the Simple Command Line Calculator!
-The following are valid operations:
-plus, minus, multiply, divide, power and root.`)
+    console.log(
+      `Welcome to the Simple Command Line Calculator!\nThe following are valid operations:\nplus, minus, multiply, divide, power and root.`
+    )
   // check to see if the operation is present
   if (!operation)
-    return `Try again, you must enter a valid operation.
-  The required format is: number operation number`
+    return `Try again, you must enter a valid operation.\nThe required format is: number operation number`
 
   // parses the integers in case of string
   const parseNum = num => {
@@ -43,8 +42,7 @@ plus, minus, multiply, divide, power and root.`)
 
   // check to see if first number is present
   if (!a)
-    return `Try again, you must pass at least 1 valid number. 
-  The required format is: number operation number`
+    return `Try again, you must pass at least 1 valid number.\nThe required format is: number operation number`
 
   // check for two numbers present when calling the following operations
   if (
