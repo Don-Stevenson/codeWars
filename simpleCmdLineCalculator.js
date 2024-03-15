@@ -4,7 +4,6 @@ const [a, operation, b] = process.argv.slice(2)
 // object to store the different operations
 // and formula functions
 
-//******************************************
 const operationsObj = {
   plus: (a, b) => a + b,
   "+": (a, b) => a + b,
@@ -21,28 +20,31 @@ const operationsObj = {
 
 // a higher order function that calls the
 // above object of operations and passes in operations
-// ***************************************************
 const mathify = (operation, a, b) => {
-  console.log(`Welcome to the Simple Command Line Calculator. 
+  if (!operation && !a && !b)
+    console.log(`Welcome to the Simple Command Line Calculator. 
 The following are valid operations:
 plus, minus, multiply, divide, power and root.`)
   // check to see if the operation is present
   if (!operation)
     return `Try again, you must enter a valid operation.
-  The required format: is number operation number`
-
-  // check to see if the operation is present
-  if (!a)
-    return `Try again, you must pass at least 1 valid number. 
   The required format is: number operation number`
 
   // parses the integers in case of string
-  if (a) a = parseInt(a)
-  if (b) b = parseInt(b)
+  const parseNum = num => {
+    if (typeof num === "string") {
+      if (num.includes(".")) {
+        return parseFloat(num)
+      } else return parseInt(num)
+    } else return num
+  }
+  a = parseNum(a)
+  b = parseNum(b)
 
-  // check to see if a is a number
-  if (!a || typeof a !== typeof 9)
-    return "Try again, you must pass at least 1 valid number"
+  // check to see if first number is present
+  if (!a)
+    return `Try again, you must pass at least 1 valid number. 
+  The required format is: number operation number`
 
   // check for two numbers present when calling the following operations
   if (
@@ -57,35 +59,36 @@ plus, minus, multiply, divide, power and root.`)
   // check for only one number if operation is "root"
   if (operation === "root" && b) return `For root you must only pass 1 number`
 
-  // run root operation
   if (operation === "root")
     return `The ${operation} of ${a} = ${operationsObj[operation](a)}`
 
-  // power
-  if (operation === "power")
-    return `${a} to the ${operation} of ${b} = ${operationsObj[operation](
-      a,
-      b
-    )}`
+  if (operation === "power" || operation === "^")
+    return `${a} ${operation} of ${b} = ${operationsObj[operation](a, b)}`
 
-  // divide
-  if (operation === "multiply")
-    return `${a} mulitplied by ${b} = ${operationsObj[operation](a, b)}`
+  if (operation === "multiply" || operation === "*")
+    return `${a} ${operation} ${b} = ${operationsObj[operation](a, b)}`
 
-  // multiply
-  if (operation === "divide")
-    return `${a} divided by ${b} = ${operationsObj[operation](a, b)}`
+  if (operation === "divide" || operation === "/")
+    return `${a} ${operation} ${b} = ${operationsObj[operation](a, b)}`
 
-  // run other operations
-  if (operation === "plus" || operation === "minus") {
+  if (
+    operation === "plus" ||
+    operation === "minus" ||
+    operation === "+" ||
+    operation === "-"
+  ) {
     return `${a} ${operation} ${b} = ${operationsObj[operation](a, b)}`
   }
 
-  // handle a scenario when nothing else is true
+  // handle other scenarios
   else
     return `    Try again, the operation must only be: 
-    plus, minus, multiply, divide, power, root and 
-    you must enter at least one valid number`
+    plus(+), minus(-), multiply(*), divide(/), power(^), root and 
+    you must enter at least one valid number
+    Please note that to use * for multiplication
+    you must escape the operation with a backslash '\\',
+    i.e. \\*
+    `
 }
 
 // console.log(mathify("power", 3, 3))
