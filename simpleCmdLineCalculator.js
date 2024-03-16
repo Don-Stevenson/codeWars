@@ -21,13 +21,14 @@ const operationsObj = {
 // a higher order function that calls the
 // above object of operations and passes in operations
 const mathify = (operation, a, b) => {
+  console.log(`Welcome to the Simple Command Line Calculator!`)
   if (!operation && !a && !b)
     console.log(
-      `Welcome to the Simple Command Line Calculator!\nThe following are valid operations:\nplus, minus, multiply, divide, power and root.`
+      `Error! \nThe following are valid operations:\nplus, minus, multiply, divide, power and root.`
     )
   // check to see if the operation is present
   if (!operation)
-    return `Try again, you must enter a valid operation.\nThe required format is: number operation number`
+    return `Error! \nYou must enter a valid operation.\nThe required format is: number operation number`
 
   // parses the integers in case of string
   const parseNum = num => {
@@ -42,7 +43,7 @@ const mathify = (operation, a, b) => {
 
   // check to see if first number is present
   if (!a)
-    return `Try again, you must pass at least 1 valid number.\nThe required format is: number operation number`
+    return `Error! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
 
   // check for two numbers present when calling the following operations
   if (
@@ -52,13 +53,13 @@ const mathify = (operation, a, b) => {
     ((operation === "divide" || operation === "/") && !b) ||
     ((operation === "power" || operation === "/") && !b)
   )
-    return `Try again, for ${operation} you must pass 2 valid numbers. ${a} ${operation} ___?`
+    return `Error! \nFor ${operation} you must pass 2 valid numbers. ${a} ${operation} ___?`
 
   // check for only one number if operation is "root"
   if (operation === "root" && b) return `For root you must only pass 1 number`
 
   if (operation === "root")
-    return `The ${operation} of ${a} = ${operationsObj[operation](
+    return `\nThe ${operation} of ${a} = ${operationsObj[operation](
       a
     )}\nThanks for using the Simple Command Line Calculator!`
 
@@ -94,7 +95,7 @@ const mathify = (operation, a, b) => {
 
   // handle other scenarios
   else
-    return `\nTry again, the operation must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root and\nyou must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
+    return `Error! \nThe operation must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
     `
 }
 
