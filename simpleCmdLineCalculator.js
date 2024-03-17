@@ -21,7 +21,6 @@ const operationsObj = {
 // a higher order function that calls the
 // above object of operations and passes in operations
 const mathify = (a, operation1, b, operation2, c) => {
-  console.log(`Welcome to the Simple Command Line Calculator!`)
   const parseNum = num => {
     if (typeof num === "string") {
       if (num.includes(".")) {
@@ -36,17 +35,17 @@ const mathify = (a, operation1, b, operation2, c) => {
   // console.log({ a }, { operation1 }, { b }, { operation2 }, { c })
 
   if (!a && !b && !c)
-    return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number`
+    return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number`
 
   // check to see if the operation1 is present
   if (!operation1)
-    return `\nError! \nYou must enter a valid operation.\nThe following are valid operations:\nplus, minus, multiply, divide, power and root.\nThe required format is: number operation1 number`
+    return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou must enter a valid operation.\nThe following are valid operations:\nplus, minus, multiply, divide, power and root.\nThe required format is: number operation1 number`
 
   // parses the integers in case of string
 
   // check to see if first number is present
   if (!a)
-    return `\nError! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
+    return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
   if (!c && !operation2) {
     // console.log("in !c and !operation")
     // check for two numbers present when calling the following operations
@@ -57,34 +56,31 @@ const mathify = (a, operation1, b, operation2, c) => {
       ((operation1 === "divide" || operation1 === "/") && !b) ||
       ((operation1 === "power" || operation1 === "/") && !b)
     )
-      return `\nError! \nFor ${operation1} you must pass 2 valid numbers. ${a} ${operation1} ___?`
+      return `\nWelcome to the Simple Command Line Calculator!\nError! \nFor ${operation1} you must pass 2 valid numbers. ${a} ${operation1} ___?`
 
     // check for only one number if operation1 is "root"
     if (operation1 === "root" && b)
-      return `\nError!\nFor root, you must only pass 1 number`
+      return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must only pass 1 number`
 
     if (operation1 === "root")
-      return `The ${operation1} of ${a} = ${operationsObj[operation1](
-        a
-      )}\nThanks for using the Simple Command Line Calculator!`
+      return `\nWelcome to the Simple Command Line Calculator!\nThe ${operation1} of ${a} = ${operationsObj[
+        operation1
+      ](a)}\nThanks for using the Simple Command Line Calculator!`
 
     if (operation1 === "power" || operation1 === "^")
-      return `${a} ${operation1} of ${b} = ${operationsObj[operation1](
-        a,
-        b
-      )}\nThanks for using the Simple Command Line Calculator!`
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} of ${b} = ${operationsObj[
+        operation1
+      ](a, b)}\nThanks for using the Simple Command Line Calculator!`
 
     if (operation1 === "multiply" || operation1 === "*")
-      return `${a} ${operation1} ${b} = ${operationsObj[operation1](
-        a,
-        b
-      )}\nThanks for using the Simple Command Line Calculator!`
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} = ${operationsObj[
+        operation1
+      ](a, b)}\nThanks for using the Simple Command Line Calculator!`
 
     if (operation1 === "divide" || operation1 === "/")
-      return `${a} ${operation1} ${b} = ${operationsObj[operation1](
-        a,
-        b
-      )}\nThanks for using the Simple Command Line Calculator!`
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} = ${operationsObj[
+        operation1
+      ](a, b)}\nThanks for using the Simple Command Line Calculator!`
 
     if (
       operation1 === "plus" ||
@@ -92,20 +88,19 @@ const mathify = (a, operation1, b, operation2, c) => {
       operation1 === "+" ||
       operation1 === "-"
     ) {
-      return `${a} ${operation1} ${b} = ${operationsObj[operation1](
-        a,
-        b
-      )}\nThanks for using the Simple Command Line Calculator!`
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} = ${operationsObj[
+        operation1
+      ](a, b)}\nThanks for using the Simple Command Line Calculator!`
     }
   }
 
   if ((a, b, c, operation1, operation2)) {
     // console.log("here in a, b, c, operation1, operation2")
     if (!c)
-      return "\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+      return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
     if (!c && !operation2) {
-      return "\nError! here \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+      return "\nWelcome to the Simple Command Line Calculator!\nError! here \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
     }
 
     if (
@@ -116,7 +111,7 @@ const mathify = (a, operation1, b, operation2, c) => {
       operation2 === "power" ||
       (operation2 === "^" && operation1)
     )
-      return `\nError! \nCannot pass power or root as one of the 2 operations`
+      return `\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations`
 
     // handle bedmas where multiply or divide is operation 2
     if (
@@ -142,7 +137,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         ((operation1 === "plus" || operation1 === "+") &&
           (operation2 === "divide" || operation2 === "/"))
       )
-        return `here ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        return `\nWelcome to the Simple Command Line Calculator!\n ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
           operation2
         ](
           firstResult,
@@ -160,7 +155,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         ((operation1 === "minus" || operation1 === "-") &&
           (operation2 === "divide" || operation2 === "/"))
       )
-        return `here ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
           operation2
         ](
           firstResult,
@@ -200,7 +195,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         operation2 !== "divide" &&
         operation2 !== "/"
       )
-        return "\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+        return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
       // handle root and power scenarios
       // handle addition
@@ -214,7 +209,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         ((operation1 === "plus" || operation1 === "+") &&
           (operation2 === "divide" || operation2 === "/"))
       )
-        return `${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
           operation2
         ](
           firstResult,
@@ -232,7 +227,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         ((operation1 === "minus" || operation1 === "-") &&
           (operation2 === "divide" || operation2 === "/"))
       )
-        return `here ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
           operation2
         ](
           firstResult,
@@ -250,7 +245,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         ((operation1 === "multiply" || operation1 === "*") &&
           (operation2 === "divide" || operation2 === "/"))
       )
-        return `here ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
           operation2
         ](
           firstResult,
@@ -268,7 +263,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         ((operation1 === "divide" || operation1 === "/") &&
           (operation2 === "divide" || operation2 === "/"))
       ) {
-        return `${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
           operation2
         ](
           firstResult,
@@ -348,9 +343,14 @@ const mathify = (a, operation1, b, operation2, c) => {
 // 3 - 4 = -1
 // Thanks for using the Simple Command Line Calculator!
 
-// console.log(mathify("3", "+", "4", "+", "4"))
+console.log(mathify("3", "+", "4", "+", "4"))
 // Welcome to the Simple Command Line Calculator!
 // 3 + 4 + 4 = 12
+// Thanks for using the Simple Command Line Calculator!
+
+console.log(mathify("3", "plus", "4", "plus", "4"))
+// Welcome to the Simple Command Line Calculator!
+// 3 plus 4 plus 4 = 12
 // Thanks for using the Simple Command Line Calculator!
 
 // console.log(mathify(2, "power"))
@@ -402,3 +402,5 @@ const mathify = (a, operation1, b, operation2, c) => {
 // number operation number operation number
 
 // console.log(mathify(a, operation1, b, operation2, c))
+
+export { mathify }
