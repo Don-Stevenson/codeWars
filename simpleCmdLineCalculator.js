@@ -46,6 +46,7 @@ const mathify = (a, operation1, b, operation2, c) => {
   if (!a)
     return `\nError! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
   if (!c && !operation2) {
+    console.log("in !c and !operation")
     // check for two numbers present when calling the following operations
     if (
       ((operation1 === "plus" || operation1 === "+") && !b) ||
@@ -100,8 +101,8 @@ const mathify = (a, operation1, b, operation2, c) => {
     if (!c)
       return "\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
-    if (!c) {
-      return "\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+    if (!c && !operation2) {
+      return "\nError! here \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
     }
 
     if (
@@ -119,27 +120,29 @@ const mathify = (a, operation1, b, operation2, c) => {
     }
 
     if (
-      (!operation2 === "plus" ||
-        !operation2 === "+" ||
-        !operation2 === "minus" ||
-        operation2 === "-") &&
-      (operation2 === "divide" || operation2 === "multiply")
+      (operation1 === "plus" ||
+        operation1 === "+" ||
+        operation1 === "minus" ||
+        operation1 === "-") &&
+      (operation1 === "divide" || operation2 === "multiply")
     ) {
       const firstResult = operationsObj[operation1](b, c)
       c = a
+      console.log({ c }, { firstResult })
     }
 
+    console.log("nfddfd", a, operation1, b, operation2, c)
     if (
-      operation2 !== "plus" ||
-      operation2 !== "+" ||
-      operation2 !== "minus" ||
-      operation2 !== "-" ||
-      operation2 !== "multiply" ||
-      operation2 !== "*" ||
-      operation2 !== "divide" ||
-      operation2 !== "/"
+      // operation2 !== "plus" ||
+      operation2 !== "+"
+      // operation2 !== "minus" ||
+      // operation2 !== "-" ||
+      // operation2 !== "multiply" ||
+      // operation2 !== "*" ||
+      // operation2 !== "divide" ||
+      // operation2 !== "/"
     )
-      return "\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+      return "Now \nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
     // handle root and power scenarios
     // handle addition
@@ -271,6 +274,11 @@ const mathify = (a, operation1, b, operation2, c) => {
 // Thanks for using the Simple Command Line Calculator!
 
 // console.log(mathify("3", "-", "4"))
+// Welcome to the Simple Command Line Calculator!
+// 3 - 4 = -1
+// Thanks for using the Simple Command Line Calculator!
+
+console.log(mathify("3", "+", "4", "+", "4"))
 // Welcome to the Simple Command Line Calculator!
 // 3 - 4 = -1
 // Thanks for using the Simple Command Line Calculator!
