@@ -23,7 +23,7 @@
   },
   "scripts": {
     "testMocha": "mocha *.test.js",
-    "test": "tape /**/*.test.js | tap-dot"
+    "test": "tape test/tape-tests/**/mathify.test.js | tap-dot"
   },
   "repository": {
     "type": "git",
