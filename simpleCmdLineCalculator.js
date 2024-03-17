@@ -1,5 +1,5 @@
 // destructure the args into variables from proccess.argv
-const [a, operation1, b, operation2, c] = process.argv.slice(2)
+// const [a, operation1, b, operation2, c] = process.argv.slice(2)
 
 // object to store the different operations
 // and formula functions
@@ -21,7 +21,6 @@ const operationsObj = {
 // a higher order function that calls the
 // above object of operations and passes in operations
 const mathify = (a, operation1, b, operation2, c) => {
-  console.log(`args ${a} ${operation1} ${b} ${operation2} ${c}`)
   console.log(`Welcome to the Simple Command Line Calculator!`)
   const parseNum = num => {
     if (typeof num === "string") {
@@ -45,9 +44,8 @@ const mathify = (a, operation1, b, operation2, c) => {
 
   // check to see if first number is present
   if (!a)
-    return `\n =\nError! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
+    return `\nError! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
   if (!c && !operation2) {
-    console.log(`here in !c a${a} b${b}`)
     // check for two numbers present when calling the following operations
     if (
       ((operation1 === "plus" || operation1 === "+") && !b) ||
@@ -60,10 +58,10 @@ const mathify = (a, operation1, b, operation2, c) => {
 
     // check for only one number if operation1 is "root"
     if (operation1 === "root" && b)
-      return `For root you must only pass 1 number`
+      return `\nError!\nFor root, you must only pass 1 number`
 
     if (operation1 === "root")
-      return `\nThe ${operation1} of ${a} = ${operationsObj[operation1](
+      return `The ${operation1} of ${a} = ${operationsObj[operation1](
         a
       )}\nThanks for using the Simple Command Line Calculator!`
 
@@ -99,15 +97,13 @@ const mathify = (a, operation1, b, operation2, c) => {
   }
 
   if ((a, b, c, operation1, operation2)) {
-    console.log("in three args", a, b, c, operation1, operation2)
     if (!c)
       return "\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
-
-    console.log({ operation2 })
 
     if (!c) {
       return "\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
     }
+
     if (
       operation1 === "root" ||
       operation1 === "power" ||
@@ -121,15 +117,27 @@ const mathify = (a, operation1, b, operation2, c) => {
     if (operation1 === "mulitply" || operation1 === "divide") {
       const firstResult = operationsObj[operation1](a, b)
     }
+
     if (
-      !operation2 !== "plus" ||
-      !operation2 !== "+" ||
-      !operation2 !== "minus" ||
-      !operation2 !== "-" ||
-      !operation2 === "multiply" ||
-      !operation2 === "*" ||
-      !operation2 === "divide" ||
-      !operation2 === "/"
+      (!operation2 === "plus" ||
+        !operation2 === "+" ||
+        !operation2 === "minus" ||
+        operation2 === "-") &&
+      (operation2 === "divide" || operation2 === "multiply")
+    ) {
+      const firstResult = operationsObj[operation1](b, c)
+      c = a
+    }
+
+    if (
+      operation2 !== "plus" ||
+      operation2 !== "+" ||
+      operation2 !== "minus" ||
+      operation2 !== "-" ||
+      operation2 !== "multiply" ||
+      operation2 !== "*" ||
+      operation2 !== "divide" ||
+      operation2 !== "/"
     )
       return "\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
@@ -190,7 +198,6 @@ const mathify = (a, operation1, b, operation2, c) => {
       ((operation1 === "divide" || operation1 === "/") &&
         (operation2 === "divide" || operation2 === "/"))
     ) {
-      console.log("IN divide")
       return `here ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
         operation2
       ](firstResult, c)} \nThanks for using the Simple Command Line Calculator!`
@@ -199,33 +206,74 @@ const mathify = (a, operation1, b, operation2, c) => {
 
   // handle other scenarios
   else
-    return `\n =\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
+    return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
     `
 }
 
-// console.log(mathify("power", 3, 3))
-// // expect 27
+// console.log(mathify(3, "power", 3))
+// expect
+// Welcome to the Simple Command Line Calculator!
+// 3 power of 3 = 27
+// Thanks for using the Simple Command Line Calculator!
 
-// console.log(mathify("root", 3))
-// // expect 1.7320508075688772
+// console.log(mathify(3, "root"))
+// Welcome to the Simple Command Line Calculator!
+// 3 power of 3 = 27
+// Thanks for using the Simple Command Line Calculator!
 
-// console.log(mathify("rot", 9))
-// // expect "Try again, operation1 must only be: plus, minus, multiply, divide, power, root
+// console.log(mathify(9, "rot"))
+// expect
+// Error!
+//
+// You can pass up to 3 numbers and 2 operations
+// number operation number operation number
+// The operations must only be:
+// plus(+), minus(-), multiply(*), divide(/), power(^), root
+// and you must enter at least one valid number.
+// Please note that to use * for multiplication
+// you must escape the operation character with a backslash '\',
+// i.e. \*
 
-// console.log(mathify("root", 9, 9))
-// expect For root, you must only pass 1 number
+// console.log(mathify(9, "root", 9))
+// Expect
+// Welcome to the Simple Command Line Calculator!
+//
+// Error!
+// For root, you must only pass 1 number
 
 // console.log(mathify("", 3))
-// // expect "Try again, you must enter an operation1"
+// // expect
+// Error!
+//
+// You can pass up to 3 numbers and 2 operations
+// number operation number operation number
 
 // console.log(mathify("power", ""))
-// // expect Try again, you must enter at least one number
+// Welcome to the Simple Command Line Calculator!
 
-// console.log(mathify("plus", "3", "4"))
-// // expect 7
+// Error!
+// You can pass up to 3 numbers and 2 operations
+// number operation number operation number
 
-// console.log(mathify("minus", "3", "4"))
-// expect -1
+// console.log(mathify("3", "plus", "4"))
+// Welcome to the Simple Command Line Calculator!
+// 3 plus 4 = 7
+// Thanks for using the Simple Command Line Calculator!
+
+// console.log(mathify("3", "+", "4"))
+// Welcome to the Simple Command Line Calculator!
+// 3 + 4 = 7
+// Thanks for using the Simple Command Line Calculator!
+
+// console.log(mathify("3", "minus", "4"))
+// Welcome to the Simple Command Line Calculator!
+// 3 minus 4 = -1
+// Thanks for using the Simple Command Line Calculator!
+
+// console.log(mathify("3", "-", "4"))
+// Welcome to the Simple Command Line Calculator!
+// 3 - 4 = -1
+// Thanks for using the Simple Command Line Calculator!
 
 // console.log(mathify("power", 2))
 // For power you must pass 2 valid numbers
@@ -245,4 +293,4 @@ const mathify = (a, operation1, b, operation2, c) => {
 // console.log(mathify("", ""))
 // expect "Try again, you must enter an operation1"
 
-console.log(mathify(a, operation1, b, operation2, c))
+// console.log(mathify(a, operation1, b, operation2, c))
