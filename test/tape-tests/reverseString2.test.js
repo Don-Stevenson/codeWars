@@ -13,7 +13,7 @@ import {
   reverseString9,
   reverseString10,
   reverseString11,
-} from "../reverseString2.js"
+} from "../../reverseString2.js"
 
 test("Reverse a string with spaces", t => {
   t.equal(reverseString("tame children"), "nerdlihc emat")
