@@ -1,6 +1,8 @@
 // destructure the args into variables from proccess.argv
 // const [a, operation1, b, operation2, c] = process.argv.slice(2)
 
+import { log } from "mathjs"
+
 // object to store the different operations
 // and formula functions
 
@@ -32,7 +34,7 @@ const mathify = (a, operation1, b, operation2, c) => {
   b = parseNum(b)
   c = parseNum(c)
 
-  // console.log({ a }, { operation1 }, { b }, { operation2 }, { c })
+  console.log({ a }, { operation1 }, { b }, { operation2 }, { c })
 
   if (!a && !b && !c)
     return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number`
@@ -95,7 +97,7 @@ const mathify = (a, operation1, b, operation2, c) => {
   }
 
   if ((a, b, c, operation1, operation2)) {
-    // console.log("here in a, b, c, operation1, operation2")
+    console.log("here in a, b, c, operation1, operation2")
     if (!c)
       return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
@@ -113,294 +115,118 @@ const mathify = (a, operation1, b, operation2, c) => {
     )
       return `\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations`
 
-    // handle bedmas where multiply or divide is operation 2
+    // handle bedmas where operation1 is plus or minus and operation 2 is multiply or divide
     if (
-      (operation1 === "plus" ||
-        operation1 === "+" ||
-        operation1 === "minus" ||
-        operation1 === "-") &&
+      (operation1 == "plus" ||
+        operation1 == "+" ||
+        operation1 == "minus" ||
+        operation1 == "-") &&
       (operation2 === "divide" ||
         operation2 === "/" ||
         operation2 === "multiply" ||
         operation2 === "*")
     ) {
-      const firstResult = operationsObj[operation1](b, c)
-      // console.log({ c }, { firstResult })
+      const firstResult = operationsObj[operation2](b, c)
 
-      if (
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "plus" || operation2 === "+")) ||
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "minus" || operation2 === "-")) ||
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "multiply" || operation2 === "*")) ||
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "divide" || operation2 === "/"))
+      console.log(
+        "first first result: ",
+        { a },
+        { b },
+        { c },
+        "first result:",
+        firstResult
       )
-        return `\nWelcome to the Simple Command Line Calculator!\n ${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-          operation2
-        ](
-          firstResult,
-          c
-        )} \nThanks for using the Simple Command Line Calculator!`
 
-      // handle minus
-      if (
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "plus" || operation2 === "+")) ||
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "minus" || operation2 === "-")) ||
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "multiply" || operation2 === "*")) ||
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "divide" || operation2 === "/"))
-      )
-        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-          operation2
-        ](
-          firstResult,
-          c
-        )} \nThanks for using the Simple Command Line Calculator!`
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation1
+      ](a, firstResult)} \nThanks for using the Simple Command Line Calculator!`
     }
-    // handle bedmas where multiply or divide is operation 1
+    // handle bedmas where multiply or divide is not operation 2
+    const firstResult = operationsObj[operation1](a, b)
+    console.log("2nd first result", firstResult)
+
+    console.log("nfddfd", a, operation1, b, operation2, c)
     if (
-      (operation1 === "plus" ||
-        operation1 === "+" ||
-        operation1 === "minus" ||
-        operation1 === "-" ||
-        operation1 === "muliply" ||
-        operation1 === "*" ||
-        operation1 === "divide" ||
-        operation1 === "/") &&
-      (operation2 === "plus" ||
-        operation2 === "+" ||
-        operation2 === "minus" ||
-        operation2 === "-" ||
-        operation2 === "muliply" ||
-        operation2 === "*" ||
-        operation2 === "divide" ||
-        operation2 === "/")
+      operation2 !== "plus" &&
+      operation2 !== "+" &&
+      operation2 !== "minus" &&
+      operation2 !== "-" &&
+      operation2 !== "multiply" &&
+      operation2 !== "*" &&
+      operation2 !== "divide" &&
+      operation2 !== "/"
+    )
+      return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+
+    // handle root and power scenarios
+    // handle addition
+    if (
+      ((operation1 === "plus" || operation1 === "+") &&
+        (operation2 === "plus" || operation2 === "+")) ||
+      ((operation1 === "plus" || operation1 === "+") &&
+        (operation2 === "minus" || operation2 === "-")) ||
+      ((operation1 === "plus" || operation1 === "+") &&
+        (operation2 === "multiply" || operation2 === "*")) ||
+      ((operation1 === "plus" || operation1 === "+") &&
+        (operation2 === "divide" || operation2 === "/"))
+    )
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation2
+      ](firstResult, c)} \nThanks for using the Simple Command Line Calculator!`
+
+    // handle minus
+    if (
+      ((operation1 === "minus" || operation1 === "-") &&
+        (operation2 === "plus" || operation2 === "+")) ||
+      ((operation1 === "minus" || operation1 === "-") &&
+        (operation2 === "minus" || operation2 === "-")) ||
+      ((operation1 === "minus" || operation1 === "-") &&
+        (operation2 === "multiply" || operation2 === "*")) ||
+      ((operation1 === "minus" || operation1 === "-") &&
+        (operation2 === "divide" || operation2 === "/"))
+    )
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation2
+      ](firstResult, c)} \nThanks for using the Simple Command Line Calculator!`
+
+    // handle multiply
+    if (
+      ((operation1 === "multiply" || operation1 === "*") &&
+        (operation2 === "plus" || operation2 === "+")) ||
+      ((operation1 === "multiply" || operation1 === "*") &&
+        (operation2 === "minus" || operation2 === "-")) ||
+      ((operation1 === "multiply" || operation1 === "*") &&
+        (operation2 === "multiply" || operation2 === "*")) ||
+      ((operation1 === "multiply" || operation1 === "*") &&
+        (operation2 === "divide" || operation2 === "/"))
+    )
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation2
+      ](firstResult, c)} \nThanks for using the Simple Command Line Calculator!`
+
+    // handle divide
+    if (
+      ((operation1 === "divide" || operation1 === "/") &&
+        (operation2 === "plus" || operation2 === "+")) ||
+      ((operation1 === "divide" || operation1 === "/") &&
+        (operation2 === "minus" || operation2 === "-")) ||
+      ((operation1 === "divide" || operation1 === "/") &&
+        (operation2 === "multiply" || operation2 === "*")) ||
+      ((operation1 === "divide" || operation1 === "/") &&
+        (operation2 === "divide" || operation2 === "/"))
     ) {
-      const firstResult = operationsObj[operation1](b, c)
-      // console.log({ c }, { firstResult })
-
-      // console.log("nfddfd", a, operation1, b, operation2, c)
-      if (
-        operation2 !== "plus" &&
-        operation2 !== "+" &&
-        operation2 !== "minus" &&
-        operation2 !== "-" &&
-        operation2 !== "multiply" &&
-        operation2 !== "*" &&
-        operation2 !== "divide" &&
-        operation2 !== "/"
-      )
-        return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
-
-      // handle root and power scenarios
-      // handle addition
-      if (
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "plus" || operation2 === "+")) ||
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "minus" || operation2 === "-")) ||
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "multiply" || operation2 === "*")) ||
-        ((operation1 === "plus" || operation1 === "+") &&
-          (operation2 === "divide" || operation2 === "/"))
-      )
-        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-          operation2
-        ](
-          firstResult,
-          c
-        )} \nThanks for using the Simple Command Line Calculator!`
-
-      // handle minus
-      if (
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "plus" || operation2 === "+")) ||
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "minus" || operation2 === "-")) ||
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "multiply" || operation2 === "*")) ||
-        ((operation1 === "minus" || operation1 === "-") &&
-          (operation2 === "divide" || operation2 === "/"))
-      )
-        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-          operation2
-        ](
-          firstResult,
-          c
-        )} \nThanks for using the Simple Command Line Calculator!`
-
-      // handle multiply
-      if (
-        ((operation1 === "multiply" || operation1 === "*") &&
-          (operation2 === "plus" || operation2 === "+")) ||
-        ((operation1 === "multiply" || operation1 === "*") &&
-          (operation2 === "minus" || operation2 === "-")) ||
-        ((operation1 === "multiply" || operation1 === "*") &&
-          (operation2 === "multiply" || operation2 === "*")) ||
-        ((operation1 === "multiply" || operation1 === "*") &&
-          (operation2 === "divide" || operation2 === "/"))
-      )
-        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-          operation2
-        ](
-          firstResult,
-          c
-        )} \nThanks for using the Simple Command Line Calculator!`
-
-      // handle divide
-      if (
-        ((operation1 === "divide" || operation1 === "/") &&
-          (operation2 === "plus" || operation2 === "+")) ||
-        ((operation1 === "divide" || operation1 === "/") &&
-          (operation2 === "minus" || operation2 === "-")) ||
-        ((operation1 === "divide" || operation1 === "/") &&
-          (operation2 === "multiply" || operation2 === "*")) ||
-        ((operation1 === "divide" || operation1 === "/") &&
-          (operation2 === "divide" || operation2 === "/"))
-      ) {
-        return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-          operation2
-        ](
-          firstResult,
-          c
-        )} \nThanks for using the Simple Command Line Calculator!`
-      }
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation2
+      ](firstResult, c)} \nThanks for using the Simple Command Line Calculator!`
     }
-
-    // handle other scenarios
-    else
-      return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
-    `
   }
+
+  // handle other scenarios
+  else
+    return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
+    `
 }
-// console.log(mathify(3, "power", 3))
-// expect
-// Welcome to the Simple Command Line Calculator!
-// 3 power of 3 = 27
-// Thanks for using the Simple Command Line Calculator!
 
-// console.log(mathify(3, "root"))
-// Welcome to the Simple Command Line Calculator!
-// 3 power of 3 = 27
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify(9, "rot"))
-// expect
-// Error!
-//
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-// The operations must only be:
-// plus(+), minus(-), multiply(*), divide(/), power(^), root
-// and you must enter at least one valid number.
-// Please note that to use * for multiplication
-// you must escape the operation character with a backslash '\',
-// i.e. \*
-
-// console.log(mathify(9, "root", 9))
-// Expect
-// Welcome to the Simple Command Line Calculator!
-//
-// Error!
-// For root, you must only pass 1 number
-
-// console.log(mathify("", 3))
-// // expect
-// Error!
-//
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-
-// console.log(mathify("power", ""))
-// Welcome to the Simple Command Line Calculator!
-
-// Error!
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-
-// console.log(mathify("3", "plus", "4"))
-// Welcome to the Simple Command Line Calculator!
-// 3 plus 4 = 7
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify("3", "+", "4"))
-// Welcome to the Simple Command Line Calculator!
-// 3 + 4 = 7
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify("3", "minus", "4"))
-// Welcome to the Simple Command Line Calculator!
-// 3 minus 4 = -1
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify("60", "-", "35"))
-// Welcome to the Simple Command Line Calculator!
-// 3 - 4 = -1
-// Thanks for using the Simple Command Line Calculator!
-
-console.log(mathify("3", "+", "4", "+", "4"))
-// Welcome to the Simple Command Line Calculator!
-// 3 + 4 + 4 = 12
-// Thanks for using the Simple Command Line Calculator!
-
-console.log(mathify("3", "plus", "4", "plus", "4"))
-// Welcome to the Simple Command Line Calculator!
-// 3 plus 4 plus 4 = 12
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify(2, "power"))
-// Welcome to the Simple Command Line Calculator!
-// Error!
-// For power you must pass 2 valid numbers. 2 power ___?
-
-// console.log(mathify(2, "power", 2))
-// Welcome to the Simple Command Line Calculator!
-// 2 power of 2 = 4
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify(2, "plus", 9))
-// Welcome to the Simple Command Line Calculator!
-// 2 plus 9 = 11
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify(2, "+", 9))
-// Welcome to the Simple Command Line Calculator!
-// 2 + 9 = 11
-// Thanks for using the Simple Command Line Calculator!
-
-// console.log(mathify("plus"))
-// Welcome to the Simple Command Line Calculator!
-
-// Error!
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-
-// console.log(mathify("pls"))
-// Welcome to the Simple Command Line Calculator!
-
-// Error!
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-
-// console.log(mathify("", "", "", "", ""))
-// Welcome to the Simple Command Line Calculator!
-
-// Error!
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-
-// console.log(mathify("", "", ""))
-// Welcome to the Simple Command Line Calculator!
-
-// Error!
-// You can pass up to 3 numbers and 2 operations
-// number operation number operation number
-
-// console.log(mathify(a, operation1, b, operation2, c))
+console.log(mathify("3", "-", "2", "multiply", "2"))
 
 export { mathify }
