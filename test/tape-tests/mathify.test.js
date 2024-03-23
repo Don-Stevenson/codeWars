@@ -393,3 +393,52 @@ test("3 / 2 * 2 = 4.5", t => {
   )
   t.end()
 })
+
+// Error states
+test("Pass empty 5 strings", t => {
+  t.equal(
+    mathify("", "", "", "", ""),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("Pass empty 4 strings", t => {
+  t.equal(
+    mathify("", "", "", ""),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("Pass empty 3 strings", t => {
+  t.equal(
+    mathify("", "", "", ""),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("Pass empty 2 strings", t => {
+  t.equal(
+    mathify("", ""),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("Pass empty 1 strings", t => {
+  t.equal(
+    mathify(""),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("3 power 2 * 2 = 18", t => {
+  t.equal(
+    mathify("3", "power", "2", "*", "3"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations"
+  )
+  t.end()
+})
