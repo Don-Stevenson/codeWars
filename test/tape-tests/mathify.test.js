@@ -490,3 +490,35 @@ test("3 + '' returns error", t => {
   )
   t.end()
 })
+
+test("3 minus '' returns error", t => {
+  t.equal(
+    mathify("3", "minus"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor minus you must pass 2 valid numbers. 3 minus ___?"
+  )
+  t.end()
+})
+
+test("3 - '' returns error", t => {
+  t.equal(
+    mathify("3", "-"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor - you must pass 2 valid numbers. 3 - ___?"
+  )
+  t.end()
+})
+
+test("3 divide '' returns error", t => {
+  t.equal(
+    mathify("3", "divide"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor divide you must pass 2 valid numbers. 3 divide ___?"
+  )
+  t.end()
+})
+
+test("3 / '' returns error", t => {
+  t.equal(
+    mathify("3", "/"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor / you must pass 2 valid numbers. 3 / ___?"
+  )
+  t.end()
+})
