@@ -458,3 +458,35 @@ test("3 root 2 * 2 returns error", t => {
   )
   t.end()
 })
+
+test("3 multiply '' returns error", t => {
+  t.equal(
+    mathify("3", "multiply"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor multiply you must pass 2 valid numbers. 3 multiply ___?"
+  )
+  t.end()
+})
+
+test("3 * '' returns error", t => {
+  t.equal(
+    mathify("3", "*"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor * you must pass 2 valid numbers. 3 * ___?"
+  )
+  t.end()
+})
+
+test("3 plus '' returns error", t => {
+  t.equal(
+    mathify("3", "plus"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor plus you must pass 2 valid numbers. 3 plus ___?"
+  )
+  t.end()
+})
+
+test("3 + '' returns error", t => {
+  t.equal(
+    mathify("3", "+"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor + you must pass 2 valid numbers. 3 + ___?"
+  )
+  t.end()
+})
