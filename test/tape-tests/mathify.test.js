@@ -71,6 +71,32 @@ test("6 / 2 = 3", t => {
   t.end()
 })
 
+// root
+test("4 root = 2", t => {
+  t.equal(
+    mathify("4", "root"),
+    "\nWelcome to the Simple Command Line Calculator!\nThe root of 4 = 2\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+// power of
+test("4 power of 2 = 16", t => {
+  t.equal(
+    mathify("4", "power", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n4 power of 2 = 16\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("4 ^ of 2 = 16", t => {
+  t.equal(
+    mathify("4", "^", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n4 ^ of 2 = 16\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 // addition 3 numbers
 test("3 plus 1 plus 1 = 5 ", t => {
   t.equal(
