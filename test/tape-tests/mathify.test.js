@@ -438,7 +438,7 @@ test("Pass empty 1 strings returns error", t => {
 test("3 power 2 * 2 returns error,", t => {
   t.equal(
     mathify("3", "power", "2", "*", "3"),
-    "\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations"
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 * 3 = 27 \nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })
@@ -446,7 +446,7 @@ test("3 power 2 * 2 returns error,", t => {
 test("3 ^ 2 * 2 returns error", t => {
   t.equal(
     mathify("3", "^", "2", "*", "3"),
-    "\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations"
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 * 3 = 27 \nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })
@@ -454,7 +454,7 @@ test("3 ^ 2 * 2 returns error", t => {
 test("3 root 2 * 2 returns error", t => {
   t.equal(
     mathify("3", "root", "2", "*", "3"),
-    "\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations"
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass root as one of the 2 operations"
   )
   t.end()
 })
