@@ -1,8 +1,6 @@
 // destructure the args into variables from proccess.argv
 // const [a, operation1, b, operation2, c] = process.argv.slice(2)
 
-import { log } from "mathjs"
-
 // object to store the different operations
 // and formula functions
 
@@ -23,6 +21,17 @@ const operationsObj = {
 // a higher order function that calls the
 // above object of operations and passes in operations
 const mathify = (a, operation1, b, operation2, c) => {
+  // check if operation1 and operation2 are valid
+  // if (
+  //   operation1 &&
+  //   !/plus|\+|minus|-|multiply|\*|power|\^|root/.test(operation1)
+  //   //||
+  //   // (operation2 &&
+  //   //   !/plus|\+|minus|-|multiply|\*|power|\^|root/.test(operation2))
+  // ) {
+  //   return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 2 operations \nEach of which must be one of the following: \nplus(+), minus(-), multiply(*), divide(/), power(^) or root`
+  // }
+
   const parseNum = num => {
     if (typeof num === "string") {
       if (num.includes(".")) {
@@ -106,16 +115,45 @@ const mathify = (a, operation1, b, operation2, c) => {
     }
 
     if (
-      operation1 === "root" ||
-      operation1 === "power" ||
-      (operation1 === "^" && operation2) ||
-      operation2 === "root" ||
-      operation2 === "power" ||
-      (operation2 === "^" && operation1)
+      (operation1 === "root" && operation2) ||
+      (operation2 === "root" && operation1)
     )
-      return `\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass power or root as one of the 2 operations`
+      return `\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass root as one of the 2 operations`
 
-    // handle bedmas where operation1 is plus or minus and operation 2 is multiply or divide
+    // handle exponents where power is first
+    if ((operation1 === "power" || operation1 === "^") && operation2) {
+      const firstResult = operationsObj[operation1](a, b)
+
+      console.log(
+        "first first result: ",
+        { a },
+        { b },
+        { c },
+        operationsObj[operation1],
+
+        "first result:",
+        firstResult
+      )
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation2
+      ](c, firstResult)} \nThanks for using the Simple Command Line Calculator!`
+    }
+    // handle exponents where power is 2nd
+    if ((operation2 === "power" || operation2 === "^") && operation1) {
+      const firstResult = operationsObj[operation2](b, c)
+
+      console.log(
+        { a },
+        { b },
+        { c },
+        operationsObj[operation1],
+        "first result:",
+        firstResult
+      )
+      return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+        operation1
+      ](a, firstResult)} \nThanks for using the Simple Command Line Calculator!`
+    }
     if (
       (operation1 == "plus" ||
         operation1 == "+" ||
@@ -126,6 +164,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         operation2 === "multiply" ||
         operation2 === "*")
     ) {
+      // handle bedmas where operation1 is plus or minus and operation 2 is multiply or divide
       const firstResult = operationsObj[operation2](b, c)
 
       console.log(
@@ -227,6 +266,6 @@ const mathify = (a, operation1, b, operation2, c) => {
     `
 }
 
-console.log(mathify("3", "-", "2", "multiply", "2"))
+console.log(mathify("3", "multiply", "2", "powr", "2"))
 
 export { mathify }
