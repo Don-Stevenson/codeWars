@@ -454,7 +454,15 @@ test("3 ^ 2 * 2 returns error", t => {
 test("3 root 2 * 2 returns error", t => {
   t.equal(
     mathify("3", "root", "2", "*", "3"),
-    "\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass root as one of the 2 operations"
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou cannot pass 3 numbers when one operation is root"
+  )
+  t.end()
+})
+
+test("3 root 2 * 2 returns error", t => {
+  t.equal(
+    mathify("3", "root", "2", "multiply"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 multiply 2 = 3.4641016151377544\nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })
