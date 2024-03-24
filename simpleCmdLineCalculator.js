@@ -31,6 +31,7 @@ const mathify = (a, operation1, b, operation2, c) => {
   // ) {
   //   return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 2 operations \nEach of which must be one of the following: \nplus(+), minus(-), multiply(*), divide(/), power(^) or root`
   // }
+  operation2 && !/plus|\+|minus|-|multiply|\*|power|\^|root/.test(operation2)
 
   const parseNum = num => {
     if (typeof num === "string") {
@@ -107,21 +108,42 @@ const mathify = (a, operation1, b, operation2, c) => {
 
   if ((a, b, c, operation1, operation2)) {
     console.log("here in a, b, c, operation1, operation2")
-    if (!c)
-      return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+    // if (!c)
+    //   return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
     if (!c && !operation2) {
       return "\nWelcome to the Simple Command Line Calculator!\nError! here \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
     }
 
+    // handle root scenarios with 2 numbers and 2 operations
     if (
-      (operation1 === "root" && operation2) ||
-      (operation2 === "root" && operation1)
-    )
-      return `\nWelcome to the Simple Command Line Calculator!\nError! \nCannot pass root as one of the 2 operations`
+      a &&
+      b &&
+      !c &&
+      operation1 === "root" &&
+      /plus|\+|minus|-|multiply|\*|divide|\//.test(operation2)
+    ) {
+      const firstResult = operationsObj[operation1](a)
+      return `\nWelcome to the Simple Command Line Calculator!\n${operation1} of ${a} ${operation2} ${b} = ${operationsObj[
+        operation2
+      ](b, firstResult)}\nThanks for using the Simple Command Line Calculator!`
+    }
+
+    if (
+      a &&
+      b &&
+      c &&
+      operation1 === "root" &&
+      /plus|\+|minus|-|multiply|\*|divide|\//.test(operation2)
+    ) {
+      return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou cannot pass 3 numbers when one operation is root`
+    }
 
     // handle exponents where power is first
-    if ((operation1 === "power" || operation1 === "^") && operation2) {
+    if (
+      (operation1 === "power" || operation1 === "^") &&
+      /plus|\+|minus|-|multiply|\*|divide|\//.test(operation2)
+    ) {
       const firstResult = operationsObj[operation1](a, b)
 
       console.log(
@@ -139,7 +161,10 @@ const mathify = (a, operation1, b, operation2, c) => {
       ](c, firstResult)} \nThanks for using the Simple Command Line Calculator!`
     }
     // handle exponents where power is 2nd
-    if ((operation2 === "power" || operation2 === "^") && operation1) {
+    if (
+      (operation2 === "power" || operation2 === "^") &&
+      /plus|\+|minus|-|multiply|\*|divide/.test(operation1)
+    ) {
       const firstResult = operationsObj[operation2](b, c)
 
       console.log(
@@ -185,16 +210,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     console.log("2nd first result", firstResult)
 
     console.log("nfddfd", a, operation1, b, operation2, c)
-    if (
-      operation2 !== "plus" &&
-      operation2 !== "+" &&
-      operation2 !== "minus" &&
-      operation2 !== "-" &&
-      operation2 !== "multiply" &&
-      operation2 !== "*" &&
-      operation2 !== "divide" &&
-      operation2 !== "/"
-    )
+    if (!/plus|\+|minus|-|multiply|\*|divide|\//.test(operation2))
       return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
     // handle root and power scenarios
@@ -266,6 +282,6 @@ const mathify = (a, operation1, b, operation2, c) => {
     `
 }
 
-console.log(mathify("3", "multiply", "2", "powr", "2"))
+console.log(mathify("3", "root", "2", "rot"))
 
 export { mathify }
