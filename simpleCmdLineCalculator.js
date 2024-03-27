@@ -21,18 +21,6 @@ const operationsObj = {
 // a higher order function that calls the
 // above object of operations and passes in operations
 const mathify = (a, operation1, b, operation2, c) => {
-  // check if operation1 and operation2 are valid
-  // if (
-  //   operation1 &&
-  //   !/plus|\+|minus|-|multiply|\*|power|\^|root/.test(operation1)
-  //   //||
-  //   // (operation2 &&
-  //   //   !/plus|\+|minus|-|multiply|\*|power|\^|root/.test(operation2))
-  // ) {
-  //   return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 2 operations \nEach of which must be one of the following: \nplus(+), minus(-), multiply(*), divide(/), power(^) or root`
-  // }
-  operation2 && !/plus|\+|minus|-|multiply|\*|power|\^|root/.test(operation2)
-
   const parseNum = num => {
     if (typeof num === "string") {
       if (num.includes(".")) {
@@ -59,7 +47,6 @@ const mathify = (a, operation1, b, operation2, c) => {
   if (!a)
     return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou must pass at least 1 valid number.\nThe required format is: number operation number`
   if (!c && !operation2) {
-    // console.log("in !c and !operation")
     // check for two numbers present when calling the following operations
     if (
       ((operation1 === "plus" || operation1 === "+") && !b) ||
@@ -108,8 +95,6 @@ const mathify = (a, operation1, b, operation2, c) => {
 
   if ((a, b, c, operation1, operation2)) {
     console.log("here in a, b, c, operation1, operation2")
-    // if (!c)
-    //   return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
     if (!c && !operation2) {
       return "\nWelcome to the Simple Command Line Calculator!\nError! here \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
@@ -146,16 +131,6 @@ const mathify = (a, operation1, b, operation2, c) => {
     ) {
       const firstResult = operationsObj[operation1](a, b)
 
-      console.log(
-        "first first result: ",
-        { a },
-        { b },
-        { c },
-        operationsObj[operation1],
-
-        "first result:",
-        firstResult
-      )
       return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
         operation2
       ](c, firstResult)} \nThanks for using the Simple Command Line Calculator!`
@@ -167,14 +142,6 @@ const mathify = (a, operation1, b, operation2, c) => {
     ) {
       const firstResult = operationsObj[operation2](b, c)
 
-      console.log(
-        { a },
-        { b },
-        { c },
-        operationsObj[operation1],
-        "first result:",
-        firstResult
-      )
       return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
         operation1
       ](a, firstResult)} \nThanks for using the Simple Command Line Calculator!`
@@ -192,24 +159,13 @@ const mathify = (a, operation1, b, operation2, c) => {
       // handle bedmas where operation1 is plus or minus and operation 2 is multiply or divide
       const firstResult = operationsObj[operation2](b, c)
 
-      console.log(
-        "first first result: ",
-        { a },
-        { b },
-        { c },
-        "first result:",
-        firstResult
-      )
-
       return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
         operation1
       ](a, firstResult)} \nThanks for using the Simple Command Line Calculator!`
     }
     // handle bedmas where multiply or divide is not operation 2
     const firstResult = operationsObj[operation1](a, b)
-    console.log("2nd first result", firstResult)
 
-    console.log("nfddfd", a, operation1, b, operation2, c)
     if (!/plus|\+|minus|-|multiply|\*|divide|\//.test(operation2))
       return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
 
