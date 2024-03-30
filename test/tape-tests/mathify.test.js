@@ -229,7 +229,7 @@ test("3 / 1 divide 1 = 1", t => {
   t.end()
 })
 
-// 3 nums multply then divide
+// 3 nums: multply then divide
 
 test("3 multiply 1 divide 1 = 1", t => {
   t.equal(
@@ -279,7 +279,7 @@ test("3 divide 1 * 1 = 1", t => {
   t.end()
 })
 
-test("3 / 1 mulitply 1 = 1", t => {
+test("3 / 1 multiply 1 = 1", t => {
   t.equal(
     mathify("3", "/", "1", "multiply", "1"),
     "\nWelcome to the Simple Command Line Calculator!\n3 / 1 multiply 1 = 3 \nThanks for using the Simple Command Line Calculator!"
@@ -295,7 +295,7 @@ test("3 / 1 * 1 = 1", t => {
   t.end()
 })
 
-// 3 nums add then mulitply
+// 3 nums: add then multiply
 test("3 plus 2 multiply 2 = 7", t => {
   t.equal(
     mathify("3", "plus", "2", "multiply", "2"),
@@ -328,7 +328,7 @@ test("3 + 2 * 2 = 7", t => {
   t.end()
 })
 
-// 3 nums subtract then mulitply
+// 3 nums: subtract then multiply
 test("3 - 2 multiply 2 = -1", t => {
   t.equal(
     mathify("3", "-", "2", "multiply", "2"),
@@ -361,7 +361,7 @@ test("3 - 2 * 2 = -1", t => {
   t.end()
 })
 
-// 3 nums divide then mulitply
+// 3 nums: divide then multiply
 test("3 divide 2 multiply 3 = 4.5", t => {
   t.equal(
     mathify("3", "divide", "2", "multiply", "3"),
@@ -390,6 +390,40 @@ test("3 / 2 * 2 = 4.5", t => {
   t.equal(
     mathify("3", "/", "2", "*", "3"),
     "\nWelcome to the Simple Command Line Calculator!\n3 / 2 * 3 = 4.5 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+// 2 nums: root then multiply
+test("3 root 2 multiply", t => {
+  t.equal(
+    mathify("3", "root", "2", "multiply"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 multiply 2 = 3.4641016151377544\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 *", t => {
+  t.equal(
+    mathify("3", "root", "2", "*"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 * 2 = 3.4641016151377544\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+// 2 nums: power of then multiply
+test("3 power 2 multiply 2", t => {
+  t.equal(
+    mathify("3", "power", "2", "multiply", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 multiply 2 = 18 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 ^ 2 * 2", t => {
+  t.equal(
+    mathify("3", "^", "2", "*", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 * 2 = 18 \nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })
@@ -455,14 +489,6 @@ test("3 root 2 * 2 returns error", t => {
   t.equal(
     mathify("3", "root", "2", "*", "3"),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou cannot pass 3 numbers when one operation is root"
-  )
-  t.end()
-})
-
-test("3 root 2 * 2 returns error", t => {
-  t.equal(
-    mathify("3", "root", "2", "multiply"),
-    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 multiply 2 = 3.4641016151377544\nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })
