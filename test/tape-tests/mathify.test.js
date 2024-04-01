@@ -394,6 +394,39 @@ test("3 - 2 * 2 = -1", t => {
   t.end()
 })
 
+// 3 nums: subtract then divide
+test("3 - 2 divide 2 = 2", t => {
+  t.equal(
+    mathify("3", "-", "2", "divide", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 - 2 divide 2 = 2 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 - 2 divide 2 = 2", t => {
+  t.equal(
+    mathify("3", "-", "2", "divide", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 - 2 divide 2 = 2 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 minus 2 / 2 = 2", t => {
+  t.equal(
+    mathify("3", "minus", "2", "/", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 minus 2 / 2 = 2 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 - 2 / 2 = 2", t => {
+  t.equal(
+    mathify("3", "-", "2", "/", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 - 2 / 2 = 2 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 // 3 nums: divide then multiply
 test("3 divide 2 multiply 3 = 4.5", t => {
   t.equal(
