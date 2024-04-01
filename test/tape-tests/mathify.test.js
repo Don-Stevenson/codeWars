@@ -328,6 +328,39 @@ test("3 + 2 * 2 = 7", t => {
   t.end()
 })
 
+// 3 nums: add then divide
+test("3 plus 2 divide 2 = 4", t => {
+  t.equal(
+    mathify("3", "plus", "2", "divide", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 plus 2 divide 2 = 4 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 + 2 divide 2 = 4", t => {
+  t.equal(
+    mathify("3", "+", "2", "divide", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 + 2 divide 2 = 4 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 plus 2 / 2 = 4", t => {
+  t.equal(
+    mathify("3", "plus", "2", "/", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 plus 2 / 2 = 4 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 + 2 / 2 = 4", t => {
+  t.equal(
+    mathify("3", "+", "2", "/", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 + 2 / 2 = 4 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 // 3 nums: subtract then multiply
 test("3 - 2 multiply 2 = -1", t => {
   t.equal(
@@ -459,7 +492,7 @@ test("3 root 2 +", t => {
   t.end()
 })
 
-// 2 nums: power of then multiply
+// 2 nums: power of then ...
 test("3 power 2 multiply 2", t => {
   t.equal(
     mathify("3", "power", "2", "multiply", "2"),
@@ -472,6 +505,54 @@ test("3 ^ 2 * 2", t => {
   t.equal(
     mathify("3", "^", "2", "*", "2"),
     "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 * 2 = 18 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 power 2 plus 2", t => {
+  t.equal(
+    mathify("3", "power", "2", "plus", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 plus 2 = 11 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 ^ 2 + 2", t => {
+  t.equal(
+    mathify("3", "^", "2", "+", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 + 2 = 11 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 power 2 minus 2", t => {
+  t.equal(
+    mathify("3", "power", "2", "minus", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 minus 2 = 7 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 ^ 2 - 2", t => {
+  t.equal(
+    mathify("3", "^", "2", "-", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 - 2 = 7 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 power 2 divide 2", t => {
+  t.equal(
+    mathify("3", "power", "2", "divide", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 divide 2 = 4.5 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 ^ 2 / 2", t => {
+  t.equal(
+    mathify("3", "^", "2", "/", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 / 2 = 4.5 \nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })

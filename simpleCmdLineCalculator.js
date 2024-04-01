@@ -133,7 +133,7 @@ const mathify = (a, operation1, b, operation2, c) => {
 
       return `\nWelcome to the Simple Command Line Calculator!\n${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
         operation2
-      ](c, firstResult)} \nThanks for using the Simple Command Line Calculator!`
+      ](firstResult, c)} \nThanks for using the Simple Command Line Calculator!`
     }
     // handle exponents where power is 2nd
     if (
