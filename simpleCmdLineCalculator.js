@@ -97,7 +97,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     console.log("here in a, b, c, operation1, operation2")
 
     if (!c && !operation2) {
-      return "\nWelcome to the Simple Command Line Calculator!\nError! here \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+      return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
     }
 
     // handle root scenarios with 2 numbers and 2 operations
@@ -111,7 +111,7 @@ const mathify = (a, operation1, b, operation2, c) => {
       const firstResult = operationsObj[operation1](a)
       return `\nWelcome to the Simple Command Line Calculator!\n${operation1} of ${a} ${operation2} ${b} = ${operationsObj[
         operation2
-      ](b, firstResult)}\nThanks for using the Simple Command Line Calculator!`
+      ](firstResult, b)}\nThanks for using the Simple Command Line Calculator!`
     }
 
     if (
@@ -238,6 +238,6 @@ const mathify = (a, operation1, b, operation2, c) => {
     `
 }
 
-console.log(mathify("3", "root", "2", "rot"))
+console.log(mathify("3", "root", "2", "minus"))
 
 export { mathify }

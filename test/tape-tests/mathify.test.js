@@ -394,7 +394,7 @@ test("3 / 2 * 2 = 4.5", t => {
   t.end()
 })
 
-// 2 nums: root then multiply
+// 2 nums: root then ...
 test("3 root 2 multiply", t => {
   t.equal(
     mathify("3", "root", "2", "multiply"),
@@ -407,6 +407,54 @@ test("3 root 2 *", t => {
   t.equal(
     mathify("3", "root", "2", "*"),
     "\nWelcome to the Simple Command Line Calculator!\nroot of 3 * 2 = 3.4641016151377544\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 plus", t => {
+  t.equal(
+    mathify("3", "root", "2", "plus"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 plus 2 = 3.732050807568877\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 minus", t => {
+  t.equal(
+    mathify("3", "root", "2", "minus"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 minus 2 = -0.2679491924311228\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 -", t => {
+  t.equal(
+    mathify("3", "root", "2", "-"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 - 2 = -0.2679491924311228\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 divide", t => {
+  t.equal(
+    mathify("3", "root", "2", "divide"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 divide 2 = 0.8660254037844386\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 /", t => {
+  t.equal(
+    mathify("3", "root", "2", "/"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 / 2 = 0.8660254037844386\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 root 2 +", t => {
+  t.equal(
+    mathify("3", "root", "2", "+"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 3 + 2 = 3.732050807568877\nThanks for using the Simple Command Line Calculator!"
   )
   t.end()
 })
