@@ -1,1 +1,1 @@
-"This is the test file now"
+"This is the test file"
