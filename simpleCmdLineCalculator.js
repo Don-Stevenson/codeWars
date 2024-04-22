@@ -97,7 +97,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     console.log("here in a, b, c, operation1, operation2")
 
     if (!c && !operation2) {
-      return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+      return `\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*`
     }
 
     // handle root scenarios with 2 numbers and 2 operations
@@ -146,6 +146,7 @@ const mathify = (a, operation1, b, operation2, c) => {
         operation1
       ](a, firstResult)} \nThanks for using the Simple Command Line Calculator!`
     }
+
     if (
       (operation1 == "plus" ||
         operation1 == "+" ||
@@ -167,7 +168,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     const firstResult = operationsObj[operation1](a, b)
 
     if (!/plus|\+|minus|-|multiply|\*|divide|\//.test(operation2))
-      return "\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*"
+      return `"\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*`
 
     // handle root and power scenarios
     // handle addition
@@ -237,7 +238,5 @@ const mathify = (a, operation1, b, operation2, c) => {
     return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
     `
 }
-
-console.log(mathify("3", "root", "2", "minus"))
 
 export { mathify }
