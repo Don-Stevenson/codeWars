@@ -80,6 +80,14 @@ test("4 root = 2", t => {
   t.end()
 })
 
+test("17 root = 4.123105625617661", t => {
+  t.equal(
+    mathify("17", "root"),
+    "\nWelcome to the Simple Command Line Calculator!\nThe root of 17 = 4.123105625617661\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 // power of
 test("4 power of 2 = 16", t => {
   t.equal(
