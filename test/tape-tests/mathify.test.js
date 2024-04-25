@@ -121,6 +121,22 @@ test("8.75 ^ of 5 = 16", t => {
   t.end()
 })
 
+test("-8 ^ of 5 = 16", t => {
+  t.equal(
+    mathify("-8", "^", "5"),
+    "\nWelcome to the Simple Command Line Calculator!\n-8 ^ of 5 = -32768\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("8 ^ of -5 = 16", t => {
+  t.equal(
+    mathify("8", "^", "-5"),
+    "\nWelcome to the Simple Command Line Calculator!\n8 ^ of -5 = 0.000030517578125\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 // addition 3 numbers
 test("3 plus 1 plus 1 = 5 ", t => {
   t.equal(
