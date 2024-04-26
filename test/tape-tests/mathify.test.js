@@ -582,6 +582,22 @@ test("3 ^ 2 * 2", t => {
   t.end()
 })
 
+test("3 power 2 * 2 = 27", t => {
+  t.equal(
+    mathify("3", "power", "2", "*", "3"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 * 3 = 27 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 ^ 2 * 2 = 27", t => {
+  t.equal(
+    mathify("3", "^", "2", "*", "3"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 * 3 = 27 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 test("3 power 2 plus 2", t => {
   t.equal(
     mathify("3", "power", "2", "plus", "2"),
@@ -671,26 +687,18 @@ test("Pass empty 1 strings returns error", t => {
   t.end()
 })
 
-test("3 power 2 * 2 returns error,", t => {
-  t.equal(
-    mathify("3", "power", "2", "*", "3"),
-    "\nWelcome to the Simple Command Line Calculator!\n3 power 2 * 3 = 27 \nThanks for using the Simple Command Line Calculator!"
-  )
-  t.end()
-})
-
-test("3 ^ 2 * 2 returns error", t => {
-  t.equal(
-    mathify("3", "^", "2", "*", "3"),
-    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 2 * 3 = 27 \nThanks for using the Simple Command Line Calculator!"
-  )
-  t.end()
-})
-
 test("3 root 2 * 2 returns error", t => {
   t.equal(
     mathify("3", "root", "2", "*", "3"),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou cannot pass 3 numbers when one operation is root"
+  )
+  t.end()
+})
+
+test("-85 root = 9.219544457292887", t => {
+  t.equal(
+    mathify("-85", "root"),
+    "\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number"
   )
   t.end()
 })

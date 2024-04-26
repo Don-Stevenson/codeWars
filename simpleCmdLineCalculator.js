@@ -61,6 +61,9 @@ const mathify = (a, operation1, b, operation2, c) => {
     if (operation1 === "root" && b)
       return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must only pass 1 number`
 
+    if (operation1 === "root" && parseInt(a) < 0)
+      return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number`
+
     if (operation1 === "root")
       return `\nWelcome to the Simple Command Line Calculator!\nThe ${operation1} of ${a} = ${operationsObj[
         operation1
