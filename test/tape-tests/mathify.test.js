@@ -565,6 +565,14 @@ test("3 root 2 +", t => {
   t.end()
 })
 
+test("-3 root 2 +", t => {
+  t.equal(
+    mathify("-3", "root", "2", "+"),
+    "\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number"
+  )
+  t.end()
+})
+
 // 2 nums: power of then ...
 test("3 power 2 multiply 2", t => {
   t.equal(
@@ -695,7 +703,7 @@ test("3 root 2 * 2 returns error", t => {
   t.end()
 })
 
-test("-85 root = 9.219544457292887", t => {
+test("-85 root = Error!", t => {
   t.equal(
     mathify("-85", "root"),
     "\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number"

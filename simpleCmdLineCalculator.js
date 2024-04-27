@@ -61,7 +61,10 @@ const mathify = (a, operation1, b, operation2, c) => {
     if (operation1 === "root" && b)
       return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must only pass 1 number`
 
-    if (operation1 === "root" && parseInt(a) < 0)
+    if (
+      (operation1 === "root" || operation2 === "root") &&
+      (parseInt(a) < 0 || parseInt(b) < 0)
+    )
       return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number`
 
     if (operation1 === "root")
@@ -102,6 +105,12 @@ const mathify = (a, operation1, b, operation2, c) => {
     if (!c && !operation2) {
       return `\nWelcome to the Simple Command Line Calculator!\nError! \nInvalid third number or a invalid second operation.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*`
     }
+
+    if (
+      (operation1 === "root" || operation2 === "root") &&
+      (parseInt(a) < 0 || parseInt(b) < 0)
+    )
+      return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number`
 
     // handle root scenarios with 2 numbers and 2 operations
     if (
@@ -241,5 +250,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
     `
 }
+
+console.log(mathify("1", "root", "-2", "root"))
 
 export { mathify }
