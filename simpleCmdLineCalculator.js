@@ -61,10 +61,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     if (operation1 === "root" && b)
       return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must only pass 1 number`
 
-    if (
-      (operation1 === "root" || operation2 === "root") &&
-      (parseInt(a) < 0 || parseInt(b) < 0)
-    )
+    if (operation1 === "root" && parseInt(a) < 0)
       return `\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number`
 
     if (operation1 === "root")
@@ -251,6 +248,6 @@ const mathify = (a, operation1, b, operation2, c) => {
     `
 }
 
-console.log(mathify("1", "root", "-2", "root"))
+console.log(mathify("-1", "root"))
 
 export { mathify }
