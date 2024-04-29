@@ -32,7 +32,7 @@ const mathify = (a, operation1, b, operation2, c) => {
   b = parseNum(b)
   c = parseNum(c)
 
-  console.log({ a }, { operation1 }, { b }, { operation2 }, { c })
+  // console.log({ a }, { operation1 }, { b }, { operation2 }, { c })
 
   if (!a && !b && !c)
     return `\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number`
@@ -247,7 +247,5 @@ const mathify = (a, operation1, b, operation2, c) => {
     return `\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number\nThe operations must only be:\nplus(+), minus(-), multiply(*), divide(/), power(^), root \nand you must enter at least one valid number.\nPlease note that to use * for multiplication\nyou must escape the operation character with a backslash '\\',\ni.e. \\*
     `
 }
-
-console.log(mathify("-1", "root"))
 
 export { mathify }
