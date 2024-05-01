@@ -727,6 +727,22 @@ test("21 plus -85 root = Error!", t => {
   t.end()
 })
 
+test("21 minus -85 root = Error!", t => {
+  t.equal(
+    mathify("21", "minus", "-85", "root"),
+    "\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number"
+  )
+  t.end()
+})
+
+test("21 - -85 root = Error!", t => {
+  t.equal(
+    mathify("21", "minus", "-85", "root"),
+    "\nWelcome to the Simple Command Line Calculator!\nError!\nFor root, you must not pass a negative number"
+  )
+  t.end()
+})
+
 test("3 multiply '' returns error", t => {
   t.equal(
     mathify("3", "multiply"),
