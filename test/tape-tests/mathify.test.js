@@ -646,6 +646,22 @@ test("3 ^ 2 / 2", t => {
   t.end()
 })
 
+test("12 power 5 divide 4", t => {
+  t.equal(
+    mathify("12", "power", "5", "divide", "4"),
+    "\nWelcome to the Simple Command Line Calculator!\n12 power 5 divide 4 = 62208 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("12 ^ 5 / 4", t => {
+  t.equal(
+    mathify("12", "^", "5", "/", "4"),
+    "\nWelcome to the Simple Command Line Calculator!\n12 ^ 5 / 4 = 62208 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 // Error states
 test("Pass empty 5 strings returns error", t => {
   t.equal(
