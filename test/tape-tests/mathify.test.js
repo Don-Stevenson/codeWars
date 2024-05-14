@@ -822,3 +822,19 @@ test("3 / '' returns error", t => {
   )
   t.end()
 })
+
+test("Passing in nothing returns error", t => {
+  t.equal(
+    mathify(),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("Passing in + returns error", t => {
+  t.equal(
+    mathify("+"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
