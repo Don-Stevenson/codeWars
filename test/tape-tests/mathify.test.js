@@ -630,6 +630,22 @@ test("3 ^ 2 - 2", t => {
   t.end()
 })
 
+test("3 power 12 minus 2", t => {
+  t.equal(
+    mathify("3", "power", "12", "minus", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 power 12 minus 2 = 531439 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
+test("3 ^ 12 - 2", t => {
+  t.equal(
+    mathify("3", "^", "12", "-", "2"),
+    "\nWelcome to the Simple Command Line Calculator!\n3 ^ 12 - 2 = 531439 \nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 test("3 power 2 divide 2", t => {
   t.equal(
     mathify("3", "power", "2", "divide", "2"),
