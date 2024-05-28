@@ -565,6 +565,14 @@ test("3 root 2 /", t => {
   t.end()
 })
 
+test("9 root 2 /", t => {
+  t.equal(
+    mathify("9", "root", "2", "/"),
+    "\nWelcome to the Simple Command Line Calculator!\nroot of 9 / 2 = 1.5\nThanks for using the Simple Command Line Calculator!"
+  )
+  t.end()
+})
+
 test("3 root 2 +", t => {
   t.equal(
     mathify("3", "root", "2", "+"),
