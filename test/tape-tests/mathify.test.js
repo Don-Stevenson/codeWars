@@ -751,6 +751,14 @@ test("Pass empty 1 strings returns error", t => {
   t.end()
 })
 
+test("Pass NaN returns error", t => {
+  t.equal(
+    mathify(NaN, "*", NaN),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
 test("3 root 2 * 2 returns error", t => {
   t.equal(
     mathify("3", "root", "2", "*", "3"),
