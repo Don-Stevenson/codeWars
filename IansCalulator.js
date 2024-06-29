@@ -1,13 +1,14 @@
-const num1 = process.argv[2]
-const operator = process.argv[3]
-const num2 = process.argv[4]
+function iansCalculator(num1, operator, num2) {
+  let answerInsideFunction
+  if (operator === "+") {
+    answerInsideFunction = parseInt(num1) + parseInt(num2)
+  } else if (operator === "-") {
+    answerInsideFunction = parseInt(num1) - parseInt(num2)
+  } else if (operator === "*") {
+    answerInsideFunction = parseInt(num1) * parseInt(num2)
+  } else if (operator === "/") {
+    answerInsideFunction = parseInt(num1) / parseInt(num2)
+  } else answerInsideFunction = "that don't work fool"
 
-if (operator === "+") {
-  console.log(parseInt(num1) + parseInt(num2))
-} else if (operator === "-") {
-  console.log(parseInt(num1) - parseInt(num2))
-} else if (operator === "*") {
-  console.log(parseInt(num1) * parseInt(num2))
-} else if (operator === "/") {
-  console.log(parseInt(num1) / parseInt(num2))
-} else console.log("\x1b[41m that don't work fool")
+  return (document.getElementById("answer").innerHTML = answerInsideFunction)
+}
