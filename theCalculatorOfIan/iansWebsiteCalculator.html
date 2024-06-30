@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="IansCalulator.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .button {
+        padding: 15px 25px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #04aa6d;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      }
+
+      .button:hover {
+        background-color: #3e8e41;
+      }
+
+      .button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translate(10px, 10px);
+      }
+      .answer {
+        text-align: center;
+        color: salmon;
+        font-weight: 500;
+        width: 400px;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+      .placeholder {
+        text-align: center;
+        font-size: 16px;
+        color: rgb(35, 131, 65);
+        background-color: rgb(251, 251, 245);
+        font-weight: 500;
+        opacity: 1;
+        width: 400px;
+        border-radius: 10px;
+        height: 25px;
+      }
+      .container {
+        align-items: flex-start;
+        height: 1280px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 15px;
+        height: 25px;
+      }
+      ::placeholder {
+        color: rgb(35, 131, 65);
+      }
+    </style>
+    <title>Ian&apos;s calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center; color: #04aa6d">
+        The Calculator of Ian!!
+      </h1>
+      <h2
+        style="color: #04aa6d; width: 10rem; text-align: center; width: 400px"
+      >
+        You can use this calculator to add, subtract, multiply, and divide
+        numbers.
+      </h2>
+      <h4
+        style="color: #04aa6d; width: 10rem; text-align: center; width: 400px"
+      >
+        choose one of the buttons below to get the answer... if you are lucky!
+      </h4>
+      <form
+        style="
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          width: 400px;
+          gap: 13px;
+        "
+      >
+        <input
+          type="number"
+          id="num1"
+          name="num1"
+          placeholder="Enter first number"
+          class="placeholder"
+        />
+        <input
+          type="text"
+          id="operator"
+          name="operator"
+          placeholder="Enter the operator"
+          class="placeholder"
+        />
+        <input
+          type="number"
+          id="num2"
+          name="num2"
+          placeholder="Enter 2nd number"
+          class="placeholder"
+        />
+      </form>
+      <div id="answer" class="answer"></div>
+      <div style="display: flex; gap: 20px; flex-flow: column">
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+        </div>
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+        </div>
+        <div
+          style="
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div id="answer1" class="answer"></div>
+        </div>
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+        </div>
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+        </div>
+        <div
+          style="
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div id="answer1" class="answer"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
