@@ -7,7 +7,7 @@
     <style>
       .button {
         padding: 15px 25px;
-        font-size: 24px;
+        font-size: 16px;
         text-align: center;
         cursor: pointer;
         outline: none;
@@ -33,46 +33,50 @@
         font-weight: 500;
         width: 400px;
         border-radius: 10px;
-        height: 25px;
-        font-size: larger;
+        font-size: 16px;
       }
       .placeholder {
         text-align: center;
-        color: rgb(6, 86, 31);
+        font-size: 16px;
+        color: rgb(35, 131, 65);
+        background-color: rgb(251, 251, 245);
         font-weight: 500;
         opacity: 1;
         width: 400px;
         border-radius: 10px;
         height: 25px;
       }
-    </style>
-    <title>Ian&apos;s calculator</title>
-  </head>
-  <body>
-    <div
-      style="
+      .container {
+        align-items: flex-start;
         height: 1280px;
-        background-color: beige;
         display: flex;
         flex-flow: column;
         align-items: center;
         gap: 15px;
-      "
-    >
-      <h1 style="text-align: center; color: rgb(27, 242, 242)">
-        Welcome to Ian's calculator
+        height: 25px;
+      }
+      ::placeholder {
+        color: rgb(35, 131, 65);
+      }
+    </style>
+    <title>Ian&apos;s calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center; color: #04aa6d">
+        Welcome to Ian&apos;s calculator!!
       </h1>
       <h2
-        style="
-          color: rgb(27, 242, 242);
-          width: 10rem;
-          text-align: center;
-          width: 400px;
-        "
+        style="color: #04aa6d; width: 10rem; text-align: center; width: 400px"
       >
         You can use this calculator to add, subtract, multiply, and divide
         numbers.
       </h2>
+      <h4
+        style="color: #04aa6d; width: 10rem; text-align: center; width: 400px"
+      >
+        choose one of the buttons below to get the answer... if you are lucky!
+      </h4>
       <form
         style="
           display: flex;
@@ -90,165 +94,112 @@
           class="placeholder"
         />
         <input
-          type="number"
-          id="num2"
-          name="num2"
-          placeholder="Enter 2nd number"
-          class="placeholder"
-        />
-
-        <input
           type="text"
           id="operator"
           name="operator"
           placeholder="Enter the operator"
           class="placeholder"
         />
+        <input
+          type="number"
+          id="num2"
+          name="num2"
+          placeholder="Enter 2nd number"
+          class="placeholder"
+        />
       </form>
-      <div style="display: flex; gap: 10px; flex-flow: column">
-        <div id="answer" class="answer"></div>
-        <button
-          class="button"
-          style="color: salmon; background-color: brown"
-          onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
-        >
-          click me
-        </button>
+      <div id="answer" class="answer"></div>
+      <div style="display: flex; gap: 20px; flex-flow: column">
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
 
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
+          <button
+            class="button"
+            onclick="{
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{  
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{  
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+        </div>
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
 
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
-        <button class="button" onclick="{}">click me</button>
+          <button
+            class="button"
+            onclick="{
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{  
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{  
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+        </div>
+        <div style="display: flex; gap: 5px">
+          <button
+            class="button"
+            onclick="{document.getElementById('answer').innerHTML = iansCalculator(document.getElementById('num1').value, document.getElementById('operator').value, document.getElementById('num2').value)}"
+          >
+            click here for the answer
+          </button>
+
+          <button
+            class="button"
+            onclick="{
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{  
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+          <button
+            class="button"
+            onclick="{  
+            document.getElementById('answer').innerHTML = randomNopeGenerator()}"
+          >
+            click here for the answer
+          </button>
+        </div>
       </div>
     </div>
   </body>
