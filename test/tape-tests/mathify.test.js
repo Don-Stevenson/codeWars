@@ -751,7 +751,7 @@ test("Passing one empty 1 string returns error", t => {
   t.end()
 })
 
-test("Passing an * Nan NaN Nan NaN returns error", t => {
+test("Passing * Nan NaN Nan NaN returns error", t => {
   t.equal(
     mathify("*", NaN, NaN, NaN, NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
@@ -759,7 +759,7 @@ test("Passing an * Nan NaN Nan NaN returns error", t => {
   t.end()
 })
 
-test("Passing an * * NaN Nan NaN returns error", t => {
+test("Passing * * NaN Nan NaN returns error", t => {
   t.equal(
     mathify("*", "*", NaN, NaN, NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
@@ -767,7 +767,7 @@ test("Passing an * * NaN Nan NaN returns error", t => {
   t.end()
 })
 
-test("Passing an * * * Nan NaN returns error", t => {
+test("Passing * * * Nan NaN returns error", t => {
   t.equal(
     mathify("*", "*", "*", NaN, NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
@@ -775,7 +775,7 @@ test("Passing an * * * Nan NaN returns error", t => {
   t.end()
 })
 
-test("Passing an * * * * NaN returns error", t => {
+test("Passing * * * * NaN returns error", t => {
   t.equal(
     mathify("*", "*", "*", "*", NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
@@ -783,7 +783,15 @@ test("Passing an * * * * NaN returns error", t => {
   t.end()
 })
 
-test("Passing an NaN * Nan returns error", t => {
+test("Passing * * * * * returns error", t => {
+  t.equal(
+    mathify("*", "*", "*", "*", "*"),
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("Passing NaN * Nan returns error", t => {
   t.equal(
     mathify(NaN, "*", NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
@@ -791,7 +799,7 @@ test("Passing an NaN * Nan returns error", t => {
   t.end()
 })
 
-test("Passing an NaN * Nan * NaN returns error", t => {
+test("Passing NaN * Nan * NaN returns error", t => {
   t.equal(
     mathify(NaN, "*", NaN, "*", NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
@@ -799,7 +807,7 @@ test("Passing an NaN * Nan * NaN returns error", t => {
   t.end()
 })
 
-test("Passing an NaN NaN Nan NaN NaN returns error", t => {
+test("Passing NaN NaN Nan NaN NaN returns error", t => {
   t.equal(
     mathify(NaN, NaN, NaN, NaN, NaN),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
