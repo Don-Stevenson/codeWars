@@ -1,7 +1,7 @@
 import test from "tape"
 
 // Run: npm test
-import { mathify } from "../../simpleCmdLineCalculator.js"
+import { mathify } from "../../Mathify.js"
 
 // addition 2 numbers
 test("3 plus 1 = 4", t => {
@@ -955,6 +955,15 @@ test("Passing in + returns error", t => {
   t.equal(
     mathify("+"),
     "\nWelcome to the Simple Command Line Calculator!\nError! \nYou can pass up to 3 numbers and 2 operations \nnumber operation number operation number"
+  )
+  t.end()
+})
+
+test("should return an error message for division by zero", t => {
+  const result = mathify(10, "/", "\0")
+  t.equal(
+    result,
+    "\nWelcome to the Simple Command Line Calculator!\nError! \nFor / you must pass 2 valid numbers. 10 / ___?"
   )
   t.end()
 })
