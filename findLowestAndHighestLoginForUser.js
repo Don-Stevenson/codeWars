@@ -1,5 +1,5 @@
 const log1 = [
-  ["1213", "user_1", "1260"],
+  ["1213", "user_1", "1160"],
   ["0010", "user_2", "0325"],
   ["0213", "user_3", "0650"],
   ["0010", "user_2", "0060"],
@@ -9,7 +9,7 @@ const log1 = [
   ["0050", "user_2", "0090"],
 ]
 
-const findUserLoginTimes = logArr => {
+const findUserLowestLoginAndHighestLogoutTimes = logArr => {
   const userTimes = {}
 
   logArr.forEach(([loginTime, user, logoutTime]) => {
@@ -19,10 +19,13 @@ const findUserLoginTimes = logArr => {
     if (!userTimes[user]) {
       userTimes[user] = [login, logout]
     } else {
-      if (login < userTimes[user].earliestTime) {
+      const currentUserLowestLogin = userTimes[user][0]
+      const currentUserHighestLogut = userTimes[user][1]
+
+      if (login < currentUserLowestLogin) {
         userTimes[user][0] = login
       }
-      if (logout > userTimes[user].latestTime) {
+      if (logout > currentUserHighestLogut) {
         userTimes[user][1] = logout
       }
     }
@@ -30,4 +33,4 @@ const findUserLoginTimes = logArr => {
   return userTimes
 }
 
-console.log(findUserLoginTimes(log1))
+console.log(findUserLowestLoginAndHighestLogoutTimes(log1))
