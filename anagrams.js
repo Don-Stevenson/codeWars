@@ -23,6 +23,17 @@
 
 // }
 
+// Exercism solution
+export const findAnagrams = (word, potentialAnagrams) => {
+  const wordSorter = wordToBeSorted =>
+    wordToBeSorted.toLowerCase().split("").sort().join("")
+
+  return potentialAnagrams.filter(element => {
+    if (element.toLowerCase() === word.toLowerCase()) return false
+    else return wordSorter(element) === wordSorter(word)
+  })
+}
+
 const wordSorter = word => word.split("").sort().join("")
 // with Sorting function
 const anagrams = (word, inputWords) =>
