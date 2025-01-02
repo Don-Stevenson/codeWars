@@ -11,9 +11,9 @@ function calculate(a, b, op) {
     case "*":
       return a * b
     case "/":
-      return b !== 0 ? a / b : "Error (division by zero)"
+      return b !== 0 ? a / b : "Error! division by zero"
     default:
-      return "Invalid operator"
+      return "Error! Invalid operator "
   }
 }
 
