@@ -28,7 +28,6 @@ function listPosition(word) {
   function permutations(remainingCounts) {
     let total = 0
     let denom = 1
-    let sum = 0
     for (let char in remainingCounts) {
       total += remainingCounts[char]
       denom *= factorial(remainingCounts[char])
