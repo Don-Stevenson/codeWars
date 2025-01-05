@@ -2,8 +2,6 @@ const firstNumber = parseInt(process.argv[2], 10)
 const operator = process.argv[3]
 const secondNumber = parseInt(process.argv[4], 10)
 
-console.log({ operator })
-
 function calculate(a, b, op) {
   switch (op) {
     case "+":
@@ -25,7 +23,10 @@ const answer = calculate(firstNumber, secondNumber, operator)
 
 const displayAnswer = answer => {
   if (typeof answer === "string") {
-    console.log("Error please try again")
+    console.log(`
+      Welcome to Lily and Ellis's Calculator!
+
+      ${answer}`)
   } else
     console.log(`
     Welcome to Lily and Ellis's Calculator!
