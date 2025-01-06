@@ -26,7 +26,7 @@ const displayAnswer = answer => {
     `)
 
   if (typeof answer === "string") {
-    console.log(`${answer}`)
+    console.log(answer)
   } else
     console.log(`The answer to ${firstNumber} ${operator} ${secondNumber} = ${answer}
     `)
