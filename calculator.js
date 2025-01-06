@@ -22,16 +22,13 @@ function calculate(a, b, op) {
 const answer = calculate(firstNumber, secondNumber, operator)
 
 const displayAnswer = answer => {
-  if (typeof answer === "string") {
-    console.log(`
-      Welcome to Lily and Ellis's Calculator!
+  console.log(`Welcome to Lily and Ellis's Calculator!
+    `)
 
-      ${answer}`)
+  if (typeof answer === "string") {
+    console.log(`${answer}`)
   } else
-    console.log(`
-    Welcome to Lily and Ellis's Calculator!
-    
-    The answer to ${firstNumber} ${operator} ${secondNumber} = ${answer}
+    console.log(`The answer to ${firstNumber} ${operator} ${secondNumber} = ${answer}
     `)
 }
 displayAnswer(answer)
