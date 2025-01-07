@@ -21,7 +21,7 @@ function calculate(a, b, op) {
 
 const answer = calculate(firstNumber, secondNumber, operator)
 
-const displayAnswer = answer => {
+const displayFormattedAnswer = answer => {
   console.log(`Welcome to Lily and Ellis's Calculator!
     `)
 
@@ -31,4 +31,4 @@ const displayAnswer = answer => {
     console.log(`The answer to ${firstNumber} ${operator} ${secondNumber} = ${answer}
     `)
 }
-displayAnswer(answer)
+displayFormattedAnswer(answer)
