@@ -1,34 +1,60 @@
-const firstNumber = parseInt(process.argv[2], 10)
-const operator = process.argv[3]
-const secondNumber = parseInt(process.argv[4], 10)
+const OPERATORS = {
+  "+": (a, b) => a + b,
+  "-": (a, b) => a - b,
+  "*": (a, b) => a * b,
+  "/": (a, b) => (b !== 0 ? a / b : null),
+}
 
-function calculate(a, b, op) {
-  switch (op) {
-    case "+":
-      return a + b
-    case "-":
-      return a - b
-    case "*":
-      return a * b
-    case "/":
-      return b !== 0 ? a / b : "Error! division by zero"
-    case "3xplus1.js":
-      return `Error: please use \\ to escape the * sign`
-    default:
-      return "Error! Invalid operator "
+const APP_NAME = "Lily and Ellis's Calculator"
+
+const parseArguments = () => {
+  const [firstNumber, operator, secondNumber] = process.argv.slice(2)
+
+  return {
+    firstNumber: parseInt(firstNumber, 10),
+    operator,
+    secondNumber: parseInt(secondNumber, 10),
   }
 }
 
-const answer = calculate(firstNumber, secondNumber, operator)
+const validateInput = (firstNumber, operator, secondNumber) => {
+  if (isNaN(firstNumber) || isNaN(secondNumber)) {
+    throw new Error("Please provide valid numbers")
+  }
 
-const displayFormattedAnswer = answer => {
-  console.log(`Welcome to Lily and Ellis's Calculator!
-    `)
-
-  if (typeof answer === "string") {
-    console.log(answer)
-  } else
-    console.log(`The answer to ${firstNumber} ${operator} ${secondNumber} = ${answer}
-    `)
+  if (!OPERATORS.hasOwnProperty(operator)) {
+    if (operator === "3xplus1.js") {
+      throw new Error("Please use \\ to escape the * sign")
+    }
+    throw new Error("Invalid operator. Please use +, -, *, or /")
+  }
 }
-displayFormattedAnswer(answer)
+
+const calculate = (firstNumber, operator, secondNumber) => {
+  validateInput(firstNumber, operator, secondNumber)
+
+  const result = OPERATORS[operator](firstNumber, secondNumber)
+
+  if (result === null) {
+    throw new Error("Division by zero is not allowed")
+  }
+
+  return result
+}
+
+const formatResult = (firstNumber, operator, secondNumber, result) =>
+  `The answer to ${firstNumber} ${operator} ${secondNumber} = ${result}`
+
+const run = () => {
+  console.log(`Welcome to ${APP_NAME}!\n`)
+
+  try {
+    const { firstNumber, operator, secondNumber } = parseArguments()
+    const result = calculate(firstNumber, operator, secondNumber)
+    console.log(formatResult(firstNumber, operator, secondNumber, result))
+  } catch (error) {
+    console.error(error.message)
+  }
+}
+
+run()
