@@ -45,7 +45,7 @@ const calculate = (firstNumber, operator, secondNumber) => {
 const formatResult = (firstNumber, operator, secondNumber, result) =>
   `The answer to ${firstNumber} ${operator} ${secondNumber} = ${result}`
 
-const run = () => {
+const runProgram = () => {
   console.log(`Welcome to ${APP_NAME}!\n`)
 
   try {
@@ -57,4 +57,4 @@ const run = () => {
   }
 }
 
-run()
+runProgram()
