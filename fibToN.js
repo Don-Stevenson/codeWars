@@ -16,7 +16,7 @@
 // create a list of fib numbers to n
 // *********************************
 
-const fib = n => {
+export const fib = n => {
   if (n >= 0) return getPostiveFib(n)
   else {
     // handling fibonacci of negative numbers
@@ -28,7 +28,7 @@ const fib = n => {
 }
 
 // handling fibonacci of positive numbers
-const getPostiveFib = num => {
+export const getPostiveFib = num => {
   let a = 1
   let b = 0
   num = num - 1
@@ -54,8 +54,5 @@ const getPostiveFib = num => {
 // console.log(fib(6))
 // // expect 8
 
-// console.log(fib(15))
-
-// // expect 610
-
-module.exports = { fib, getPostiveFib }
+console.log(fib(15))
+// expect 610
