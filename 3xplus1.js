@@ -11,8 +11,9 @@ const randomNum = Math.round(Math.random() * 100)
 const calculateNumsTo4 = num => {
   if (num !== 4) console.log(`num is ${num} count is ${count}`)
   if (num === 4) {
-    console.log(`num is ${num}. 
-    Now in the 4 2 1 loop, so +3 to count has been added.`)
+    console.log(
+      `num is ${num} count is ${count}\nnow in the 4 2 1 loop, so +3 to count has been added`
+    )
 
     // add 3 because it will take you back to back two 4
     // add count + for 2 and 1 scenarios
