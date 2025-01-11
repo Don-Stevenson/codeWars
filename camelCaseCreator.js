@@ -40,7 +40,7 @@ const toCamelCase = str =>
       if (index === 0) {
         return word.toLowerCase()
       }
-      // If it is not, the first word only upper case the first char and lowercase the rest.
+      // for everyone other word, only make the first letter upper case the first char and make the rest lowercase
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     })
     .join("")
