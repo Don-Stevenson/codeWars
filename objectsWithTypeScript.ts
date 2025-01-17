@@ -9,3 +9,19 @@ const objTimesFive = (obj: { [key: string]: number }): {} => {
 }
 
 console.log(objTimesFive(obj)) // expect { a: 5, b: 10, c: 15, d: 20, e: 25 }
+
+interface Person {
+  firstName: string
+  age: number
+  job: string
+  [key: string]: string | number
+}
+
+const personOne: Person = {
+  firstName: "Jack",
+  age: 25,
+  job: "developer",
+  funFact: "I love to play the guitar",
+}
+
+console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
