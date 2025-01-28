@@ -19,7 +19,7 @@ interface Person {
 
 const personOne: Person = {
   firstName: "Jack",
-  age: "ten", // expect error
+  age: 10,
   job: "developer",
   funFact: "I love to play the guitar",
 }
