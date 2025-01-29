@@ -20,8 +20,16 @@ interface Person {
 const personOne: Person = {
   firstName: "Jack",
   age: 10,
-  job: "developer",
+  job: "student",
   funFact: "I love to play the guitar",
 }
 
+const personTwo: Person = {
+  firstName: "Steve",
+  age: 20,
+  job: "developer",
+  funFact: "I love to eat guavas",
+}
+
 console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
+console.log(personTwo) // expect { firstName: 'Steve', age: 25, job: 'developer', funFact: 'I love to eat guavas' };
