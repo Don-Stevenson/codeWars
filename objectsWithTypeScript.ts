@@ -31,5 +31,13 @@ const personTwo: Person = {
   funFact: "I love to eat guavas",
 }
 
+const personThree: Person = {
+  firstName: "Bob",
+  age: 56,
+  job: "Teacher",
+  funFact: "I like old cars",
+}
+
 console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
 console.log(personTwo) // expect { firstName: 'Steve', age: 25, job: 'developer', funFact: 'I love to eat guavas' };
+console.log(personThree) // expect { firstName: 'Bob', age: 25, job: 'developer', funFact: 'I like old cars' };
