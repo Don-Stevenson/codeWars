@@ -44,8 +44,16 @@ const personFour: Person = {
   job: "Custodian",
   funFact: "I like country music",
 }
+const personFive: Person = {
+  firstName: "Gary",
+  age: 65,
+  job: "Custodian",
+  funFact: "I like country music",
+  lastName: "Smith",
+}
 
 console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
 console.log(personTwo) // expect { firstName: 'Steve', age: 25, job: 'developer', funFact: 'I love to eat guavas' };
 console.log(personThree) // expect { firstName: 'Bob', age: 25, job: 'developer', funFact: 'I like old cars' };
 console.log(personFour) // expect { firstName: 'Gary', age: 25, job: 'developer', funFact: 'I like country music' };
+console.log(personFive) // expect { firstName: 'Gary', age: 25, job: 'developer', funFact: 'I like country music', lastName: 'Smith' };
