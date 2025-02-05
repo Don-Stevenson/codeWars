@@ -45,15 +45,23 @@ const personFour: Person = {
   funFact: "I like country music",
 }
 const personFive: Person = {
-  firstName: "Gary",
-  age: 65,
-  job: "Custodian",
-  funFact: "I like country music",
+  firstName: "Jim",
+  age: 29,
+  job: "Airplane Pilot",
+  funFact: "I like country skydiving",
   lastName: "Smith",
+}
+const personSix: Person = {
+  firstName: "Steve",
+  age: 33,
+  job: "Army Soldier",
+  funFact: "I run marathons",
+  lastName: "Jones",
 }
 
 console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
 console.log(personTwo) // expect { firstName: 'Steve', age: 25, job: 'developer', funFact: 'I love to eat guavas' };
-console.log(personThree) // expect { firstName: 'Bob', age: 25, job: 'developer', funFact: 'I like old cars' };
-console.log(personFour) // expect { firstName: 'Gary', age: 25, job: 'developer', funFact: 'I like country music' };
-console.log(personFive) // expect { firstName: 'Gary', age: 25, job: 'developer', funFact: 'I like country music', lastName: 'Smith' };
+console.log(personThree) // expect { firstName: 'Bob', age: 25, job: 'Teacher', funFact: 'I like old cars' };
+console.log(personFour) // expect { firstName: 'Gary', age: 65, job: 'Custodian', funFact: 'I like country music' };
+console.log(personFive) // expect { firstName: 'Jim', age: 29, job: 'Airplane Pilot', funFact: 'I like country skydiving', lastName: 'Smith' };
+console.log(personSix) // expect { firstName: 'Steve', age: 33, job: 'Army Soldier', funFact: 'I run marathons', lastName: 'Jones' };
