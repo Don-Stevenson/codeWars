@@ -58,6 +58,13 @@ const personSix: Person = {
   funFact: "I run marathons",
   lastName: "Jones",
 }
+const personSeven: Person = {
+  firstName: "Susan",
+  age: 63,
+  job: "Artist",
+  funFact: "I love documentaries",
+  lastName: "Johnson",
+}
 
 console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
 console.log(personTwo) // expect { firstName: 'Steve', age: 25, job: 'developer', funFact: 'I love to eat guavas' };
@@ -65,3 +72,4 @@ console.log(personThree) // expect { firstName: 'Bob', age: 25, job: 'Teacher', 
 console.log(personFour) // expect { firstName: 'Gary', age: 65, job: 'Custodian', funFact: 'I like country music' };
 console.log(personFive) // expect { firstName: 'Jim', age: 29, job: 'Airplane Pilot', funFact: 'I like country skydiving', lastName: 'Smith' };
 console.log(personSix) // expect { firstName: 'Steve', age: 33, job: 'Army Soldier', funFact: 'I run marathons', lastName: 'Jones' };
+console.log(personSeven) // expect { firstName: 'Susan', age: 63, job: 'Artist', funFact: 'I love documentaries', lastName: 'Johnson' };
