@@ -82,6 +82,14 @@ const personNine: Person = {
   lastName: "Lopez",
 }
 
+const personTen: Person = {
+  firstName: "Alex",
+  age: 76,
+  job: "retired",
+  funFact: "I like traveling",
+  lastName: "Morgan",
+}
+
 console.log(personOne) // expect { firstName: 'Jack', age: 25,   job: 'developer', funFact: 'I love to play the guitar' };
 console.log(personTwo) // expect { firstName: 'Steve', age: 25, job: 'developer', funFact: 'I love to eat guavas' };
 console.log(personThree) // expect { firstName: 'Bob', age: 25, job: 'Teacher', funFact: 'I like old cars' };
@@ -91,3 +99,4 @@ console.log(personSix) // expect { firstName: 'Steve', age: 33, job: 'Army Soldi
 console.log(personSeven) // expect { firstName: 'Susan', age: 63, job: 'Artist', funFact: 'I love documentaries', lastName: 'Johnson' };
 console.log(personEight) // expect { firstName: 'Jack', age: 48, job: 'Banker', funFact: 'I like to read', lastName: 'Limoges' };
 console.log(personNine) // expect { firstName: 'Amy', age: 22, job: 'Chef', funFact: 'I like pepperoni pizza', lastName: 'Lopez' };
+console.log(personTen) // expect { firstName: 'Alex', age: 76, job: 'retired', funFact: 'I like traveling', lastName: 'Morgan' };
