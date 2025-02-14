@@ -100,3 +100,18 @@ console.log(personSeven) // expect { firstName: 'Susan', age: 63, job: 'Artist',
 console.log(personEight) // expect { firstName: 'Jack', age: 48, job: 'Banker', funFact: 'I like to read', lastName: 'Limoges' };
 console.log(personNine) // expect { firstName: 'Amy', age: 22, job: 'Chef', funFact: 'I like pepperoni pizza', lastName: 'Lopez' };
 console.log(personTen) // expect { firstName: 'Alex', age: 76, job: 'retired', funFact: 'I like traveling', lastName: 'Morgan' };
+
+type CatName = "miffy" | "boris" | "mordred"
+
+interface CatInfo {
+  age: number
+  breed: string
+}
+
+const cats: Record<CatName, CatInfo> = {
+  miffy: { age: 10, breed: "Persian" },
+  boris: { age: 5, breed: "Maine Coon" },
+  mordred: { age: 16, breed: "British Shorthair" },
+}
+
+console.log(cats.boris) //expect  age: 5, breed: "Maine Coon"
