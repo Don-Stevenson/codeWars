@@ -115,3 +115,4 @@ const cats: Record<CatName, CatInfo> = {
 }
 
 console.log(cats.boris) //expect  age: 5, breed: "Maine Coon"
+console.log(cats.miffy) // expect  age: 10, breed: "Persian"
