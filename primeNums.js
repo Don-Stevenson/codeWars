@@ -50,7 +50,7 @@ const isPrimeNum = num => {
 
 // with try prompts
 // ****************
-const prompts = require("prompts")
+import prompts from "prompts"
 
 // question 1 with a validation requirment
 // *****************************************
