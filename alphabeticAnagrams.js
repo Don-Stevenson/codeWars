@@ -16,25 +16,24 @@
 // BAAA = 4
 // QUESTION = 24572
 // BOOKKEEPER = 10743
+const factorial = n => {
+  if (n <= 1) return 1
+  let res = 1
+  for (let i = 2; i <= n; i++) res *= i
+  return res
+}
 
-function listPosition(word) {
-  function factorial(n) {
-    if (n <= 1) return 1
-    let res = 1
-    for (let i = 2; i <= n; i++) res *= i
-    return res
+const permutations = remainingCounts => {
+  let total = 0
+  let denom = 1
+  for (let char in remainingCounts) {
+    total += remainingCounts[char]
+    denom *= factorial(remainingCounts[char])
   }
+  return factorial(total) / denom
+}
 
-  function permutations(remainingCounts) {
-    let total = 0
-    let denom = 1
-    for (let char in remainingCounts) {
-      total += remainingCounts[char]
-      denom *= factorial(remainingCounts[char])
-    }
-    return factorial(total) / denom
-  }
-
+const listPosition = word => {
   let letterCount = {}
   for (let letter of word) {
     if (!letterCount[letter]) letterCount[letter] = 0
