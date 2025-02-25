@@ -1,5 +1,3 @@
-const question = process.argv[2]
-
 const responses = [
   "It is certain",
   "It is decidedly so",
@@ -22,13 +20,22 @@ const responses = [
   "Outlook not so good",
   "Very doubtful",
 ]
-const randomNumberFromZeroToTwenty = Math.floor(Math.random() * 20)
 
-console.log(`
-    
+function getRandomResponse(responses) {
+  const randomIndex = Math.floor(Math.random() * responses.length)
+  return responses[randomIndex]
+}
+
+function formatResponse(question, answer) {
+  return `
     Welcome to Renice's Magic 8 ball
     You asked: ${question}
 
     The mythical 8 ball has determined:
-    ${responses[randomNumberFromZeroToTwenty]}
-    `)
+    ${answer}
+    `
+}
+
+const question = process.argv[2]
+const answer = getRandomResponse(responses)
+console.log(formatResponse(question, answer))
