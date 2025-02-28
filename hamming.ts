@@ -5,5 +5,6 @@ const compute = (left: string, right: string): number => {
     throw new Error("DNA strands must be of equal length.")
   }
 
-  return left.split("").filter((char, index) => char !== right[index]).length
+  return left.split("").filter((character, index) => character !== right[index])
+    .length
 }
