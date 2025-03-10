@@ -1,19 +1,18 @@
 class Pizza {
-  private topping: string
   private toppings: string[]
 
-  constructor(type: string) {
-    this.topping = type
-    this.toppings = [this.topping]
+  constructor(toppings: string[]) {
+    this.toppings = toppings
   }
 
   public bakingTime(time: number): string {
-    return `Your ${this.topping} pizza will take ${time} minutes to bake`
+    const toppingsList = this.toppings.join(", ")
+    return `Your ${toppingsList} pizza will take ${time} minutes to bake`
   }
 }
 
 // Create a pizza and check its baking time
-const myPizza = new Pizza("cheese")
+const myPizza = new Pizza(["cheese", "mushrooms", "pepperoni"])
 console.log(myPizza.bakingTime(30))
 
 class Skateboard {
