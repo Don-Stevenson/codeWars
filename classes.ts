@@ -16,19 +16,19 @@ class Pizza {
 const myPizza = new Pizza("cheese")
 console.log(myPizza.bakingTime(30))
 
-class skateBoard {
-  private fitting1: string
-  private fitting2: string
+class Skateboard {
+  private readonly fitting1: string
+  private readonly fitting2: string
 
   constructor(fitting1: string, fitting2: string) {
     this.fitting1 = fitting1
     this.fitting2 = fitting2
   }
 
-  public deckColour(colour: string): string {
-    return `Your skate board will have the following gear: ${this.fitting1} and ${this.fitting2}, and it will be ${colour} in colour`
+  public getDescription(color: string): string {
+    return `Your skateboard will have the following gear: ${this.fitting1} and ${this.fitting2}, and it will be ${color} in color`
   }
 }
 
-const mySkateBoard = new skateBoard("swiss bearings", "bananaboard")
-console.log(mySkateBoard.deckColour("blue"))
+const mySkateBoard = new Skateboard("swiss bearings", "bananaboard")
+console.log(mySkateBoard.getDescription("blue"))
