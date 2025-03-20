@@ -1,8 +1,16 @@
 export const score = (x: number, y: number): number => {
-  const dartLocationRadius = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
-  if (dartLocationRadius > 10) return 0
-  if (dartLocationRadius > 5 && dartLocationRadius <= 10) return 1
-  if (dartLocationRadius > 1 && dartLocationRadius <= 5) return 5
+  const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2)
+
+  // Outside the target
+  if (distanceFromCenter > 10) return 0
+
+  // Outer circle: 1 point
+  if (distanceFromCenter > 5) return 1
+
+  // Middle circle: 5 points
+  if (distanceFromCenter > 1) return 5
+
+  // Inner circle: 10 points
   return 10
 }
 
