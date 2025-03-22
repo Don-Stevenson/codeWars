@@ -1,34 +1,44 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-const retunsAvgWithCStyleLoop = (arr, sum = 0) => {
+// Using C-style for loop
+const getAverageWithForLoop = arr => {
+  let sum = 0
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i]
   }
   return sum / arr.length
 }
 
-const retunsAvgWithForOfLoop = (arr, sum = 0) => {
+// Using for...of loop
+const getAverageWithForOf = arr => {
+  let sum = 0
   for (const num of arr) {
     sum += num
   }
   return sum / arr.length
 }
 
-const returnsAvgWithReduce = arr =>
-  arr.reduce((acc, cur) => acc + cur, 0) / arr.length
+// Using reduce - most concise approach
+const getAverageWithReduce = arr =>
+  arr.reduce((sum, num) => sum + num, 0) / arr.length
 
-const returnsAvgWithMap = (arr, sum = 0) => {
+// Using map
+const getAverageWithMap = arr => {
+  let sum = 0
   arr.map(num => (sum += num))
   return sum / arr.length
 }
 
-const returnsAvgWithForEach = (arr, sum = 0) => {
+// Using forEach
+const getAverageWithForEach = arr => {
+  let sum = 0
   arr.forEach(num => (sum += num))
   return sum / arr.length
 }
 
-console.log("retunsAvgWithCStyleLoop: ", retunsAvgWithCStyleLoop(arr)) // expect 5.5
-console.log("returnsAvgWithReduce: ", returnsAvgWithReduce(arr)) // expect 5.5
-console.log("returnsAvgWithMap: ", returnsAvgWithMap(arr)) // expect 5.5
-console.log("returnsAvgWithForEach: ", returnsAvgWithForEach(arr)) // expect 5.5
-console.log("returnsAvgWithForOfLoop: ", retunsAvgWithForOfLoop(arr)) // expect 5.5
+// Test cases
+console.log("For Loop Average:", getAverageWithForLoop(arr)) // 5.5
+console.log("For of Average:", getAverageWithForOf(arr)) // 5.5
+console.log("Reduce Average:", getAverageWithReduce(arr)) // 5.5
+console.log("Map Average:", getAverageWithMap(arr)) // 5.5
+console.log("ForEach Average:", getAverageWithForEach(arr)) // 5.5
