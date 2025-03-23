@@ -1,35 +1,50 @@
-const randomNumberGenerator = () => Math.floor(Math.random() * 30)
-
-function iansCalculator(num1, operator, num2) {
-  const randomNumber = randomNumberGenerator()
-  let answerInsideFunction
-  if (randomNumber === 10) {
-    if (operator === "+") {
-      answerInsideFunction = `Hooray! \n\n your answer is: ${
-        parseInt(num1) + parseInt(num2)
-      }`
-    } else if (operator === "-") {
-      answerInsideFunction = `Hooray! \nyour answer is: ${
-        parseInt(num1) - parseInt(num2)
-      }`
-    } else if (operator === "*") {
-      answerInsideFunction = `Hooray! \nyour answer is: ${
-        parseInt(num1) * parseInt(num2)
-      }`
-    } else if (operator === "/") {
-      answerInsideFunction = `Hooray! \nyour answer is: ${
-        parseInt(num1) / parseInt(num2)
-      }`
-    } else answerInsideFunction = "that don't work fool"
-  } else {
-    answerInsideFunction = randomNopeGenerator()
-  }
-
-  return (document.getElementById("answer1").innerHTML = answerInsideFunction)
+const CALCULATOR_SETTINGS = {
+  luckyNumber: 10,
+  randomRange: 30,
+  messages: {
+    invalidOperator: "that don't work fool",
+    successPrefix: "Hooray!",
+  },
 }
 
-function randomNopeGenerator() {
-  const noArray = [
+const MATH_OPERATIONS = {
+  "+": (firstNum, secondNum) => firstNum + secondNum,
+  "-": (firstNum, secondNum) => firstNum - secondNum,
+  "*": (firstNum, secondNum) => firstNum * secondNum,
+  "/": (firstNum, secondNum) => firstNum / secondNum,
+}
+
+const generateRandomNumber = () =>
+  Math.floor(Math.random() * CALCULATOR_SETTINGS.randomRange)
+
+const createSuccessMessage = calculationResult => {
+  return `${CALCULATOR_SETTINGS.messages.successPrefix}\n\nyour answer is: ${calculationResult}`
+}
+
+function calculateWithRandomChance(firstNumber, operatorSymbol, secondNumber) {
+  const currentRandomNumber = generateRandomNumber()
+
+  if (currentRandomNumber === CALCULATOR_SETTINGS.luckyNumber) {
+    const parsedFirstNumber = parseInt(firstNumber)
+    const parsedSecondNumber = parseInt(secondNumber)
+
+    const selectedOperation = MATH_OPERATIONS[operatorSymbol]
+    if (!selectedOperation) return CALCULATOR_SETTINGS.messages.invalidOperator
+
+    const calculationResult = selectedOperation(
+      parsedFirstNumber,
+      parsedSecondNumber
+    )
+    return (document.getElementById("answer1").innerHTML =
+      createSuccessMessage(calculationResult))
+  }
+
+  return (document.getElementById("answer1").innerHTML =
+    generateRandomDenialMessage())
+}
+
+function generateRandomDenialMessage() {
+  const denialMessages = [
     "nu-uh",
     "nope",
     "no way",
@@ -53,5 +68,5 @@ function randomNopeGenerator() {
     "no way, jose",
     "no way, not today",
   ]
-  return noArray[Math.floor(Math.random() * noArray.length)]
+  return denialMessages[Math.floor(Math.random() * denialMessages.length)]
 }
