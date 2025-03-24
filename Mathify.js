@@ -1,15 +1,33 @@
-const operationsObj = {
-  plus: (a, b) => a + b,
-  "+": (a, b) => a + b,
-  minus: (a, b) => a - b,
-  "-": (a, b) => a - b,
-  multiply: (a, b) => a * b,
-  "*": (a, b) => a * b,
-  divide: (a, b) => a / b,
-  "/": (a, b) => a / b,
-  power: (a, b) => Math.pow(a, b),
-  "^": (a, b) => Math.pow(a, b),
-  root: a => Math.sqrt(a),
+// Mathematical operations mapping
+const OPERATIONS = {
+  // Basic arithmetic
+  plus: { fn: (a, b) => a + b, alias: "+", requiresTwoNumbers: true },
+  "+": { fn: (a, b) => a + b, requiresTwoNumbers: true },
+  minus: { fn: (a, b) => a - b, alias: "-", requiresTwoNumbers: true },
+  "-": { fn: (a, b) => a - b, requiresTwoNumbers: true },
+  multiply: { fn: (a, b) => a * b, alias: "*", requiresTwoNumbers: true },
+  "*": { fn: (a, b) => a * b, requiresTwoNumbers: true },
+  divide: { fn: (a, b) => a / b, alias: "/", requiresTwoNumbers: true },
+  "/": { fn: (a, b) => a / b, requiresTwoNumbers: true },
+
+  // Advanced operations
+  power: { fn: (a, b) => Math.pow(a, b), alias: "^", requiresTwoNumbers: true },
+  "^": { fn: (a, b) => Math.pow(a, b), requiresTwoNumbers: true },
+  root: { fn: a => Math.sqrt(a), requiresTwoNumbers: false },
+}
+
+const MESSAGES = {
+  welcome: "\nWelcome to the Simple Command Line Calculator!",
+  thanks: "\nThanks for using the Simple Command Line Calculator!",
+  errors: {
+    missingInput:
+      "Error! You must pass at least one valid number and one operation.",
+    invalidOperation: "Error! You must enter a valid operation.",
+    missingNumber: "Error! You must pass at least 1 valid number.",
+    negativeRoot: "Error! For root, you must not pass a negative number",
+    invalidThirdParam:
+      "Error! Invalid third number or a invalid second operation.",
+  },
 }
 
 const parseNum = num => {
@@ -19,126 +37,104 @@ const parseNum = num => {
   return num
 }
 
+/**
+ * Validates the input parameters for the calculator
+ * @returns {string|null} Error message or null if valid
+ */
 const validateInput = (a, operation1, b, operation2, c) => {
-  if (!a && !b && !c) {
-    return "Error! You must pass at least one valid number and one operation."
-  }
-  if (!operation1) {
-    return "Error! You must enter a valid operation."
-  }
-  if (!a) {
-    return "Error! You must pass at least 1 valid number."
-  }
+  if (!a && !b && !c) return MESSAGES.errors.missingInput
+  if (!operation1) return MESSAGES.errors.invalidOperation
+  if (!a) return MESSAGES.errors.missingNumber
   return null
 }
 
+/**
+ * Handles operations with two numbers
+ */
 const handleTwoNumberOperation = (a, operation1, b) => {
-  if (
-    [
-      "plus",
-      "+",
-      "minus",
-      "-",
-      "multiply",
-      "*",
-      "divide",
-      "/",
-      "power",
-      "^",
-    ].includes(operation1) &&
-    !b
-  ) {
-    return `Error! For ${operation1} you must pass 2 valid numbers. ${a} ${operation1} ___?`
-  }
+  const op = OPERATIONS[operation1]
+
+  // Handle root operation separately
   if (operation1 === "root") {
     if (b) return "Error! For root, you must only pass 1 number"
-    if (parseNum(a) < 0)
-      return "Error! For root, you must not pass a negative number"
-    return `The ${operation1} of ${a} = ${operationsObj[operation1](
-      parseNum(a)
-    )}`
+    if (parseNum(a) < 0) return MESSAGES.errors.negativeRoot
+    return `The ${operation1} of ${a} = ${op.fn(parseNum(a))}`
   }
-  return `${a} ${operation1} ${b} = ${operationsObj[operation1](
-    parseNum(a),
-    parseNum(b)
-  )}`
+
+  // Handle other operations
+  if (op.requiresTwoNumbers && !b) {
+    return `Error! For ${operation1} you must pass 2 valid numbers. ${a} ${operation1} ___?`
+  }
+
+  return `${a} ${operation1} ${b} = ${op.fn(parseNum(a), parseNum(b))}`
 }
 
+/**
+ * Handles operations with three numbers
+ */
 const handleThreeNumberOperation = (a, operation1, b, operation2, c) => {
-  if (!c || !operation2) {
-    return "Error! Invalid third number or a invalid second operation."
-  }
+  if (!c || !operation2) return MESSAGES.errors.invalidThirdParam
 
   const parsedA = parseNum(a)
   const parsedB = parseNum(b)
   const parsedC = parseNum(c)
 
+  // Check for negative numbers in root operations
   if (
     (operation1 === "root" || operation2 === "root") &&
     (parsedA < 0 || parsedB < 0)
   ) {
-    return "Error! For root, you must not pass a negative number"
+    return MESSAGES.errors.negativeRoot
   }
 
-  if (
-    operation1 === "root" &&
-    ["plus", "+", "minus", "-", "multiply", "*", "divide", "/"].includes(
+  // Handle different operation combinations
+  const isBasicOp = op =>
+    ["plus", "+", "minus", "-", "multiply", "*", "divide", "/"].includes(op)
+  const isPowerOp = op => op === "power" || op === "^"
+
+  if (operation1 === "root" && isBasicOp(operation2)) {
+    const firstResult = OPERATIONS[operation1].fn(parsedA)
+    return `${operation1} of ${a} ${operation2} ${b} = ${OPERATIONS[
       operation2
-    )
-  ) {
-    const firstResult = operationsObj[operation1](parsedA)
-    return `${operation1} of ${a} ${operation2} ${b} = ${operationsObj[
-      operation2
-    ](firstResult, parsedB)}`
+    ].fn(firstResult, parsedB)}`
   }
 
-  if (
-    (operation1 === "power" || operation1 === "^") &&
-    ["plus", "+", "minus", "-", "multiply", "*", "divide", "/"].includes(
+  // Handle order of operations
+  if (isPowerOp(operation1) && isBasicOp(operation2)) {
+    const firstResult = OPERATIONS[operation1].fn(parsedA, parsedB)
+    return `${a} ${operation1} ${b} ${operation2} ${c} = ${OPERATIONS[
       operation2
-    )
-  ) {
-    const firstResult = operationsObj[operation1](parsedA, parsedB)
-    return `${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-      operation2
-    ](firstResult, parsedC)}`
+    ].fn(firstResult, parsedC)}`
   }
 
-  if (
-    (operation2 === "power" || operation2 === "^") &&
-    ["plus", "+", "minus", "-", "multiply", "*", "divide", "/"].includes(
+  if (isPowerOp(operation2) && isBasicOp(operation1)) {
+    const secondResult = OPERATIONS[operation2].fn(parsedB, parsedC)
+    return `${a} ${operation1} ${b} ${operation2} ${c} = ${OPERATIONS[
       operation1
-    )
-  ) {
-    const secondResult = operationsObj[operation2](parsedB, parsedC)
-    return `${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
-      operation1
-    ](parsedA, secondResult)}`
+    ].fn(parsedA, secondResult)}`
   }
 
   if (
     ["plus", "+", "minus", "-"].includes(operation1) &&
     ["multiply", "*", "divide", "/"].includes(operation2)
   ) {
-    const secondResult = operationsObj[operation2](parsedB, parsedC)
-    return `${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+    const secondResult = OPERATIONS[operation2].fn(parsedB, parsedC)
+    return `${a} ${operation1} ${b} ${operation2} ${c} = ${OPERATIONS[
       operation1
-    ](parsedA, secondResult)}`
+    ].fn(parsedA, secondResult)}`
   }
 
-  const firstResult = operationsObj[operation1](parsedA, parsedB)
-  return `${a} ${operation1} ${b} ${operation2} ${c} = ${operationsObj[
+  // Default case: evaluate left to right
+  const firstResult = OPERATIONS[operation1].fn(parsedA, parsedB)
+  return `${a} ${operation1} ${b} ${operation2} ${c} = ${OPERATIONS[
     operation2
-  ](firstResult, parsedC)}`
+  ].fn(firstResult, parsedC)}`
 }
 
 const mathify = (a, operation1, b, operation2, c) => {
-  const welcomeMessage = "\nWelcome to the Simple Command Line Calculator!"
-  const thanksMessage = "\nThanks for using the Simple Command Line Calculator!"
-
   const validationError = validateInput(a, operation1, b, operation2, c)
   if (validationError) {
-    return `${welcomeMessage}\n${validationError}`
+    return `${MESSAGES.welcome}\n${validationError}`
   }
 
   let result
@@ -148,7 +144,7 @@ const mathify = (a, operation1, b, operation2, c) => {
     result = handleThreeNumberOperation(a, operation1, b, operation2, c)
   }
 
-  return `${welcomeMessage}\n${result}${thanksMessage}`
+  return `${MESSAGES.welcome}\n${result}${MESSAGES.thanks}`
 }
 
 export { mathify }
