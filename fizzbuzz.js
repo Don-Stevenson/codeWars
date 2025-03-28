@@ -1,15 +1,16 @@
-const fizzBuzz = () => {
-  for (let i = 1; i <= 100; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log("FizzBuzz")
-    } else if (i % 3 === 0) {
-      console.log("Fizz")
-    } else if (i % 5 === 0) {
-      console.log("Buzz")
-    } else {
-      console.log(i)
-    }
+const getFizzBuzzValue = num => {
+  if (num % 3 === 0 && num % 5 === 0) return "FizzBuzz"
+  if (num % 3 === 0) return "Fizz"
+  if (num % 5 === 0) return "Buzz"
+  return num.toString()
+}
+
+const fizzBuzz = (start = 1, end = 100) => {
+  const results = []
+  for (let i = start; i <= end; i++) {
+    results.push(getFizzBuzzValue(i))
   }
+  return results
 }
 
 console.log(fizzBuzz())
