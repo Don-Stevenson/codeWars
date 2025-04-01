@@ -52,6 +52,7 @@ export function graduationFor(name, year) {
  * @param {string} sign
  * @param {string} currency
  *
+ *
  * @returns {string} cost to create the sign
  */
 
