@@ -1,10 +1,18 @@
-// function that takes in an array and
-// returns an array with elements that's length is equal to 4
-// **********************************************************
+/**
+ * Finds elements in an array that have a specified length
+ * @param {string[]} array - The input array to filter
+ * @param {number} [targetLength=4] - The desired length of elements to find
+ * @returns {string[]} Array containing elements with the specified length
+ * @throws {TypeError} If input is not an array
+ */
+const findElementsByLength = (array, targetLength = 4) => {
+  if (!Array.isArray(array)) {
+    throw new TypeError("Input must be an array")
+  }
 
-const friendsArr = ["Ryan", "Jimmy", "123", "4", "Cool Man"]
+  return array.filter(element => element.length === targetLength)
+}
 
-const findFriend = array => array.filter(element => element.length === 4)
-
-console.log(findFriend(friendsArr))
-// expect ['Ryan']
+// Example usage
+const friendsArray = ["Ryan", "Jimmy", "123", "4", "Cool Man"]
+console.log(findElementsByLength(friendsArray)) // ['Ryan']
