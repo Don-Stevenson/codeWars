@@ -23,5 +23,5 @@ const demonstrateFudging = (score, iterations = 5) => {
   }
 }
 
-// Demonstrate fudging a score of 20 five times
-demonstrateFudging(20)
+// Demonstrate fudging a score of 20 n times
+demonstrateFudging(20, 10)
