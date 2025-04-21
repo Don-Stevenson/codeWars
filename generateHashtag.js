@@ -11,14 +11,20 @@
 
 // with a map
 const generateHashtag = str => {
-  if (!str || str.length >= 140)
-    return false, "Your hashtag > 140 charatcers, which is too long!"
-  const newStrArr = str.trim().split(" ")
-  let newArr = []
-  newStrArr.map(element => {
-    newArr.push(element.charAt(0).toUpperCase() + element.slice(1))
-  })
-  return `#${newArr.join("")}`
+  // Check for empty string or strings that would create hashtags longer than 140 characters
+  if (!str || str.trim().length === 0) return false
+
+  // Create the hashtag by capitalizing each word and joining them
+  const hashtag =
+    "#" +
+    str
+      .trim()
+      .split(/\s+/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join("")
+
+  // Check if the resulting hashtag is too long
+  return hashtag.length > 140 ? false : hashtag
 }
 
 console.log(generateHashtag("  code   wars   "))
@@ -33,3 +39,7 @@ console.log(
 
 console.log(generateHashtag("hot blooded turkey roaster                 "))
 // str.length >= 140
+
+console.log(generateHashtag("")) // false
+console.log(generateHashtag(" ".repeat(200))) // false
+console.log(generateHashtag("hot blooded turkey roaster")) // #HotBloodedTurkeyRoaster
