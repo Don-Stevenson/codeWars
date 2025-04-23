@@ -12,47 +12,32 @@
 
 // HINT II: See https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.4
 
-// generate a list of numbers
-// create a list of fib numbers to n
-// *********************************
-
+/**
+ * Calculates the nth Fibonacci number efficiently
+ * @param {number} n - The index of the Fibonacci number to calculate
+ * @returns {number} The nth Fibonacci number
+ */
 export const fib = n => {
-  if (n >= 0) return getPostiveFib(n)
-  else {
-    // handling fibonacci of negative numbers
-    // from wikipedia the formula is: F-n = (-1)n+1 x Fn
-    const negativeOneToNPlusOne = Math.pow(-1, -n + 1)
-    const posFib = getPostiveFib(-n)
-    return negativeOneToNPlusOne * posFib
+  if (n === 0) return 0
+  if (n === 1) return 1
+
+  const isNegative = n < 0
+  const absN = Math.abs(n)
+
+  let [a, b] = [1, 0]
+
+  for (let i = 2; i <= absN; i++) {
+    ;[a, b] = [a + b, a]
   }
+
+  // For negative numbers: F(-n) = (-1)^(n+1) * F(n)
+  return isNegative ? Math.pow(-1, absN + 1) * a : a
 }
 
-// handling fibonacci of positive numbers
-export const getPostiveFib = num => {
-  let a = 1
-  let b = 0
-  num = num - 1
-
-  while (num >= 0) {
-    let temp = a
-    a = a + b
-    b = temp
-    num--
-  }
-  return b
-}
-
-// console.log(getPostiveFib(-50))
-// // expect 0
-
-// console.log(fib(-8))
-// // // expect -21
-
-// console.log(fib(12))
-// // expect -144
-
-// console.log(fib(6))
-// // expect 8
-
-console.log(fib(15))
-// expect 610
+// Test cases
+console.log(fib(0)) // expect 0
+console.log(fib(1)) // expect 1
+console.log(fib(6)) // expect 8
+console.log(fib(12)) // expect 144
+console.log(fib(-8)) // expect -21
+console.log(fib(15)) // expect 610
