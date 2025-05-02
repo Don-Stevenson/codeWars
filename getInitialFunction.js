@@ -2,10 +2,6 @@ const getFirstNameInitials = name => {
   return name.split(" ").map(n => n[0])[0]
 }
 
-// console.log(getFirstNameInitials("John Doe"))
-// console.log(getFirstNameInitials("Jane Smith"))
-// console.log(getFirstNameInitials("Alice Johnson"))
-
 const onlyReturnNewInitialIfInitialIsNotTheSameAsPrevious = (
   name,
   previousInitial
