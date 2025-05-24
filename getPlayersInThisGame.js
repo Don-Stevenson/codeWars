@@ -44,13 +44,11 @@ fragment Activity on Activity {
     city
     longitude
     latitude
-    __typename
   }
   other
   tag {
     name
     color
-    __typename
   }
   opponent {
     _id
@@ -58,7 +56,6 @@ fragment Activity on Activity {
     contactName
     phone
     email
-    __typename
   }
   timezone
   venue
@@ -77,7 +74,6 @@ fragment Activity on Activity {
     attendanceDetails {
       category
       note
-      __typename
     }
     seen
     invite
@@ -85,48 +81,9 @@ fragment Activity on Activity {
       _id
       fullName
       profileImage
-      __typename
     }
     role
-    __typename
   }
-  me {
-    _id
-    attending
-    attendanceDetails {
-      category
-      note
-      __typename
-    }
-    invite
-    user {
-      _id
-      firstName
-      fullName
-      profileImage
-      __typename
-    }
-    __typename
-  }
-  children {
-    _id
-    attending
-    attendanceDetails {
-      category
-      note
-      __typename
-    }
-    invite
-    user {
-      _id
-      firstName
-      fullName
-      profileImage
-      __typename
-    }
-    __typename
-  }
-  __typename
 }`
 
 /**
