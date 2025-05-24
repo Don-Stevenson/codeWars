@@ -45,23 +45,10 @@ fragment Activity on Activity {
     longitude
     latitude
   }
-  other
-  tag {
-    name
-    color
-  }
-  opponent {
-    _id
-    name
-    contactName
-    phone
-    email
-  }
   timezone
   venue
   inviteType
   invitedGroups
-  coachReminded
   isRecurring
   cancelled
   isPast
@@ -70,19 +57,15 @@ fragment Activity on Activity {
   members {
     _id
     attending
-    answeredAt
     attendanceDetails {
       category
       note
     }
     seen
-    invite
     user {
       _id
       fullName
-      profileImage
     }
-    role
   }
 }`
 
