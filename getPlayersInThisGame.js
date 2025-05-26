@@ -190,49 +190,45 @@ async function rsvpsForGame({ teamId, gameId }) {
 }
 
 // Example usage:
-async function example() {
+async function getUpcomingGames() {
   try {
     // Get upcoming games
     const games = await upcomingGames({ teamId })
-    console.log("Upcoming games:", games)
+    return games
+  } catch (error) {
+    console.error("Example error:", error)
+  }
+}
 
-    // Get RSVPs for the first game
+console.log("upcomingGames  ", await getUpcomingGames())
+
+// Example usage:
+async function getPlayerListFromGame(game, teamId) {
+  try {
+    // Get upcoming games
+    const games = await upcomingGames({ teamId })
+
+    // Get RSVPs for the a given game
     if (games.length > 0) {
-      const gameId = games[0]._id
+      const gameId = game._id
       const rsvps = await rsvpsForGame({ teamId, gameId })
       console.log(
-        `RSVPs for ${games[0].title} game on ${new Date(
-          games[0].meetdate
+        `RSVPs for ${game.title} game on ${new Date(
+          game.meetdate
         ).toDateString()}:`,
         rsvps
       )
-    }
-    // Get RSVPs for the second game
-    if (games.length > 0) {
-      const gameId = games[1]._id
-      const rsvps = await rsvpsForGame({ teamId, gameId })
-      console.log(
-        `RSVPs for ${games[1].title} game on ${new Date(
-          games[1].meetdate
-        ).toDateString()}:`,
-        rsvps
-      )
-    }
-    // Get RSVPs for the third game
-    if (games.length > 0) {
-      const gameId = games[2]._id
-      const rsvps = await rsvpsForGame({ teamId, gameId })
-      console.log(
-        `RSVPs for ${games[2].title} game on ${new Date(
-          games[2].meetdate
-        ).toDateString()}:`,
-        rsvps
-      )
+      return rsvps, game.title, game.meetdate
     }
   } catch (error) {
     console.error("Example error:", error)
   }
 }
+
+console.log(
+  "getPlayerListFromGame : ",
+  await getPlayerListFromGame((await getUpcomingGames())[0], teamId)
+)
 
 // Export functions for use in other modules
 if (typeof module !== "undefined" && module.exports) {
@@ -246,4 +242,4 @@ if (typeof module !== "undefined" && module.exports) {
 }
 
 // Uncomment to run example
-example()
+// example()
