@@ -200,6 +200,19 @@ async function getUpcomingGames() {
   }
 }
 
+async function getGameDetails(game) {
+  const games = await getUpcomingGames()
+  return {
+    game: games[0],
+    title: games[0].title,
+    meetdate: games[0].meetdate
+      ? new Date(games[0].meetdate).toDateString()
+      : new Date(games[0].startdate).toDateString(),
+  }
+}
+
+console.log("getGameDetails : ", await getGameDetails())
+
 console.log("upcomingGames  ", await getUpcomingGames())
 
 // Example usage:
@@ -218,7 +231,7 @@ async function getPlayerListFromGame(game, teamId) {
         ).toDateString()}:`,
         rsvps
       )
-      return rsvps, game.title, game.meetdate
+      return rsvps
     }
   } catch (error) {
     console.error("Example error:", error)
@@ -240,6 +253,3 @@ if (typeof module !== "undefined" && module.exports) {
     teamId,
   }
 }
-
-// Uncomment to run example
-// example()
