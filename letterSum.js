@@ -90,3 +90,4 @@ console.log(letterSum("&*")) // => NaN
 console.log(letterSum("Hi&*")) // => NaN
 console.log(letterSum("ddd---")) // => NaN
 console.log(letterSum("test")) // => 64
+console.log(letterSum("hello")) // => 52
