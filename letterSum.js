@@ -92,3 +92,4 @@ console.log(letterSum("ddd---")) // => NaN
 console.log(letterSum("test")) // => 64
 console.log(letterSum("hello")) // => 52
 console.log(letterSum("moto")) // => 63
+console.log(letterSum("antidisestablishmentarianism")) // => 307
