@@ -95,3 +95,4 @@ console.log(letterSum("moto")) // => 63
 console.log(letterSum("antidisestablishmentarianism")) // => 307
 console.log(letterSum("stuff")) // => 72
 console.log(letterSum("made")) // => 23
+console.log(letterSum("here")) // => 36
