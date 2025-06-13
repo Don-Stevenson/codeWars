@@ -96,3 +96,4 @@ console.log(letterSum("antidisestablishmentarianism")) // => 307
 console.log(letterSum("stuff")) // => 72
 console.log(letterSum("made")) // => 23
 console.log(letterSum("here")) // => 36
+console.log(letterSum("LOL")) // => 39
