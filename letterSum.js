@@ -98,3 +98,4 @@ console.log(letterSum("made")) // => 23
 console.log(letterSum("here")) // => 36
 console.log(letterSum("LOL")) // => 39
 console.log(letterSum("soccer")) // => 63
+console.log(letterSum("great")) // => 51
