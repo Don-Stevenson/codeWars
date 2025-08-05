@@ -24,4 +24,24 @@ const demonstrateFudging = (score, iterations = 5) => {
 }
 
 // Demonstrate fudging a score of 20 n times
-demonstrateFudging(20, 10)
+demonstrateFudging(20, 10) //   1. 19.84
+// 2. 21.03
+// 3. 20
+// 4. 19.94
+// 5. 20.71
+// 6. 19.5
+// 7. 21.16
+// 8. 19.92
+// 9. 19.71
+// 10. 20.95
+demonstrateFudging(22, 10) // expect
+// 1. 22.26
+// 2. 21.32
+// 3. 20.72
+// 4. 20.82
+// 5. 22.08
+// 6. 20.69
+// 7. 21.74
+// 8. 23
+// 9. 20.83
+// 10. 22.33
