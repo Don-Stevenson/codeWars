@@ -46,5 +46,7 @@ const calculateNumsTo4 = num => {
 // The final count is 9
 //
 // calculateNumsTo4(12)
+
 // calculateNumsTo4(27)
+
 calculateNumsTo4(randomNum) //=> expect: The final count is 596
