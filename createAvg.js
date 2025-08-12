@@ -42,3 +42,5 @@ console.log("For of Average:", getAverageWithForOf(arr)) // 5.5
 console.log("Reduce Average:", getAverageWithReduce(arr)) // 5.5
 console.log("Map Average:", getAverageWithMap(arr)) // 5.5
 console.log("ForEach Average:", getAverageWithForEach(arr)) // 5.5
+
+console.log(getAverageWithMap([1,2,3,4,5]))//expect 3
