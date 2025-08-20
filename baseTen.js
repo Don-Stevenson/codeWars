@@ -1,4 +1,4 @@
-// takes in a string and splits the digits then organizes them, puts them in to a string
+// takes in a string, splits the digits then organizes them, and then puts them in to a string
 const flipbits = str =>
   str
     .split("")
