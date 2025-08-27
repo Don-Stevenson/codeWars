@@ -134,3 +134,17 @@ demonstrateFudging(3, 10) // expect
 //   8. 3.75
 //   9. 2.8
 //   10. 1.65
+
+demonstrateFudging(2, 10) // expect
+// Original score: 2
+// Fudged scores:
+//   1. 2.86
+//   2. 2.39
+//   3. 1.59
+//   4. 2.95
+//   5. 1.98
+//   6. 2.92
+//   7. 2.2
+//   8. 2.75
+//   9. 1.8
+//   10. 0.65
