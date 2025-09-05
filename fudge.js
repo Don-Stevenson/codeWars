@@ -220,7 +220,7 @@ demonstrateFudging(-3, 10) // expect
 //   10. -4.35
 
 demonstrateFudging(-10, 10) // expect
-// Original score: -3
+// Original score: -10
 // Fudged scores:
 //   1. -11.14
 //   2. -11.61
@@ -234,7 +234,7 @@ demonstrateFudging(-10, 10) // expect
 //   10. -14.35
 
 demonstrateFudging(-11, 10) // expect
-// Original score: -3
+// Original score: -11
 // Fudged scores:
 //   1. -12.14
 //   2. -12.61
@@ -245,4 +245,18 @@ demonstrateFudging(-11, 10) // expect
 //   7. -14.8
 //   8. -13.25
 //   9. -14.2
+//   10. -14.35
+
+demonstrateFudging(-12, 10) // expect
+// Original score: -12
+// Fudged scores:
+//   1. -13.14
+//   2. -13.61
+//   3. -14.41
+//   4. -13.05
+//   5. -14.02
+//   6. -13.08
+//   7. -15.8
+//   8. -14.25
+//   9. -15.2
 //   10. -14.35
