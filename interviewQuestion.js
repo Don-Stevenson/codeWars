@@ -11,7 +11,7 @@ export const EmployeeInformation = () => {
   useEffect(() => {
     const fetchEmployeeData = async () => {
       try {
-        const url = "https://api.example.com/employee" // Define your API endpoint
+        const url = "https://api.example.com/employee"
         const response = await fetch(url)
         const data = await response.json()
         const { employeeName, employeeDOB, employeeStatus } = data
