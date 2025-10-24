@@ -1,4 +1,4 @@
-const { performance } = require("perf_hooks")
+import { performance } from "perf_hooks"
 
 const isPrimeForLargerNums = num => {
   const last_number = +num.toString().slice(-1)
