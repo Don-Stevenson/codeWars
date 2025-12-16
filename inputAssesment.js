@@ -1,15 +1,34 @@
 import { useState } from "react"
 
-const validatedLogin = () => {
+const ValidatedLogin = () => {
   const [email, setEmail] = useState("")
+  const [error, setError] = useState("")
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  const validateEmail = email => {
-    if (!email.match(emailRegex)) {
-      return "Invalid email"
+  const handleEmailChange = value => {
+    setEmail(value)
+    // Clear error when user starts typing
+    if (error) {
+      setError("")
     }
-    return setEmail(email)
+  }
+
+  const handleLogin = () => {
+    if (!email) {
+      setError("Email is required")
+      return
+    }
+
+    if (!email.match(emailRegex)) {
+      setError("Invalid email format")
+      return
+    }
+
+    // Clear error and proceed with login
+    setError("")
+    console.log("Login successful with email:", email)
+    // Add your login logic here
   }
 
   return (
@@ -17,9 +36,13 @@ const validatedLogin = () => {
       <input
         type='email'
         value={email}
-        onChange={e => validateEmail(e.target.value)}
+        onChange={e => handleEmailChange(e.target.value)}
+        placeholder='Enter your email'
       />
-      <button onClick={() => validateEmail(email)}>Login</button>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <button onClick={handleLogin}>Login</button>
     </div>
   )
 }
+
+export default ValidatedLogin
