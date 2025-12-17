@@ -6,7 +6,25 @@ const ValidatedLogin = () => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  const handleEmailChange = value => {
+  const login = async () => {
+    try {
+      const response = await fetch("https://api.example.com/login", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+      })
+      if (!response.ok) {
+        throw new Error("Failed to login")
+      }
+      const data = await response.json()
+      console.log("Login successful with email:", email)
+      return data
+    } catch (error) {
+      console.error("Error logging in:", error)
+      return error
+    }
+  }
+
+  const handleEmailChange = async value => {
     setEmail(value)
     // Clear error when user starts typing
     if (error) {
@@ -29,20 +47,21 @@ const ValidatedLogin = () => {
     setError("")
     console.log("Login successful with email:", email)
     // Add your login logic here
+    login()
   }
-
-  return (
-    <div>
-      <input
-        type='email'
-        value={email}
-        onChange={e => handleEmailChange(e.target.value)}
-        placeholder='Enter your email'
-      />
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button onClick={handleLogin}>Login</button>
-    </div>
-  )
 }
+
+return (
+  <div>
+    <input
+      type='email'
+      value={email}
+      onChange={e => handleEmailChange(e.target.value)}
+      placeholder='Enter your email'
+    />
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    <button onClick={handleLogin}>Login</button>
+  </div>
+)
 
 export default ValidatedLogin
