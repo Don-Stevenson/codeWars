@@ -79,7 +79,7 @@ const ValidatedLogin = () => {
           type='email'
           value={email}
           onChange={e => handleEmailChange(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder='Enter your email'
           disabled={isLoading}
           style={{
