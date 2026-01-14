@@ -68,6 +68,7 @@ const ValidatedLogin = () => {
   const handleKeyPress = e => {
     if (e.key === "Enter" && !isLoading) {
       handleLogin()
+      e.preventDefault()
     }
   }
 
