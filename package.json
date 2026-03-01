@@ -15,7 +15,7 @@
     "dotenv": "^16.5.0",
     "lodash": "^4.17.23",
     "mathjs": "^11.2.1",
-    "minimatch": "^5.1.7",
+    "minimatch": "^5.1.9",
     "minimist": ">=1.2.6",
     "mocha": "^10.8.2",
     "nanoid": ">=5.0.9",
