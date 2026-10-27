@@ -1,6 +1,7 @@
 import { createInterface } from "node:readline/promises"
 import process, { stdin as input, stdout as output } from "node:process"
 import fs from "node:fs"
+import { execSync } from "node:child_process"
 
 // The card issuer adds this foreign transaction fee to USD purchases
 const CONVERSION_FEE = 0.025
@@ -74,15 +75,15 @@ while (true) {
 
 let rate = 1
 if (expenses.some(e => e.currency === "USD")) {
-  const live = await fetchUsdCadRate()
-  const suggested = live ? roundUp(live.rate, 2) : null
-  const prompt = live
-    ? `USD -> CAD rate [${suggested}, Bank of Canada ${live.date}]: `
+  const liveRate = await fetchUsdCadRate()
+  const suggestedRate = liveRate ? roundUp(liveRate.rate, 2) : null
+  const prompt = liveRate
+    ? `USD -> CAD rate [${suggestedRate}, Bank of Canada ${liveRate.date}]: `
     : "USD -> CAD exchange rate (e.g. 1.39): "
   while (true) {
     const answer = await ask(prompt)
-    if (!answer && suggested) {
-      rate = suggested
+    if (!answer && suggestedRate) {
+      rate = suggestedRate
       break
     }
     if (Number(answer) > 0) {
@@ -125,11 +126,11 @@ const wrap = (text, max) =>
 // Expense line: description, original USD amount (if any), CAD amount.
 // Long descriptions wrap onto extra lines under the first.
 const expenseRow = l => {
-  const [first, ...rest] = wrap(l.description, 22)
+  const [first, ...rest] = wrap(l.description, 20)
   return [
-    first.padEnd(24) +
-      (l.currency === "USD" ? `${money(l.amount)} USD` : "").padStart(12) +
-      `${money(l.cad)} CAD`.padStart(16),
+    first.padEnd(22) +
+      (l.currency === "USD" ? `${money(l.amount)} USD -->` : "").padStart(16) +
+      `${money(l.cad)} CAD`.padStart(14),
     ...rest.map(part => `  ${part}`),
   ]
 }
@@ -138,7 +139,7 @@ const invoice = [
   "DRIVER EXPENSE INVOICE",
   "=".repeat(width),
   `Client:   ${clientName}`,
-  `Driver:   Don S`,
+  `Driver:   Don Stevenson`,
   `Dates:    ${driveDates}`,
   `Prepared: ${today}`,
   "-".repeat(width),
@@ -150,7 +151,7 @@ const invoice = [
     ? [
         "",
         "Note: USD amounts are converted to CAD at the",
-        "daily exchange rate, plus the incurred",
+        `daily exchange rate of ${rate}, plus the incurred`,
         `${CONVERSION_FEE * 100}% currency conversion fee.`,
       ]
     : []),
@@ -160,6 +161,40 @@ const invoice = [
 const safe = s => s.replace(/[^\w-]+/g, "_")
 const fileName = `${safe(clientName)}_invoice_${safe(driveDates)}.txt`
 
+// Phone-friendly version for WhatsApp/texting: no columns, since chat apps
+// use proportional fonts and narrow screens. *bold* and _italic_ are WhatsApp styling.
+const message = [
+  "*Driver Expense Invoice*",
+  `Client: ${clientName}`,
+  `Driver: Don Stevenson`,
+  `Dates: ${driveDates}`,
+  `Prepared: ${today}`,
+  "",
+  ...lines.flatMap(l => [
+    l.description,
+    l.currency === "USD"
+      ? `   ${money(l.amount)} USD → ${money(l.cad)} CAD`
+      : `   ${money(l.cad)} CAD`,
+  ]),
+  "",
+  `*TOTAL: ${money(total)} CAD*`,
+  ...(rate !== 1
+    ? [
+        "",
+        `_USD amounts are converted to CAD at the daily exchange rate of ${rate}, plus the incurred ${CONVERSION_FEE * 100}% currency conversion fee._`,
+      ]
+    : []),
+].join("\n")
+
+// File gets the printable column invoice; terminal shows the WhatsApp version
 fs.writeFileSync(fileName, invoice)
-console.log("\n" + invoice)
-console.log(`Saved to ${fileName}`)
+console.log("\n" + message + "\n")
+console.log(`Printable invoice saved to ${fileName}`)
+
+// Put the phone version on the clipboard (macOS) so it can be pasted into WhatsApp
+try {
+  execSync("pbcopy", { input: message })
+  console.log("Phone version copied to clipboard - paste it into WhatsApp.")
+} catch {
+  // not on a Mac; copy it from the terminal instead
+}
