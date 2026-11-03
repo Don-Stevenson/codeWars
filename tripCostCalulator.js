@@ -3,7 +3,7 @@ import process, { stdin as input, stdout as output } from "node:process"
 import fs from "node:fs"
 import { execSync } from "node:child_process"
 
-// The card issuer adds this foreign transaction fee to USD purchases
+// The card issuer adds this foreign consversion fee to USD purchases
 const CONVERSION_FEE = 0.025
 
 const roundUp = (n, places) => Math.ceil(n * 10 ** places) / 10 ** places
@@ -125,12 +125,14 @@ const wrap = (text, max) =>
 
 // Expense line: description, original USD amount (if any), CAD amount.
 // Long descriptions wrap onto extra lines under the first.
-const expenseRow = l => {
-  const [first, ...rest] = wrap(l.description, 20)
+const expenseRow = line => {
+  const [first, ...rest] = wrap(line.description, 20)
   return [
     first.padEnd(22) +
-      (l.currency === "USD" ? `${money(l.amount)} USD -->` : "").padStart(16) +
-      `${money(l.cad)} CAD`.padStart(14),
+      (line.currency === "USD" ? `${money(line.amount)} USD -->` : "").padStart(
+        16
+      ) +
+      `${money(line.cad)} CAD`.padStart(14),
     ...rest.map(part => `  ${part}`),
   ]
 }
@@ -170,11 +172,11 @@ const message = [
   `Dates: ${driveDates}`,
   `Prepared: ${today}`,
   "",
-  ...lines.flatMap(l => [
-    l.description,
-    l.currency === "USD"
-      ? `   ${money(l.amount)} USD → ${money(l.cad)} CAD`
-      : `   ${money(l.cad)} CAD`,
+  ...lines.flatMap(line => [
+    line.description,
+    line.currency === "USD"
+      ? `   ${money(line.amount)} USD → ${money(line.cad)} CAD`
+      : `   ${money(line.cad)} CAD`,
   ]),
   "",
   `*TOTAL: ${money(total)} CAD*`,
@@ -195,6 +197,7 @@ console.log(`Printable invoice saved to ${fileName}`)
 try {
   execSync("pbcopy", { input: message })
   console.log("Phone version copied to clipboard - paste it into WhatsApp.")
-} catch {
+} catch (error) {
   // not on a Mac; copy it from the terminal instead
+  console.error(error, "not on a Mac; copy it from the terminal instead")
 }

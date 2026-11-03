@@ -1,0 +1,20 @@
+DRIVER EXPENSE INVOICE
+====================================================
+Client:   Topp
+Driver:   Don Stevenson
+Dates:    2026-10-25 to 2026-10-26
+Prepared: 2026-10-26
+----------------------------------------------------
+Gas                     $30.24 USD -->    $43.70 CAD
+Gas                     $40.00 USD -->    $57.81 CAD
+Gas                     $40.38 USD -->    $58.36 CAD
+Gas                     $54.50 USD -->    $78.77 CAD
+Toronto Over Night                        $23.44 CAD
+  Parking
+----------------------------------------------------
+TOTAL                                    $262.08 CAD
+====================================================
+
+Note: USD amounts are converted to CAD at the
+daily exchange rate of 1.41, plus the incurred
+2.5% currency conversion fee.
